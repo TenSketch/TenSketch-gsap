@@ -1,172 +1,137 @@
+// --- GSAP Registrations ---
 gsap.registerPlugin(Observer);
 
-let sections = document.querySelectorAll("section"),
-    images = document.querySelectorAll(".bg"),
-    headings = gsap.utils.toArray(".section-heading"),
-    outerWrappers = gsap.utils.toArray(".outer"),
-    innerWrappers = gsap.utils.toArray(".inner"),
-    // splitHeadings = headings.map(heading => new SplitText(heading, { type: "chars,words,lines", linesClass: "clip-text" })),
-    currentIndex = -1,
-    wrap = gsap.utils.wrap(0, sections.length),
+// --- Section Navigation (unchanged) ---
+const sections      = document.querySelectorAll("section"),
+      images        = document.querySelectorAll(".bg"),
+      outerWrappers = gsap.utils.toArray(".outer"),
+      innerWrappers = gsap.utils.toArray(".inner");
+
+let currentIndex = -1,
+    wrapIdx      = gsap.utils.wrap(0, sections.length),
     animating;
 
 gsap.set(outerWrappers, { yPercent: 100 });
 gsap.set(innerWrappers, { yPercent: -100 });
+sections.forEach(sec => gsap.set(sec, { autoAlpha: 0 }));
 
 function gotoSection(index, direction) {
-    index = wrap(index);
-    animating = true;
-    let fromTop = direction === -1,
+  index = wrapIdx(index);
+  animating = true;
+  const fromTop = direction === -1,
         dFactor = fromTop ? -1 : 1,
         tl = gsap.timeline({
-            defaults: { duration: 1.25, ease: "power1.inOut" },
-            onComplete: () => animating = false
+          defaults: { duration: 1.25, ease: "power1.inOut" },
+          onComplete: () => animating = false
         });
 
-    if (currentIndex >= 0) {
-        gsap.set(sections[currentIndex], { zIndex: 0 });
-        tl.to(images[currentIndex], { yPercent: -15 * dFactor })
-            .set(sections[currentIndex], { autoAlpha: 0 });
-    }
-    gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
-    tl.fromTo(
-        [outerWrappers[index], innerWrappers[index]],
-        { yPercent: i => i ? -100 * dFactor : 100 * dFactor },
-        { yPercent: 0 },
-        0
-    )
-        .fromTo(
-            images[index],
-            { yPercent: 15 * dFactor },
-            { yPercent: 0 },
-            0
-        )
-        // .fromTo(
-        //     // splitHeadings[index].chars,
-        //     { autoAlpha: 0, yPercent: 150 * dFactor },
-        //     {
-        //         autoAlpha: 1,
-        //         yPercent: 0,
-        //         duration: 1,
-        //         ease: "power2",
-        //         stagger: {
-        //             each: 0.02,
-        //             from: "random"
-        //         }
-        //     },
-        //     0.2
-        // );
+  if (currentIndex >= 0) {
+    gsap.set(sections[currentIndex], { zIndex: 0 });
+    tl.to(images[currentIndex], { yPercent: -15 * dFactor })
+      .set(sections[currentIndex], { autoAlpha: 0 });
+  }
 
-    currentIndex = index;
+  gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
+  tl.fromTo(
+      [ outerWrappers[index], innerWrappers[index] ],
+      { yPercent: i => i ? -100 * dFactor : 100 * dFactor },
+      { yPercent: 0 },
+      0
+    )
+    .fromTo(
+      images[index],
+      { yPercent: 15 * dFactor },
+      { yPercent: 0 },
+      0
+    );
+
+  currentIndex = index;
+
+  // Trigger flip-card entry when we hit the fifth section
+  if (sections[index].classList.contains("fifth")) {
+    playCardEntry();
+  }
 }
 
 Observer.create({
-    type: "wheel,touch,pointer",
-    wheelSpeed: -1,
-    onDown: () => !animating && gotoSection(currentIndex - 1, -1),
-    onUp: () => !animating && gotoSection(currentIndex + 1, 1),
-    tolerance: 10,
-    preventDefault: true
+  type: "wheel,touch,pointer",
+  wheelSpeed: -1,
+  onDown:  () => !animating && gotoSection(currentIndex - 1, -1),
+  onUp:    () => !animating && gotoSection(currentIndex + 1,  1),
+  tolerance: 10,
+  preventDefault: true
 });
 
-// Start on the first section
 gotoSection(0, 1);
 
-
-
-// moving active effect b/w cards 
-
+// --- Section 3: Card active switching (unchanged) ---
 const cards = document.querySelectorAll('.card');
 let activeIndex = 0;
 
 function updateActiveCard() {
-  cards.forEach((card, index) => {
-    if (index === activeIndex) {
-      card.classList.add('active');
-    } else {
-      card.classList.remove('active');
-    }
+  cards.forEach((card, i) => {
+    card.classList.toggle('active', i === activeIndex);
   });
 }
-
 updateActiveCard();
-
 setInterval(() => {
   activeIndex = (activeIndex + 1) % cards.length;
   updateActiveCard();
 }, 3000);
 
+// --- Section 5: Flip-Card Entry Sequence ---
 
-// // Section 5: Reveal each line in 3D
-// gsap.utils.toArray(".investigation .reveal-text p").forEach((el, i) => {
-//   gsap.fromTo(el, 
-//     { opacity: 0, z: -200 }, 
-//     {
-//       opacity: 1,
-//       z: 0,
-//       duration: 1,
-//       ease: "power2.out",
-//       scrollTrigger: {
-//         trigger: el,
-//         start: "top 80%",
-//         end: "top 50%",
-//         scrub: true
-//       }
-//     }
-//   );
-// });
+// 1. Grab the cards & their inners
+const flipCards  = gsap.utils.toArray(".fifth .flip-card"),
+      flipInners = gsap.utils.toArray(".fifth .flip-card-inner");
 
-// // Section 6: Floating shapes and text fade
-// gsap.from(".problem-breakdown .floating-elements p", {
-//   scrollTrigger: {
-//     trigger: ".problem-breakdown",
-//     start: "top 80%",
-//   },
-//   opacity: 0,
-//   y: 50,
-//   duration: 1,
-//   stagger: 0.3
-// });
+// 2. Prepare initial state
+gsap.set(flipCards,  { y: -100, opacity: 0 });
+gsap.set(flipInners, { rotationY: 0 });
 
-// gsap.utils.toArray(".problem-breakdown .shape").forEach((shape, i) => {
-//   gsap.to(shape, {
-//     scrollTrigger: {
-//       trigger: ".problem-breakdown",
-//       start: "top bottom",
-//       end: "bottom top",
-//       scrub: true
-//     },
-//     rotationX: Math.random() * 360,
-//     rotationY: Math.random() * 360,
-//     x: (Math.random() - 0.5) * 200,
-//     y: (Math.random() - 0.5) * 200,
-//     z: Math.random() * 200 - 100,
-//     ease: "none"
-//   });
-// });
+// 3. Build the entry timeline (paused initially)
+const cardEntry = gsap.timeline({ paused: true });
 
-// // Section 7: Assemble animation
-// gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".the-fix",
-//     start: "top 75%",
-//     end: "top 50%",
-//     scrub: true
-//   }
-// })
-//   .to(".the-fix .assemble", { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+// 4. For each card: drop in + flip once
+flipCards.forEach((card, i) => {
+  const inner     = card.querySelector(".flip-card-inner"),
+        dropDur   = 1,
+        flipDelay = 1,
+        hold      = 0.5,
+        offset    = i * (dropDur + flipDelay + hold);
 
-// // Section 8: Climax reveal
-// gsap.fromTo(".climax .message", 
-//   { opacity: 0, scale: 0.8 }, 
-//   {
-//     opacity: 1,
-//     scale: 1,
-//     duration: 1,
-//     ease: "back.out(1.2)",
-//     scrollTrigger: {
-//       trigger: ".climax",
-//       start: "top 80%"
-//     }
-//   }
-// );
+  // a) Drop & fade in
+  cardEntry.to(card, {
+    y: 0,
+    opacity: 1,
+    duration: dropDur,
+    ease: "power2.out",
+    delay: offset
+  }, 0);
+
+  // b) Flip after a short pause
+  cardEntry.to(inner, {
+    rotationY: 180,
+    duration: 0.8,
+    ease: "power2.inOut",
+    delay: offset + flipDelay
+  }, 0);
+});
+
+// 5. Function to play the entry sequence
+function playCardEntry() {
+  if (cardEntry.isActive()) return;
+  cardEntry.play();
+}
+
+// 6. Manual click-to-flip fallback
+flipCards.forEach(card => {
+  const inner = card.querySelector(".flip-card-inner");
+  card.addEventListener("click", () => {
+    gsap.to(inner, {
+      rotationY: "+=180",
+      duration: 0.6,
+      ease: "power2.inOut"
+    });
+  });
+});
