@@ -2,32 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#000000"> <!-- Controls mobile browser UI color -->
-  <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Better fullscreen on iOS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TenSketch latest</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- SCSS compiled to CSS (example) -->
   <link rel="stylesheet" href="style.css">
-  <!-- Mobile-specific styles -->
-  <style>
-    /* Use CSS variable for handling iOS height */
-    :root {
-      --vh: 1vh;
-    }
-    
-    @media (max-width: 768px) {
-      /* Prevent pull-to-refresh on mobile */
-      html, body {
-        overscroll-behavior-y: contain;
-      }
-      
-      /* Fix 100vh issue on iOS */
-      section {
-        height: calc(var(--vh, 1vh) * 100);
-      }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -45,10 +24,10 @@
     <div class="outer">
       <div class="inner">
         <div class="bg one">
-          <h2 class="section-heading"><span class="text-reveal-animation" style="transform: translateY(0); opacity: 1;">Is Your Website More Maze Than Magnet?</span></h2>
-          <p class="section-text" style="opacity: 1; transform: translateY(0);">
-            You've put in the effort (and budget), but something's missing.
-            Don't worry—it happens to the best of us. Scroll down to see
+          <h2 class="section-heading">Is Your Website More Maze Than Magnet?</h2>
+          <p class="section-text">
+            You’ve put in the effort (and budget), but something’s missing.
+            Don’t worry—it happens to the best of us. Scroll down to see
             how Priyanka from SanMed Healthcare Solutions found clarity.
           </p>
           <a href="#casestudy" class="btn-cta">Read Her Story</a>
@@ -56,62 +35,18 @@
       </div>
     </div>
   </section>
-  <!-- SECTION 2: ABOUT US -->
+  <!-- SECTION 2: CASE STUDY -->
   <section class="second">
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <!-- Morphing SVG Shapes -->
-          <div class="morphing-shapes">
-            <svg viewBox="0 0 600 600" class="shape-blob">
-              <path d="M480.8,178.8c-3.1-82.1-80.5-137.6-161.8-128.5C238.4,59.2,182.4,116,151.2,194c-23.4,58.7-4.5,125.5,27.5,173.9c24.3,36.7,60.3,65.3,103.2,72.2c56.7,9.1,115.5-17.1,147.1-67C466.2,318.9,483.4,250.5,480.8,178.8z" />
-            </svg>
-            <svg viewBox="0 0 600 600" class="shape-blob">
-              <path d="M416,239.2c25.7-13.2,62.4-13.6,75.4-43c13-29.4-5.8-64.4-33.1-77.4c-27.3-13-60.2-5.6-83.9,15c-23.7,20.5-40,50.1-64.3,69.9c-24.3,19.8-58.5,26.9-85.5,11.5c-27-15.3-42.8-49.1-37.4-79.2c5.4-30.1,31.9-54.4,61.2-62.4c29.3-8,61.1-0.7,88.6,13.5c27.5,14.2,52.5,36,83.1,42c30.7,6.1,66.4-8.1,76-38.2" />
-            </svg>
-          </div>
-          
-          <h2 class="section-heading"><span class="text-reveal-animation">Who We Are</span></h2>
+          <h2 class="section-heading">When Big Dreams Miss The Mark</h2>
           <p class="section-text">
-            TenSketch means "Perfect Arts." The number ten symbolizes completeness—in binary, '1' and '0' 
-            form the foundation of digital calculation. We craft stunning digital experiences from scratch, 
-            pixel by pixel, line by line—no templates, no shortcuts, just pure craftsmanship.
+            Priyanka, founder of SanMed Healthcare Solutions, had a crystal-clear
+            vision: an eCommerce and CRM platform that would revolutionize healthcare.
+            She invested 25 lakhs in a custom-built web application—only to end up
+            with a visually stunning but hollow website.
           </p>
-          <div class="approach-container">
-            <h3 class="approach-heading">Our Approach</h3>
-            <div class="approach-pillars">
-              <!-- Simplified icons for better mobile rendering -->
-              <div class="pillar-item">
-                <i class="fas fa-code pillar-icon"></i>
-                <h4 class="pillar-title">Zero Template Culture</h4>
-                <p class="pillar-text">We write our own code—no prebuilt themes.</p>
-              </div>
-              <div class="pillar-item">
-                <i class="fas fa-search pillar-icon"></i>
-                <h4 class="pillar-title">Deep Discovery First</h4>
-                <p class="pillar-text">We ask the right questions before designing.</p>
-              </div>
-              <div class="pillar-item">
-                <i class="fas fa-paint-brush pillar-icon"></i>
-                <h4 class="pillar-title">Design-First Thinking</h4>
-                <p class="pillar-text">Beautiful interfaces crafted with users in mind.</p>
-              </div>
-            </div>
-          </div>
-          <div class="about-stats">
-            <div class="stat-item">
-              <span class="stat-number" data-value="10">0</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-value="200">0</span>
-              <span class="stat-label">Projects Completed</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-value="95">0</span>
-              <span class="stat-label">Client Satisfaction</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -121,7 +56,7 @@
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <h2 class="section-heading"><span class="text-reveal-animation">The UX/UI was...</span></h2>
+          <h2 class="section-heading">The UX/UI was...</h2>
           <div class="cards-container">
             <div class="card">
               <div class="card-icon">
@@ -355,6 +290,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/SplitText.min.js"></script> -->
   <script src="main.js"></script>
-  <script src="text-animation.js"></script>
 </body>
 </html>
