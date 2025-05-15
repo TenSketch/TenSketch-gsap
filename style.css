@@ -345,17 +345,68 @@ h2 * {
 .analysis-answers {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 1rem;
+  gap: 1.5rem;
+  margin: 1.5rem;
+  perspective: 1000px;
 }
 
 .answer-card {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background: rgba(93, 93, 97, 0.7);
+  border-radius: 12px;
+  box-shadow: 
+    0 0 5px rgba(117, 255, 251, 0.5),
+    0 0 20px rgba(117, 255, 251, 0.2),
+    inset 0 0 5px rgba(117, 255, 251, 0.1);
+  border: 1px solid rgba(117, 255, 251, 0.3);
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(5deg);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-card:hover {
+  transform: perspective(1000px) rotateX(0deg) translateZ(10px);
+  box-shadow: 
+    0 0 10px rgba(117, 255, 251, 0.7),
+    0 0 30px rgba(117, 255, 251, 0.3),
+    inset 0 0 10px rgba(117, 255, 251, 0.2);
+}
+
+.answer-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(-45deg);
+  pointer-events: none;
+  z-index: 1;
+  animation: shine 5s infinite ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    top: -200%;
+    left: -200%;
+  }
+  100% {
+    top: 200%;
+    left: 200%;
+  }
 }
 .answer-card .answer-img {
   width: 32px;
@@ -364,7 +415,7 @@ h2 * {
 }
 .answer-card .answer-text {
   font-size: 1rem;
-  color: #000;
+  color: #fff;
   line-height: 1.3;
 }
 
