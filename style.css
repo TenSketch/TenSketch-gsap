@@ -248,7 +248,18 @@ h2 * {
 }
 @media (max-width: 768px) {
   .flipCard-container {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    width: 100%;
+    padding: 0 1.5rem;
+    max-width: 400px;
+  }
+  .flipCard-container .flip-card:nth-child(5) {
+    grid-column: 1 / span 2;
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -261,6 +272,12 @@ h2 * {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .flip-card {
+    width: 160px;
+    height: 160px;
+  }
 }
 .flip-card::before {
   content: "";
@@ -298,6 +315,12 @@ h2 * {
   font-size: 1rem;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .flip-card-front, .flip-card-back {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
 .flip-card-front {
   background: transparent;
 }
@@ -306,48 +329,17 @@ h2 * {
   height: 40px;
   margin-bottom: 0.5rem;
 }
+@media (max-width: 768px) {
+  .flip-card-front .icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.4rem;
+  }
+}
 .flip-card-back {
   background: rgba(255, 255, 255, 0.05);
   color: #eee;
   transform: rotateY(180deg);
-}
-
-.mobile-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 2rem 1rem;
-}
-@media (min-width: 769px) {
-  .mobile-cards {
-    display: none;
-  }
-}
-
-.mobile-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  cursor: default;
-}
-.mobile-card:active {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-}
-
-.mobile-title {
-  font-size: 1rem;
-  color: #fff;
-  line-height: 1.2;
-  flex: 1;
 }
 
 .analysis-answers {
@@ -430,6 +422,7 @@ h2 * {
   text-align: center;
   background: linear-gradient(90deg, #60a5fa, #3b82f6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .cta .section-text {

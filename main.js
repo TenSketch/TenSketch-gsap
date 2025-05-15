@@ -8,7 +8,6 @@ const sections      = document.querySelectorAll("section"),
       innerWrappers = gsap.utils.toArray(".inner");
 
 let currentIndex = -1,
-    wrapIdx      = gsap.utils.wrap(0, sections.length),
     animating;
 
 gsap.set(outerWrappers, { yPercent: 100 });
@@ -16,7 +15,8 @@ gsap.set(innerWrappers, { yPercent: -100 });
 sections.forEach(sec => gsap.set(sec, { autoAlpha: 0 }));
 
 function gotoSection(index, direction) {
-  index = wrapIdx(index);
+  // Prevent out-of-bounds navigation
+  if (index < 0 || index >= sections.length) return;
   animating = true;
   const fromTop = direction === -1,
         dFactor = fromTop ? -1 : 1,
@@ -56,8 +56,12 @@ function gotoSection(index, direction) {
 Observer.create({
   type: "wheel,touch,pointer",
   wheelSpeed: -1,
-  onDown:  () => !animating && gotoSection(currentIndex - 1, -1),
-  onUp:    () => !animating && gotoSection(currentIndex + 1,  1),
+  onDown:  () => {
+    if (!animating && currentIndex > 0) gotoSection(currentIndex - 1, -1);
+  },
+  onUp:    () => {
+    if (!animating && currentIndex < sections.length - 1) gotoSection(currentIndex + 1,  1);
+  },
   tolerance: 10,
   preventDefault: true
 });
@@ -122,10 +126,58 @@ flipCards.forEach((card, i) => {
 function playCardEntry() {
   if (cardEntry.isActive()) return;
   cardEntry.play();
+  
+  // Also animate mobile flip cards if on a mobile device
+  if (window.innerWidth <= 768) {
+    playMobileCardEntry();
+  }
 }
 
 // 6. Manual click-to-flip fallback
 flipCards.forEach(card => {
+  const inner = card.querySelector(".flip-card-inner");
+  card.addEventListener("click", () => {
+    gsap.to(inner, {
+      rotationY: "+=180",
+      duration: 0.6,
+      ease: "power2.inOut"
+    });
+  });
+});
+
+// --- Mobile flip cards for Section 5 ---
+const mobileFlipCards = gsap.utils.toArray(".fifth .flip-card"),
+      mobileFlipInners = gsap.utils.toArray(".fifth .flip-card-inner");
+
+// Handle mobile flip cards
+function playMobileCardEntry() {
+  const mobileCardEntry = gsap.timeline();
+  
+  mobileFlipCards.forEach((card, i) => {
+    const inner = card.querySelector(".flip-card-inner"),
+          delay = i * 0.5;
+    
+    // Scale in
+    mobileCardEntry.from(card, {
+      scale: 0.5,
+      opacity: 0,
+      duration: 0.6,
+      ease: "back.out(1.5)",
+      delay: delay * 0.5
+    }, 0);
+    
+    // Flip after a short pause
+    mobileCardEntry.to(inner, {
+      rotationY: 180,
+      duration: 0.8,
+      ease: "power2.inOut",
+      delay: delay + 1.2
+    }, 0);
+  });
+}
+
+// Handle click to flip for mobile cards
+mobileFlipCards.forEach(card => {
   const inner = card.querySelector(".flip-card-inner");
   card.addEventListener("click", () => {
     gsap.to(inner, {
