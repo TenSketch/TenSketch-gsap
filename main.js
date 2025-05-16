@@ -152,12 +152,12 @@ const mobileFlipCards = gsap.utils.toArray(".fifth .flip-card"),
 // Handle mobile flip cards
 function playMobileCardEntry() {
   const mobileCardEntry = gsap.timeline();
-  
+
   mobileFlipCards.forEach((card, i) => {
     const inner = card.querySelector(".flip-card-inner"),
           delay = i * 0.5;
-    
-    // Scale in
+
+    // Scale in (all cards)
     mobileCardEntry.from(card, {
       scale: 0.5,
       opacity: 0,
@@ -165,14 +165,19 @@ function playMobileCardEntry() {
       ease: "back.out(1.5)",
       delay: delay * 0.5
     }, 0);
-    
-    // Flip after a short pause
-    mobileCardEntry.to(inner, {
-      rotationY: 180,
-      duration: 0.8,
-      ease: "power2.inOut",
-      delay: delay + 1.2
-    }, 0);
+
+    // Only flip the first card automatically
+    if (i === 0) {
+      mobileCardEntry.to(inner, {
+        rotationY: 180,
+        duration: 0.8,
+        ease: "power2.inOut",
+        delay: delay + 1.2
+      }, 0);
+    } else {
+      // Ensure all other cards remain unflipped
+      gsap.set(inner, { rotationY: 0 });
+    }
   });
 }
 
