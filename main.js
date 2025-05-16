@@ -5,17 +5,54 @@ gsap.registerPlugin(Observer);
 const logoMenu = document.getElementById('logo-menu');
 const menuNav = document.querySelector('.menu');
 const menuItems = document.querySelectorAll('.menu li a');
+const logo = document.querySelector('.logo');
+
+// Initial animation to subtly indicate the logo is interactive
+function playLogoIntroAnimation() {
+  // Create a timeline for the initial logo animation
+  const logoIntroTl = gsap.timeline({
+    delay: 1.5, // Wait a bit after page load before animating
+    repeat: 2,  // Play the animation three times
+    repeatDelay: 0.5, // Pause between repeats
+    onComplete: () => {
+      // Add a gentle hover animation that repeats forever
+      gsap.to(logoMenu, {
+        y: "-3px",
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+    }
+  });
+  
+  // Initial animation sequence
+  logoIntroTl
+    .to(logo, {
+      scale: 1.08,
+      filter: "invert(0.85) drop-shadow(0 0 4px rgba(212, 175, 55, 0.7))",
+      duration: 0.5,
+      ease: "power1.out"
+    })
+    .to(logo, {
+      scale: 1,
+      filter: "invert(1)",
+      duration: 0.5,
+      ease: "power1.in"
+    });
+}
 
 // Function to handle menu toggle with GSAP animation
 function toggleMenu() {
   const isOpen = logoMenu.classList.contains('active');
   
+  // Kill any ongoing animations on the logo
+  gsap.killTweensOf(logoMenu);
+  gsap.killTweensOf(logo);
+  
   // Toggle active class
   logoMenu.classList.toggle('active');
   menuNav.classList.toggle('open');
-  
-  // Animate logo to indicate menu state
-  const logo = document.querySelector('.logo');
   
   if (!isOpen) {
     // Opening menu animation
@@ -33,6 +70,19 @@ function toggleMenu() {
       duration: 0.5,
       ease: "power2.out"
     });
+    
+    // Restart the gentle hover animation after closing
+    setTimeout(() => {
+      if (!logoMenu.classList.contains('active')) {
+        gsap.to(logoMenu, {
+          y: "-3px",
+          duration: 1.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut"
+        });
+      }
+    }, 1000);
   }
   
   // Disable/Enable scrolling based on menu state
@@ -50,6 +100,9 @@ menuItems.forEach(item => {
     }
   });
 });
+
+// Start the logo animation after page load
+window.addEventListener('load', playLogoIntroAnimation);
 
 // --- Section Navigation (unchanged) ---
 const sections      = document.querySelectorAll("section"),
