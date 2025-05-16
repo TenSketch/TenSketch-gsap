@@ -19,6 +19,9 @@
   --secondary-light-rgb: 244, 244, 244;
   --accent-gold-rgb: 212, 175, 55;
   --accent-sandal-rgb: 230, 201, 154;
+  
+  /* Logo Menu Config */
+  --logo-transition: 0.4s;
 }
 
 * {
@@ -72,9 +75,100 @@ header {
   top: 3%;
   background: transparent;
 }
+
+/* Logo Menu Styling */
+.logo-container {
+  position: relative;
+  cursor: pointer;
+  z-index: 5;
+  order: -1; /* Ensures it's always on the left */
+  transition: transform var(--logo-transition) ease;
+}
+
 header .logo {
   width: clamp(120px, 25vw, 20%);
   filter: invert(1);
+  transition: transform var(--logo-transition) ease;
+}
+
+/* Active state styling for when menu is open */
+.logo-container.active .logo {
+  transform: rotate(90deg);
+}
+
+/* Menu Navigation Styles */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(var(--primary-dark-rgb), 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  z-index: 4;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.menu li {
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.menu.open li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation for menu items */
+.menu.open li:nth-child(1) { transition-delay: 0.1s; }
+.menu.open li:nth-child(2) { transition-delay: 0.2s; }
+.menu.open li:nth-child(3) { transition-delay: 0.3s; }
+.menu.open li:nth-child(4) { transition-delay: 0.4s; }
+.menu.open li:nth-child(5) { transition-delay: 0.5s; }
+
+.menu a {
+  color: var(--secondary-clr);
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-gold);
+  transition: width 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--accent-gold);
+}
+
+.menu a:hover::after {
+  width: 100%;
 }
 
 .fa-instagram {

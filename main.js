@@ -1,6 +1,56 @@
 // --- GSAP Registrations ---
 gsap.registerPlugin(Observer);
 
+// --- Logo Menu Animation ---
+const logoMenu = document.getElementById('logo-menu');
+const menuNav = document.querySelector('.menu');
+const menuItems = document.querySelectorAll('.menu li a');
+
+// Function to handle menu toggle with GSAP animation
+function toggleMenu() {
+  const isOpen = logoMenu.classList.contains('active');
+  
+  // Toggle active class
+  logoMenu.classList.toggle('active');
+  menuNav.classList.toggle('open');
+  
+  // Animate logo to indicate menu state
+  const logo = document.querySelector('.logo');
+  
+  if (!isOpen) {
+    // Opening menu animation
+    gsap.to(logo, {
+      rotate: 90,
+      scale: 0.9,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+  } else {
+    // Closing menu animation
+    gsap.to(logo, {
+      rotate: 0,
+      scale: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+  }
+  
+  // Disable/Enable scrolling based on menu state
+  document.body.style.overflow = !isOpen ? 'hidden' : '';
+}
+
+// Add click event to logo menu
+logoMenu.addEventListener('click', toggleMenu);
+
+// Close menu when clicking menu items
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    if (logoMenu.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+});
+
 // --- Section Navigation (unchanged) ---
 const sections      = document.querySelectorAll("section"),
       images        = document.querySelectorAll(".bg"),
