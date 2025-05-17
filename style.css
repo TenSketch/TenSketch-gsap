@@ -902,6 +902,26 @@ h2 * {
   font-size: 3rem;
   color: var(--accent-gold);
   margin-bottom: 1.5rem;
+  animation: brushBounce 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Paintbrush bouncing animation */
+@keyframes brushBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-3deg);
+  }
+}
+
+.section-icon i {
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(var(--accent-gold-rgb), 0.3));
 }
 
 .about-meaning {
@@ -1043,6 +1063,20 @@ h2 * {
   .section-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    /* Slightly reduced animation for mobile */
+    animation: brushBounce 3s ease-in-out infinite;
+  }
+  
+  @keyframes brushBounce {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(3deg);
+    }
+    75% {
+      transform: translateY(-3px) rotate(-2deg);
+    }
   }
   
   .about-meaning .section-text {
@@ -1077,20 +1111,26 @@ h2 * {
   font-size: 3rem;
   color: var(--accent-gold);
   margin-bottom: 1.5rem;
+  animation: brushBounce 3s ease-in-out infinite;
+  transform-origin: bottom center;
 }
 
-.about-meaning {
-  margin-top: 1.5rem;
-  position: relative;
-  width: 100%; /* Ensure it stays within container */
+/* Paintbrush bouncing animation */
+@keyframes brushBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-3deg);
+  }
 }
 
-.about-meaning .section-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  width: 100%; /* Constrain width */
-  box-sizing: border-box;
-  word-wrap: break-word; /* Ensure text wraps correctly */
+.section-icon i {
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(var(--accent-gold-rgb), 0.3));
 }
 
 /* Craft Section Styles */
