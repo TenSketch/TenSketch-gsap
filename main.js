@@ -1,108 +1,110 @@
 // --- GSAP Registrations ---
 gsap.registerPlugin(Observer);
 
-// --- Logo Menu Animation ---
+// --- Split Logo Hamburger Menu Logic ---
 const logoMenu = document.getElementById('logo-menu');
 const menuNav = document.querySelector('.menu');
-const menuItems = document.querySelectorAll('.menu li a');
-const logo = document.querySelector('.logo');
+const logoLeft = document.querySelector('.logo-left');
+const logoRight = document.querySelector('.logo-right');
 
-// Initial animation to subtly indicate the logo is interactive
-function playLogoIntroAnimation() {
-  // Create a timeline for the initial logo animation
-  const logoIntroTl = gsap.timeline({
-    delay: 1.5, // Wait a bit after page load before animating
-    repeat: 2,  // Play the animation three times
-    repeatDelay: 0.5, // Pause between repeats
-    onComplete: () => {
-      // Add a gentle hover animation that repeats forever
-      gsap.to(logoMenu, {
-        y: "-3px",
-        duration: 1.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-    }
-  });
-  
-  // Initial animation sequence
-  logoIntroTl
-    .to(logo, {
-      scale: 1.08,
-      filter: "invert(0.85) drop-shadow(0 0 4px rgba(212, 175, 55, 0.7))",
-      duration: 0.5,
-      ease: "power1.out"
-    })
-    .to(logo, {
-      scale: 1,
-      filter: "invert(1)",
-      duration: 0.5,
-      ease: "power1.in"
-    });
+// Create cross button if it doesn't exist
+let menuCloseBtn = document.querySelector('.menu-close');
+if (!menuCloseBtn) {
+  menuCloseBtn = document.createElement('div');
+  menuCloseBtn.className = 'menu-close';
+  menuCloseBtn.innerHTML = '<span></span><span></span>';
+  menuNav.appendChild(menuCloseBtn);
 }
 
-// Function to handle menu toggle with GSAP animation
-function toggleMenu() {
-  const isOpen = logoMenu.classList.contains('active');
-  
-  // Kill any ongoing animations on the logo
-  gsap.killTweensOf(logoMenu);
-  gsap.killTweensOf(logo);
-  
-  // Toggle active class
-  logoMenu.classList.toggle('active');
+function splitLogoToggleMenu() {
   menuNav.classList.toggle('open');
-  
-  if (!isOpen) {
-    // Opening menu animation
-    gsap.to(logo, {
-      rotate: 90,
-      scale: 0.9,
-      duration: 0.5,
-      ease: "power2.out"
-    });
-  } else {
-    // Closing menu animation
-    gsap.to(logo, {
-      rotate: 0,
-      scale: 1,
+  // Animate logo halves
+  if (menuNav.classList.contains('open')) {
+    // Set menu width to 40% of viewport
+    menuNav.style.width = '40%';
+    
+    // Animate logo
+    gsap.to(logoLeft, {
+      left: '-40px',
+      opacity: 0,
       duration: 0.5,
       ease: "power2.out"
     });
     
-    // Restart the gentle hover animation after closing
-    setTimeout(() => {
-      if (!logoMenu.classList.contains('active')) {
-        gsap.to(logoMenu, {
-          y: "-3px",
-          duration: 1.5,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
-        });
+    gsap.to(logoRight, {
+      left: 'calc(100vw - 80px)',
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+    
+    // Enhanced appearing animation for close button
+    gsap.fromTo(menuCloseBtn, 
+      { opacity: 0, scale: 0, rotation: -180 },
+      { 
+        opacity: 1, 
+        scale: 1, 
+        rotation: 0,
+        duration: 0.6, 
+        delay: 0.2, 
+        ease: "elastic.out(1, 0.5)" 
       }
-    }, 1000);
+    );
+    
+    document.body.style.overflow = 'hidden';
+  } else {
+    // Animate logo back
+    gsap.to(logoLeft, {
+      left: '0',
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+    
+    gsap.to(logoRight, {
+      left: '26px',
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+    
+    // Enhanced disappearing animation for close button
+    gsap.to(menuCloseBtn, {
+      opacity: 0,
+      scale: 0,
+      rotation: 180,
+      duration: 0.4,
+      ease: "back.in(1.7)"
+    });
+    
+    document.body.style.overflow = '';
   }
-  
-  // Disable/Enable scrolling based on menu state
-  document.body.style.overflow = !isOpen ? 'hidden' : '';
 }
 
-// Add click event to logo menu
-logoMenu.addEventListener('click', toggleMenu);
-
+logoMenu.addEventListener('click', splitLogoToggleMenu);
 // Close menu when clicking menu items
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    if (logoMenu.classList.contains('active')) {
-      toggleMenu();
-    }
+const menuLinks = document.querySelectorAll('.menu a');
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (menuNav.classList.contains('open')) splitLogoToggleMenu();
   });
 });
 
-// Start the logo animation after page load
-window.addEventListener('load', playLogoIntroAnimation);
+// Close menu when clicking the close button
+menuCloseBtn.addEventListener('click', () => {
+  if (menuNav.classList.contains('open')) splitLogoToggleMenu();
+});
+
+// Close menu when clicking outside the menu area
+document.addEventListener('mousedown', function(e) {
+  if (
+    menuNav.classList.contains('open') &&
+    !menuNav.contains(e.target) &&
+    !logoMenu.contains(e.target)
+  ) {
+    splitLogoToggleMenu();
+  }
+});
 
 // --- Section Navigation (unchanged) ---
 const sections      = document.querySelectorAll("section"),

@@ -119,6 +119,51 @@ header .logo {
   transform: rotate(90deg);
 }
 
+/* Split Logo Hamburger Menu Styles */
+.logo-container {
+  position: fixed;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 80px;
+  background: none;
+}
+.logo-half {
+  position: absolute;
+  max-width: 80px;
+  max-height: 80px;
+  transition: all 0.5s cubic-bezier(0.77,0,0.175,1);
+}
+.logo-left {
+  left: 0;
+}
+.logo-right {
+  left: 26px;
+}
+@media (max-width: 600px) {
+  .logo-container {
+    left: 10px;
+    width: 80px;
+    height: 60px;
+  }
+  .logo-half {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .logo-right {
+    left: 16px;
+  }
+}
+/* Hide old .logo styles in header */
+header .logo { display: none !important; }
+
 /* Menu Navigation Styles */
 .menu {
   position: fixed;
@@ -192,6 +237,93 @@ header .logo {
 
 .menu a:hover::after {
   width: 100%;
+}
+
+/* Cross (Close) Button Styles */
+.menu-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 999;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateZ(0);
+  overflow: hidden;
+}
+
+.menu-close::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--accent-gold-rgb), 0.2) 0%,
+    rgba(var(--accent-gold-rgb), 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateZ(0) scale(1.1);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(var(--accent-gold-rgb), 0.3) inset;
+}
+
+.menu-close:hover::before {
+  opacity: 1;
+}
+
+.menu-close:active {
+  transform: translateZ(0) scale(0.95);
+  transition: all 0.1s;
+}
+
+.menu-close span {
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  background-color: #fff;
+  top: 50%;
+  left: 20%;
+  border-radius: 1px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.menu-close span:first-child {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-close span:last-child {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.menu-close:hover span {
+  width: 65%;
+  left: 17.5%;
+  background-color: var(--accent-gold);
+  box-shadow: 0 0 5px rgba(var(--accent-gold-rgb), 0.5);
+}
+
+.menu-close:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(var(--accent-gold-rgb), 0.6),
+    0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .fa-instagram {
