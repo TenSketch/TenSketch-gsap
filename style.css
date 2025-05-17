@@ -76,6 +76,60 @@ header {
   background: transparent;
 }
 
+/* New Navbar Styles */
+header .navbar {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 10;
+}
+
+header .nav-logo {
+  height: 80px;
+}
+
+header .nav-logo img {
+  height: 100%;
+  width: auto;
+  filter: invert(1);
+  transition: all 0.3s ease;
+}
+
+header .nav-logo:hover img {
+  transform: scale(1.05);
+  filter: invert(0.9) drop-shadow(0 0 2px rgba(var(--accent-gold-rgb), 0.5));
+}
+
+header .social-icon {
+  font-size: 1.8rem;
+  color: var(--secondary-clr);
+  transition: all 0.3s ease;
+}
+
+header .social-icon:hover {
+  color: var(--accent-gold);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  header .navbar {
+    top: 20px;
+  }
+  
+  header .nav-logo {
+    height: 80px;
+  }
+  
+  header .social-icon {
+    font-size: 1.5rem;
+  }
+}
+
 /* Logo Menu Styling */
 .logo-container {
   position: fixed;
@@ -122,7 +176,7 @@ header .logo {
 .logo-container {
   position: fixed;
   left: 40px;
-  top: 50%;
+  top: 80%;
   transform: translateY(-50%);
   z-index: 101; /* Increased to ensure always visible above menu */
   cursor: pointer;
@@ -138,6 +192,7 @@ header .logo {
   position: absolute;
   max-width: 80px;
   max-height: 80px;
+  filter: invert(1); /* Makes the images white */
 }
 .logo-left {
   left: 0;
@@ -169,7 +224,7 @@ header .logo {
     max-height: 50px;
   }
   .logo-right {
-    left: 22px; /* Increased gap for mobile */
+    left: 20px; /* Reduced gap for mobile */
   }
   /* Animation for mobile */
   .menu.open ~ .logo-container .logo-right {
@@ -464,26 +519,14 @@ h2 * {
   flex-wrap: wrap;
 }
 
-.card {
-  display: grid;
-  place-content: center;
-  flex: 0 1 22%;
-  width: 22%;
-  aspect-ratio: 1;
-  background: rgba(var(--secondary-clr-rgb), 0.1);
-  border: 1px solid rgba(var(--secondary-clr-rgb), 0.3);
-  border-radius: 5px;
-  backdrop-filter: blur(10px);
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.3;
-  cursor: pointer;
-}
 @media (max-width: 768px) {
   .card {
     flex: 0 1 42.5% !important;
     width: 42.5%;
+  }
+  .cards-container {
+    gap: 0.75rem; /* Reduced gap for mobile */
+    padding-inline: 1rem;
   }
 }
 
@@ -538,9 +581,9 @@ h2 * {
   .flipCard-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem; /* Reduced gap for mobile */
     width: 100%;
-    padding: 0 1.5rem;
+    padding: 0 1rem; /* Reduced padding for mobile */
     max-width: 400px;
   }
   .flipCard-container .flip-card:nth-child(5) {

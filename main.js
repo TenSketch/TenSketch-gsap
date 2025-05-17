@@ -47,10 +47,12 @@ function splitLogoToggleMenu() {
     
     document.body.style.overflow = 'hidden';
   } else {
-    // Animate logo back
+    // Check screen size for proper positioning on close
+    const isMobile = window.innerWidth <= 600;
+    const leftPosition = isMobile ? '20px' : '30px'; // Match the CSS values for different screen sizes
     
     gsap.to(logoRight, {
-      left: '35px', // Match the CSS value
+      left: leftPosition,
       opacity: 1,
       duration: 0.6, // Made animation faster
       ease: "power2.out"
@@ -68,6 +70,14 @@ function splitLogoToggleMenu() {
     document.body.style.overflow = '';
   }
 }
+
+// Add window resize handler to update positioning
+window.addEventListener('resize', () => {
+  if (!menuNav.classList.contains('open')) {
+    const isMobile = window.innerWidth <= 600;
+    gsap.set(logoRight, { left: isMobile ? '15px' : '30px' });
+  }
+});
 
 logoMenu.addEventListener('click', splitLogoToggleMenu);
 // Close menu when clicking menu items
