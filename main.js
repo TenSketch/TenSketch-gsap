@@ -113,10 +113,7 @@ const sections      = document.querySelectorAll("section"),
 let currentIndex = -1,
     animating;
 
-gsap.set(outerWrappers, { yPercent: 100 });
-gsap.set(innerWrappers, { yPercent: -100 });
-sections.forEach(sec => gsap.set(sec, { autoAlpha: 0 }));
-
+// Modify the gotoSection function with better element checks
 function gotoSection(index, direction) {
   // Prevent out-of-bounds navigation
   if (index < 0 || index >= sections.length) return;
@@ -152,12 +149,20 @@ function gotoSection(index, direction) {
 
   // Trigger flip-card entry when we hit the fifth section
   if (sections[index].classList.contains("fifth")) {
-    playCardEntry();
+    // Make sure fifth section has flip cards before calling the animation
+    const flipCards = document.querySelectorAll(".fifth .flip-card");
+    if (flipCards && flipCards.length > 0) {
+      playCardEntry();
+    }
   }
   
   // Animate craft cards when we hit the second section in about page
-  if (sections[index].classList.contains("second") && document.querySelector('.craft-cards')) {
-    playCraftCardsAnimation();
+  if (sections[index].classList.contains("second")) {
+    // Check if we're on the about page by checking for craft cards
+    const craftCards = document.querySelectorAll('.craft-card');
+    if (craftCards && craftCards.length > 0) {
+      playCraftCardsAnimation();
+    }
   }
 }
 
@@ -176,11 +181,12 @@ Observer.create({
 
 gotoSection(0, 1);
 
-// Add craft cards animation function
+// Update the craft cards animation function with better checks
 function playCraftCardsAnimation() {
-  const craftCards = gsap.utils.toArray('.craft-card');
+  // Check if we're on the right page first
+  const craftCards = document.querySelectorAll('.craft-card');
   
-  if (!craftCards.length) return;
+  if (!craftCards || craftCards.length === 0) return;
   
   // Remove any existing animations
   craftCards.forEach(card => {
@@ -231,12 +237,112 @@ function playCraftCardsAnimation() {
   }
 }
 
-// Initialize craft cards animation if already on second section when page loads
+// Improve the card entry function with better checks
+function playCardEntry() {
+  const flipCards = document.querySelectorAll(".fifth .flip-card");
+  const flipInners = document.querySelectorAll(".fifth .flip-card-inner");
+  
+  // Check if elements exist before attempting animation
+  if (!flipCards.length || !flipInners.length) return;
+  
+  // Check if animation is already running
+  if (cardEntry && cardEntry.isActive()) return;
+  
+  // Create the animation only when needed
+  const cardEntry = gsap.timeline();
+  
+  // Reset initial state
+  gsap.set(flipCards, { y: -100, opacity: 0 });
+  gsap.set(flipInners, { rotationY: 0 });
+
+  // For each card: drop in + flip once
+  flipCards.forEach((card, i) => {
+    const inner = card.querySelector(".flip-card-inner");
+    if (!inner) return; // Skip if inner element doesn't exist
+    
+    const dropDur = 1,
+          flipDelay = 1,
+          hold = 0.5,
+          offset = i * (dropDur + flipDelay + hold);
+
+    // a) Drop & fade in
+    cardEntry.to(card, {
+      y: 0,
+      opacity: 1,
+      duration: dropDur,
+      ease: "power2.out",
+      delay: offset
+    }, 0);
+
+    // b) Flip after a short pause
+    cardEntry.to(inner, {
+      rotationY: 180,
+      duration: 0.8,
+      ease: "power2.inOut",
+      delay: offset + flipDelay
+    }, 0);
+  });
+  
+  // Play the animation
+  cardEntry.play();
+  
+  // Also animate mobile flip cards if on a mobile device
+  if (window.innerWidth <= 768) {
+    playMobileCardEntry();
+  }
+}
+
+// Fix mobile card entry function with better checks
+function playMobileCardEntry() {
+  const mobileFlipCards = document.querySelectorAll(".fifth .flip-card");
+  if (!mobileFlipCards.length) return;
+  
+  const mobileCardEntry = gsap.timeline();
+
+  mobileFlipCards.forEach((card, i) => {
+    const inner = card.querySelector(".flip-card-inner");
+    if (!inner) return; // Skip if inner element doesn't exist
+    
+    const delay = i * 0.5;
+
+    // Scale in (all cards)
+    mobileCardEntry.from(card, {
+      scale: 0.5,
+      opacity: 0,
+      duration: 0.6,
+      ease: "back.out(1.5)",
+      delay: delay * 0.5
+    }, 0);
+
+    // Only flip the first card automatically
+    if (i === 0) {
+      mobileCardEntry.to(inner, {
+        rotationY: 180,
+        duration: 0.8,
+        ease: "power2.inOut",
+        delay: delay + 1.2
+      }, 0);
+    } else {
+      // Ensure all other cards remain unflipped
+      gsap.set(inner, { rotationY: 0 });
+    }
+  });
+}
+
+// Ensure DOM is fully loaded before initializing cards
 document.addEventListener("DOMContentLoaded", function() {
-  // Check if we're on the about page and second section is active
+  // Check if we're on the about page with the craft cards section active
+  const craftCards = document.querySelectorAll('.craft-card');
   const secondSection = document.querySelector('.second');
-  if (secondSection && currentIndex === 1 && document.querySelector('.craft-cards')) {
+  
+  if (craftCards.length > 0 && secondSection && currentIndex === 1) {
     playCraftCardsAnimation();
+  }
+  
+  // Check if we need to initialize flip cards
+  const flipCards = document.querySelectorAll(".fifth .flip-card");
+  if (flipCards.length > 0 && currentIndex === 4) {
+    playCardEntry();
   }
 });
 
