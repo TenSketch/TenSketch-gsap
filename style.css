@@ -78,12 +78,11 @@ header {
 
 /* Logo Menu Styling */
 .logo-container {
-  position: relative;
+  position: fixed;
   cursor: pointer;
-  z-index: 5;
+  z-index: 101; /* Increased to be above menu (z-index: 100) */
   order: -1; /* Ensures it's always on the left */
   transition: transform var(--logo-transition) ease;
-  position: relative;
 }
 
 .logo-container::after {
@@ -125,7 +124,7 @@ header .logo {
   left: 40px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 100;
+  z-index: 101; /* Increased to ensure always visible above menu */
   cursor: pointer;
   transition: all 0.5s ease;
   display: flex;
@@ -139,14 +138,26 @@ header .logo {
   position: absolute;
   max-width: 80px;
   max-height: 80px;
-  transition: all 0.5s cubic-bezier(0.77,0,0.175,1);
 }
 .logo-left {
   left: 0;
+  /* Remove transition from left half to keep it stationary */
+  transition: none;
 }
 .logo-right {
-  left: 26px;
+  left: 30px; /* Increased gap between halves */
+  transition: all 0.5s cubic-bezier(0.77,0,0.175,1); /* Slightly faster transition */
 }
+/* Animation states for open/close */
+.menu.open ~ .logo-container .logo-right {
+  transform: translateX(40px); /* Move right when open */
+  opacity: 0;
+}
+.menu:not(.open) ~ .logo-container .logo-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 @media (max-width: 600px) {
   .logo-container {
     left: 10px;
@@ -158,7 +169,11 @@ header .logo {
     max-height: 50px;
   }
   .logo-right {
-    left: 16px;
+    left: 22px; /* Increased gap for mobile */
+  }
+  /* Animation for mobile */
+  .menu.open ~ .logo-container .logo-right {
+    transform: translateX(30px);
   }
 }
 /* Hide old .logo styles in header */
@@ -189,6 +204,19 @@ header .logo { display: none !important; }
   padding: 0;
   margin: 0;
   text-align: center;
+  padding-left: 150px; /* Add padding to prevent overlap with logo */
+}
+
+@media (max-width: 768px) {
+  .menu ul {
+    padding-left: 100px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu ul {
+    padding-left: 80px; /* Further adjust for very small screens */
+  }
 }
 
 .menu li {

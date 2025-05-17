@@ -20,21 +20,15 @@ function splitLogoToggleMenu() {
   menuNav.classList.toggle('open');
   // Animate logo halves
   if (menuNav.classList.contains('open')) {
-    // Set menu width to 40% of viewport
-    menuNav.style.width = '40%';
+    // Set menu width to 40% of viewport with enough space for logo
+    menuNav.style.width = 'calc(40% + 120px)'; // Increased width to account for logo
     
-    // Animate logo
-    gsap.to(logoLeft, {
-      left: '-40px',
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.out"
-    });
+    // Remove animation for left half - keep it visible and stationary
     
     gsap.to(logoRight, {
       left: 'calc(100vw - 80px)',
       opacity: 0,
-      duration: 0.5,
+      duration: 0.6, // Made animation faster
       ease: "power2.out"
     });
     
@@ -54,17 +48,11 @@ function splitLogoToggleMenu() {
     document.body.style.overflow = 'hidden';
   } else {
     // Animate logo back
-    gsap.to(logoLeft, {
-      left: '0',
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out"
-    });
     
     gsap.to(logoRight, {
-      left: '26px',
+      left: '35px', // Match the CSS value
       opacity: 1,
-      duration: 0.5,
+      duration: 0.6, // Made animation faster
       ease: "power2.out"
     });
     
