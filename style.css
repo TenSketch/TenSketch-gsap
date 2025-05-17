@@ -1150,6 +1150,7 @@ h2 * {
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 3rem;
+  perspective: 1200px;
 }
 
 .craft-card {
@@ -1164,6 +1165,32 @@ h2 * {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   background: rgba(var(--primary-clr-rgb), 0.2);
   border: 1px solid rgba(var(--secondary-clr-rgb), 0.1);
+  opacity: 0; /* Start hidden for GSAP animation */
+  transition: box-shadow 0.4s ease;
+}
+
+.craft-card.animated {
+  animation: floatingCard 6s ease-in-out infinite;
+}
+
+.craft-card:nth-child(2).animated {
+  animation-delay: 2s;
+}
+
+.craft-card:nth-child(3).animated {
+  animation-delay: 4s;
+}
+
+@keyframes floatingCard {
+  0%, 100% {
+    transform: translateY(0) translateZ(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) translateZ(10px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(-4px) translateZ(5px) rotate(-0.5deg);
+  }
 }
 
 .craft-card-inner {
@@ -1187,6 +1214,20 @@ h2 * {
   margin: 0;
   z-index: 2;
   transition: all 0.4s ease;
+  position: relative;
+}
+
+.craft-card h3::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -8px;
+  left: 50%;
+  background: var(--accent-gold);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+  opacity: 0;
 }
 
 .card-overlay {
@@ -1202,14 +1243,25 @@ h2 * {
 }
 
 /* Craft Card Hover Animations */
+.craft-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 
+              0 0 15px rgba(var(--accent-gold-rgb), 0.5);
+  animation-play-state: paused;
+}
+
 .craft-card:hover .craft-card-inner {
-  transform: translateY(-10px);
+  transform: translateY(-10px) translateZ(20px);
 }
 
 .craft-card:hover h3 {
   color: var(--accent-gold);
   transform: scale(1.1);
   text-shadow: 0 0 15px rgba(var(--accent-gold-rgb), 0.5);
+}
+
+.craft-card:hover h3::after {
+  width: 70%;
+  opacity: 1;
 }
 
 .craft-card:hover .card-overlay {

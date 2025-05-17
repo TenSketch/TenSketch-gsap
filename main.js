@@ -154,6 +154,11 @@ function gotoSection(index, direction) {
   if (sections[index].classList.contains("fifth")) {
     playCardEntry();
   }
+  
+  // Animate craft cards when we hit the second section in about page
+  if (sections[index].classList.contains("second") && document.querySelector('.craft-cards')) {
+    playCraftCardsAnimation();
+  }
 }
 
 Observer.create({
@@ -170,6 +175,70 @@ Observer.create({
 });
 
 gotoSection(0, 1);
+
+// Add craft cards animation function
+function playCraftCardsAnimation() {
+  const craftCards = gsap.utils.toArray('.craft-card');
+  
+  if (!craftCards.length) return;
+  
+  // Remove any existing animations
+  craftCards.forEach(card => {
+    gsap.killTweensOf(card);
+  });
+  
+  // Create staggered entrance animation
+  gsap.fromTo(craftCards, 
+    { 
+      y: 100, 
+      opacity: 0,
+      rotationX: 15,
+      scale: 0.8
+    },
+    { 
+      y: 0, 
+      opacity: 1,
+      rotationX: 0,
+      scale: 1,
+      duration: 1.2,
+      ease: "back.out(1.7)",
+      stagger: 0.2,
+      onComplete: () => {
+        // Add floating animation class after entrance animation
+        craftCards.forEach(card => {
+          card.classList.add('animated');
+        });
+      }
+    }
+  );
+  
+  // Animate subtitle after cards
+  const subtitle = document.querySelector('.craft-subtitle');
+  if (subtitle) {
+    gsap.fromTo(subtitle, 
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, delay: 0.8 }
+    );
+  }
+  
+  // Animate CTA button after subtitle
+  const ctaButton = document.querySelector('.craft-showcase .btn-cta');
+  if (ctaButton) {
+    gsap.fromTo(ctaButton, 
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, delay: 1.2 }
+    );
+  }
+}
+
+// Initialize craft cards animation if already on second section when page loads
+document.addEventListener("DOMContentLoaded", function() {
+  // Check if we're on the about page and second section is active
+  const secondSection = document.querySelector('.second');
+  if (secondSection && currentIndex === 1 && document.querySelector('.craft-cards')) {
+    playCraftCardsAnimation();
+  }
+});
 
 // --- Section 3: Card active switching (unchanged) ---
 const cards = document.querySelectorAll('.card');
