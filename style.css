@@ -510,23 +510,100 @@ h2 * {
 
 .cards-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem; /* Increased from 1rem to 2rem for more spacing */
   padding-inline: 2rem;
   max-width: 1200px;
   margin: 4rem auto 1rem;
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  .card {
-    flex: 0 1 42.5% !important;
-    width: 42.5%;
+/* Updated card styling for 4 in a row with increased gap */
+.third .card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1.5rem;
+  transition: all 0.4s ease;
+  flex: 0 0 calc(25% - 1.5rem); /* Adjusted for larger gap - 25% width minus larger gap */
+  min-width: 160px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+
+.third .card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 992px) {
+  .third .card {
+    flex: 0 0 calc(50% - 1.5rem); /* 2 in a row for medium screens, adjusted for larger gap */
   }
+}
+
+@media (max-width: 768px) {
   .cards-container {
-    gap: 0.75rem; /* Reduced gap for mobile */
+    gap: 1.5rem; /* Also increased for mobile, but slightly smaller */
+    padding-inline: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  .third .card {
+    padding: 1rem;
+    flex: none; /* Remove flex sizing */
+    width: 100%; /* Fill the grid cell */
+    min-width: unset; /* Remove min-width constraint */
+    height: auto; /* Allow height to adjust based on content */
+    min-height: 140px; /* Set minimum height */
+    margin: 0; /* Remove margin */
+  }
+  
+  .card-title {
+    font-size: 1.25rem; /* Slightly smaller font for mobile */
+  }
+  
+  .card-desc {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    gap: 1rem; /* Further reduce gap on very small screens */
+  }
+  
+  .card-icon img {
+    width: 32px; /* Smaller icons on very small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    gap: 1.5rem; /* Also increased for mobile, but slightly smaller */
     padding-inline: 1rem;
+  }
+  
+  .third .card {
+    padding: 1rem;
+    flex: 0 0 calc(50% - 1rem); /* Adjusted for gap on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .third .card {
+    flex: 0 0 100%; /* Stack cards for very small screens */
+    max-width: 250px;
+    margin: 0 auto;
   }
 }
 
