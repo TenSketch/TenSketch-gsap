@@ -1,5 +1,6 @@
 // --- GSAP Registrations ---
 gsap.registerPlugin(Observer);
+gsap.registerPlugin(ScrollTrigger);
 
 // --- Split Logo Hamburger Menu Logic ---
 const logoMenu = document.getElementById('logo-menu');
@@ -344,6 +345,9 @@ document.addEventListener("DOMContentLoaded", function() {
   if (flipCards.length > 0 && currentIndex === 4) {
     playCardEntry();
   }
+
+  // Initialize animations for the approach section
+  initApproachAnimations();
 });
 
 // --- Section 3: Card active switching (unchanged) ---
@@ -470,3 +474,68 @@ mobileFlipCards.forEach(card => {
     });
   });
 });
+
+// Function to initialize approach section animations
+function initApproachAnimations() {
+  if (document.querySelector('.approach-section')) {
+    // Animate the heading
+    gsap.from('.approach-section .section-heading', {
+      scrollTrigger: {
+        trigger: '.approach-section',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1.2,
+      ease: 'power3.out'
+    });
+    
+    // Animate the approach boxes with stagger
+    gsap.from('.approach-box', {
+      scrollTrigger: {
+        trigger: '.approach-container',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 80,
+      scale: 0.9,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'back.out(1.7)'
+    });
+    
+    // Animate the numbers with a different effect
+    gsap.from('.approach-number', {
+      scrollTrigger: {
+        trigger: '.approach-container',
+        start: 'top 75%',
+      },
+      opacity: 0,
+      x: -50,
+      duration: 1.5,
+      stagger: 0.3,
+      ease: 'elastic.out(1, 0.5)'
+    });
+    
+    // Add hover effects for approach boxes
+    document.querySelectorAll('.approach-box').forEach(box => {
+      box.addEventListener('mouseenter', function() {
+        gsap.to(this, {
+          y: -10,
+          boxShadow: '0 10px 20px rgba(0,0,0,0.2)',
+          borderColor: 'rgba(212, 175, 55, 0.5)',
+          duration: 0.3
+        });
+      });
+      
+      box.addEventListener('mouseleave', function() {
+        gsap.to(this, {
+          y: 0,
+          boxShadow: 'none',
+          borderColor: 'rgba(255, 255, 255, 0.2)',
+          duration: 0.3
+        });
+      });
+    });
+  }
+}
