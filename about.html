@@ -92,6 +92,105 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg testimonials-bg">
+          <div class="testimonials-container">
+            <h2 class="section-heading">What Our Clients Say</h2>
+            <div class="testimonial">
+              <div class="quote">“TenSketch delivered a website that truly reflects our brand’s legacy. The attention to detail and creativity exceeded our expectations!”</div>
+              <div class="author">— Prabhat Arts International</div>
+            </div>
+            <div class="testimonial">
+              <div class="quote">“The team at TenSketch transformed our vision into a seamless digital experience. We saw a real boost in engagement!”</div>
+              <div class="author">— ESPeople</div>
+            </div>
+            <div class="testimonial">
+              <div class="quote">“Professional, innovative, and always on time. Highly recommended for anyone serious about their online presence.”</div>
+              <div class="author">— Success Solution</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .testimonials-bg {
+      background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%), url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonials-container {
+      background: rgba(20, 20, 20, 0.7);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.36);
+      padding: 3rem 2rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .testimonials-container .section-heading {
+      margin-bottom: 2rem;
+      color: #fff;
+      letter-spacing: 0.05em;
+      font-size: 2.2rem;
+      text-shadow: 0 2px 16px #000, 0 0 8px #d4af37;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .testimonial {
+      margin-bottom: 2.2rem;
+      padding: 1.5rem 1rem 1rem 1rem;
+      background: rgba(255,255,255,0.07);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18);
+      border-left: 4px solid #d4af37;
+      position: relative;
+      transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .testimonial:last-child { margin-bottom: 0; }
+    .testimonial:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px 0 rgba(212,175,55,0.18);
+      background: rgba(255,255,255,0.13);
+    }
+    .quote {
+      font-size: 1.18rem;
+      color: #fff;
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 8px #000;
+    }
+    .author {
+      color: #d4af37;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 600px) {
+      .testimonials-container { padding: 1.5rem 0.5rem; max-width: 98vw; }
+      .testimonial { padding: 1rem 0.3rem 0.7rem 0.3rem; font-size: 0.98rem; }
+      .testimonials-container .section-heading { font-size: 1.3rem; }
+      .quote { font-size: 1rem; }
+    }
+  </style>
+
   <!-- FOOTER -->
   <section class="minimal-footer">
     <div class="outer">
@@ -114,5 +213,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
+  <script>
+    if (gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+    gsap.from('.testimonials-section .section-heading', {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.testimonials-section',
+        start: 'top 80%',
+      }
+    });
+    gsap.from('.testimonials-section .testimonial', {
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.25,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.testimonials-section',
+        start: 'top 80%',
+      }
+    });
+  </script>
 </body>
 </html>
