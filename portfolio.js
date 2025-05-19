@@ -22,28 +22,41 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isAnimating) return;
     isAnimating = true;
     const cards = Array.from(grid.children);
-    // Only slide animation, no fade/scale, and only animate the center card for performance
+    // On mobile, only animate the spotlight card
+    const isMobile = window.innerWidth <= 600;
     const onComplete = () => {
       renderCards(true, direction);
-      // Animate new cards in (only center card for best performance)
       const newCards = Array.from(grid.children);
-      if (newCards[1]) {
+      if (isMobile && newCards[0]) {
+        gsap.fromTo(newCards[0], {
+          x: -direction * window.innerWidth
+        }, {
+          x: 0,
+          duration: 0.35,
+          ease: 'power2.out',
+          onComplete: () => { isAnimating = false; }
+        });
+      } else if (newCards[1]) {
         gsap.fromTo(newCards[1], {
           x: -direction * 120
         }, {
           x: 0,
           duration: 0.28,
           ease: 'power2.out',
-          onComplete: () => {
-            isAnimating = false;
-          }
+          onComplete: () => { isAnimating = false; }
         });
       } else {
         isAnimating = false;
       }
     };
-    // Animate only the center card out
-    if (cards[1]) {
+    if (isMobile && cards[0]) {
+      gsap.to(cards[0], {
+        x: direction * window.innerWidth,
+        duration: 0.35,
+        ease: 'power2.in',
+        onComplete
+      });
+    } else if (cards[1]) {
       gsap.to(cards[1], {
         x: direction * 120,
         duration: 0.28,
