@@ -1,0 +1,47 @@
+[
+  {
+    "index": 0,
+    "imageSrc": "assets/portfolio/PrabhatLegacy.png",
+    "altText": "Prabhat Legacy Website Project",
+    "title": "Prabhat Legacy",
+    "description": "Prabhat Arts International is a five-generation artistic lineage from Karnataka, India, renowned for Indian classical dance, music, and storytelling.",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://ukeuropetour.prabhatha.com"
+  },
+  {
+    "index": 1,
+    "imageSrc": "assets/portfolio/ESPeople.png",
+    "altText": "ESPeople Website Project",
+    "title": "ESPeople",
+    "description": "ESPeople is a Learning & Development (L&D) consulting and training services provider, branded as “TrainingSmiths” to energize and synergize organizational teams through tailored people-development interventions.",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://espeople.in"
+  },
+  {
+    "index": 2,
+    "imageSrc": "assets/portfolio/Success Solution.png",
+    "altText": "Success Solution Website Project",
+    "title": "Success Solution",
+    "description": "Success Solutions HR Consulting India Pvt. Ltd., headquartered in Chennai, Tamil Nadu.The site functions as a one-stop platform for organizations seeking expatriate staffing, recruitment process outsourcing (RPO), and global resource management solutions.",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://successsolutions.in"
+  },
+  {
+    "index": 3,
+    "imageSrc": "assets/portfolio/vanivihari.png",
+    "altText": "Vanavihari Website Project",
+    "title": "Vanavihari",
+    "description": "Vanavihari is a travel and adventure platform offering curated nature treks, group activities, and eco-tourism experiences across India, with a vibrant and modern design.",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://vanavihari.com/"
+  },
+  {
+    "index": 4,
+    "imageSrc": "assets/portfolio/Spcharn.png",
+    "altText": "SP Charan Official Website Project",
+    "title": "SP Charan Official",
+    "description": "The official website of SP Charan, renowned playback singer, actor, and producer, showcasing his musical legacy, concert highlights, and a gallery of performances.",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://spcharanofficial.com/"
+  }
+]

@@ -6,6 +6,7 @@
   <title>Portfolio | TenSketch</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
   <header>
@@ -31,7 +32,8 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-  </header>  <!-- Our Approach Section -->
+  </header>  
+  <!-- Our Approach Section -->
   <section class="first approach-section">
     <div class="outer">
       <div class="inner">
@@ -78,77 +80,25 @@
       </div>
     </div>
   </section>
-  <!-- Portfolio Sections: One per project -->
-  <section class="second">
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
     <div class="outer">
       <div class="inner">
-        <div class="bg one" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 100%), url('assets/portfolio/PrabhatLegacy.png');">
-          <h2 class="section-heading">Prabhat Legacy</h2>
-          <p class="section-text">Prabhat Arts International is a five-generation artistic lineage from Karnataka, India, renowned for Indian classical dance, music, and storytelling.</p>
-          <div class="section-text" style="margin-bottom:1rem;">
-            <strong>Stack:</strong> HTML, CSS, JavaScript
+        <div class="bg">
+          <h2 class="section-heading">Our Portfolio</h2>
+          <div class="portfolio-cards-grid">
+            <!-- Cards will be injected by JS -->
           </div>
-          <a href="https://ukeuropetour.prabhatha.com" class="btn-cta" target="_blank">Watch Live Site</a>
+          <div class="portfolio-nav">
+            <button class="portfolio-btn prev" aria-label="Previous Portfolio Item">&#8592; Prev</button>
+            <button class="portfolio-btn next" aria-label="Next Portfolio Item">Next &#8594;</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="third">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 100%), url('assets/portfolio/ESPeople.png');">
-          <h2 class="section-heading">ESPeople</h2>
-          <p class="section-text">ESPeople is a Learning & Development (L&D) consulting and training services provider, branded as “TrainingSmiths” to energize and synergize organizational teams through tailored people-development interventions.</p>
-          <div class="section-text" style="margin-bottom:1rem;">
-            <strong>Stack:</strong> HTML, CSS, JavaScript
-          </div>
-          <a href="https://espeople.in" class="btn-cta" target="_blank">Watch Live Site</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="fourth">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 100%), url('assets/portfolio/Success Solution.png');">
-          <h2 class="section-heading">Success Solution</h2>
-          <p class="section-text">Success Solutions HR Consulting India Pvt. Ltd., headquartered in Chennai, Tamil Nadu. The site functions as a one-stop platform for organizations seeking expatriate staffing, recruitment process outsourcing (RPO), and global resource management solutions.</p>
-          <div class="section-text" style="margin-bottom:1rem;">
-            <strong>Stack:</strong> HTML, CSS, JavaScript
-          </div>
-          <a href="https://successsolutions.in" class="btn-cta" target="_blank">Watch Live Site</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="fifth">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 100%), url('assets/portfolio/vanivihari.png');">
-          <h2 class="section-heading">Vanavihari</h2>
-          <p class="section-text">Vanavihari is a travel and adventure platform offering curated nature treks, group activities, and eco-tourism experiences across India, with a vibrant and modern design.</p>
-          <div class="section-text" style="margin-bottom:1rem;">
-            <strong>Stack:</strong> HTML, CSS, JavaScript
-          </div>
-          <a href="https://vanavihari.com/" class="btn-cta" target="_blank">Watch Live Site</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="sixth">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.7) 100%), url('assets/portfolio/Spcharn.png');">
-          <h2 class="section-heading">SP Charan Official</h2>
-          <p class="section-text">The official website of SP Charan, renowned playback singer, actor, and producer, showcasing his musical legacy, concert highlights, and a gallery of performances.</p>
-          <div class="section-text" style="margin-bottom:1rem;">
-            <strong>Stack:</strong> HTML, CSS, JavaScript
-          </div>
-          <a href="https://spcharanofficial.com/" class="btn-cta" target="_blank">Watch Live Site</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
   <!-- Footer -->
   <section class="minimal-footer">
     <div class="outer">
@@ -164,10 +114,12 @@
       </div>
     </div>
   </section>
+  
   <!-- GSAP Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
+  <script src="portfolio.js"></script>
 </body>
 </html>
