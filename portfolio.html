@@ -87,12 +87,19 @@
       <div class="inner">
         <div class="bg">
           <h2 class="section-heading">Our Portfolio</h2>
-          <div class="portfolio-cards-grid">
-            <!-- Cards will be injected by JS -->
-          </div>
-          <div class="portfolio-nav">
-            <button class="portfolio-btn prev" aria-label="Previous Portfolio Item">&#8592; Prev</button>
-            <button class="portfolio-btn next" aria-label="Next Portfolio Item">Next &#8594;</button>
+          <div class="portfolio-container">
+            <div class="portfolio-cards-grid" id="portfolio-cards-grid">
+              <!-- Portfolio cards will be loaded dynamically -->
+            </div>
+            
+            <div class="portfolio-nav">
+              <button class="portfolio-btn prev-btn" id="prev-portfolio">Previous</button>
+              <button class="portfolio-btn next-btn" id="next-portfolio">Next</button>
+            </div>
+            
+            <div class="portfolio-indicators" id="portfolio-indicators">
+              <!-- Indicators will be added dynamically -->
+            </div>
           </div>
         </div>
       </div>
