@@ -69,7 +69,6 @@ header {
   width: 100%;
   z-index: 3;
   height: 7em;
-  font-family: "Bebas Neue", sans-serif;
   font-size: clamp(0.66rem, 2vw, 1rem);
   letter-spacing: 0.5em;
   top: 3%;
@@ -297,7 +296,6 @@ header .logo { display: none !important; }
   color: var(--secondary-clr);
   font-size: 2rem;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   position: relative;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease;
@@ -499,7 +497,6 @@ h2 * {
   letter-spacing: 0.1em;
   border: none;
   cursor: pointer;
-  font-family: "Bebas Neue", sans-serif;
   text-transform: uppercase;
   transition: background 0.3s ease;
 }
