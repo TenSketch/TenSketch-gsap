@@ -13,9 +13,20 @@ let menuCloseBtn = document.querySelector('.menu-close');
 if (!menuCloseBtn) {
   menuCloseBtn = document.createElement('div');
   menuCloseBtn.className = 'menu-close';
-  menuCloseBtn.innerHTML = '<span></span><span></span>';
+  menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
   menuNav.appendChild(menuCloseBtn);
+} else {
+  // If it exists, update to use the cross image
+  menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
 }
+
+// Update left position for logoRight to match CSS (50px desktop, 35px mobile)
+window.addEventListener('resize', () => {
+  if (!menuNav.classList.contains('open')) {
+    const isMobile = window.innerWidth <= 600;
+    gsap.set(logoRight, { left: isMobile ? '35px' : '50px' });
+  }
+});
 
 function splitLogoToggleMenu() {
   menuNav.classList.toggle('open');
@@ -23,8 +34,6 @@ function splitLogoToggleMenu() {
   if (menuNav.classList.contains('open')) {
     // Set menu width to 40% of viewport with enough space for logo
     menuNav.style.width = 'calc(40% + 120px)'; // Increased width to account for logo
-    
-    // Remove animation for left half - keep it visible and stationary
     
     gsap.to(logoRight, {
       left: 'calc(100vw - 80px)',
@@ -50,7 +59,7 @@ function splitLogoToggleMenu() {
   } else {
     // Check screen size for proper positioning on close
     const isMobile = window.innerWidth <= 600;
-    const leftPosition = isMobile ? '20px' : '30px'; // Match the CSS values for different screen sizes
+    const leftPosition = isMobile ? '35px' : '50px'; // Match the CSS values for different screen sizes
     
     gsap.to(logoRight, {
       left: leftPosition,
@@ -71,14 +80,6 @@ function splitLogoToggleMenu() {
     document.body.style.overflow = '';
   }
 }
-
-// Add window resize handler to update positioning
-window.addEventListener('resize', () => {
-  if (!menuNav.classList.contains('open')) {
-    const isMobile = window.innerWidth <= 600;
-    gsap.set(logoRight, { left: isMobile ? '15px' : '30px' });
-  }
-});
 
 logoMenu.addEventListener('click', splitLogoToggleMenu);
 // Close menu when clicking menu items
