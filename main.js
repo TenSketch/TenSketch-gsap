@@ -20,11 +20,11 @@ if (!menuCloseBtn) {
   menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
 }
 
-// Update left position for logoRight to match CSS (50px desktop, 35px mobile)
+// Update left position for logoRight to match CSS (25px desktop, 17.5px mobile)
 window.addEventListener('resize', () => {
   if (!menuNav.classList.contains('open')) {
     const isMobile = window.innerWidth <= 600;
-    gsap.set(logoRight, { left: isMobile ? '35px' : '50px' });
+    gsap.set(logoRight, { left: isMobile ? '17.5px' : '25px' });
   }
 });
 
@@ -33,10 +33,10 @@ function splitLogoToggleMenu() {
   // Animate logo halves
   if (menuNav.classList.contains('open')) {
     // Set menu width to 40% of viewport with enough space for logo
-    menuNav.style.width = 'calc(40% + 120px)'; // Increased width to account for logo
+    menuNav.style.width = 'calc(40% + 60px)'; // Reduced width to account for smaller logo
     
     gsap.to(logoRight, {
-      left: 'calc(100vw - 80px)',
+      left: 'calc(100vw - 40px)',
       opacity: 0,
       duration: 0.6, // Made animation faster
       ease: "power2.out"
@@ -56,10 +56,9 @@ function splitLogoToggleMenu() {
     );
     
     document.body.style.overflow = 'hidden';
-  } else {
-    // Check screen size for proper positioning on close
+  } else {    // Check screen size for proper positioning on close
     const isMobile = window.innerWidth <= 600;
-    const leftPosition = isMobile ? '35px' : '50px'; // Match the CSS values for different screen sizes
+    const leftPosition = isMobile ? '17.5px' : '25px'; // Match the CSS values for different screen sizes
     
     gsap.to(logoRight, {
       left: leftPosition,
