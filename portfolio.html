@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | TenSketch</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Portfolio | TenSketch</title>  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="portfolio.css">
 </head>
@@ -31,9 +29,9 @@
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
-    </nav>
-  </header>  
-  <!-- Our Approach Section -->
+    </nav>  </header>
+  
+  <!-- SECTION 1: OUR APPROACH -->
   <section class="first approach-section">
     <div class="outer">
       <div class="inner">
@@ -74,31 +72,32 @@
                   <li>Content updates</li>
                 </ul>
               </div>
-            </div>
-          </div>
+            </div>          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section class="portfolio-section">
+  <!-- SECTION 2: PORTFOLIO SHOWCASE -->
+  <section class="second portfolio-section" id="portfolio">
     <div class="outer">
       <div class="inner">
-        <div class="bg">
+        <div class="bg two">
           <h2 class="section-heading">Our Portfolio</h2>
           <div class="portfolio-container">
-            <div class="portfolio-cards-grid" id="portfolio-cards-grid">
-              <!-- Portfolio cards will be loaded dynamically -->
+            <div class="portfolio-grid" id="portfolioGrid">
+              <!-- Portfolio cards will be dynamically loaded here -->
             </div>
-            
-            <div class="portfolio-nav">
-              <button class="portfolio-btn prev-btn" id="prev-portfolio">Previous</button>
-              <button class="portfolio-btn next-btn" id="next-portfolio">Next</button>
-            </div>
-            
-            <div class="portfolio-indicators" id="portfolio-indicators">
-              <!-- Indicators will be added dynamically -->
+            <div class="portfolio-navigation">
+              <button class="nav-btn prev-btn" id="prevBtn" aria-label="Previous Portfolio">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="portfolio-indicators" id="portfolioIndicators">
+                <!-- Indicators will be dynamically generated -->
+              </div>
+              <button class="nav-btn next-btn" id="nextBtn" aria-label="Next Portfolio">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -121,9 +120,7 @@
       </div>
     </div>
   </section>
-  
-  <!-- GSAP Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- GSAP Script -->  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>

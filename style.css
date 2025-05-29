@@ -1425,7 +1425,7 @@ h2 * {
   font-size: 1.8rem; /* Larger title */
   font-weight: bold;
   margin-bottom: 1.5rem;
-  color: var(--accent-gold);
+  color: var(--secondary-clr); /* White color */
   font-family: 'Cormorant Garamond', serif; /* Elegant font */
 }
 
