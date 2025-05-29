@@ -147,7 +147,6 @@ function gotoSection(index, direction) {
     );
 
   currentIndex = index;
-
   // Trigger flip-card entry when we hit the fifth section
   if (sections[index].classList.contains("fifth")) {
     // Make sure fifth section has flip cards before calling the animation
@@ -164,6 +163,11 @@ function gotoSection(index, direction) {
     if (craftCards && craftCards.length > 0) {
       playCraftCardsAnimation();
     }
+  }
+  
+  // Animate testimonials when we hit the testimonials section
+  if (sections[index].classList.contains("testimonials")) {
+    playTestimonialsAnimation();
   }
 }
 
@@ -539,3 +543,72 @@ function initApproachAnimations() {
     });
   }
 }
+
+// Function to animate 3D testimonials section (Demo Style)
+function playTestimonialsAnimation() {
+  const testimonialsSection = document.querySelector('.testimonials');
+  if (!testimonialsSection) return;
+    const galleryBoxOuter = document.querySelector('.gallery_box_outer');
+  const heading = document.querySelector('.testimonials .section-heading');
+  
+  if (!galleryBoxOuter) return;
+  
+  // Create timeline for testimonials animation
+  const tl = gsap.timeline();
+  
+  // Animate heading first
+  if (heading) {
+    tl.fromTo(heading, 
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    );
+  }
+  
+  // Animate the 3D container entrance
+  tl.fromTo(galleryBoxOuter,
+    { 
+      scale: 0.5,
+      opacity: 0,
+      rotationX: 90
+    },
+    { 
+      scale: 1,
+      opacity: 1,
+      rotationX: 0,
+      duration: 1.5,
+      ease: "back.out(1.7)"    },
+    "-=0.7"
+  );
+  
+  // Start the continuous rotation after entrance (exact demo animation)
+  tl.call(() => {
+    const cards = document.querySelectorAll('.gallery_box_in').length;
+    // Each card should take 3 seconds to rotate into view
+    // Full rotation = cards * 3 seconds
+    const duration = cards * 3;
+    const rotationTl = gsap.timeline({});
+    rotationTl.to(galleryBoxOuter, {
+      duration: duration,
+      rotateY: 360,
+      ease: "none",
+      repeat: -1
+    });
+    
+    // Pause on mousedown/touchstart, resume on mouseup/touchend (exact demo behavior)
+    const gallery = galleryBoxOuter;
+    gallery.addEventListener('mousedown', () => rotationTl.pause());
+    gallery.addEventListener('touchstart', () => rotationTl.pause());
+    document.addEventListener('mouseup', () => rotationTl.resume());
+    document.addEventListener('touchend', () => rotationTl.resume());
+  });
+}
+
+// --- Call testimonials animation on section enter ---
+ScrollTrigger.create({
+  trigger: '.testimonials',
+  start: 'top 80%',
+  onEnter: () => {
+    playTestimonialsAnimation();
+  },
+  once: true // Only trigger once
+});

@@ -45,8 +45,13 @@ body {
   padding: 0;
   height: 100vh;
   color: var(--secondary-clr);
-  background: var(--primary-clr);
+  background: transparent !important;
   font-family: "Cormorant Garamond", serif;
+}
+
+html, body {
+  background: transparent !important;
+  min-height: 100vh;
 }
 
 h2 {
@@ -988,56 +993,11 @@ h2 * {
 .about-meaning .section-text {
   font-size: 1.2rem;
   line-height: 1.8;
-  width: 100%; /* Constrain width */
-  box-sizing: border-box;
+  width: 100%; /* Constrain width */  box-sizing: border-box;
   word-wrap: break-word; /* Ensure text wraps correctly */
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-
-.testimonials-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.testimonial {
-  background: rgba(var(--primary-dark-rgb), 0.7);
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  border: 1px solid rgba(var(--accent-gold-rgb), 0.3);
-  box-shadow: 
-    0 0 5px rgba(var(--accent-gold-rgb), 0.5),
-    0 0 20px rgba(var(--accent-gold-rgb), 0.2),
-    inset 0 0 5px rgba(var(--accent-gold-rgb), 0.1);
-}
-
-.testimonial .quote {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: var(--secondary-clr);
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.testimonial .author {
-  font-style: italic;
-  color: var(--accent-gold);
-  text-align: right;
-  margin: 0;
-}
-
-.process-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -1047,8 +1007,8 @@ h2 * {
 }
 
 .step {
-  background: rgba(var(--secondary-clr-rgb), 0.05);
-  border: 1px solid rgba(var(--secondary-clr-rgb), 0.2);
+  background: rgba(var(--secondary-clr), 0.05);
+  border: 1px solid rgba(var(--secondary-clr), 0.2);
   border-radius: 12px;
   padding: 2rem;
   position: relative;
@@ -1088,13 +1048,6 @@ h2 * {
     gap: 1rem;
   }
   
-  .testimonial {
-    padding: 1.5rem;
-  }
-  
-  .testimonial .quote {
-    font-size: 1.1rem;
-  }
   
   .step {
     padding: 1.5rem;
@@ -1373,147 +1326,6 @@ h2 * {
   }
 }
 
-.approach-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; /* Better spacing */
-  margin-top: 3rem;
-  gap: 2rem; /* Add gap for spacing between boxes */
-}
-
-.approach-box {
-  position: relative;
-  width: calc(33.333% - 2rem); /* Adjust width considering gap */
-  margin-bottom: 2rem;
-  background-color: rgba(26, 26, 26, 0.7); /* Slightly transparent dark background */
-  border: 1px solid var(--accent-sandal); /* Gold accent border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 2.5rem 2rem; /* Increased padding */
-  box-sizing: border-box;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.approach-box:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 15px var(--accent-gold); /* Enhanced hover shadow */
-    border-color: var(--accent-gold);
-}
-
-.approach-number {
-  position: absolute;
-  top: -1.5rem; /* Positioned slightly outside */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 6rem; /* Slightly smaller but still impactful */
-  font-family: 'Bebas Neue', sans-serif;
-  opacity: 0.08; /* More subtle opacity */
-  color: var(--accent-gold);
-  z-index: 1;
-  line-height: 1;
-  pointer-events: none; /* Ensure it doesn't interfere with hover */
-}
-
-.approach-content {
-  position: relative;
-  z-index: 2;
-  text-align: center; /* Center align content */
-}
-
-.approach-title {
-  font-size: 1.8rem; /* Larger title */
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: var(--secondary-clr); /* White color */
-  font-family: 'Cormorant Garamond', serif; /* Elegant font */
-}
-
-.approach-list {
-  list-style: none;
-  padding: 0;
-}
-
-.approach-list li {
-  margin-bottom: 0.8rem; /* Increased spacing */
-  font-size: 1.1rem; /* Increased font size */
-  line-height: 1.6;
-}
-
-/* Media queries for approach section */
-@media (max-width: 992px) {
-  .approach-container {
-    gap: 1.5rem; /* Consistent gap for tablet */
-  }
-  .approach-box {
-    width: calc(50% - 1rem); /* Adjusted for 2 columns and 1.5rem gap */
-  }
-}
-
-@media (max-width: 768px) {
-  .approach-section {
-    margin-top: 4rem; /* Increased top margin to clear navbar on mobile */
-    padding-top: 1rem; /* Adjusted top padding */
-  }
-  .approach-container {
-    gap: 1rem; /* Further reduced gap for smaller screens */
-    margin-top: 1.5rem; /* Reduced top margin for container */
-  }
-  .approach-box {
-    width: calc(100% - 1.5rem); /* Adjusted for single column with small side margins */
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    padding: 1.2rem 0.8rem; /* Slightly reduced padding */
-    margin-bottom: 1rem; /* Reduced bottom margin */
-  }
-  .approach-number {
-    font-size: 3.5rem; /* Further reduced number size */
-    top: -0.5rem; /* Adjusted top position */
-  }
-  .approach-title {
-    font-size: 1.3rem; /* Further reduced title font size */
-    margin-bottom: 0.8rem;
-  }
-  .approach-list li {
-    font-size: 0.9rem; /* Further reduced list item font size */
-    margin-bottom: 0.5rem;
-  }
-  
-}
-
-@media (max-width: 480px) {
-  .approach-section {
-    margin-top: 3rem; /* Adjust top margin for very small screens */
-    padding-top: 1rem;
-  }
-  .approach-container {
-    gap: 0.75rem; /* Minimal gap */
-    margin-top: 1rem;
-  }
-  .approach-box {
-    width: calc(100% - 1rem); /* Nearly full width, allowing for small margins */
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding: 1rem 0.6rem; /* Minimal padding */
-    margin-bottom: 0.75rem;
-  }
-  .approach-title {
-    font-size: 1.2rem; 
-  }
-  .approach-list li {
-    font-size: 0.85rem; 
-  }
-  .approach-number {
-    font-size: 3rem;
-    top: -0.25rem;
-  }
-  
-.approach-section .bg {
-  justify-content: flex-start;
-}
-
-}
-
 /* Approach Section Fix: Remove black strip at top */
 .approach-section {
   background: transparent !important;
@@ -1523,6 +1335,140 @@ h2 * {
 .approach-section .bg {
   border: none !important;
   box-shadow: none !important;
+}
+
+/* TESTIMONIALS SECTION STYLES - 3D Rotating Grid (Demo Style) */
+.testimonials .bg {
+  background-image: linear-gradient(180deg, rgba(var(--primary-clr-rgb), 0.6) 0%, rgba(var(--primary-clr-rgb), 0.3) 100%), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  padding: 4rem 2rem 2rem;
+}
+
+.testimonials .section-heading {
+  margin-bottom: 0;
+  padding-top: 2rem;
+}
+
+.gallery_box {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: rotateX(-8deg);
+  transform-style: preserve-3d;
+  margin-top: 3rem;
+}
+
+.gallery_box_outer {
+  width: 350px;
+  height: 220px;
+  position: relative;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
+}
+
+.gallery_box_in {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: var(--secondary-clr);
+}
+
+.testimonial-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 3px solid var(--accent-gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  color: var(--secondary-clr);
+  margin-bottom: 12px;
+  text-align: center;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  color: var(--accent-gold);
+  font-size: 1rem;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  line-height: 1.2;
+}
+
+/* 3D Positioning for 6 testimonials (matching demo pattern) */
+.gallery_box_in:nth-child(1) { transform: rotateY(0deg) translateZ(450px); }
+.gallery_box_in:nth-child(2) { transform: rotateY(60deg) translateZ(450px); }
+.gallery_box_in:nth-child(3) { transform: rotateY(120deg) translateZ(450px); }
+.gallery_box_in:nth-child(4) { transform: rotateY(180deg) translateZ(450px); }
+.gallery_box_in:nth-child(5) { transform: rotateY(240deg) translateZ(450px); }
+.gallery_box_in:nth-child(6) { transform: rotateY(300deg) translateZ(450px); }
+
+/* Responsive Design for 3D Testimonials (matching demo) */
+@media (max-width: 600px) {
+  .testimonials .bg {
+    padding: 2rem 1rem 1rem;
+  }
+  
+  .testimonials .section-heading {
+    padding-top: 1rem;
+    font-size: 2.5rem;
+  }
+  
+  .gallery_box {
+    margin-top: 2rem;
+  }
+  
+  .gallery_box_outer {
+    width: 60vw;
+    height: 48vw;
+    max-width: 98vw;
+    max-height: 60vw;
+  }
+  
+  .gallery_box_in {
+    padding: 12px;
+  }
+  
+  .testimonial-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+  
+  .testimonial-name {
+    font-size: 0.9rem;
+  }
 }
 
 
