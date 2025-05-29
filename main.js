@@ -787,10 +787,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // --- Call FAQ animation on section enter ---
 ScrollTrigger.create({
-  trigger: '.faqs-section',
-  start: 'top 80%',
+  trigger: '.faqs-section',  start: 'top 80%',
   onEnter: () => {
     playFAQAnimation();
   },
   once: true // Only trigger once
+});
+
+// --- Sticky CTA Bar Functionality ---
+document.addEventListener('DOMContentLoaded', function() {
+  const stickyCTA = document.getElementById('sticky-cta');
+  
+  if (stickyCTA) {
+    // Show the sticky CTA after a delay
+    setTimeout(() => {
+      stickyCTA.classList.add('visible');
+      document.body.classList.add('sticky-cta-visible');
+    }, 2000);
+    
+    // Optional: Hide on scroll up, show on scroll down
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > lastScrollTop && scrollTop > 300) {
+        // Scrolling down and past threshold
+        stickyCTA.classList.add('visible');
+      } else if (scrollTop < lastScrollTop && scrollTop < 100) {
+        // Scrolling up and near top
+        stickyCTA.classList.remove('visible');
+        document.body.classList.remove('sticky-cta-visible');
+      }
+      
+      lastScrollTop = scrollTop;
+    });
+  }
+});
+
+// --- Enhanced CTA Button Click Tracking ---
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.sticky-cta-btn')) {
+    // Add analytics tracking here if needed
+    console.log('Sticky CTA clicked: Request a Free UX Audit');
+    
+    // Optional: Add smooth scroll to contact section if it exists
+    const contactSection = document.querySelector('#contact, .contact, .lead-cta');
+    if (contactSection) {
+      e.preventDefault();
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
 });
