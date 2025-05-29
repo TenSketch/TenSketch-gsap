@@ -58,11 +58,14 @@ h2 {
   font-size: clamp(1rem, 5vw, 5rem);
   font-weight: 400;
   text-align: center;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.4em;
   margin-right: -0.5em;
   color: var(--secondary-light);
   width: 90vw;
   max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 0.5rem; /* Add padding to prevent clipping */
+  word-wrap: break-word;
 }
 
 header {
@@ -465,6 +468,9 @@ section .bg .clip-text {
 .third .bg {
   background-image: linear-gradient(180deg, rgba(var(--primary-clr-rgb), 0.6) 0%, rgba(var(--primary-clr-rgb), 0.3) 100%), url("https://images.unsplash.com/photo-1617438817509-70e91ad264a5?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU2MDk4Mg&ixlib=rb-1.2.1&q=75&w=1920");
 }
+.third .bg.three {
+  background-image: linear-gradient(180deg, rgba(var(--primary-clr-rgb), 0.7) 0%, rgba(var(--primary-clr-rgb), 0.4) 100%), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80");
+}
 .fourth .bg {
   background-image: linear-gradient(180deg, rgba(var(--primary-clr-rgb), 0.6) 0%, rgba(var(--primary-clr-rgb), 0.3) 100%), url("https://images.unsplash.com/photo-1617412327653-c29093585207?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU2MDgzMQ&ixlib=rb-1.2.1&q=75&w=1920");
 }
@@ -632,6 +638,7 @@ h2 * {
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: var(--secondary-clr);
+  letter-spacing: 1px;
 }
 
 .card-desc {
@@ -1244,7 +1251,7 @@ h2 * {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0), rgba(var(--accent-gold-rgb), 0.2));
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.1) 0%, rgba(var(--accent-gold-rgb), 0.05) 100%);
   opacity: 0;
   z-index: 1;
   transition: opacity 0.4s ease;
@@ -1470,5 +1477,715 @@ h2 * {
     font-size: 0.9rem;
   }
 }
+
+/* UX Before UI Page Specific Styles */
+.ux-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3vh 1rem 5vh; /* Added bottom padding to prevent button clipping */
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ux-content {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  gap: 1.2vh;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2vh; /* Add bottom padding to prevent clipping */
+}
+
+.ux-examples-compact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.example-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--secondary-clr);
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.1) 0%, rgba(var(--accent-gold-rgb), 0.05) 100%);
+  border: 1px solid rgba(var(--accent-gold-rgb), 0.4);
+  border-radius: 25px;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.example-inline:hover {
+  border-color: var(--accent-gold);
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.2) 0%, rgba(var(--accent-gold-rgb), 0.1) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(var(--accent-gold-rgb), 0.3);
+}
+
+.example-inline i {
+  color: var(--accent-gold);
+  font-size: 1rem;
+}
+
+.example-inline strong {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.section-text.highlight {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-shadow: 0 2px 10px rgba(var(--accent-gold-rgb), 0.3);
+  position: relative;
+}
+
+.section-text.highlight::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  right: -20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  transform: translateY(-50%);
+  opacity: 0.3;
+}
+
+.section-text.closing {
+  font-size: 1rem;
+  font-style: italic;
+  position: relative;
+}
+
+.section-text.closing em {
+  color: var(--accent-gold);
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.4);
+}
+
+.industry-tags-compact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.industry-tag {
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.15) 0%, rgba(var(--accent-gold-rgb), 0.05) 100%);
+  border: 1px solid rgba(var(--accent-gold-rgb), 0.4);
+  border-radius: 15px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--secondary-clr);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.industry-tag:hover {
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.25) 0%, rgba(var(--accent-gold-rgb), 0.15) 100%);
+  border-color: var(--accent-gold);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(var(--accent-gold-rgb), 0.3);
+}
+
+.industry-tag i {
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+}
+
+/* Mobile Responsive for UX Page */
+@media (max-width: 768px) {
+  .ux-hero {
+    padding: 2vh 0.75rem;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .ux-content {
+    gap: 1vh;
+    max-width: 100%;
+  }
+  
+  .ux-examples-compact {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .example-inline {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
+    max-width: 280px;
+    gap: 0.4rem;
+  }
+  
+  .industry-tags-compact {
+    gap: 0.3rem;
+  }
+  
+  .industry-tag {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    gap: 0.2rem;
+  }
+  
+  .section-text.highlight {
+    font-size: 0.9rem;
+  }
+  
+  .section-text.closing {
+    font-size: 0.85rem;
+  }
+  
+  .section-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .section-heading {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+}
+
+/* Extra small screens optimization for UX Page */
+@media (max-width: 480px) {
+  .ux-hero {
+    padding: 1.5vh 0.5rem;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .ux-content {
+    gap: 0.8vh;
+  }
+  
+  .section-heading {
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+  
+  .section-text {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+  
+  .ux-examples-compact {
+    gap: 0.4rem;
+  }
+  
+  .example-inline {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    max-width: 240px;
+  }
+  
+  .industry-tags-compact {
+    gap: 0.25rem;
+  }
+  
+  .industry-tag {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.65rem;
+  }
+  
+  .section-text.highlight {
+    font-size: 0.9rem;
+  }
+  
+  .section-text.closing {
+    font-size: 0.85rem;
+  }
+  
+  .btn-cta {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation optimization for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .ux-hero {
+    padding: 1vh 0.75rem;
+    justify-content: center;
+  }
+  
+  .ux-content {
+    gap: 0.6vh;
+  }
+  
+  .section-heading {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    margin-bottom: 0;
+  }
+  
+  .section-text {
+    font-size: 0.8rem;
+  }
+  
+  .ux-examples-compact {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .section-text.highlight,
+  .section-text.closing {
+    font-size: 0.85rem;
+  }
+}
+
+/* UX Page Animations */
+.ux-hero .section-heading {
+  animation: fadeInUp 1s ease-out;
+}
+
+.ux-content > * {
+  animation: fadeInUp 1s ease-out backwards;
+}
+
+.ux-content > *:nth-child(1) { animation-delay: 0.2s; }
+.ux-content > *:nth-child(2) { animation-delay: 0.4s; }
+.ux-content > *:nth-child(3) { animation-delay: 0.6s; }
+.ux-content > *:nth-child(4) { animation-delay: 0.8s; }
+.ux-content > *:nth-child(5) { animation-delay: 1s; }
+.ux-content > *:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Button Styling */
+.ux-hero .btn-cta {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #b8960f 100%);
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  box-shadow: 0 4px 15px rgba(var(--accent-gold-rgb), 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ux-hero .btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ux-hero .btn-cta:hover::before {
+  left: 100%;
+}
+
+.ux-hero .btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--accent-gold-rgb), 0.4);
+}
+
+/* Large Screen Optimizations for UX Page */
+@media (min-width: 1200px) {
+  .ux-hero {
+    padding: 2vh 2rem;
+    max-width: 1200px;
+  }
+  
+  .ux-content {
+    gap: 2vh;
+    max-width: 1000px;
+  }
+  
+  .section-heading {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.1;
+    padding: 0 1rem; /* Extra padding for large screens */
+    margin-bottom: 1vh;
+  }
+  
+  .section-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+  
+  .ux-examples-compact {
+    gap: 2rem;
+  }
+  
+  .example-inline {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .industry-tags-compact {
+    gap: 0.6rem;
+  }
+  
+  .industry-tag {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .section-text.highlight {
+    font-size: 1.2rem;
+  }
+  
+  .section-text.closing {
+    font-size: 1.1rem;
+  }
+  
+  .btn-cta {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    margin-top: 2vh;
+  }
+}
+
+/* Extra Large Screen Optimizations for UX Page */
+@media (min-width: 1600px) {
+  .ux-hero {
+    padding: 3vh 3rem;
+    max-width: 1400px;
+  }
+  
+  .ux-content {
+    gap: 2.5vh;
+    max-width: 1200px;
+  }
+  
+  .section-heading {
+    font-size: clamp(3rem, 4vw, 4.5rem);
+    padding: 0 2rem; /* More padding for extra large screens */
+    margin-bottom: 1.5vh;
+  }
+  
+  .section-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 900px;
+  }
+  
+  .ux-examples-compact {
+    gap: 2.5rem;
+  }
+  
+  .example-inline {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .industry-tags-compact {
+    gap: 0.8rem;
+  }
+  
+  .industry-tag {
+    padding: 0.35rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .section-text.highlight {
+    font-size: 1.3rem;
+  }
+  
+  .section-text.closing {
+    font-size: 1.2rem;
+  }
+  
+  .btn-cta {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    margin-top: 2.5vh;
+  }
+}
+
+/* UX Problems Section Styles */
+.ux-problems .bg {
+  padding: 8vh 2rem 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.ux-problems .section-heading {
+  margin-bottom: 4rem;
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.05 !important;
+}
+
+/* --- UX Problems Section: Always 2x2 grid, smaller cards --- */
+.ux-problems-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.2rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ux-card {
+  padding: 1rem 0.7rem !important;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 100%) !important;
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border: 1.5px solid rgba(255,255,255,0.22) !important;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset !important;
+}
+
+.ux-card-icon {
+  font-size: 2.1rem !important;
+  margin-bottom: 0.7rem !important;
+}
+
+.ux-card-title {
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
+  letter-spacing: 0em !important;
+}
+
+.ux-card-desc {
+  font-size: 0.85rem !important;
+  line-height: 1.3 !important;
+}
+
+/* Remove mobile overrides that set grid to 1 column and large paddings */
+@media (max-width: 768px) {
+  .ux-problems-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.7rem;
+    max-width: 98vw;
+  }
+  .ux-card {
+    padding: 1.2rem 0.9rem !important;
+  }
+  .ux-card-icon {
+    font-size: 2.2rem !important;
+  }
+  .ux-card-title {
+    font-size: 1.15rem !important;
+  }
+  .ux-card-desc {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ux-problems-container {
+    gap: 0.4rem;
+    max-width: 99vw;
+  }
+  .ux-card {
+    padding: 0.9rem 0.6rem !important;
+  }
+  .ux-card-icon {
+    font-size: 1.7rem !important;
+  }
+  .ux-card-title {
+    font-size: 0.95rem !important;
+  }
+  .ux-card-desc {
+    font-size: 0.85rem !important;
+  }
+}
+/* --- End UX Problems Section override --- */
+
+/* --- FAQ Section Styles --- */
+.faqs-section {
+  position: relative;
+  z-index: 1;
+}
+
+.faqs-section .bg {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.faqs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.faq-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.faq-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.faq-card.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary-clr);
+  transition: all 0.3s ease;
+}
+
+.faq-text {
+  flex: 1;
+  margin-right: 1rem;
+  line-height: 1.4;
+}
+
+.faq-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-gold);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-card.active .faq-toggle {
+  background: var(--accent-gold);
+  color: var(--primary-clr);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-answer.active {
+  max-height: 200px;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .faqs-container {
+    padding: 0 0.5rem;
+    gap: 0.8rem;
+  }
+
+  .faq-question {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .faq-text {
+    margin-right: 0.8rem;
+  }
+
+  .faq-toggle {
+    width: 26px;
+    height: 26px;
+    font-size: 1.1rem;
+  }
+
+  .faq-answer.active {
+    padding: 0.8rem 1.2rem 1.2rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-question {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-text {
+    margin-right: 0.6rem;
+  }
+
+  .faq-toggle {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+
+  .faq-answer.active {
+    padding: 0.7rem 1rem 1rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.85rem;
+  }
+}
+/* --- End FAQ Section Styles --- */
 
 

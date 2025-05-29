@@ -612,3 +612,185 @@ ScrollTrigger.create({
   },
   once: true // Only trigger once
 });
+
+// --- UX Problems Cards Animation ---
+function playUXProblemsAnimation() {
+  const uxCards = document.querySelectorAll('.ux-card');
+  if (uxCards.length === 0) return;
+
+  // Create master timeline with improved stagger
+  const masterTL = gsap.timeline();
+
+  // Set enhanced initial states for each card
+  uxCards.forEach((card, index) => {
+    const direction = card.getAttribute('data-aos');
+    let startX = 0;
+    let rotationY = 0;
+    
+    if (direction === 'slide-left') {
+      startX = 80;  // Increased distance
+      rotationY = -15;  // Add rotation for more dynamic effect
+    } else {
+      startX = -80;
+      rotationY = 15;
+    }
+    
+    // Set initial state with enhanced properties
+    gsap.set(card, { 
+      opacity: 0, 
+      x: startX,
+      y: 60,  // Increased from 50
+      scale: 0.7,  // More dramatic scale
+      rotationY: rotationY,
+      filter: "blur(3px)"  // Add blur for smoother entrance
+    });
+  });
+
+  // Animate cards with improved stagger and effects
+  uxCards.forEach((card, index) => {
+    const cardTL = gsap.timeline();
+    
+    // Main entrance animation with bounce
+    cardTL.to(card, {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      scale: 1.05,  // Slight overshoot
+      rotationY: 0,
+      filter: "blur(0px)",
+      duration: 0.9,
+      ease: "back.out(1.2)"  // Bouncy ease for more excitement
+    })
+    // Settle back to normal scale
+    .to(card, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out"
+    }, "-=0.2");
+    
+    // Add to master timeline with improved stagger
+    masterTL.add(cardTL, index * 0.12);  // Faster stagger for more energy
+  });
+
+  // Add hover effects after animation completes
+  masterTL.call(() => {
+    uxCards.forEach(card => {
+      if (!card.hasEventListener) {  // Prevent duplicate listeners
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            y: -12,
+            scale: 1.03,
+            rotationY: 2,
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            rotationY: 0,
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        });
+        
+        card.hasEventListener = true;  // Mark as having listeners
+      }
+    });
+  });
+}
+
+// --- Call UX problems animation on section enter ---
+ScrollTrigger.create({
+  trigger: '.ux-problems',
+  start: 'top 80%',
+  onEnter: () => {
+    playUXProblemsAnimation();
+  },
+  once: true // Only trigger once
+});
+
+// --- FAQ Section Animation and Functionality ---
+function playFAQAnimation() {
+  const faqCards = document.querySelectorAll('.faq-card');
+  if (faqCards.length === 0) return;
+
+  // Create timeline for FAQ cards entrance
+  const faqTL = gsap.timeline();
+
+  // Animate section heading first
+  const heading = document.querySelector('.faqs-section .section-heading');
+  if (heading) {
+    faqTL.fromTo(heading, 
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    );
+  }
+
+  // Animate FAQ cards with stagger
+  faqTL.to(faqCards, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "power2.out"
+  }, "-=0.5");
+}
+
+function initFAQFunctionality() {
+  const faqCards = document.querySelectorAll('.faq-card');
+  
+  faqCards.forEach(card => {
+    const question = card.querySelector('.faq-question');
+    const answer = card.querySelector('.faq-answer');
+    const toggle = card.querySelector('.faq-toggle');
+    
+    question.addEventListener('click', () => {
+      const isActive = card.classList.contains('active');
+      
+      // Close all other FAQ cards
+      faqCards.forEach(otherCard => {
+        if (otherCard !== card) {
+          otherCard.classList.remove('active');
+          const otherAnswer = otherCard.querySelector('.faq-answer');
+          otherAnswer.classList.remove('active');
+        }
+      });
+      
+      // Toggle current card
+      if (isActive) {
+        card.classList.remove('active');
+        answer.classList.remove('active');
+      } else {
+        card.classList.add('active');
+        answer.classList.add('active');
+        
+        // Add a subtle bounce animation when opening
+        gsap.fromTo(answer, 
+          { scale: 0.95, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.2)" }
+        );
+      }
+    });
+  });
+}
+
+// Initialize FAQ functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize FAQ functionality if FAQ section exists
+  if (document.querySelector('.faqs-section')) {
+    initFAQFunctionality();
+  }
+});
+
+// --- Call FAQ animation on section enter ---
+ScrollTrigger.create({
+  trigger: '.faqs-section',
+  start: 'top 80%',
+  onEnter: () => {
+    playFAQAnimation();
+  },
+  once: true // Only trigger once
+});
