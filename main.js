@@ -494,32 +494,32 @@ function initApproachAnimations() {
       ease: 'power3.out'
     });
     
-    // Animate the approach boxes with stagger
-    gsap.from('.approach-box', {
-      scrollTrigger: {
-        trigger: '.approach-container',
-        start: 'top 80%',
-      },
-      opacity: 0,
-      y: 80,
-      scale: 0.9,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'back.out(1.7)'
-    });
+    // REMOVE: Animate the approach boxes with stagger
+    // gsap.from('.approach-box', {
+    //   scrollTrigger: {
+    //     trigger: '.approach-container',
+    //     start: 'top 80%',
+    //   },
+    //   opacity: 0,
+    //   y: 80,
+    //   scale: 0.9,
+    //   duration: 1,
+    //   stagger: 0.2,
+    //   ease: 'back.out(1.7)'
+    // });
     
-    // Animate the numbers with a different effect
-    gsap.from('.approach-number', {
-      scrollTrigger: {
-        trigger: '.approach-container',
-        start: 'top 75%',
-      },
-      opacity: 0,
-      x: -50,
-      duration: 1.5,
-      stagger: 0.3,
-      ease: 'elastic.out(1, 0.5)'
-    });
+    // REMOVE: Animate the numbers with a different effect
+    // gsap.from('.approach-number', {
+    //   scrollTrigger: {
+    //     trigger: '.approach-container',
+    //     start: 'top 75%',
+    //   },
+    //   opacity: 0,
+    //   x: -50,
+    //   duration: 1.5,
+    //   stagger: 0.3,
+    //   ease: 'elastic.out(1, 0.5)'
+    // });
     
     // Add hover effects for approach boxes
     document.querySelectorAll('.approach-box').forEach(box => {
