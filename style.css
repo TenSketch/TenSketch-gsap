@@ -142,6 +142,8 @@ header .social-icon:hover {
   z-index: 101; /* Increased to be above menu (z-index: 100) */
   order: -1; /* Ensures it's always on the left */
   transition: transform var(--logo-transition) ease;
+  width: 60px;
+  height: 60px;
 }
 
 .logo-container::after {
@@ -190,7 +192,7 @@ header .logo {
   align-items: center;
   justify-content: center;
   width: 60px;
-  height: 40px;
+  height: 60px;
   background: none;
 }
 .logo-half {
@@ -276,18 +278,20 @@ header .logo { display: none !important; }
 
 @media (max-width: 768px) {
   .menu ul {
-    padding-left: 100px; /* Adjust for smaller screens */
+    padding-left: 60px; /* Reduced padding for smaller screens */
+    padding-right: 2rem; /* Add right padding to create space from border */
   }
 }
 
 @media (max-width: 480px) {
   .menu ul {
-    padding-left: 80px; /* Further adjust for very small screens */
+    padding-left: 40px; /* Further reduced padding for very small screens */
+    padding-right: 1.5rem; /* Add right padding to create space from border */
   }
 }
 
 .menu li {
-  margin: 2rem 0;
+  margin: 1.5rem 0; /* Reduced margin from 2rem to 1.5rem */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -307,11 +311,28 @@ header .logo { display: none !important; }
 
 .menu a {
   color: var(--secondary-clr);
-  font-size: 2rem;
-  letter-spacing: 0.15em;
+  font-size: 1.6rem; /* Reduced from 2rem to 1.6rem for mobile */
+  letter-spacing: 0.1em; /* Reduced letter spacing from 0.15em to 0.1em */
   position: relative;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem; /* Reduced padding */
   transition: color 0.3s ease;
+}
+
+/* Responsive adjustments for menu font size */
+@media (max-width: 768px) {
+  .menu a {
+    font-size: 1.4rem; /* Further reduced for tablets */
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu a {
+    font-size: 1.2rem; /* Even smaller for mobile phones */
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+  }
 }
 
 .menu a::after {
@@ -353,7 +374,6 @@ header .logo { display: none !important; }
     0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform: translateZ(0);
-  overflow: hidden;
 }
 
 .menu-close::before {
@@ -2508,8 +2528,6 @@ body {
 .form-group input,
 .form-group select {
   padding: 0.875rem 1rem;
-  border: 2px solid rgba(var(--accent-gold-rgb), 0.3);
-  border-radius: 10px;
   background: rgba(var(--secondary-clr-rgb), 0.05);
   color: var(--secondary-clr);
   font-size: 1rem;
@@ -2671,6 +2689,64 @@ body {
   .popup-body {
     padding: 0.75rem 1.25rem 1.25rem;
   }
+}
+
+/* --- Logo Menu Circular Border & Glow --- */
+.logo-container {
+  position: fixed;
+  left: 40px;
+  top: 90%;
+  transform: translateY(-50%);
+  z-index: 101;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: none;
+}
+.logo-menu-border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+.logo-menu-border circle {
+  stroke: rgba(255,255,255,0.25);
+  filter: drop-shadow(0 0 8px #fff8) drop-shadow(0 0 16px #fff4);
+}
+.logo-menu-glow {
+  stroke: #fff;
+  filter: drop-shadow(0 0 12px #fff) drop-shadow(0 0 32px #fff8);
+  stroke-dasharray: 163.36;
+  stroke-dashoffset: 0;
+  animation: logoMenuGlowAnim 1.6s linear infinite;
+}
+@keyframes logoMenuGlowAnim {
+  0% {
+    stroke-dashoffset: 163.36;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.5;
+  }
+}
+/* Ensure logo halves are above the SVG */
+.logo-half {
+  position: absolute;
+  z-index: 1;
 }
 
 

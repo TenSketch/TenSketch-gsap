@@ -32,8 +32,17 @@ function splitLogoToggleMenu() {
   menuNav.classList.toggle('open');
   // Animate logo halves
   if (menuNav.classList.contains('open')) {
-    // Set menu width to 40% of viewport with enough space for logo
-    menuNav.style.width = 'calc(40% + 60px)'; // Reduced width to account for smaller logo
+    // Set menu width based on screen size for better mobile experience
+    const isMobile = window.innerWidth <= 600;
+    const isTablet = window.innerWidth <= 768 && window.innerWidth > 600;
+    
+    if (isMobile) {
+      menuNav.style.width = 'calc(35% + 50px)'; // Smaller width for mobile
+    } else if (isTablet) {
+      menuNav.style.width = 'calc(38% + 55px)'; // Medium width for tablets
+    } else {
+      menuNav.style.width = 'calc(40% + 60px)'; // Original width for desktop
+    }
     
     gsap.to(logoRight, {
       left: 'calc(100vw - 40px)',
