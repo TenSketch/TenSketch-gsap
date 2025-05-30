@@ -6,6 +6,47 @@
   <title>UX Before UI - TenSketch</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Custom styles for UX page first section */
+    .ux-hero {
+      padding: 1vh 1rem 5vh !important; /* Reduced top padding to pull section up */
+    }
+    
+    .ux-hero .section-heading {
+      font-size: clamp(1.1rem, 5.1vw, 5.1rem) !important; /* Increased font size by 0.1 */
+    }
+      /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .ux-hero {
+        padding: 0.5vh 0.75rem 3vh !important; /* Further reduced for mobile */
+      }
+      
+      .ux-hero .section-heading {
+        font-size: clamp(2.2rem, 5.5vw, 3.0rem) !important; /* Significantly increased mobile font size */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .ux-hero {
+        padding: 0.2vh 0.5rem 2vh !important; /* Minimal top padding for small screens */
+      }
+      
+      .ux-hero .section-heading {
+        font-size: clamp(2.0rem, 5.0vw, 2.5rem) !important; /* Significantly increased small screen font size */
+      }
+    }
+    
+    /* Large screen adjustments */
+    @media (min-width: 1200px) {
+      .ux-hero {
+        padding: 1.5vh 2rem 6vh !important; /* Slightly more padding for large screens */
+      }
+      
+      .ux-hero .section-heading {
+        font-size: clamp(2.6rem, 4.1vw, 4.1rem) !important; /* Increased large screen font size */
+      }
+    }
+  </style>
 </head>
 <body>  
   <header>

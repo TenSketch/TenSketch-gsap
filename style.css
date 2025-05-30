@@ -1488,7 +1488,7 @@ h2 * {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 3vh 1rem 5vh; /* Added bottom padding to prevent button clipping */
+  padding: 1vh 1rem 5vh; /* Reduced top padding to pull section up */
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
