@@ -153,16 +153,21 @@ function gotoSection(index, direction) {
     const flipCards = document.querySelectorAll(".fifth .flip-card");
     if (flipCards && flipCards.length > 0) {
       playCardEntry();
-    }
-  }
-  
-  // Animate craft cards when we hit the second section in about page
+    }  }
+    // Animate craft cards when we hit the second section in about page
   if (sections[index].classList.contains("second")) {
     // Check if we're on the about page by checking for craft cards
     const craftCards = document.querySelectorAll('.craft-card');
     if (craftCards && craftCards.length > 0) {
       playCraftCardsAnimation();
     }
+  }
+  
+  // Check if we're on the UX page by checking if section itself has ux-problems class
+  if (sections[index].classList.contains('ux-problems')) {
+    // Start both animations simultaneously
+    playUXTitleAnimation();
+    setTimeout(() => playUXProblemsAnimation(), 300); // Small delay for cards
   }
   
   // Animate testimonials when we hit the testimonials section
@@ -616,10 +621,10 @@ ScrollTrigger.create({
 // --- UX Problems Cards Animation ---
 function playUXProblemsAnimation() {
   const uxCards = document.querySelectorAll('.ux-card');
+  
   if (uxCards.length === 0) return;
-
   // Create master timeline with improved stagger
-  const masterTL = gsap.timeline();
+  const masterTL = gsap.timeline({ delay: 0.8 }); // Reduced delay so animations start sooner
 
   // Set enhanced initial states for each card
   uxCards.forEach((card, index) => {
@@ -628,21 +633,23 @@ function playUXProblemsAnimation() {
     let rotationY = 0;
     
     if (direction === 'slide-left') {
-      startX = 80;  // Increased distance
-      rotationY = -15;  // Add rotation for more dynamic effect
+      startX = 120;  // Increased distance for more dramatic effect
+      rotationY = -20;  // Add rotation for more dynamic effect
     } else {
-      startX = -80;
-      rotationY = 15;
+      startX = -120;
+      rotationY = 20;
     }
     
     // Set initial state with enhanced properties
     gsap.set(card, { 
       opacity: 0, 
       x: startX,
-      y: 60,  // Increased from 50
-      scale: 0.7,  // More dramatic scale
+      y: 80,  // Increased vertical offset
+      scale: 0.6,  // More dramatic scale
       rotationY: rotationY,
-      filter: "blur(3px)"  // Add blur for smoother entrance
+      rotationX: 10,
+      filter: "blur(5px)",  // More blur for smoother entrance
+      transformOrigin: "center center"
     });
   });
 
@@ -650,37 +657,67 @@ function playUXProblemsAnimation() {
   uxCards.forEach((card, index) => {
     const cardTL = gsap.timeline();
     
-    // Main entrance animation with bounce
-    cardTL.to(card, {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      scale: 1.05,  // Slight overshoot
-      rotationY: 0,
-      filter: "blur(0px)",
-      duration: 0.9,
-      ease: "back.out(1.2)"  // Bouncy ease for more excitement
-    })
-    // Settle back to normal scale
-    .to(card, {
-      scale: 1,
-      duration: 0.3,
-      ease: "power2.out"
-    }, "-=0.2");
+    // Main entrance animation with multiple stages
+    cardTL
+      // Stage 1: Quick movement towards position
+      .to(card, {
+        opacity: 0.3,
+        x: 0,
+        y: 40,
+        scale: 0.8,
+        rotationY: 0,
+        rotationX: 5,
+        filter: "blur(2px)",
+        duration: 0.4,
+        ease: "power2.out"
+      })
+      // Stage 2: Final positioning with bounce and effects
+      .to(card, {
+        opacity: 1,
+        y: 0,
+        scale: 1.08,  // Overshoot for bounce
+        rotationX: 0,
+        filter: "blur(0px)",
+        duration: 0.8,
+        ease: "back.out(1.4)"
+      }, "-=0.1")
+      // Stage 3: Settle to final state
+      .to(card, {
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out"
+      }, "-=0.3")
+      // Stage 4: Add a subtle glow effect
+      .to(card, {
+        boxShadow: "0 8px 32px rgba(255,255,255,0.15), 0 4px 16px rgba(212,175,55,0.2)",
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.6")
+      // Stage 5: Remove glow gradually
+      .to(card, {
+        boxShadow: "0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset",
+        duration: 1.2,
+        ease: "power2.out"
+      }, "-=0.2");
     
-    // Add to master timeline with improved stagger
-    masterTL.add(cardTL, index * 0.12);  // Faster stagger for more energy
+    // Add to master timeline with stagger
+    masterTL.add(cardTL, index * 0.15);  // Slightly slower stagger for better effect
   });
 
-  // Add hover effects after animation completes
+  // Add advanced hover effects after animation completes
   masterTL.call(() => {
-    uxCards.forEach(card => {
+    uxCards.forEach((card, cardIndex) => {
       if (!card.hasEventListener) {  // Prevent duplicate listeners
         card.addEventListener('mouseenter', () => {
+          // Create particle effect on hover
+          createCardParticles(card);
+          
           gsap.to(card, {
-            y: -12,
-            scale: 1.03,
-            rotationY: 2,
+            y: -15,
+            scale: 1.05,
+            rotationY: 3,
+            rotationX: 2,
+            boxShadow: "0 15px 45px rgba(255,255,255,0.2), 0 8px 25px rgba(212,175,55,0.3)",
             duration: 0.4,
             ease: "power2.out"
           });
@@ -691,7 +728,9 @@ function playUXProblemsAnimation() {
             y: 0,
             scale: 1,
             rotationY: 0,
-            duration: 0.4,
+            rotationX: 0,
+            boxShadow: "0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset",
+            duration: 0.5,
             ease: "power2.out"
           });
         });
@@ -702,15 +741,127 @@ function playUXProblemsAnimation() {
   });
 }
 
-// --- Call UX problems animation on section enter ---
-ScrollTrigger.create({
-  trigger: '.ux-problems',
-  start: 'top 80%',
-  onEnter: () => {
-    playUXProblemsAnimation();
-  },
-  once: true // Only trigger once
-});
+// Helper function to create particle effect on card hover
+function createCardParticles(card) {
+  const particles = [];
+  const numParticles = 6;
+  
+  for (let i = 0; i < numParticles; i++) {
+    const particle = document.createElement('div');
+    particle.style.cssText = `
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: radial-gradient(circle, rgba(212,175,55,0.8) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 100;
+    `;
+    
+    // Position particles around the card
+    const angle = (i / numParticles) * Math.PI * 2;
+    const radius = 20;
+    const startX = Math.cos(angle) * radius;
+    const startY = Math.sin(angle) * radius;
+    
+    particle.style.left = `${card.offsetLeft + card.offsetWidth/2 + startX}px`;
+    particle.style.top = `${card.offsetTop + card.offsetHeight/2 + startY}px`;
+    
+    card.parentElement.appendChild(particle);
+    particles.push(particle);
+    
+    // Animate particle
+    gsap.fromTo(particle, 
+      { scale: 0, opacity: 1 },
+      { 
+        scale: 1.5, 
+        opacity: 0,
+        x: Math.cos(angle) * 60,
+        y: Math.sin(angle) * 60,
+        duration: 0.8,
+        ease: "power2.out",
+        onComplete: () => {
+          particle.remove();
+        }
+      }
+    );
+  }
+}
+
+// --- UX Title Animation ---
+function playUXTitleAnimation() {
+  // Look for the section with ux-problems class
+  const uxSection = document.querySelector('section.ux-problems');
+  if (!uxSection) return;
+  
+  const title = uxSection.querySelector('.section-heading');
+  if (!title) return;
+
+  // Set initial state for title
+  gsap.set(title, {
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+    rotationX: 15
+  });
+
+  // Create text animation timeline
+  const titleTL = gsap.timeline();
+
+  // Animate title with dramatic effect
+  titleTL.to(title, {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    rotationX: 0,
+    duration: 1.4,
+    ease: "elastic.out(1, 0.8)",
+    delay: 0.2
+  });
+
+  // Add subtle continuous breathing effect
+  titleTL.to(title, {
+    scale: 1.01,
+    duration: 3,
+    ease: "sine.inOut",
+    yoyo: true,
+    repeat: -1
+  }, "-=0.5");
+
+  // Add a shimmer effect to the title
+  const shimmer = document.createElement('div');
+  shimmer.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    pointer-events: none;
+    z-index: 1;
+  `;
+  
+  // Make title position relative if not already
+  if (getComputedStyle(title).position === 'static') {
+    title.style.position = 'relative';
+  }
+  title.style.overflow = 'hidden';
+  title.appendChild(shimmer);
+
+  // Animate shimmer effect
+  titleTL.fromTo(shimmer, 
+    { left: '-100%' },
+    { 
+      left: '100%', 
+      duration: 1.5, 
+      ease: "power2.out",
+      delay: 0.8,
+      repeat: 2,
+      repeatDelay: 2
+    },
+    0
+  );
+}
 
 // --- FAQ Section Animation and Functionality ---
 function playFAQAnimation() {

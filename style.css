@@ -1333,6 +1333,24 @@ h2 * {
   }
 }
 
+/* --- Fix for UX Problems Section Title Clipping and Card Position (Desktop) --- */
+@media (min-width: 900px) {
+  .ux-problems .section-heading {
+    font-size: 2.7rem !important; /* Reduce font size for desktop */
+    margin-top: 2.5rem !important; /* Move title down */
+    padding-bottom: 0.5em !important; /* Prevent descender clipping (g, y, etc.) */
+    line-height: 1.12 !important;
+  }
+  .ux-problems-container {
+    margin-top: 1.5rem !important; /* Move cards down */
+  }
+}
+
+/* --- Universal fix for title descender clipping (all devices) --- */
+.ux-problems .section-heading {
+  padding-bottom: 0.5em !important; /* Prevent descender clipping (g, y, etc.) */
+}
+
 /* Approach Section Fix: Remove black strip at top */
 .approach-section {
   background: transparent !important;
@@ -1948,6 +1966,7 @@ h2 * {
   text-align: center;
   max-width: 800px;
   line-height: 1.05 !important;
+  opacity: 0; /* Initially hidden for animation */
 }
 
 /* --- UX Problems Section: Always 2x2 grid, smaller cards --- */
@@ -1970,6 +1989,8 @@ h2 * {
   -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
   border: 1.5px solid rgba(255,255,255,0.22) !important;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset !important;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(30px); /* Initial position for animation */
 }
 
 .ux-card-icon {
@@ -2268,6 +2289,10 @@ h2 * {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
+}
+
+.sticky-cta-btn:hover::before {
+  left: 100%;
 }
 
 .sticky-cta-btn:hover {
