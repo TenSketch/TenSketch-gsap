@@ -837,7 +837,7 @@ document.addEventListener('click', function(e) {
       contactSection.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
-      });
+      }); 
     }
   }
 });
