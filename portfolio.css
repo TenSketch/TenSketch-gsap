@@ -165,22 +165,92 @@
   transform: translateZ(0); /* Enable hardware acceleration */
 }
 
+/* --- Portfolio Card Redesign for Full Content Visibility --- */
 .portfolio-card {
   flex: 0 0 350px;
-  height: 450px;
-  background: rgba(255, 255, 255, 0.05);
+  max-width: 100%;
+  min-width: 260px;
+  height: auto;
+  background: #181818;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  will-change: transform, opacity, filter;
-  backface-visibility: hidden;
-  transform-origin: center center;
+  border: 1px solid rgba(255,255,255,0.10);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  background: #222;
+}
+
+.portfolio-content {
+  background: rgba(20,20,20,0.92);
+  color: #fff;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.portfolio-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  color: #fff;
+}
+
+.portfolio-description {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  overflow: visible;
+  display: block;
+}
+
+.portfolio-tech {
+  margin-bottom: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: #222;
+  color: #d4af37;
+  border-radius: 12px;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: none;
+}
+
+.portfolio-link {
+  display: block;
+  width: 100%;
+  background: #d4af37;
+  color: #181818;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.portfolio-link:hover {
+  background: #bfa14a;
+  color: #fff;
 }
 
 .portfolio-card.center {
@@ -462,7 +532,7 @@
   
   .portfolio-card {
     flex: 0 0 280px;
-    height: 380px;
+    height: 480px;
   }
     .portfolio-card.center {
     transform: scale(1.02);
@@ -491,8 +561,12 @@
   
   .portfolio-description {
     font-size: 0.8rem;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    display: block;
+    overflow: visible;
+    max-height: none;
+    margin-bottom: 0.7rem;
   }
   
   .portfolio-link {
@@ -502,7 +576,61 @@
   }
 }
 
-/* Mobile-optimized sliding animations - performance first */
+@media (max-width: 600px) {
+  .approach-container {
+    gap: 0.5rem;
+    padding: 0 0.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .approach-box {
+    width: 85vw;
+    max-width: 260px;
+    height: 45vw;
+    max-height: 260px;
+    min-width: 160px;
+    min-height: 160px;
+    aspect-ratio: 1/1;
+    padding: 1.1rem 0.7rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .approach-number {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  .approach-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+  .approach-list {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .approach-list li {
+    font-size: 0.95rem;
+    margin-bottom: 0.18rem;
+    padding-left: 0.5rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+}
+
 @media (max-width: 480px) {
   .portfolio-grid {
     flex-direction: row;
