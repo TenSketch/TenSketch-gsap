@@ -975,20 +975,162 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// --- Enhanced CTA Button Click Tracking ---
-document.addEventListener('click', function(e) {
-  if (e.target.closest('.sticky-cta-btn')) {
-    // Add analytics tracking here if needed
-    console.log('Sticky CTA clicked: Request a Free UX Audit');
+// --- UX Audit Popup Functionality ---
+document.addEventListener('DOMContentLoaded', function() {
+  const popup = document.getElementById('ux-audit-popup');
+  const popupClose = document.querySelector('.popup-close');
+  const auditForm = document.getElementById('audit-form');
+  const submitBtn = document.querySelector('.btn-submit');
+
+  // Function to open popup
+  function openPopup() {
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
     
-    // Optional: Add smooth scroll to contact section if it exists
-    const contactSection = document.querySelector('#contact, .contact, .lead-cta');
-    if (contactSection) {
-      e.preventDefault();
-      contactSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      }); 
-    }
+    // GSAP animation for popup entrance
+    gsap.fromTo('.popup-container', 
+      { 
+        scale: 0.7, 
+        opacity: 0, 
+        rotationY: -15 
+      },
+      { 
+        scale: 1, 
+        opacity: 1, 
+        rotationY: 0,
+        duration: 0.6, 
+        ease: "back.out(1.7)",
+        delay: 0.1
+      }
+    );
+    
+    // Animate form elements
+    gsap.fromTo('.form-group', 
+      { 
+        y: 30, 
+        opacity: 0 
+      },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.5, 
+        stagger: 0.1, 
+        delay: 0.3,
+        ease: "power2.out"
+      }
+    );
   }
+
+  // Function to close popup
+  function closePopup() {
+    gsap.to('.popup-container', {
+      scale: 0.8,
+      opacity: 0,
+      rotationY: 15,
+      duration: 0.4,
+      ease: "back.in(1.7)",
+      onComplete: () => {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+        auditForm.reset();
+      }
+    });
+  }
+
+  // Event listeners for opening popup
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.sticky-cta-btn') || e.target.closest('.btn-cta')) {
+      e.preventDefault();
+      console.log('UX Audit button clicked - Opening popup');
+      openPopup();
+    }
+  });
+
+  // Event listener for closing popup
+  if (popupClose) {
+    popupClose.addEventListener('click', closePopup);
+  }
+
+  // Close popup when clicking overlay
+  if (popup) {
+    popup.addEventListener('click', function(e) {
+      if (e.target === popup) {
+        closePopup();
+      }
+    });
+  }
+
+  // Close popup with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && popup.classList.contains('active')) {
+      closePopup();
+    }
+  });
+
+  // Form submission handling
+  if (auditForm) {
+    auditForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Add loading state
+      submitBtn.classList.add('loading');
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+      // Collect form data
+      const formData = new FormData(auditForm);
+      const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        website: formData.get('website'),
+        businessType: formData.get('business-type')
+      };
+      
+      console.log('Form submitted with data:', data);
+      
+      // Simulate form submission (replace with actual API call)
+      setTimeout(() => {
+        // Remove loading state
+        submitBtn.classList.remove('loading');
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Request Sent!';
+        submitBtn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+        
+        // Close popup after success
+        setTimeout(() => {
+          closePopup();
+          
+          // Reset button after popup closes
+          setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get My Free UX Audit';
+            submitBtn.style.background = '';
+          }, 500);
+        }, 1500);
+        
+        // You can add actual form submission logic here
+        // fetch('/submit-audit-request', { method: 'POST', body: JSON.stringify(data) })
+        
+      }, 2000); // Simulate network delay
+    });
+  }
+
+  // Form validation enhancement
+  const inputs = document.querySelectorAll('.form-group input, .form-group select');
+  inputs.forEach(input => {
+    input.addEventListener('blur', function() {
+      if (this.value.trim() === '' && this.hasAttribute('required')) {
+        this.style.borderColor = '#ff6b6b';
+        this.style.boxShadow = '0 0 0 3px rgba(255, 107, 107, 0.2)';
+      } else {
+        this.style.borderColor = '';
+        this.style.boxShadow = '';
+      }
+    });
+    
+    input.addEventListener('input', function() {
+      if (this.style.borderColor === 'rgb(255, 107, 107)') {
+        this.style.borderColor = '';
+        this.style.boxShadow = '';
+      }
+    });
+  });
 });

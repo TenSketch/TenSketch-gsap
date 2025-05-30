@@ -112,7 +112,7 @@
                 Because design without research is just... <em>guesswork</em>.
               </p>
               
-              <a href="https://www.tensketch.com/contact" class="btn-cta">Stop the leak → Let's research your users</a>
+              <a href="#" class="btn-cta">Stop the leak → Let's research your users</a>
             </div>
           </div>
         </div>
@@ -247,10 +247,54 @@
       <div class="sticky-cta-text">
         <span class="sticky-cta-main">Let's fix what your analytics can't show.</span>
       </div>
-      <a href="#contact" class="sticky-cta-btn">
+      <a href="#" class="sticky-cta-btn">
         <i class="fas fa-bullseye"></i>
         Request a Free UX Audit
       </a>
+    </div>
+  </div>
+
+  <!-- UX Audit Popup Form -->
+  <div class="popup-overlay" id="ux-audit-popup">
+    <div class="popup-container">
+      <div class="popup-header">
+        <h3 class="popup-title">Request Your Free UX Audit</h3>
+        <button class="popup-close" aria-label="Close popup">&times;</button>
+      </div>
+      <div class="popup-body">
+        <form class="audit-form" id="audit-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="website">Website URL</label>
+            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+          </div>
+            <div class="form-group">
+            <label for="business-type">Business Type</label>
+            <input type="text" id="business-type" name="business-type" placeholder="e.g., E-commerce, SaaS, Healthcare, Consulting..." required>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i>
+              Get My Free UX Audit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
