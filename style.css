@@ -93,7 +93,7 @@ header .navbar {
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  z-index: 10;
+  z-index: 2; /* Reduced from 10 to 2 so logo appears behind menu (z-index: 4) */
 }
 
 header .nav-logo {
@@ -211,14 +211,25 @@ header .logo {
 /* Hide old .logo styles in header */
 header .logo { display: none !important; }
 
-/* Menu Navigation Styles */
+/* Menu Navigation Styles - Black Glass */
 .menu {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(var(--primary-dark-rgb), 0.95);
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.85) 0%, 
+    rgba(26, 26, 26, 0.9) 50%, 
+    rgba(0, 0, 0, 0.95) 100%);
+  backdrop-filter: blur(30px) saturate(120%) brightness(0.8);
+  -webkit-backdrop-filter: blur(30px) saturate(120%) brightness(0.8);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,6 +242,24 @@ header .logo { display: none !important; }
 
 .menu.open {
   transform: translateX(0);
+}
+
+.menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px, 70px 70px;
+  background-position: 0 0, 25px 25px, 35px 35px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .menu ul {
@@ -286,7 +315,25 @@ header .logo { display: none !important; }
   letter-spacing: 0.1em; /* Reduced letter spacing from 0.15em to 0.1em */
   position: relative;
   padding: 0.4rem 0.8rem; /* Reduced padding */
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.menu a:hover {
+  color: var(--accent-gold);
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.6) 0%, 
+    rgba(26, 26, 26, 0.4) 100%);
+  backdrop-filter: blur(15px) saturate(110%) brightness(0.7);
+  -webkit-backdrop-filter: blur(15px) saturate(110%) brightness(0.7);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 20px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
 }
 
 /* Responsive adjustments for menu font size */
@@ -325,7 +372,7 @@ header .logo { display: none !important; }
   width: 100%;
 }
 
-/* Cross (Close) Button Styles */
+/* Cross (Close) Button Styles - Black Glass */
 .menu-close {
   position: absolute;
   top: 30px;
@@ -335,16 +382,31 @@ header .logo { display: none !important; }
   cursor: pointer;
   z-index: 999;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(26, 26, 26, 0.6) 100%);
+  backdrop-filter: blur(15px) saturate(120%) brightness(0.7);
+  -webkit-backdrop-filter: blur(15px) saturate(120%) brightness(0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    0 4px 12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 20px rgba(0, 0, 0, 0.4);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform: translateZ(0);
+}
+
+/* Mobile responsive sizing for menu close button */
+@media (max-width: 600px) {
+  .menu-close {
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 20px;
+  }
 }
 
 .menu-close::before {
@@ -361,11 +423,18 @@ header .logo { display: none !important; }
 }
 
 .menu-close:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.9) 0%, 
+    rgba(26, 26, 26, 0.7) 100%);
+  backdrop-filter: blur(20px) saturate(130%) brightness(0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(130%) brightness(0.6);
+  border-color: rgba(var(--accent-gold-rgb), 0.6);
   transform: translateZ(0) scale(1.1);
   box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 0 0 2px rgba(var(--accent-gold-rgb), 0.3) inset;
+    0 8px 24px rgba(0, 0, 0, 0.9),
+    0 0 0 2px rgba(var(--accent-gold-rgb), 0.4) inset,
+    0 0 30px rgba(var(--accent-gold-rgb), 0.3),
+    0 0 60px rgba(0, 0, 0, 0.6);
 }
 
 .menu-close:hover::before {
