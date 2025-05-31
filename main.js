@@ -8,14 +8,9 @@ const menuNav = document.querySelector('.menu');
 const logoLeft = document.querySelector('.logo-left');
 const logoRight = document.querySelector('.logo-right');
 
-// Create cross button if it doesn't exist
+// Use the existing menu-close button only, do not create a new one
 let menuCloseBtn = document.querySelector('.menu-close');
-if (!menuCloseBtn) {
-  menuCloseBtn = document.createElement('div');
-  menuCloseBtn.className = 'menu-close';
-  menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
-  menuNav.appendChild(menuCloseBtn);
-} else {
+if (menuCloseBtn) {
   // If it exists, update to use the cross image
   menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
 }

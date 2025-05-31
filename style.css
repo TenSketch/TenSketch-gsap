@@ -163,7 +163,7 @@ header .logo {
   position: absolute;
   max-width: 30px;
   max-height: 30px;
-  z-index: 2; /* Above the SVG border */
+  z-index: 3; /* Ensure logo halves are above the glow */
 }
 .logo-left {
   left: 10px;
@@ -2612,7 +2612,7 @@ body {
   top: 0;
   width: 60px;
   height: 60px;
-  z-index: 0;
+  z-index: 2; /* Increased from 0 to 2 to ensure glow is above background but below logo halves */
   pointer-events: none;
   background: none !important;
   box-shadow: none !important;
@@ -2696,21 +2696,16 @@ body {
   .logo-menu-border {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    overflow: visible;
-    background: none !important;
-    box-shadow: none !important;
   }
-  .logo-menu-glow {
-    stroke-width: 2.5;
-    stroke-dasharray: 18 95.91;
-    stroke-dashoffset: 113.91;
-    filter:
-      drop-shadow(0 0 6px #fff)
-      drop-shadow(0 0 12px #fff)
-      drop-shadow(0 0 18px #fff)
-      drop-shadow(0 0 24px rgba(255,255,255,0.8))
-      drop-shadow(0 0 36px rgba(255,255,255,0.6));
+  .logo-menu-border circle {
+    r: 25; /* Default for border circle */
+  }
+  .logo-menu-border circle.logo-menu-glow {
+    r:25; /* Larger glow for mobile */
+  }
+  .logo-half {
+    max-width: 20px;
+    max-height: 20px;
   }
 }
 
