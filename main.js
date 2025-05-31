@@ -20,11 +20,11 @@ if (!menuCloseBtn) {
   menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
 }
 
-// Update left position for logoRight to match CSS (25px desktop, 17.5px mobile)
+// Update left position for logoRight to match CSS (35px desktop, 22px mobile)
 window.addEventListener('resize', () => {
   if (!menuNav.classList.contains('open')) {
     const isMobile = window.innerWidth <= 600;
-    gsap.set(logoRight, { left: isMobile ? '17.5px' : '25px' });
+    gsap.set(logoRight, { left: isMobile ? '22px' : '35px' });
   }
 });
 
@@ -64,10 +64,10 @@ function splitLogoToggleMenu() {
       }
     );
     
-    document.body.style.overflow = 'hidden';
-  } else {    // Check screen size for proper positioning on close
+    document.body.style.overflow = 'hidden';  } else {
+    // Check screen size for proper positioning on close
     const isMobile = window.innerWidth <= 600;
-    const leftPosition = isMobile ? '17.5px' : '25px'; // Match the CSS values for different screen sizes
+    const leftPosition = isMobile ? '22px' : '35px'; // Match the CSS values for different screen sizes
     
     gsap.to(logoRight, {
       left: leftPosition,
