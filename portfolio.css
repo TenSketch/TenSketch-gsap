@@ -67,7 +67,7 @@
 }
 
 .approach-number {
-  font-size: 3rem;
+  font-size: clamp(1.2rem, 8vw, 3rem);
   font-weight: 700;
   color: #d4af37;
   margin-bottom: 1.5rem;
@@ -84,7 +84,7 @@
 }
 
 .approach-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 1rem;
@@ -100,7 +100,7 @@
 
 .approach-list li {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   margin-bottom: 0.8rem;
   padding-left: 1.5rem;
   position: relative;
@@ -112,10 +112,9 @@
   content: '→';
   position: absolute;
   left: 0;
-  top: 0;
-  color: #d4af37;
+  top: 0;  color: #d4af37;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
   transition: transform 0.3s ease;
 }
 
@@ -146,7 +145,7 @@
 
 .section-heading {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: clamp(1.2rem, 7vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 3rem;
   color: #ffffff;
@@ -201,14 +200,14 @@
 }
 
 .portfolio-title {
-  font-size: 1.25rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: bold;
   margin-bottom: 0.2rem;
   color: #fff;
 }
 
 .portfolio-description {
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   color: #e0e0e0;
   margin-bottom: 0.5rem;
   line-height: 1.5;
@@ -364,7 +363,7 @@
 }
 
 .portfolio-title {
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 0.5rem;
@@ -372,7 +371,7 @@
 }
 
 .portfolio-description {
-  font-size: 0.9rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   color: #cccccc;
   line-height: 1.4;
   margin-bottom: 1rem;
@@ -516,7 +515,7 @@
   }
   
   .section-heading {
-    font-size: 3rem;
+    font-size: clamp(1.2rem, 7vw, 3rem);
   }
 }
 
@@ -548,7 +547,7 @@
   }
   
   .section-heading {
-    font-size: 2.5rem;
+    font-size: clamp(1.2rem, 8vw, 2.5rem);
     margin-bottom: 2rem;
   }
     .portfolio-content {
@@ -556,23 +555,11 @@
   }
   
   .portfolio-title {
-    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 3vw, 1.2rem);
   }
   
   .portfolio-description {
-    font-size: 0.8rem;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    display: block;
-    overflow: visible;
-    max-height: none;
-    margin-bottom: 0.7rem;
-  }
-  
-  .portfolio-link {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.8rem;
-    border-radius: 20px;
+    font-size: clamp(1.2rem, 2vw, 1.2rem);
   }
 }
 
@@ -603,12 +590,12 @@
     text-align: center;
   }
   .approach-number {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
     margin-bottom: 0.5rem;
     text-align: center;
   }
   .approach-title {
-    font-size: 1.1rem;
+    font-size: clamp(1.2rem, 4vw, 1.1rem);
     margin-bottom: 0.4rem;
     text-align: center;
   }
