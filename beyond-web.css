@@ -113,7 +113,7 @@ body {
 }
 
 .nav-logo img {
-    height: 35px;
+    height: 55px;
     filter: brightness(0) invert(1);
 }
 
@@ -488,6 +488,18 @@ body {
 @keyframes blink-cursor {
     0%, 50% { border-color: var(--cosmic-purple); }
     51%, 100% { border-color: transparent; }
+}
+
+/* Disable typewriter on mobile for better readability */
+@media (max-width: 768px) {
+    .typewriter {
+        animation: none;
+        border-right: none;
+        white-space: normal;
+        width: auto;
+        overflow: visible;
+        opacity: 1;
+    }
 }
 
 /* Service Bubbles */
@@ -1256,95 +1268,660 @@ body {
     color: var(--medium-gray);
 }
 
+/* ===============================================
+   BRAND IDENTITY SECTION - COSMIC SHOWCASE
+   =============================================== */
+
+/* Brand Identity Section Base */
+.brand-section {
+    background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.08) 0%, var(--dark-space) 70%);
+    position: relative;
+}
+
+.brand-section .section-background {
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
+}
+
+/* Morphing Shapes Animation */
+.morphing-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.morph-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.6;
+    animation: morphing 20s ease-in-out infinite;
+}
+
+.morph-shape.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, var(--cosmic-purple), var(--cosmic-pink));
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.morph-shape.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-cyan));
+    top: 60%;
+    right: 10%;
+    animation-delay: -8s;
+    animation-duration: 30s;
+}
+
+.morph-shape.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(225deg, var(--cosmic-orange), var(--cosmic-pink));
+    bottom: 20%;
+    left: 15%;
+    animation-delay: -15s;
+    animation-duration: 35s;
+}
+
+@keyframes morphing {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
+        opacity: 0.6;
+    }
+    25% {
+        transform: scale(1.2) rotate(90deg);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.8) rotate(180deg);
+        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        opacity: 0.4;
+    }
+    75% {
+        transform: scale(1.1) rotate(270deg);
+        border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+        opacity: 0.7;
+    }
+}
+
+/* Brand Particles Animation */
+.brand-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.brand-particles::before,
+.brand-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--cosmic-purple);
+    border-radius: 50%;
+    box-shadow: 
+        10px 10px 0 var(--cosmic-blue),
+        25px 5px 0 var(--cosmic-pink),
+        40px 15px 0 var(--cosmic-cyan),
+        55px 25px 0 var(--cosmic-orange),
+        70px 35px 0 var(--neon-green),
+        85px 45px 0 var(--cosmic-purple),
+        100px 55px 0 var(--cosmic-blue),
+        115px 65px 0 var(--cosmic-pink);
+    animation: particleFloat 8s ease-in-out infinite;
+}
+
+.brand-particles::after {
+    animation-delay: -4s;
+    transform: translateX(50px);
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-30px) rotate(270deg);
+        opacity: 0.8;
+    }
+}
+
+/* Brand Showcase Container */
+.brand-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.showcase-item {
+    background: rgba(26, 26, 46, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.showcase-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--cosmic-gradient);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.showcase-item:hover::before {
+    opacity: 1;
+}
+
+.showcase-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: var(--cosmic-shadow);
+    border-color: transparent;
+}
+
+.showcase-item span {
+    color: var(--moon-glow);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+/* Logo Animation Showcase */
+.logo-animation {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.animated-logo {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-element {
+    position: absolute;
+    border-radius: 50%;
+    animation: logoSpin 4s ease-in-out infinite;
+}
+
+.logo-element.element-1 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--cosmic-purple), var(--cosmic-pink));
+    animation-delay: 0s;
+}
+
+.logo-element.element-2 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-cyan));
+    animation-delay: -1.3s;
+}
+
+.logo-element.element-3 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(225deg, var(--neon-green), var(--cosmic-orange));
+    animation-delay: -2.6s;
+}
+
+@keyframes logoSpin {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+    33% {
+        transform: rotate(120deg) scale(1.1);
+        opacity: 1;
+    }
+    66% {
+        transform: rotate(240deg) scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+.showcase-item:hover .logo-element {
+    animation-duration: 2s;
+}
+
+/* Color Palette Showcase */
+.color-palette {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.color-swatches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 80px;
+    height: 80px;
+}
+
+.swatch {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.swatch::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.showcase-item:hover .swatch::before {
+    width: 40px;
+    height: 40px;
+}
+
+.swatch.color-1 {
+    background: var(--cosmic-purple);
+}
+
+.swatch.color-2 {
+    background: var(--cosmic-blue);
+}
+
+.swatch.color-3 {
+    background: var(--cosmic-pink);
+}
+
+.swatch.color-4 {
+    background: var(--cosmic-cyan);
+}
+
+.showcase-item:hover .swatch {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px currentColor;
+}
+
+/* Typography Showcase */
+.typography {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.font-display {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.font-line {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--cosmic-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.font-line::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.showcase-item:hover .font-line {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--cosmic-purple));
+}
+
+.showcase-item:hover .font-line::after {
+    opacity: 1;
+}
+
+/* Brand Button Specific Styling */
+.brand-btn {
+    background: var(--brand-gradient);
+}
+
+.brand-btn .btn-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.brand-btn .btn-particles::before {
+    content: '✨';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 12px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.brand-btn .btn-particles::after {
+    content: '🎨';
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    font-size: 12px;
+    animation: sparkle 2s ease-in-out infinite reverse;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+.brand-btn:hover .btn-particles::before,
+.brand-btn:hover .btn-particles::after {
+    animation-duration: 1s;
+}
+
+/* USP Container for Brand Section */
+.brand-section .usp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.brand-section .usp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(26, 26, 46, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-section .usp-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.brand-section .usp-item:hover::before {
+    left: 100%;
+}
+
+.brand-section .usp-item:hover {
+    transform: translateX(10px);
+    border-color: var(--cosmic-purple);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.brand-section .usp-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--brand-gradient);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.brand-section .usp-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--brand-gradient);
+    border-radius: 14px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.brand-section .usp-item:hover .usp-icon::after {
+    opacity: 0.5;
+}
+
+.brand-section .usp-content h3 {
+    color: var(--moon-glow);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.brand-section .usp-content p {
+    color: var(--comet-tail);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
-    .hero-content {
+    .brand-showcase {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .logo-animation {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .color-palette {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .typography {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .showcase-item {
+        padding: 1.5rem;
+    }
+    
+    .animated-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-element.element-1 {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo-element.element-2 {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .logo-element.element-3 {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .color-swatches {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .font-display {
+        gap: 0.5rem;
+    }
+    
+    .font-line {
+        font-size: 1.5rem;
+    }
+    
+    .morph-shape.shape-1 {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .morph-shape.shape-2 {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .morph-shape.shape-3 {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .brand-section .usp-item {
+        padding: 1rem;
+        flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 1rem;
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .process-timeline {
-        grid-template-columns: 1fr;
-    }
-    
-    .timeline-item::after {
-        display: none;
-    }
-    
-    .why-choose-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .footer-links {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .stats-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    .container {
-        padding: 0 1rem;
+    .brand-section .usp-icon {
+        align-self: center;
     }
 }
 
 @media (max-width: 480px) {
+    .showcase-item {
+        padding: 1rem;
+    }
+    
+    .animated-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .color-swatches {
+        width: 50px;
+        height: 50px;
+        gap: 0.25rem;
+    }
+    
+    .font-line {
+        font-size: 1.25rem;
+    }
+    
+    .brand-section .service-cta {
+        text-align: center;
+    }
+    
+    .cosmic-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 320px) {
+    .hero-content {
+        padding: 1.5rem 0.75rem;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .section-title {
         font-size: 2rem;
+        line-height: 1.2;
     }
-    
-    .service-card {
-        padding: 2rem;
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        padding: 0 0.75rem;
+        line-height: 1.5;
     }
-    
-    .form {
-        padding: 2rem;
+
+    .hero-badge {
+        padding: 0.6rem 1.5rem;
+        margin-bottom: 1.5rem;
     }
-    
-    .timeline-icon {
-        width: 80px;
-        height: 80px;
+
+    .badge-text {
+        font-size: 0.9rem;
     }
-    
-    .timeline-icon i {
-        font-size: 1.5rem;
+
+    .service-bubble {
+        max-width: 240px;
+        padding: 0.75rem 1rem;
     }
-    
-    .stat-number {
-        font-size: 2rem;
+
+    .service-bubble span {
+        font-size: 0.85rem;
     }
 }
 
@@ -1611,7 +2188,7 @@ html {
     font-size: 1rem;
 }
 
-/* Contact Form */
+/* Form Styles */
 .contact-form {
     background: rgba(26, 26, 46, 0.8);
     padding: 50px;
@@ -1787,27 +2364,59 @@ html {
     font-size: 0.9rem;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
         padding: 100px 0 60px;
     }
 
+    .hero-content {
+        padding: 2rem 1rem;
+        max-width: 100%;
+    }
+
     .hero-title {
         font-size: 3rem;
-    }
-
-    .hero-subtitle {
+    }    .hero-subtitle {
         font-size: 1.1rem;
+        white-space: normal !important;
+        word-wrap: break-word;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1rem;
     }
 
-    .service-bubbles {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .hero-subtitle.typewriter {
+        animation: none;
+        border-right: none;
+        width: auto;
+        overflow: visible;
+    }
+
+    .hero-services-preview {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 
     .service-bubble {
-        padding: 20px;
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem 1.5rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .service-bubble span {
+        font-size: 0.95rem;
+    }
+
+    .service-bubble i {
+        font-size: 1.25rem;
     }
 
     .service-grid {
@@ -1903,6 +2512,36 @@ html {
 
     .hero-subtitle {
         font-size: 1rem;
+        padding: 0 1rem;
+        white-space: normal !important;
+        word-wrap: break-word;
+        max-width: 100%;
+        margin: 0 auto 2rem auto;
+    }
+
+    .hero-subtitle.typewriter {
+        animation: none;
+        border-right: none;
+        width: auto;
+        overflow: visible;
+    }
+
+    .hero-services-preview {
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+
+    .service-bubble {
+        max-width: 260px;
+        padding: 0.875rem 1.25rem;
+    }
+
+    .service-bubble span {
+        font-size: 0.9rem;
+    }
+
+    .service-bubble i {
+        font-size: 1.1rem;
     }
 
     .service-title {
@@ -1915,11 +2554,626 @@ html {
 
     .platform-icons {
         gap: 10px;
-    }
-
-    .platform-icon {
+    }    .platform-icon {
         width: 40px;
         height: 40px;
         font-size: 16px;
+    }
+}
+
+/* Brand Identity Section - Cosmic Showcase */
+.brand-section {
+    background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.08) 0%, var(--dark-space) 70%);
+    position: relative;
+}
+
+.brand-section .section-background {
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
+}
+
+/* Morphing Shapes Animation */
+.morphing-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.morph-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.6;
+    animation: morphing 20s ease-in-out infinite;
+}
+
+.morph-shape.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, var(--cosmic-purple), var(--cosmic-pink));
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.morph-shape.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-cyan));
+    top: 60%;
+    right: 10%;
+    animation-delay: -8s;
+    animation-duration: 30s;
+}
+
+.morph-shape.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(225deg, var(--cosmic-orange), var(--cosmic-pink));
+    bottom: 20%;
+    left: 15%;
+    animation-delay: -15s;
+    animation-duration: 35s;
+}
+
+@keyframes morphing {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
+        opacity: 0.6;
+    }
+    25% {
+        transform: scale(1.2) rotate(90deg);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.8) rotate(180deg);
+        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        opacity: 0.4;
+    }
+    75% {
+        transform: scale(1.1) rotate(270deg);
+        border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+        opacity: 0.7;
+    }
+}
+
+/* Brand Particles Animation */
+.brand-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.brand-particles::before,
+.brand-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--cosmic-purple);
+    border-radius: 50%;
+    box-shadow: 
+        10px 10px 0 var(--cosmic-blue),
+        25px 5px 0 var(--cosmic-pink),
+        40px 15px 0 var(--cosmic-cyan),
+        55px 25px 0 var(--cosmic-orange),
+        70px 35px 0 var(--neon-green),
+        85px 45px 0 var(--cosmic-purple),
+        100px 55px 0 var(--cosmic-blue),
+        115px 65px 0 var(--cosmic-pink);
+    animation: particleFloat 8s ease-in-out infinite;
+}
+
+.brand-particles::after {
+    animation-delay: -4s;
+    transform: translateX(50px);
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-30px) rotate(270deg);
+        opacity: 0.8;
+    }
+}
+
+/* Brand Showcase Container */
+.brand-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.showcase-item {
+    background: rgba(26, 26, 46, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.showcase-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--cosmic-gradient);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.showcase-item:hover::before {
+    opacity: 1;
+}
+
+.showcase-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: var(--cosmic-shadow);
+    border-color: transparent;
+}
+
+.showcase-item span {
+    color: var(--moon-glow);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+/* Logo Animation Showcase */
+.logo-animation {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.animated-logo {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-element {
+    position: absolute;
+    border-radius: 50%;
+    animation: logoSpin 4s ease-in-out infinite;
+}
+
+.logo-element.element-1 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--cosmic-purple), var(--cosmic-pink));
+    animation-delay: 0s;
+}
+
+.logo-element.element-2 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-cyan));
+    animation-delay: -1.3s;
+}
+
+.logo-element.element-3 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(225deg, var(--neon-green), var(--cosmic-orange));
+    animation-delay: -2.6s;
+}
+
+@keyframes logoSpin {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+    33% {
+        transform: rotate(120deg) scale(1.1);
+        opacity: 1;
+    }
+    66% {
+        transform: rotate(240deg) scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+.showcase-item:hover .logo-element {
+    animation-duration: 2s;
+}
+
+/* Color Palette Showcase */
+.color-palette {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.color-swatches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 80px;
+    height: 80px;
+}
+
+.swatch {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.swatch::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.showcase-item:hover .swatch::before {
+    width: 40px;
+    height: 40px;
+}
+
+.swatch.color-1 {
+    background: var(--cosmic-purple);
+}
+
+.swatch.color-2 {
+    background: var(--cosmic-blue);
+}
+
+.swatch.color-3 {
+    background: var(--cosmic-pink);
+}
+
+.swatch.color-4 {
+    background: var(--cosmic-cyan);
+}
+
+.showcase-item:hover .swatch {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px currentColor;
+}
+
+/* Typography Showcase */
+.typography {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.font-display {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.font-line {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--cosmic-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.font-line::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.showcase-item:hover .font-line {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--cosmic-purple));
+}
+
+.showcase-item:hover .font-line::after {
+    opacity: 1;
+}
+
+/* Brand Button Specific Styling */
+.brand-btn {
+    background: var(--brand-gradient);
+}
+
+.brand-btn .btn-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.brand-btn .btn-particles::before {
+    content: '✨';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 12px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.brand-btn .btn-particles::after {
+    content: '🎨';
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    font-size: 12px;
+    animation: sparkle 2s ease-in-out infinite reverse;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+.brand-btn:hover .btn-particles::before,
+.brand-btn:hover .btn-particles::after {
+    animation-duration: 1s;
+}
+
+/* USP Container for Brand Section */
+.brand-section .usp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.brand-section .usp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(26, 26, 46, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-section .usp-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.brand-section .usp-item:hover::before {
+    left: 100%;
+}
+
+.brand-section .usp-item:hover {
+    transform: translateX(10px);
+    border-color: var(--cosmic-purple);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.brand-section .usp-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--brand-gradient);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.brand-section .usp-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--brand-gradient);
+    border-radius: 14px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.brand-section .usp-item:hover .usp-icon::after {
+    opacity: 0.5;
+}
+
+.brand-section .usp-content h3 {
+    color: var(--moon-glow);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.brand-section .usp-content p {
+    color: var(--comet-tail);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .brand-showcase {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .logo-animation {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .color-palette {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .typography {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .showcase-item {
+        padding: 1.5rem;
+    }
+    
+    .animated-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-element.element-1 {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo-element.element-2 {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .logo-element.element-3 {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .color-swatches {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .font-display {
+        gap: 0.5rem;
+    }
+    
+    .font-line {
+        font-size: 1.5rem;
+    }
+    
+    .morph-shape.shape-1 {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .morph-shape.shape-2 {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .morph-shape.shape-3 {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .brand-section .usp-item {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .brand-section .usp-icon {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-item {
+        padding: 1rem;
+    }
+    
+    .animated-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .color-swatches {
+        width: 50px;
+        height: 50px;
+        gap: 0.25rem;
+    }
+    
+    .font-line {
+        font-size: 1.25rem;
+    }
+    
+    .brand-section .service-cta {
+        text-align: center;
+    }
+    
+    .cosmic-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 }
