@@ -894,3 +894,53 @@ function setupRegistrationForm() {
         }, 2000);
     });
 }
+
+// Marketing Portal Function
+function openMarketingPortal() {
+    showNotification('🚀 Social Media Marketing Portal opening soon! Contact us for immediate consultation.', 'info');
+    
+    // Scroll to contact section
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Brand Portal Function  
+function openBrandPortal() {
+    showNotification('🎨 Brand Identity Portal launching soon! Contact us to start your brand transformation.', 'info');
+    
+    // Scroll to contact section
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Contact Portal Function
+function openContactPortal() {
+    // Scroll to contact form
+    const contactForm = document.querySelector('#contactForm');
+    if (contactForm) {
+        contactForm.scrollIntoView({
+            behavior: 'smooth'
+        });
+        
+        // Focus on first input
+        setTimeout(() => {
+            const firstInput = contactForm.querySelector('input');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        }, 500);
+    }
+}
+
+// Make functions globally accessible
+window.openMarketingPortal = openMarketingPortal;
+window.openBrandPortal = openBrandPortal;
+window.openContactPortal = openContactPortal;

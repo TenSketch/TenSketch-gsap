@@ -16,12 +16,21 @@
     --deep-space: #1A1A2E;
     --space-gray: #16213E;
     --nebula-dark: #0F0F23;
-    
-    /* Light Elements */
+      /* Light Elements */
     --star-light: #FFFFFF;
     --moon-glow: #F8FAFC;
     --comet-tail: #E2E8F0;
     --galaxy-dust: #64748B;
+    
+    /* Additional UI Colors */
+    --dark-bg: #0F0F23;
+    --darker-bg: #0A0A0F;
+    --light-gray: #F8FAFC;
+    --medium-gray: #E2E8F0;
+    --primary-blue: #3B82F6;
+    --border-radius: 10px;
+    --card-bg: #1A1A2E;
+    --card-border-radius: 15px;
     
     /* Neon Accents */
     --neon-green: #00FF88;
@@ -1159,6 +1168,23 @@ body {
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* Cosmic form dropdown option styling for visibility */
+.cosmic-form select option {
+    background: rgba(26, 26, 46, 0.95);
+    color: var(--star-light);
+    padding: 0.5rem;
+    border: none;
+    min-height: 40px;
+    line-height: 1.4;
+}
+
+/* Cosmic form dropdown hover states */
+.cosmic-form select option:hover,
+.cosmic-form select option:focus {
+    background: var(--cosmic-cyan);
+    color: white;
+}
+
 .input-glow {
     position: absolute;
     top: 50%;
@@ -1303,12 +1329,42 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Enhanced select styling for better visibility */
+.form-group select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E2E8F0'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 20px;
+    padding-right: 3rem;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Dropdown option styling for visibility */
+.form-group select option {
+    background: var(--dark-bg);
+    color: var(--light-gray);
+    padding: 0.5rem;
+    border: none;
+    min-height: 40px;
+    line-height: 1.4;
+}
+
+/* Ensure dropdown options are visible on all browsers */
+.form-group select option:hover,
+.form-group select option:focus {
+    background: var(--cosmic-purple);
+    color: white;
 }
 
 .submit-btn {
@@ -2671,12 +2727,42 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Enhanced select styling for better visibility */
+.form-group select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 20px;
+    padding-right: 3rem;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--cosmic-cyan);
     box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+/* Dropdown option styling for visibility */
+.form-group select option {
+    background: var(--dark-space);
+    color: var(--star-light);
+    padding: 0.5rem;
+    border: none;
+    min-height: 40px;
+    line-height: 1.4;
+}
+
+/* Ensure dropdown options are visible on all browsers */
+.form-group select option:hover,
+.form-group select option:focus {
+    background: var(--cosmic-cyan);
+    color: white;
 }
 
 .package-options {
