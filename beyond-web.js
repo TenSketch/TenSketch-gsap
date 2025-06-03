@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initServiceAnimations();
     initParticleSystem();
     
-    // Navigation functionality
-    initNavigation();
-    
     // Form handling
     initContactForm();
 
@@ -208,41 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.opacity = '0.4';
             });
         });
-    }
-
-    // Navigation
-    function initNavigation() {
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-                navbar.style.backdropFilter = 'blur(20px)';
-            } else {
-                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-                navbar.style.backdropFilter = 'blur(20px)';
-            }
-        });
-
-        // Mobile menu functionality
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinksContainer = document.querySelector('.nav-links');
-        
-        if (mobileMenuToggle && navLinksContainer) {
-            mobileMenuToggle.addEventListener('click', function() {
-                navLinksContainer.classList.toggle('mobile-active');
-                this.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on a link
-            const mobileLinks = navLinksContainer.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinksContainer.classList.remove('mobile-active');
-                    mobileMenuToggle.classList.remove('active');
-                });
-            });
-        }
     }
 
     // Contact Form
@@ -463,24 +425,39 @@ serviceCards.forEach(card => {
     });
 });
 
-// Counter animation for stats
-const statNumbers = document.querySelectorAll('.stat-number');
+// Counter animation for stats and social metrics
+const statNumbers = document.querySelectorAll('.stat-number, .counter');
 const animateCounters = (entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const counter = entry.target;
-            const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+            let target;
+            
+            // Handle different data attributes
+            if (counter.hasAttribute('data-target')) {
+                target = parseInt(counter.getAttribute('data-target'));
+            } else {
+                target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+            }
+            
             const suffix = counter.textContent.replace(/[\d]/g, '');
             let current = 0;
-            const increment = target / 50;
+            const increment = target / 60;  // Increased duration for smoother animation
             
             const updateCounter = () => {
                 if (current < target) {
                     current += increment;
-                    counter.textContent = Math.floor(current) + suffix;
+                    const displayValue = Math.floor(current);
+                    counter.textContent = displayValue + suffix;
                     requestAnimationFrame(updateCounter);
                 } else {
                     counter.textContent = target + suffix;
+                    
+                    // Add a subtle glow effect when animation completes
+                    counter.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+                    setTimeout(() => {
+                        counter.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3)';
+                    }, 500);
                 }
             };
             
@@ -705,3 +682,215 @@ window.addEventListener('load', function() {
         }, index * 200);
     });
 });
+
+// Registration Portal Function
+function openRegistrationPortal() {
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.className = 'registration-modal';
+    modal.innerHTML = `
+        <div class="modal-overlay" onclick="closeRegistrationModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="gradient-text">Company Registration Portal</h2>
+                <button class="modal-close" onclick="closeRegistrationModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="registration-steps">
+                    <div class="step-indicator">
+                        <div class="step active">1</div>
+                        <div class="step">2</div>
+                        <div class="step">3</div>
+                    </div>
+                    
+                    <form class="registration-form" id="registrationForm">
+                        <div class="form-section active" data-step="1">
+                            <h3>Business Information</h3>
+                            <div class="form-group">
+                                <label>Company Name *</label>
+                                <input type="text" name="companyName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Business Type *</label>
+                                <select name="businessType" required>
+                                    <option value="">Select Business Type</option>
+                                    <option value="pvt-ltd">Private Limited</option>
+                                    <option value="llp">Limited Liability Partnership</option>
+                                    <option value="opc">One Person Company</option>
+                                    <option value="partnership">Partnership</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Business Activity *</label>
+                                <input type="text" name="businessActivity" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section" data-step="2">
+                            <h3>Contact Details</h3>
+                            <div class="form-group">
+                                <label>Contact Person *</label>
+                                <input type="text" name="contactPerson" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address *</label>
+                                <textarea name="address" rows="3" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section" data-step="3">
+                            <h3>Package Selection</h3>
+                            <div class="package-options">
+                                <div class="package-option" data-package="basic">
+                                    <h4>Basic Package</h4>
+                                    <div class="price">₹5,999</div>
+                                    <ul>
+                                        <li>Company Registration</li>
+                                        <li>PAN & TAN</li>
+                                        <li>Basic Compliance</li>
+                                    </ul>
+                                </div>
+                                <div class="package-option" data-package="premium">
+                                    <h4>Premium Package</h4>
+                                    <div class="price">₹9,999</div>
+                                    <ul>
+                                        <li>Everything in Basic</li>
+                                        <li>Bank Account Opening</li>
+                                        <li>GST Registration</li>
+                                        <li>Digital Signature</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev" onclick="previousStep()">Previous</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Next</button>
+                            <button type="submit" class="cosmic-btn submit-btn" style="display: none;">Start Registration</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Add event listeners
+    setupRegistrationForm();
+    
+    // Animate modal in
+    gsap.fromTo(modal, {
+        opacity: 0,
+        scale: 0.8
+    }, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: "back.out(1.7)"
+    });
+}
+
+function closeRegistrationModal() {
+    const modal = document.querySelector('.registration-modal');
+    if (modal) {
+        gsap.to(modal, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.2,
+            ease: "power2.in",
+            onComplete: () => modal.remove()
+        });
+    }
+}
+
+function setupRegistrationForm() {
+    let currentStep = 1;
+    const totalSteps = 3;
+    
+    window.nextStep = function() {
+        if (currentStep < totalSteps) {
+            // Hide current step
+            const currentSection = document.querySelector(`[data-step="${currentStep}"]`);
+            const nextSection = document.querySelector(`[data-step="${currentStep + 1}"]`);
+            
+            currentSection.classList.remove('active');
+            nextSection.classList.add('active');
+            
+            // Update step indicator
+            document.querySelectorAll('.step')[currentStep].classList.add('active');
+            
+            currentStep++;
+            
+            // Show/hide navigation buttons
+            if (currentStep === totalSteps) {
+                document.querySelector('.btn-next').style.display = 'none';
+                document.querySelector('.submit-btn').style.display = 'block';
+            }
+            document.querySelector('.btn-prev').style.display = 'block';
+        }
+    };
+    
+    window.previousStep = function() {
+        if (currentStep > 1) {
+            // Hide current step
+            const currentSection = document.querySelector(`[data-step="${currentStep}"]`);
+            const prevSection = document.querySelector(`[data-step="${currentStep - 1}"]`);
+            
+            currentSection.classList.remove('active');
+            prevSection.classList.add('active');
+            
+            // Update step indicator
+            document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
+            
+            currentStep--;
+            
+            // Show/hide navigation buttons
+            if (currentStep === 1) {
+                document.querySelector('.btn-prev').style.display = 'none';
+            }
+            document.querySelector('.btn-next').style.display = 'block';
+            document.querySelector('.submit-btn').style.display = 'none';
+        }
+    };
+    
+    // Package selection
+    document.querySelectorAll('.package-option').forEach(option => {
+        option.addEventListener('click', function() {
+            document.querySelectorAll('.package-option').forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+    
+    // Form submission
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = new FormData(this);
+        const selectedPackage = document.querySelector('.package-option.selected');
+        
+        if (selectedPackage) {
+            formData.append('package', selectedPackage.dataset.package);
+        }
+        
+        // Simulate form submission
+        const submitBtn = document.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Processing...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            alert('Registration request submitted successfully! Our team will contact you within 24 hours.');
+            closeRegistrationModal();
+        }, 2000);
+    });
+}
