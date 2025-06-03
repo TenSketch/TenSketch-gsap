@@ -394,81 +394,117 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    </section>    <!-- Contact Section -->
+    <section id="contact" class="service-section contact-section">
+        <div class="section-background">
+            <div class="contact-network">
+                <div class="contact-node node-1"></div>
+                <div class="contact-node node-3"></div>
+            </div>
+            <div class="communication-particles"></div>
+        </div>
+        
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2 class="section-title">Ready to Go <span class="gradient-text">Beyond Web?</span></h2>
-                    <p class="contact-subtitle">Let's discuss your business goals and create a comprehensive strategy for success.</p>
+            <div class="service-content">
+                <div class="service-info">
+                    <div class="service-number">04</div>
+                    <div class="service-category">Get Started</div>
+                    <h2 class="service-title">
+                        <span class="title-word">Ready to Go</span>
+                        <span class="title-word gradient-text">Beyond Web?</span>
+                        <span class="title-subtitle">Your Success Journey Begins</span>
+                    </h2>
                     
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Call Us</h4>
-                                <p>+91 XXX XXX XXXX</p>
+                    <div class="usp-container">
+                        <div class="usp-item">
+                            <div class="usp-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="usp-content">
+                                <h3>Call Us</h3>
+                                <p>Direct line to our experts. Get instant consultation and personalized solutions for your business needs.</p>
                             </div>
                         </div>
                         
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email Us</h4>
-                                <p>hello@tensketch.com</p>
+                        <div class="usp-item">
+                            <div class="usp-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="usp-content">
+                                <h3>Email Us</h3>
+                                <p>Detailed project discussions via email. Share your vision and receive comprehensive proposals.</p>
                             </div>
                         </div>
                         
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Visit Us</h4>
-                                <p>Your Office Address</p>
+                        <div class="usp-item">
+                            <div class="usp-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="usp-content">
+                                <h3>Visit Us</h3>
+                                <p>Face-to-face consultations at our office. Experience our workspace and meet the team behind your success.</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="service-cta">
+                        <button class="cosmic-btn contact-btn" onclick="openContactPortal()">
+                            <span class="btn-text">Start My Journey</span>
+                            <div class="btn-spark"></div>
+                            <i class="fas fa-rocket"></i>
+                        </button>
+                        <div class="cta-note">Free consultation & strategy session</div>
+                    </div>
                 </div>
                 
-                <div class="contact-form">
-                    <form class="form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                <div class="service-visual">
+                    <div class="contact-showcase">
+                        <div class="contact-form-visual">
+                            <form class="cosmic-form" id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                    <div class="input-glow"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                    <div class="input-glow"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone">
+                                    <div class="input-glow"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="service">Service Interested In</label>
+                                    <select id="service" name="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="brand-identity">Brand Identity</option>
+                                        <option value="company-registration">Company Registration</option>
+                                        <option value="social-media-marketing">Social Media Marketing</option>
+                                        <option value="all-services">All Services</option>
+                                    </select>
+                                    <div class="input-glow"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Tell us about your project</label>
+                                    <textarea id="message" name="message" rows="4" placeholder="Describe your business goals and requirements..."></textarea>
+                                    <div class="input-glow"></div>
+                                </div>
+                                
+                                <button type="submit" class="cosmic-btn submit-cosmic">
+                                    <span class="btn-text">Launch My Business</span>
+                                    <div class="btn-particles"></div>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="brand-identity">Brand Identity</option>
-                                <option value="company-registration">Company Registration</option>
-                                <option value="social-media-marketing">Social Media Marketing</option>
-                                <option value="all-services">All Services</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Tell us about your project</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Describe your business goals and requirements..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">
-                            <span>Start My Business Journey</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
