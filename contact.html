@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Contact Us - TenSketch</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+  <style>
+    /* Custom styles for UX page first section */
+    .ux-hero {
+      padding: 1vh 1rem 5vh !important; /* Reduced top padding to pull section up */
+    }
+    
+    .ux-hero .section-heading {
+      font-size: clamp(1.1rem, 5.1vw, 5.1rem) !important; /* Increased font size by 0.1 */
+    }
+      /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .ux-hero {
+        padding: 0.5vh 0.75rem 3vh !important; /* Further reduced for mobile */
+      }
+      
+      .ux-hero .section-heading {
+        font-size: clamp(2.2rem, 5.5vw, 3.0rem) !important; /* Significantly increased mobile font size */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .ux-hero {
+        padding: 0.2vh 0.5rem 2vh !important; /* Minimal top padding for small screens */
+      }
+      
+      .ux-hero .section-heading {
+        font-size: clamp(2.0rem, 5.0vw, 2.5rem) !important; /* Significantly increased small screen font size */
+      }
+    }
+    
+    /* Large screen adjustments */
+    @media (min-width: 1200px) {
+      .ux-hero {
+        padding: 1.5vh 2rem 6vh !important; /* Slightly more padding for large screens */
+      }
+      
+      .ux-hero .section-heading {
+        font-size: clamp(2.6rem, 4.1vw, 4.1rem) !important; /* Increased large screen font size */
+      }
+    }
+  </style>
+</head>
+<body>  
+  <header>
+    <div class="navbar">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch Logo">
+      </a>
+      <a href="https://instagram.com/tensketch" class="social-icon" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>    <div id="logo-menu" class="logo-container">
+      <svg class="logo-menu-border" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="26" fill="none" stroke-width="2" stroke="rgba(255,255,255,0.25)" />
+        <circle cx="30" cy="30" r="26" fill="none" stroke-width="2" class="logo-menu-glow" />
+      </svg>
+      <img src="assets/images/logo-left.png" alt="Logo Left Half" class="logo-half logo-left">
+      <img src="assets/images/logo-right.png" alt="Logo Right Half" class="logo-half logo-right">
+    </div>
+    <nav class="menu">
+      <button class="menu-close" aria-label="Close Menu"></button>
+      <ul>        <li><a href="index.html">Start here</a></li>
+        <li><a href="about.html">Our story</a></li>
+        <!-- <li><a href="Think-ux-first.html">Think ux first</a></li> -->
+        <li><a href="web-solution.html">Web solution</a></li>
+        <li><a href="portfolio.html">Our work</a></li>       
+        <li><a href="beyond-web.html">Beyond web</a></li>
+        <li><a href="contact.html">Lets talk</a></li>
+        <!-- Phone & WhatsApp icons below Let's talk -->
+        <li style="display: flex; justify-content: center; gap: 1.2em; margin-top: 0.5em;">
+          <a href="tel:+919840167444" target="_blank" aria-label="Call us" style="font-size:1.7em; color: #25d366;"><i class="fas fa-phone"></i></a>
+          <a href="https://wa.me/919840167444" target="_blank" aria-label="WhatsApp" style="font-size:1.7em; color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SECTION 1: UX RESEARCH HERO -->
+  <section class="first">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg one">          
+           <div class="ux-hero">
+        <h2 class="section-heading">Contact Us</h2>
+        <div class="ux-content">
+          <p class="section-text">
+            Ready to take your user experience to the next level? <br>
+            Reach out and let’s start a conversation about your project, your goals, and how we can help.
+          </p>
+          <div class="ux-examples-compact">
+            <div class="example-inline">
+              <i class="fas fa-envelope"></i>
+              <span>Email: <strong>hello@tensketch.com</strong></span>
+            </div>
+            <div class="example-inline">
+              <i class="fas fa-phone"></i>
+              <span>Phone: <strong>+91 98765 43210</strong></span>
+            </div>
+          </div>
+          <p class="section-text highlight">
+            We respond within 24 hours on business days.
+          </p>
+          <div class="industry-tags-compact">
+            <span class="industry-tag"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
+            <span class="industry-tag"><i class="fas fa-globe"></i> Serving clients worldwide</span>
+          </div>
+          <p class="section-text closing">
+            Or use the form below to send us a direct message.
+          </p>
+          <a href="#audit-form" class="btn-cta">Send us a message</a>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+
+  <!-- SECTION 2: CONTACT FORM -->
+  <section class="second contact-form-section">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading">Get in Touch</h2>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-mobile">Mobile Number</label>
+              <input type="tel" id="contact-mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-type">Type of Message</label>
+              <select id="contact-type" name="type" required>
+                <option value="">Select...</option>
+                <option value="enquiry">Enquiry</option>
+                <option value="feedback">Feedback</option>
+                <option value="support">Support</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: LOCATION MAP -->
+  <section class="third location-section" style="padding:0; margin:0;">
+    <div class="outer" style="padding:0; margin:0;">
+      <div class="inner" style="padding:0; margin:0;">
+        <div class="bg" style="position:relative; min-height:100vh; width:100vw; background: url('assets/bg%20video/0_Mountains_Landscape_1280x720.mp4') center center/cover no-repeat; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0; margin:0; overflow:hidden;">
+          <div style="position:absolute; inset:0; background:rgba(20,30,40,0.45); z-index:1;"></div>
+          <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2em; padding:4vh 1.5em;">
+            <h2 class="section-heading" style="margin-bottom:0.5em; color:#fff;">Visit Us</h2>
+            <p class="section-text" style="font-size:1.15em; text-align:center; max-width:600px; margin-bottom:1em; color:#fff;">
+              ALLIANCE ORCHID SPRINGS, Korattur Tank, Korattur, Chennai, Puthagaram, Tamil Nadu 600077
+            </p>
+            <div class="map-container" style="width:100%; max-width:600px; border-radius:1em; overflow:hidden; box-shadow:0 2px 16px 0 rgba(0,0,0,0.09);">
+              <iframe
+                src="https://www.google.com/maps?q=ALLIANCE+ORCHID+SPRINGS,+Korattur+Tank,+Korattur,+Chennai,+Puthagaram,+Tamil+Nadu+600077&output=embed"
+                width="100%" height="320" style="border:0; min-width:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=ALLIANCE+ORCHID+SPRINGS,+Korattur+Tank,+Korattur,+Chennai,+Puthagaram,+Tamil+Nadu+600077" target="_blank" rel="noopener" class="btn-cta" style="margin-top:1.2em; font-size:1.1em; padding:0.8em 2.2em; background:#25d366; color:#fff; border-radius:2em; box-shadow:0 2px 8px 0 rgba(37,211,102,0.08); transition:background 0.2s; text-decoration:none; display:inline-flex; align-items:center; gap:0.7em;">
+              <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+            </a>
+            <div class="location-socials" style="margin-top:2em; display:flex; gap:1.5em; justify-content:center; align-items:center;">
+              <a href="https://www.facebook.com/TenSketchWebDesigner/" target="_blank" aria-label="Facebook" style="font-size:2em; color:#1877f3; transition:color 0.2s;"><i class="fab fa-facebook-square"></i></a>
+              <a href="https://www.linkedin.com/company/tensketch285/mycompany/" target="_blank" aria-label="LinkedIn" style="font-size:2em; color:#0077b5; transition:color 0.2s;"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/TenSketch_Web" target="_blank" aria-label="X (Twitter)" style="font-size:2em; color:#43d2e6; transition:color 0.2s;"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.youtube.com/@tensketch385" target="_blank" aria-label="YouTube" style="font-size:2em; color:#ff0000; transition:color 0.2s;"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="minimal-footer">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <p class="footer-text">© 2025 TenSketch. Crafted for visionary brands.</p>
+          <div class="footer-links">
+            <a href="/" class="footer-link">Home</a> |
+            <a href="about.html" class="footer-link">About</a> |
+            <a href="#" class="footer-link">Services</a> |
+            <a href="#" class="footer-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- GSAP Script -->  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

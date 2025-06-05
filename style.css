@@ -2309,4 +2309,20 @@ body {
   }
 }
 
+/* Phone & WhatsApp icons in sidebar menu */
+.menu .sidebar-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 0.5em;
+}
+.menu .sidebar-icons a {
+  font-size: 1.7em;
+  color: #25d366;
+  transition: color 0.2s;
+}
+.menu .sidebar-icons a:hover {
+  color: #128c7e;
+}
+
 
