@@ -6,47 +6,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="contact.css">
-  <style>
-    /* Custom styles for UX page first section */
-    .ux-hero {
-      padding: 1vh 1rem 5vh !important; /* Reduced top padding to pull section up */
-    }
-    
-    .ux-hero .section-heading {
-      font-size: clamp(1.1rem, 5.1vw, 5.1rem) !important; /* Increased font size by 0.1 */
-    }
-      /* Mobile responsive adjustments */
-    @media (max-width: 768px) {
-      .ux-hero {
-        padding: 0.5vh 0.75rem 3vh !important; /* Further reduced for mobile */
-      }
-      
-      .ux-hero .section-heading {
-        font-size: clamp(2.2rem, 5.5vw, 3.0rem) !important; /* Significantly increased mobile font size */
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .ux-hero {
-        padding: 0.2vh 0.5rem 2vh !important; /* Minimal top padding for small screens */
-      }
-      
-      .ux-hero .section-heading {
-        font-size: clamp(2.0rem, 5.0vw, 2.5rem) !important; /* Significantly increased small screen font size */
-      }
-    }
-    
-    /* Large screen adjustments */
-    @media (min-width: 1200px) {
-      .ux-hero {
-        padding: 1.5vh 2rem 6vh !important; /* Slightly more padding for large screens */
-      }
-      
-      .ux-hero .section-heading {
-        font-size: clamp(2.6rem, 4.1vw, 4.1rem) !important; /* Increased large screen font size */
-      }
-    }
-  </style>
 </head>
 <body>  
   <header>
@@ -88,39 +47,43 @@
     <div class="outer">
       <div class="inner">
         <div class="bg one" style="position:relative; overflow:hidden;">
-          <!-- Background Video for Section 1 -->
-          <video class="section-bg-video" src="assets/bg video/0_Mountains_Landscape_1280x720.mp4" autoplay loop muted playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;"></video>
+          <!-- Removed Background Video for Section 1 -->
           <div style="position:relative; z-index:1;">
             <div class="ux-hero">
-        <h2 class="section-heading">Contact Us</h2>
-        <div class="ux-content">
-          <p class="section-text">
-            Ready to take your user experience to the next level? <br>
-            Reach out and let’s start a conversation about your project, your goals, and how we can help.
-          </p>
-          <div class="ux-examples-compact">
-            <div class="example-inline">
-              <i class="fas fa-envelope"></i>
-              <span>Email: <strong>hello@tensketch.com</strong></span>
+              <h2 class="section-heading">Contact Us</h2>
+              <div class="ux-content">
+                <p class="section-text">
+                  Ready to take your user experience to the next level? <br>
+                  Reach out and let’s start a conversation about your project, your goals, and how we can help.
+                </p>
+                <div class="ux-examples-compact">
+                  <div class="example-inline">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email: <strong>info@tensketch.com</strong></span>
+                  </div>
+                  <div class="example-inline">
+                    <i class="fas fa-phone"></i>
+                    <span>Phone: <strong>+91-9840167444</strong></span>
+                  </div>
+                </div>
+                <p class="section-text highlight">
+                  We respond within 24 hours on business days.
+                </p>
+                <div class="industry-tags-compact">
+                  <span class="industry-tag"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
+                  <span class="industry-tag"><i class="fas fa-globe"></i> Serving clients worldwide</span>
+                </div>
+                <p class="section-text closing">
+                  Or use the form below to send us a direct message.
+                </p>
+                <!-- Replace button with animated down-facing chevron icon -->
+                <div style="display:flex; justify-content:center; margin-top:1.5em;">
+                  <a href="#contact-form" aria-label="Scroll to contact form" style="display:inline-block; color:#e4c590; font-size:2.7em; transition:color 0.2s; animation:bounceDown 1.5s infinite;">
+                    <i class="fas fa-chevron-right" style="transform:rotate(90deg);"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="example-inline">
-              <i class="fas fa-phone"></i>
-              <span>Phone: <strong>+91 98765 43210</strong></span>
-            </div>
-          </div>
-          <p class="section-text highlight">
-            We respond within 24 hours on business days.
-          </p>
-          <div class="industry-tags-compact">
-            <span class="industry-tag"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</span>
-            <span class="industry-tag"><i class="fas fa-globe"></i> Serving clients worldwide</span>
-          </div>
-          <p class="section-text closing">
-            Or use the form below to send us a direct message.
-          </p>
-          <a href="#audit-form" class="btn-cta">Send us a message</a>
-        </div>
-      </div>
           </div>
         </div>
       </div>
@@ -132,8 +95,7 @@
     <div class="outer">
       <div class="inner">
         <div class="bg" style="position:relative; overflow:hidden;">
-          <!-- Background Video for Section 2 -->
-          <video class="section-bg-video" src="assets/bg video/0_Space_Nebula_1280x720.mp4" autoplay loop muted playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;"></video>
+          <!-- Removed Background Video for Section 2 -->
           <div style="position:relative; z-index:1;">
             <h2 class="section-heading">Get in Touch</h2>
             <form class="contact-form" id="contact-form">
@@ -161,7 +123,7 @@
                 <textarea id="contact-message" name="message" rows="4" required></textarea>
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn-submit">
+                <button type="submit" class="btn-cta" style="margin-top:1.2em; font-size:1.1em; padding:0.8em 2.2em; background:#e4c590; color:#222; border-radius:2em; box-shadow:0 2px 8px 0 rgba(228,197,144,0.08); transition:background 0.2s; text-decoration:none; display:inline-flex; align-items:center; gap:0.7em;">
                   <i class="fas fa-paper-plane"></i>
                   Send Message
                 </button>
@@ -178,8 +140,7 @@
     <div class="outer" style="padding:0; margin:0;">
       <div class="inner" style="padding:0; margin:0;">
         <div class="bg" style="position:relative; min-height:100vh; width:100vw; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0; margin:0; overflow:hidden;">
-          <!-- Background Video for Section 3 -->
-          <video class="section-bg-video" src="assets/bg video/0_Astronaut_Space_3840x2160.mp4" autoplay loop muted playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;"></video>
+          <!-- Removed Background Video for Section 3 -->
           <div style="position:absolute; inset:0; background:rgba(20,30,40,0.45); z-index:1;"></div>
           <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2em; padding:4vh 1.5em;">
             <h2 class="section-heading" style="margin-bottom:0.5em; color:#fff;">Visit Us</h2>
@@ -191,7 +152,7 @@
                 src="https://www.google.com/maps?q=ALLIANCE+ORCHID+SPRINGS,+Korattur+Tank,+Korattur,+Chennai,+Puthagaram,+Tamil+Nadu+600077&output=embed"
                 width="100%" height="320" style="border:0; min-width:250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=ALLIANCE+ORCHID+SPRINGS,+Korattur+Tank,+Korattur,+Chennai,+Puthagaram,+Tamil+Nadu+600077" target="_blank" rel="noopener" class="btn-cta" style="margin-top:1.2em; font-size:1.1em; padding:0.8em 2.2em; background:#25d366; color:#fff; border-radius:2em; box-shadow:0 2px 8px 0 rgba(37,211,102,0.08); transition:background 0.2s; text-decoration:none; display:inline-flex; align-items:center; gap:0.7em;">
+            <a href="https://www.google.com/maps/search/?api=1&query=ALLIANCE+ORCHID+SPRINGS,+Korattur+Tank,+Korattur,+Chennai,+Puthagaram,+Tamil+Nadu+600077" target="_blank" rel="noopener" class="btn-cta" style="margin-top:1.2em; font-size:1.1em; padding:0.8em 2.2em; background:#e4c590; color:#222; border-radius:2em; box-shadow:0 2px 8px 0 rgba(228,197,144,0.08); transition:background 0.2s; text-decoration:none; display:inline-flex; align-items:center; gap:0.7em;">
               <i class="fas fa-map-marker-alt"></i> Open in Google Maps
             </a>
             <div class="location-socials" style="margin-top:2em; display:flex; gap:1.5em; justify-content:center; align-items:center;">

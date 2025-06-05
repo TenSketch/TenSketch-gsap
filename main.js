@@ -173,10 +173,14 @@ function gotoSection(index, direction) {
     playUXTitleAnimation();
     setTimeout(() => playUXProblemsAnimation(), 300); // Small delay for cards
   }
-  
-  // Animate testimonials when we hit the testimonials section
+    // Animate testimonials when we hit the testimonials section
   if (sections[index].classList.contains("testimonials")) {
     playTestimonialsAnimation();
+  }
+  
+  // Animate insights cards when we hit the sixth section
+  if (sections[index].classList.contains("sixth")) {
+    playInsightsAnimation();
   }
 }
 
@@ -1138,3 +1142,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Function to animate Insights & Answers cards
+function playInsightsAnimation() {
+  const insightsSection = document.querySelector('.sixth');
+  if (!insightsSection) return;
+  
+  const answerCards = document.querySelectorAll('.answer-card');
+  const downArrow = document.querySelector('.insights-down-arrow');
+  const heading = document.querySelector('.sixth .section-heading');
+  
+  if (!answerCards.length) return;
+  
+  // Create timeline for insights animation
+  const tl = gsap.timeline();
+  
+  // Set initial states
+  gsap.set(answerCards, { y: -50, opacity: 0 });
+  gsap.set(downArrow, { opacity: 0 });
+  
+  // Animate heading first
+  if (heading) {
+    tl.fromTo(heading, 
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    );
+  }
+  
+  // Animate cards sliding down one by one with 1-second gaps
+  answerCards.forEach((card, index) => {
+    tl.to(card, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power3.out"
+    }, index * 1 + 0.5); // 1-second gap between each card, start after heading
+  });
+  
+  // Show down arrow after all cards finish animating
+  tl.to(downArrow, {
+    opacity: 1,
+    duration: 0.5,
+    ease: "power2.out"
+  }, "+=0.3"); // Small delay after last card
+  
+  // Add click handler for down arrow to go to next section
+  if (downArrow) {
+    downArrow.addEventListener('click', () => {
+      if (!animating && currentIndex < sections.length - 1) {
+        gotoSection(currentIndex + 1, 1);
+      }
+    });
+  }
+}

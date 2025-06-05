@@ -53,12 +53,27 @@
             Don’t worry—it happens to the best of us. Scroll down to see
             how Priyanka from SanMed Healthcare Solutions found clarity.
           </p>
+          <!-- Animated down chevron for scroll -->
+          <div style="display:flex; justify-content:center; margin-top:2.5em;">
+            <a href="#section2" aria-label="Scroll down" style="display:inline-block; color:#e4c590; font-size:2.7em; transition:color 0.2s; animation:bounceDown 1.5s infinite;">
+              <i class="fas fa-chevron-right" style="transform:rotate(90deg);"></i>
+            </a>
+          </div>
+          <style>
+          @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            20% { transform: translateY(8px); }
+            40% { transform: translateY(0); }
+            60% { transform: translateY(12px); }
+            80% { transform: translateY(0); }
+          }
+          </style>
         </div>
       </div>
     </div>
   </section>
   <!-- SECTION 2: CASE STUDY -->
-  <section class="second">
+  <section class="second" id="section2">
     <div class="outer">
       <div class="inner">
         <div class="bg">
@@ -223,8 +238,7 @@
             <p class="answer-text">Healthcare practitioners, clinic administrators, and medical facility managers.</p>
           </div>
           <div class="answer-card">
-            <img src="https://img.icons8.com/ios-filled/100/ffffff/question-mark" alt="Why they care" class="answer-img">
-            <p class="answer-text">To unify patient management and online transactions in one seamless interface.</p>
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/question-mark" alt="Why they care" class="answer-img">            <p class="answer-text">To unify patient management and online transactions in one seamless interface.</p>
           </div>
           <!-- <div class="answer-card" >
             <img src="assets/images/goal-100.png" alt="Primary goal" class="answer-img">
@@ -234,6 +248,10 @@
             <img src="assets/images/competitor-100.png" alt="Competition" class="answer-img">
             <p class="answer-text">Niche healthcare SaaS vendors and generic template-based website providers.</p>
           </div> -->
+        </div>
+        <!-- Down Arrow for Next Section -->
+        <div class="insights-down-arrow">
+          <i class="fas fa-chevron-down" style="animation: bounceDown 1.5s infinite;"></i>
         </div>
       </div>
     </div>
