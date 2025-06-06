@@ -825,8 +825,10 @@ h2 * {
 
 .answer-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -834,9 +836,7 @@ h2 * {
   flex: 0 0 calc(25% - 1.5rem); /* Adjusted for larger gap - 25% width minus larger gap */
   min-width: 160px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateX(5deg);
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
