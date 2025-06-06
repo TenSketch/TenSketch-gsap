@@ -1,18 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 
-/* TenSketch Color Palette */
 :root {
-  /* Primary Colors */
-  --primary-clr: #000000;       /* Pure Black */
-  --primary-dark: #1A1A1A;      /* Charcoal Black */
-  /* Secondary Colors */
-  --secondary-clr: #FFFFFF;     /* Pure White */
-  --secondary-light: #F4F4F4;   /* Light Gray */
-  /* Accent Colors */
-  --accent-gold: #D4AF37;       /* Rich Gold */
-  --accent-sandal: #E6C99A;     /* Sandal Gold */
-  /* RGB Values for overlays/shadows */
+  --primary-clr: #000000;
+  --primary-dark: #1A1A1A;
+  --secondary-clr: #FFFFFF;
+  --secondary-light: #F4F4F4;
+  --accent-gold: #D4AF37;
+  --accent-sandal: #E6C99A;
   --primary-clr-rgb: 0, 0, 0;
   --primary-dark-rgb: 26, 26, 26;
   --secondary-clr-rgb: 255, 255, 255;
@@ -20,7 +15,6 @@
   --accent-gold-rgb: 212, 175, 55;
   --accent-sandal-rgb: 230, 201, 154;
   
-  /* Logo Menu Config */
   --logo-transition: 0.4s;
 }
 
@@ -64,7 +58,7 @@ h2 {
   width: 90vw;
   max-width: 1200px;
   box-sizing: border-box;
-  padding: 0 0.5rem; /* Add padding to prevent clipping */
+  padding: 0 0.5rem;
   word-wrap: break-word;
 }
 
@@ -83,7 +77,6 @@ header {
   background: transparent;
 }
 
-/* New Navbar Styles */
 header .navbar {
   position: fixed;
   top: 30px;
@@ -92,7 +85,7 @@ header .navbar {
   display: flex;
   justify-content: space-between;  align-items: center;
   padding: 0 5%;
-  z-index: 5; /* Increased to 5 to appear above menu (z-index: 4) */
+  z-index: 5;
 }
 
 header .nav-logo {
@@ -138,16 +131,16 @@ header .logo {
   width: clamp(120px, 25vw, 20%);
   filter: invert(1);
   transition: all var(--logo-transition) ease;
-  display: none !important; /* Hidden - using split logo instead */
+  display: none !important;
 }
 
 /* Split Logo Hamburger Menu Styles */
 .logo-container {
   position: fixed;
-  left: 40px;
+  left: 5%;
   top: 90%;
   transform: translateY(-50%);
-  z-index: 101; /* Increased to ensure always visible above menu */
+  z-index: 101;
   cursor: pointer;
   transition: all 0.5s ease;
   display: flex;
@@ -161,7 +154,7 @@ header .logo {
   position: absolute;
   max-width: 30px;
   max-height: 30px;
-  z-index: 3; /* Ensure logo halves are above the glow */
+  z-index: 3;
 }
 .logo-left {
   left: 10px;
@@ -170,14 +163,14 @@ header .logo {
   transition: none;
 }
 .logo-right {
-  left: 35px; /* Positioned to create proper split effect within the circle */
+  left: 35px;
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.5s cubic-bezier(0.77,0,0.175,1);
 }
 /* Animation states for open/close */
 .menu.open ~ .logo-container .logo-right {
-  transform: translateX(20px); /* Reduced movement (half of original 40px) */
+  transform: translateX(20px);
   opacity: 0;
 }
 .menu:not(.open) ~ .logo-container .logo-right {
@@ -199,7 +192,7 @@ header .logo {
     left: 8px;
   }
   .logo-right {
-    left: 22px; /* Proper spacing for mobile */
+    left: 22px;
   }
   /* Animation for mobile */
   .menu.open ~ .logo-container .logo-right {
@@ -287,20 +280,20 @@ header .logo { display: none !important; }
 
 @media (max-width: 768px) {
   .menu ul {
-    padding-left: 60px; /* Reduced padding for smaller screens */
-    padding-right: 2rem; /* Add right padding to create space from border */
+    padding-left: 60px;
+    padding-right: 2rem;
   }
 }
 
 @media (max-width: 480px) {
   .menu ul {
-    padding-left: 40px; /* Further reduced padding for very small screens */
-    padding-right: 1.5rem; /* Add right padding to create space from border */
+    padding-left: 40px;
+    padding-right: 1.5rem;
   }
 }
 
 .menu li {
-  margin: 1.5rem 0; /* Reduced margin from 2rem to 1.5rem */
+  margin: 1.5rem 0;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -311,7 +304,6 @@ header .logo { display: none !important; }
   transform: translateY(0);
 }
 
-/* Staggered animation for menu items */
 .menu.open li:nth-child(1) { transition-delay: 0.1s; }
 .menu.open li:nth-child(2) { transition-delay: 0.2s; }
 .menu.open li:nth-child(3) { transition-delay: 0.3s; }
@@ -351,7 +343,6 @@ header .logo { display: none !important; }
   width: 100%;
 }
 
-/* Cross (Close) Button Styles - Image only, no background */
 .menu-close {
   position: absolute;
   top: 30px;
@@ -370,7 +361,6 @@ header .logo { display: none !important; }
   transform: translateZ(0);
 }
 
-/* Mobile responsive sizing for menu close button */
 @media (max-width: 600px) {
   .menu-close {
     width: 20px;
@@ -431,7 +421,6 @@ section .bg .clip-text {
   overflow: hidden;
 }
 
-/* BACKGROUND IMAGES */
 .first .bg.one {
   background-image: linear-gradient(180deg, rgba(var(--primary-clr-rgb), 0.6) 0%, rgba(var(--primary-clr-rgb), 0.3) 100%), url("https://images.unsplash.com/photo-1617478755490-e21232a5eeaf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU1NjM5NA&ixlib=rb-1.2.1&q=75&w=1920");
 }
@@ -464,13 +453,12 @@ h2 * {
   will-change: transform;
 }
 
-/* Section Text & Buttons */
 .section-text {
   max-width: 700px;
   margin: 1rem auto;
   text-align: center;
   color: var(--secondary-clr);
-  font-size: clamp(1rem, 2vw, 1.3rem); /* Decreased min and max for subtler description */
+  font-size: clamp(1rem, 2vw, 1.3rem);
   line-height: 1.5;
   text-transform: none;
 }
@@ -498,23 +486,24 @@ h2 * {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem; /* Increased from 1rem to 2rem for more spacing */
+  gap: 2rem;
   padding-inline: 2rem;
   max-width: 1200px;
   margin: 4rem auto 1rem;
   flex-wrap: wrap;
+  text-align: center;
 }
 
-/* Updated card styling for 4 in a row with increased gap */
 .third .card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 1.5rem;
   transition: all 0.4s ease;
-  flex: 0 0 calc(25% - 1.5rem); /* Adjusted for larger gap - 25% width minus larger gap */
+  flex: 0 0 calc(25% - 1.5rem);
   min-width: 160px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  text-align: center;
 }
 
 .third .card:hover {
@@ -524,19 +513,18 @@ h2 * {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* Responsive adjustments for cards */
 @media (max-width: 992px) {
   .third .card {
-    flex: 0 0 calc(50% - 1.5rem); /* 2 in a row for medium screens, adjusted for larger gap */
+    flex: 0 0 calc(50% - 1.5rem);
   }
 }
 
 @media (max-width: 768px) {
   .cards-container {
-    gap: 1.5rem; /* Also increased for mobile, but slightly smaller */
+    gap: 1.5rem;
     padding-inline: 0.75rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     max-width: 500px;
     margin: 2rem auto;
@@ -544,12 +532,12 @@ h2 * {
   
   .third .card {
     padding: 1rem;
-    flex: none; /* Remove flex sizing */
-    width: 100%; /* Fill the grid cell */
-    min-width: unset; /* Remove min-width constraint */
-    height: auto; /* Allow height to adjust based on content */
-    min-height: 140px; /* Set minimum height */
-    margin: 0; /* Remove margin */
+    flex: none;
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    min-height: 140px;
+    margin: 0;
   }
     .card-title {
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
@@ -562,7 +550,7 @@ h2 * {
 
 @media (max-width: 480px) {
   .cards-container {
-    gap: 1rem; /* Further reduce gap on very small screens */
+    gap: 1rem;
   }
   
   .card-icon img {
@@ -572,19 +560,19 @@ h2 * {
 
 @media (max-width: 768px) {
   .cards-container {
-    gap: 1.5rem; /* Also increased for mobile, but slightly smaller */
+    gap: 1.5rem;
     padding-inline: 1rem;
   }
   
   .third .card {
     padding: 1rem;
-    flex: 0 0 calc(50% - 1rem); /* Adjusted for gap on small screens */
+    flex: 0 0 calc(50% - 1rem);
   }
 }
 
 @media (max-width: 480px) {
   .third .card {
-    flex: 0 0 100%; /* Stack cards for very small screens */
+    flex: 0 0 100%;
     max-width: 250px;
     margin: 0 auto;
   }
@@ -597,6 +585,7 @@ h2 * {
 
 .card-icon {
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 .card-icon img {
   width: clamp(28px, 5vw, 40px);
@@ -609,11 +598,15 @@ h2 * {
   margin-bottom: 0.5rem;
   color: var(--secondary-clr);
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .card-desc {
   font-size: clamp(1.2rem, 2vw, 1.4rem);
   color: var(--secondary-clr);
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
   margin: 0;
 }
 
@@ -642,9 +635,9 @@ h2 * {
   .flipCard-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5rem; /* Reduced gap for mobile */
+    grid-gap: 0.5rem;
     width: 100%;
-    padding: 0 1rem; /* Reduced padding for mobile */
+    padding: 0 1rem;
     max-width: 400px;
   }
   .flipCard-container .flip-card:nth-child(5) {
@@ -732,6 +725,7 @@ h2 * {
   background: rgba(var(--secondary-clr-rgb), 0.05);
   color: var(--secondary-clr);
   transform: rotateY(180deg);
+  font-size: 1rem;
 }
 
 .analysis-answers {
@@ -752,7 +746,7 @@ h2 * {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 1.5rem;
-  flex: 0 0 calc(25% - 1.5rem); /* Adjusted for larger gap - 25% width minus larger gap */
+  flex: 0 0 calc(25% - 1.5rem);
   min-width: 160px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   transition: all 0.4s ease;
@@ -768,27 +762,6 @@ h2 * {
     0 0 30px rgba(var(--accent-gold-rgb), 0.3),
     inset 0 0 10px rgba(var(--accent-gold-rgb), 0.2);
 }
-
-/* .answer-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(var(--secondary-clr-rgb), 0) 0%,
-    rgba(var(--secondary-clr-rgb), 0.05) 40%,
-    rgba(var(--secondary-clr-rgb), 0.1) 50%,
-    rgba(var(--secondary-clr-rgb), 0.05) 60%,
-    rgba(var(--secondary-clr-rgb), 0) 100%
-  );
-  transform: rotate(-45deg);
-  pointer-events: none;
-  z-index: 1;
-  animation: shine 5s infinite ease-in-out;
-} */
 
 .answer-card .answer-img {
   width: 32px;
@@ -814,7 +787,7 @@ h2 * {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 1.5rem;
-    flex: 0 0 calc(25% - 1.5rem); /* Adjusted for larger gap - 25% width minus larger gap */
+    flex: 0 0 calc(25% - 1.5rem);
     min-width: 160px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     position: relative;
@@ -913,7 +886,6 @@ h2 * {
   }
 }
 
-/* About Page Specific Styles */
 .about-hero {
   display: flex;
   flex-direction: column;
@@ -924,7 +896,7 @@ h2 * {
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .section-icon {
@@ -935,7 +907,6 @@ h2 * {
   transform-origin: bottom center;
 }
 
-/* Paintbrush bouncing animation */
 @keyframes brushBounce {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -956,14 +927,15 @@ h2 * {
 .about-meaning {
   margin-top: 1.5rem;
   position: relative;
-  width: 100%; /* Ensure it stays within container */
+  width: 100%;
 }
 
 .about-meaning .section-text {
   font-size: 1.2rem;
   line-height: 1.8;
-  width: 100%; /* Constrain width */  box-sizing: border-box;
-  word-wrap: break-word; /* Ensure text wraps correctly */
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .team-grid {
@@ -1009,7 +981,6 @@ h2 * {
   line-height: 1.5;
 }
 
-/* Responsive adjustments for about page */
 @media (max-width: 768px) {
   .process-steps,
   .team-grid {
@@ -1027,19 +998,18 @@ h2 * {
   }
   
   body, html {
-    overflow-x: hidden; /* Prevent horizontal scroll at root level */
+    overflow-x: hidden;
     width: 100%;
     position: relative;
   }
   
   section .bg {
-    padding: 10vh 0.75rem 3rem; /* Reduce side padding on mobile */
+    padding: 10vh 0.75rem 3rem;
     overflow-x: hidden;
   }
     .section-icon {
     font-size: clamp(1.2rem, 5vw, 3rem);
     margin-bottom: 1rem;
-    /* Slightly reduced animation for mobile */
     animation: brushBounce 3s ease-in-out infinite;
   }
   
@@ -1058,18 +1028,17 @@ h2 * {
   .about-meaning .section-text {
     font-size: 1.1rem;
     line-height: 1.6;
-    padding: 0 0.5rem; /* Add some padding to prevent text touching edges */
+    padding: 0 0.5rem;
   }
 
   h2 {
-    max-width: 95vw; /* Ensure headings don't overflow */
+    max-width: 95vw;
     width: 95vw;
     box-sizing: border-box;
     word-wrap: break-word;
   }
 }
 
-/* About Page Hero Section */
 .about-hero {
   display: flex;
   flex-direction: column;
@@ -1080,7 +1049,7 @@ h2 * {
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .section-icon {
@@ -1091,7 +1060,6 @@ h2 * {
   transform-origin: bottom center;
 }
 
-/* Paintbrush bouncing animation */
 @keyframes brushBounce {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -1109,7 +1077,6 @@ h2 * {
   filter: drop-shadow(0 0 8px rgba(var(--accent-gold-rgb), 0.3));
 }
 
-/* Craft Section Styles */
 .craft-showcase {
   display: flex;
   flex-direction: column;
@@ -1141,7 +1108,7 @@ h2 * {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   background: rgba(var(--primary-clr-rgb), 0.2);
   border: 1px solid rgba(var(--secondary-clr-rgb), 0.1);
-  opacity: 0; /* Start hidden for GSAP animation */
+  opacity: 0;
   transition: box-shadow 0.4s ease;
 }
 
@@ -1218,7 +1185,6 @@ h2 * {
   transition: opacity 0.4s ease;
 }
 
-/* Craft Card Hover Animations */
 .craft-card:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 
               0 0 15px rgba(var(--accent-gold-rgb), 0.5);
@@ -1258,7 +1224,6 @@ h2 * {
   color: var(--accent-gold);
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
   .craft-cards {
     flex-direction: column;
@@ -1269,10 +1234,10 @@ h2 * {
   }
   
   .craft-card {
-    width: 100%; /* Changed from 150% to 100% */
-    max-width: 280px; /* Matching desktop size for consistency */
+    width: 100%;
+    max-width: 280px;
     height: 140px;
-    margin: 0 auto; /* Center the cards */
+    margin: 0 auto;
   }
   
   .craft-showcase {
@@ -1294,25 +1259,22 @@ h2 * {
   }
 }
 
-/* --- Fix for UX Problems Section Title Clipping and Card Position (Desktop) --- */
 @media (min-width: 900px) {
   .ux-problems .section-heading {
-    font-size: 2.7rem !important; /* Reduce font size for desktop */
-    margin-top: 2.5rem !important; /* Move title down */
-    padding-bottom: 0.5em !important; /* Prevent descender clipping (g, y, etc.) */
+    font-size: 2.7rem !important;
+    margin-top: 2.5rem !important;
+    padding-bottom: 0.5em !important;
     line-height: 1.12 !important;
   }
   .ux-problems-container {
-    margin-top: 1.5rem !important; /* Move cards down */
+    margin-top: 1.5rem !important;
   }
 }
 
-/* --- Universal fix for title descender clipping (all devices) --- */
 .ux-problems .section-heading {
-  padding-bottom: 0.5em !important; /* Prevent descender clipping (g, y, etc.) */
+  padding-bottom: 0.5em !important;
 }
 
-/* Approach Section Fix: Remove black strip at top */
 .approach-section {
   background: transparent !important;
   margin-top: 0 !important;
@@ -1323,7 +1285,6 @@ h2 * {
   box-shadow: none !important;
 }
 
-/* TESTIMONIALS SECTION STYLES - 3D Rotating Grid (Demo Style) */
 .testimonials .bg {
   background-image: linear-gradient(180deg, rgba(var(--primary-clr-rgb), 0.6) 0%, rgba(var(--primary-clr-rgb), 0.3) 100%), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
   background-size: cover;
@@ -1408,7 +1369,6 @@ h2 * {
   line-height: 1.2;
 }
 
-/* 3D Positioning for 6 testimonials (matching demo pattern) */
 .gallery_box_in:nth-child(1) { transform: rotateY(0deg) translateZ(450px); }
 .gallery_box_in:nth-child(2) { transform: rotateY(60deg) translateZ(450px); }
 .gallery_box_in:nth-child(3) { transform: rotateY(120deg) translateZ(450px); }
@@ -1416,7 +1376,6 @@ h2 * {
 .gallery_box_in:nth-child(5) { transform: rotateY(240deg) translateZ(450px); }
 .gallery_box_in:nth-child(6) { transform: rotateY(300deg) translateZ(450px); }
 
-/* Responsive Design for 3D Testimonials (matching demo) */
 @media (max-width: 600px) {
   .testimonials .bg {
     padding: 2rem 1rem 1rem;
@@ -1457,7 +1416,6 @@ h2 * {
   }
 }
 
-/* UX Before UI Page Specific Styles */
 .ux-hero {
   display: flex;
   flex-direction: column;
@@ -1467,7 +1425,7 @@ h2 * {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 1vh 1rem 5vh; /* Reduced top padding to pull section up */
+  padding: 1vh 1rem 5vh;
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
@@ -1482,7 +1440,7 @@ h2 * {
   gap: 1.2vh;
   align-items: center;
   justify-content: center;
-  padding-bottom: 2vh; /* Add bottom padding to prevent clipping */
+  padding-bottom: 2vh;
 }
 
 .ux-examples-compact {
@@ -1526,7 +1484,7 @@ h2 * {
 }
 
 .section-heading {
-  font-size: clamp(2.2rem, 6vw, 3.8rem); /* Increased min and max for better hierarchy */
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
   font-weight: 700;
   text-align: center;
   margin-bottom: 2.5rem;
@@ -1534,7 +1492,7 @@ h2 * {
 }
 
 .section-text {
-  font-size: clamp(1rem, 2vw, 1.3rem); /* Decreased min and max for subtler description */
+  font-size: clamp(1rem, 2vw, 1.3rem);
   max-width: 700px;
   margin: 1rem auto;
   text-align: center;
@@ -1543,9 +1501,10 @@ h2 * {
   text-transform: none;
 }
 
-/* --- End UX Problems Section override --- */
+.sub-heading {
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
 
-/* --- FAQ Section Styles --- */
 .faqs-section {
   position: relative;
   z-index: 1;
@@ -1648,7 +1607,6 @@ h2 * {
   font-style: italic;
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
   .faqs-container {
     padding: 0 0.5rem;
@@ -1703,9 +1661,6 @@ h2 * {
     font-size: 0.85rem;
   }
 }
-/* --- End FAQ Section Styles --- */
-
-/* Sticky CTA Bar Styles */
 .sticky-cta-bar {
   position: fixed;
   bottom: 0;
@@ -1823,7 +1778,6 @@ h2 * {
   }
 }
 
-/* Mobile responsive for sticky CTA */
 @media (max-width: 768px) {
   .sticky-cta-content {
     flex-direction: column;
@@ -1871,19 +1825,16 @@ h2 * {
   }
 }
 
-/* Hide sticky CTA on very small screens in landscape */
 @media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
   .sticky-cta-bar {
     display: none;
   }
 }
 
-/* Ensure content doesn't get hidden behind sticky CTA */
 body {
   padding-bottom: 0;
 }
 
-/* Add bottom padding when sticky CTA is visible */
 .sticky-cta-visible {
   padding-bottom: 100px !important;
 }
@@ -1894,7 +1845,6 @@ body {
   }
 }
 
-/* UX Audit Popup Form Styles */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -2088,7 +2038,6 @@ body {
   font-size: 1rem;
 }
 
-/* Loading state for form submission */
 .btn-submit.loading {
   pointer-events: none;
   opacity: 0.8;
@@ -2110,14 +2059,14 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* --- Logo Menu Circular Border & Glow --- */
 .logo-menu-border {
   position: absolute;
   left: 0;
+ 
   top: 0;
   width: 60px;
   height: 60px;
-  z-index: 2; /* Increased from 0 to 2 to ensure glow is above background but below logo halves */
+  z-index: 2;
   pointer-events: none;
   background: none !important;
   box-shadow: none !important;
@@ -2203,10 +2152,10 @@ body {
     height: 40px;
   }
   .logo-menu-border circle {
-    r: 25; /* Default for border circle */
+    r: 25;
   }
   .logo-menu-border circle.logo-menu-glow {
-    r:25; /* Larger glow for mobile */
+    r:25;
   }
   .logo-half {
     max-width: 20px;
@@ -2214,23 +2163,6 @@ body {
   }
 }
 
-/* Increase the font size for .section-text and its about for mobile devices */
-@media (max-width: 600px) {
-  .section-text {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-  }
-  .about-meaning .section-text {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-  }
-}
-
-@media (max-width: 480px) {
-  .section-text {
-    font-size: clamp(1.5rem, 5vw, 1.8rem);
-  }
-}
-
-/* Phone & WhatsApp icons in sidebar menu */
 .menu .sidebar-icons {
   display: flex;
   justify-content: center;
@@ -2246,7 +2178,6 @@ body {
   color: #128c7e;
 }
 
-/* Bounce Down Animation for Chevron Icons */
 @keyframes bounceDown {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0) rotate(90deg);
@@ -2259,12 +2190,12 @@ body {
   }
 }
 
-/* Down Arrow Container for Insights Section */
 .insights-down-arrow {
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+ 
   color: #e4c590;
   font-size: 2rem;
   cursor: pointer;
@@ -2276,7 +2207,6 @@ body {
   color: #d4af37;
 }
 
-/* Mobile specific styles for .answer-card */
 @media (max-width: 600px) {
   .answer-card {
     width: 100% !important;
