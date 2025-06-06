@@ -8,11 +8,11 @@ const menuNav = document.querySelector('.menu');
 const logoLeft = document.querySelector('.logo-left');
 const logoRight = document.querySelector('.logo-right');
 
-// Use the existing menu-close button only, do not create a new one
+// Use the existing menu-close button with cross image
 let menuCloseBtn = document.querySelector('.menu-close');
 if (menuCloseBtn) {
-  // If it exists, update to use the cross image
-  menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width:32px;height:32px;">';
+  // Set the cross image without any background styling
+  menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width: 100%; height: 100%; object-fit: contain;">';
 }
 
 // Update left position for logoRight to match CSS (35px desktop, 22px mobile)
@@ -26,18 +26,8 @@ window.addEventListener('resize', () => {
 function splitLogoToggleMenu() {
   menuNav.classList.toggle('open');
   // Animate logo halves
-  if (menuNav.classList.contains('open')) {
-    // Set menu width based on screen size for better mobile experience
-    const isMobile = window.innerWidth <= 600;
-    const isTablet = window.innerWidth <= 768 && window.innerWidth > 600;
-    
-    if (isMobile) {
-      menuNav.style.width = 'calc(35% + 50px)'; // Smaller width for mobile
-    } else if (isTablet) {
-      menuNav.style.width = 'calc(38% + 55px)'; // Medium width for tablets
-    } else {
-      menuNav.style.width = 'calc(40% + 60px)'; // Original width for desktop
-    }
+  if (menuNav.classList.contains('open')) {    // Set menu width to 70vw for all screen sizes
+    menuNav.style.width = '70vw';
     
     gsap.to(logoRight, {
       left: 'calc(100vw - 40px)',
