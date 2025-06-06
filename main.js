@@ -558,10 +558,17 @@ function initApproachAnimations() {
 }
 
 // Function to animate 3D testimonials section (Demo Style)
+let testimonialsInitialized = false;
+let testimonialsRotationTl = null;
+
 function playTestimonialsAnimation() {
   const testimonialsSection = document.querySelector('.testimonials');
   if (!testimonialsSection) return;
-    const galleryBoxOuter = document.querySelector('.gallery_box_outer');
+  
+  // Prevent multiple initializations
+  if (testimonialsInitialized) return;
+  
+  const galleryBoxOuter = document.querySelector('.gallery_box_outer');
   const heading = document.querySelector('.testimonials .section-heading');
   
   if (!galleryBoxOuter) return;
@@ -589,30 +596,45 @@ function playTestimonialsAnimation() {
       opacity: 1,
       rotationX: 0,
       duration: 1.5,
-      ease: "back.out(1.7)"    },
+      ease: "back.out(1.7)"
+    },
     "-=0.7"
   );
   
   // Start the continuous rotation after entrance (exact demo animation)
   tl.call(() => {
     const cards = document.querySelectorAll('.gallery_box_in').length;
-    // Each card should take 3 seconds to rotate into view
-    // Full rotation = cards * 3 seconds
-    const duration = cards * 3;
-    const rotationTl = gsap.timeline({});
-    rotationTl.to(galleryBoxOuter, {
+    // Each card should take 1.5 seconds to rotate into view (increased speed)
+    // Full rotation = cards * 1.5 seconds
+    const duration = cards * 2;
+    
+    // Kill any existing rotation timeline
+    if (testimonialsRotationTl) {
+      testimonialsRotationTl.kill();
+    }
+    
+    testimonialsRotationTl = gsap.timeline({});
+    testimonialsRotationTl.to(galleryBoxOuter, {
       duration: duration,
       rotateY: 360,
       ease: "none",
       repeat: -1
     });
     
-    // Pause on mousedown/touchstart, resume on mouseup/touchend (exact demo behavior)
-    const gallery = galleryBoxOuter;
-    gallery.addEventListener('mousedown', () => rotationTl.pause());
-    gallery.addEventListener('touchstart', () => rotationTl.pause());
-    document.addEventListener('mouseup', () => rotationTl.resume());
-    document.addEventListener('touchend', () => rotationTl.resume());
+    // Create properly scoped event handlers
+    const handlePause = () => testimonialsRotationTl.pause();
+    const handleResume = () => testimonialsRotationTl.resume();
+    
+    // Add event listeners to the gallery element only
+    galleryBoxOuter.addEventListener('mousedown', handlePause);
+    galleryBoxOuter.addEventListener('touchstart', handlePause);
+    galleryBoxOuter.addEventListener('mouseup', handleResume);
+    galleryBoxOuter.addEventListener('touchend', handleResume);
+    
+    // Also handle mouse leave to resume if paused
+    galleryBoxOuter.addEventListener('mouseleave', handleResume);
+    
+    testimonialsInitialized = true;
   });
 }
 
