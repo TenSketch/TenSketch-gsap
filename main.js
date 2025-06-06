@@ -7,13 +7,7 @@ const logoMenu = document.getElementById('logo-menu');
 const menuNav = document.querySelector('.menu');
 const logoLeft = document.querySelector('.logo-left');
 const logoRight = document.querySelector('.logo-right');
-
-// Use the existing menu-close button with cross image
-let menuCloseBtn = document.querySelector('.menu-close');
-if (menuCloseBtn) {
-  // Set the cross image without any background styling
-  menuCloseBtn.innerHTML = '<img src="assets/images/cross.png" alt="Close" style="width: 100%; height: 100%; object-fit: contain;">';
-}
+const menuCloseBtn = document.querySelector('.menu-close');
 
 // Update left position for logoRight to match CSS (35px desktop, 22px mobile)
 window.addEventListener('resize', () => {
@@ -594,9 +588,7 @@ function playTestimonialsAnimation() {
   // Start the continuous rotation after entrance (exact demo animation)
   tl.call(() => {
     const cards = document.querySelectorAll('.gallery_box_in').length;
-    // Each card should take 1.5 seconds to rotate into view (increased speed)
-    // Full rotation = cards * 1.5 seconds
-    const duration = cards * 2;
+    const duration = cards * 3;
     
     // Kill any existing rotation timeline
     if (testimonialsRotationTl) {
