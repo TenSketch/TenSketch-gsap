@@ -2229,4 +2229,16 @@ body {
   }
 }
 
+/* Override color for phone and WhatsApp icons in menu bar */
+.menu li a[href^="tel:"],
+.menu li a[href*="wa.me"],
+.menu li a[href*="whatsapp"] {
+  color: #d4af37 !important;
+}
+.menu li a[href^="tel:"]:hover,
+.menu li a[href*="wa.me"]:hover,
+.menu li a[href*="whatsapp"]:hover {
+  color: #b8960f !important;
+}
+
 
