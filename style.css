@@ -1504,21 +1504,24 @@ h2 * {
 }
 
 .section-heading {
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  color: #ffffff;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  padding-bottom: 0.5em;
 }
-
-.section-text {
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  max-width: 700px;
-  margin: 1rem auto;
-  text-align: center;
-  color: var(--secondary-clr);
-  line-height: 1.5;
-  text-transform: none;
+@media (max-width: 600px) {
+  .section-heading {
+    font-size: clamp(1.1rem, 6vw, 1.7rem);
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+  }
 }
 
 .sub-heading {
@@ -2285,10 +2288,10 @@ body {
 }
 
 .split-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.329);
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 2rem 1.5rem;
+  padding: 2rem 5%;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   flex: 1;
   min-width: 280px;
@@ -2318,7 +2321,7 @@ body {
   align-items: center;
   justify-content: center;
   color: #d4af37;
-  filter: drop-shadow(0 0 12px #d4af37);
+  filter: drop-shadow(0 0 14px #ffd445);
 }
 
 .split-heading {
@@ -2388,6 +2391,8 @@ body {
     align-items: stretch;
     justify-items: center;
     padding: 0 2vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
   }
   .split-card {
     min-width: 0;
@@ -2414,6 +2419,39 @@ body {
     width: 100%;
     max-width: 100%;
     justify-self: center;
+  }
+}
+
+.approach-main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 40vh;
+  min-height: 180px;
+  margin: 0 auto 2rem auto;
+  position: relative;
+}
+.approach-main-title h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  line-height: 1.1;
+  color: #fff;
+  display: block;
+}
+@media (max-width: 600px) {
+  .approach-main-title {
+    height: 30vh;
+    min-height: 120px;
+    padding: 0;
+  }
+  .approach-main-title h1 {
+    font-size: clamp(1.3rem, 7vw, 2.2rem);
+    padding: 0 0.5rem;
   }
 }
 .body {
