@@ -2416,5 +2416,9 @@ body {
     justify-self: center;
   }
 }
+.body {
+  text-align: left;
+  width: 100%;
+}
 
 
