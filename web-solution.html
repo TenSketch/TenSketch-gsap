@@ -5,7 +5,7 @@
   <title>Web Solution - TenSketch</title>
   <link rel="stylesheet" href="web-solution.css">
   <link rel="stylesheet" href="style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
 </head>
 <body>
   <header>
@@ -14,8 +14,8 @@
       <a href="/" class="nav-logo">
         <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch Logo">
       </a>
-      <a href="https://instagram.com/tensketch" class="social-icon" target="_blank" rel="noopener">
-        <i class="fa-brands fa-instagram"></i>
+      <a href="https://instagram.com/tensketch" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
       </a>
     </div>
     <div id="logo-menu" class="logo-container">
@@ -43,138 +43,81 @@
       </ul>
     </nav>
   </header>
-  <section class="first approach-section">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg one">
-          <div class="approach-header">
-            <h2 class="section-heading" data-aos="fade-up">Our Approach</h2>
-            <div class="approach-subtitle" data-aos="fade-up" data-aos-delay="200">
-              Three comprehensive phases to bring your vision to life
+  <!-- SECTION 1: BEFORE YOU EVEN START -->
+<section class="first approach-section split-approach-section">
+  <div class="outer">
+    <div class="inner">
+      <div class="bg one">
+        <!-- Main Title -->
+        <div class="approach-main-title">
+          <h1>Before You Even Start</h1>
+          <p class="approach-subtitle">The clarity you need, before the chaos begins</p>
+        </div>
+        
+        <!-- Cards Container -->
+        <div class="split-approach-container">
+          <!-- Challenge Card -->
+          <div class="split-card challenge">
+            <div class="split-icon challenge-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2 class="split-heading">Challenge</h2>
+            <div class="split-content">
+              <p>You know you need a website or app. But…</p>
+              <ul>
+                <li>What should you include?</li>
+                <li>What's actually "required"?</li>
+                <li>What's "extra"?</li>
+                <li>And how much is all this gonna cost?</li>
+              </ul>
             </div>
           </div>
           
-          <div class="approach-container">
-            <div class="approach-timeline">
-              <div class="timeline-line"></div>
-              
-              <div class="approach-step" data-aos="fade-right" data-aos-delay="400">
-                <div class="approach-card">
-                  <div class="card-header">
-                    <div class="approach-number">
-                      <span class="number-bg">01</span>
-                    </div>
-                    <div class="approach-icon">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 7L9 18L4 13" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="approach-content">
-                    <h3 class="approach-title">Client Relationship</h3>
-                    <ul class="approach-list">
-                      <li data-aos="fade-left" data-aos-delay="600">
-                        <span class="list-icon">📋</span>
-                        <span class="list-text">Requirement analysis</span>
-                      </li>
-                      <li data-aos="fade-left" data-aos-delay="700">
-                        <span class="list-icon">🤝</span>
-                        <span class="list-text">Agreement</span>
-                      </li>
-                      <li data-aos="fade-left" data-aos-delay="800">
-                        <span class="list-icon">📊</span>
-                        <span class="list-text">Business analysis</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="approach-step" data-aos="fade-up" data-aos-delay="500">
-                <div class="approach-card">
-                  <div class="card-header">
-                    <div class="approach-number">
-                      <span class="number-bg">02</span>
-                    </div>
-                    <div class="approach-icon">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="approach-content">
-                    <h3 class="approach-title">Project Phase</h3>
-                    <ul class="approach-list">
-                      <li data-aos="fade-left" data-aos-delay="700">
-                        <span class="list-icon">🎨</span>
-                        <span class="list-text">Design and development</span>
-                      </li>
-                      <li data-aos="fade-left" data-aos-delay="800">
-                        <span class="list-icon">🧪</span>
-                        <span class="list-text">Testing</span>
-                      </li>
-                      <li data-aos="fade-left" data-aos-delay="900">
-                        <span class="list-icon">🚀</span>
-                        <span class="list-text">Launch</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div class="approach-step" data-aos="fade-left" data-aos-delay="600">
-                <div class="approach-card">
-                  <div class="card-header">
-                    <div class="approach-number">
-                      <span class="number-bg">03</span>
-                    </div>
-                    <div class="approach-icon">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22 12H18L15 21L9 3L6 12H2" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="approach-content">
-                    <h3 class="approach-title">Support And Maintenance</h3>
-                    <ul class="approach-list">
-                      <li data-aos="fade-left" data-aos-delay="800">
-                        <span class="list-icon">🔄</span>
-                        <span class="list-text">Annual renewal</span>
-                      </li>
-                      <li data-aos="fade-left" data-aos-delay="900">
-                        <span class="list-icon">🛠️</span>
-                        <span class="list-text">Bug fixes if any</span>
-                      </li>
-                      <li data-aos="fade-left" data-aos-delay="1000">
-                        <span class="list-icon">📝</span>
-                        <span class="list-text">Content updates</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+          <!-- Solution Card -->
+          <div class="split-card solution">
+            <div class="split-icon solution-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h2 class="split-heading">Solution</h2>
+            <div class="split-content">
+              <p>At TenSketch, we sit with you (virtually or over chai) to decode all the chaos. We ask real questions.</p>
+              <ul>
+                <li>What are your business goals?</li>
+                <li>Who's your user?</li>
+                <li>What shouldn't be built?</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Result Card -->
+          <div class="split-card result">
+            <div class="split-icon result-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="split-heading">Result</h2>
+            <div class="split-content">
+              <p>You walk away with clarity, not confusion. No jargon, no PDFs that sound like court filings. Just a clean, lean requirement doc — that actually makes sense to you.</p>
             </div>
           </div>
         </div>
+        
+        <!-- Decorative Elements -->
+        <div class="floating-elements">
+          <div class="floating-dot dot-1"></div>
+          <div class="floating-dot dot-2"></div>
+          <div class="floating-dot dot-3"></div>
+          <div class="floating-line line-1"></div>
+          <div class="floating-line line-2"></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<!-- END SECTION 1 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="main.js"></script>
   <script src="web-solution.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 50
-    });
-  </script>
 </body>
 </html>
