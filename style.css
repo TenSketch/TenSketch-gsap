@@ -2249,16 +2249,172 @@ body {
   }
 }
 
-/* Override color for phone and WhatsApp icons in menu bar */
-.menu li a[href^="tel:"],
-.menu li a[href*="wa.me"],
-.menu li a[href*="whatsapp"] {
-  color: #d4af37 !important;
+/* --- SECTION 1: BEFORE YOU EVEN START (Custom Styles) --- */
+.first.approach-section {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
 }
-.menu li a[href^="tel:"]:hover,
-.menu li a[href*="wa.me"]:hover,
-.menu li a[href*="whatsapp"]:hover {
-  color: #b8960f !important;
+
+.first.approach-section .bg.one {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.split-approach-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.split-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 2rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateY(0);
+}
+
+.split-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.5);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.split-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  filter: drop-shadow(0 0 12px #d4af37);
+}
+
+.split-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 10px #d4af37, 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.split-content {
+  color: #f7f7f7;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.7;
+  width: 100%;
+}
+
+.split-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.split-content li {
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: #ffe9a7;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.split-content li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+@media (max-width: 900px) {
+  .split-approach-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .split-card {
+    min-width: 320px;
+    max-width: 400px;
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .split-approach-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    align-items: stretch;
+    justify-items: center;
+    padding: 0 2vw;
+  }
+  .split-card {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.7rem 0.4rem;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .split-card .split-icon {
+    font-size: 1.7rem;
+  }
+  .split-card .split-heading {
+    font-size: 1rem;
+  }
+  .split-card .split-content {
+    font-size: 0.85rem;
+  }
+  .split-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .split-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .split-card:nth-child(3) {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    width: 100%;
+    max-width: 100%;
+    justify-self: center;
+  }
 }
 
 
