@@ -434,6 +434,11 @@ section .bg {
   background-size: cover;
   background-position: center;
 }
+
+/* Universal section content padding for all pages except Beyond Web */
+body:not(.beyond-web) section .bg > * {
+  padding: 2rem 5%;
+}
 section .bg h2 {
   z-index: 2;
 }

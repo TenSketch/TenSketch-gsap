@@ -1,4 +1,7 @@
-/* Portfolio Section Styles */
+/* Universal section content padding */
+section .bg > * {
+  padding: 2rem 5%;
+}
 
 /* Portfolio Section Styles */
 .portfolio-section {
