@@ -925,7 +925,7 @@ h2 * {
 }
 
 .section-icon {
-  font-size: clamp(1.2rem, 6vw, 4rem);
+  font-size: clamp(4rem, 12vw, 8rem);
   color: var(--accent-gold);
   margin-bottom: 1.5rem;
   animation: brushBounce 3s ease-in-out infinite;
@@ -947,6 +947,7 @@ h2 * {
 .section-icon i {
   display: inline-block;
   filter: drop-shadow(0 0 8px rgba(var(--accent-gold-rgb), 0.3));
+  font-size: 1.8em;
 }
 
 .about-meaning {
