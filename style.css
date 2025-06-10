@@ -1525,7 +1525,7 @@ h2 * {
 }
 
 .sub-heading {
-  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
 }
 
 .faqs-section {
