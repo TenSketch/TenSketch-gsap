@@ -2471,9 +2471,25 @@ body {
     font-size: clamp(1.1rem, 6vw, 1.8rem);
   }
 }
-.body {
-  text-align: left;
-  width: 100%;
+.first.approach-section .approach-main-title {
+  margin-bottom: 0.5rem !important;
+}
+.first.approach-section .approach-main-title h1 {
+  margin-bottom: 0 !important;
+}
+.first.approach-section .split-approach-container {
+  margin-top: 0 !important;
+}
+/* Optionally, reduce gap between cards and title further if needed */
+@media (min-width: 601px) {
+  .first.approach-section .split-approach-container {
+    gap: 1.2rem !important;
+  }
+}
+@media (max-width: 600px) {
+  .first.approach-section .split-approach-container {
+    gap: 0.7rem !important;
+  }
 }
 
 
