@@ -2322,21 +2322,30 @@ body {
 
 .split-icon {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  margin-right: 0.7em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: #d4af37;
   filter: drop-shadow(0 0 14px #ffd445);
 }
 
-.split-heading {
-  font-size: 1.3rem;
+.sub-heading {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 1rem 0;
-  letter-spacing: 0.01em;
-  text-shadow: 0 0 10px #d4af37, 0 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+}
+
+.split-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 1em;
+  justify-content: flex-start;
 }
 
 .split-content {
@@ -2473,24 +2482,57 @@ body {
   }
 }
 .first.approach-section .approach-main-title {
+  padding-top: 4.5rem !important;
   margin-bottom: 0.5rem !important;
 }
+@media (max-width: 600px) {
+  .first.approach-section .approach-main-title {
+    padding-top: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .first.approach-section .approach-main-title {
+    padding-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+/* Keep the gap between title and cards minimal */
 .first.approach-section .approach-main-title h1 {
   margin-bottom: 0 !important;
 }
 .first.approach-section .split-approach-container {
   margin-top: 0 !important;
 }
-/* Optionally, reduce gap between cards and title further if needed */
-@media (min-width: 601px) {
-  .first.approach-section .split-approach-container {
-    gap: 1.2rem !important;
-  }
+
+/* Center align the card title, left align the rest of the content in split-card */
+.split-card .card-header .sub-heading {
+  text-align: center;
+  width: 100%;
+  display: block;
 }
-@media (max-width: 600px) {
-  .first.approach-section .split-approach-container {
-    gap: 0.7rem !important;
-  }
+.split-card .body, .split-card .body p, .split-card .body ul, .split-card .body li {
+  text-align: left !important;
+}
+
+/* Custom arrow for split-card lists in web-solution.html */
+.split-card .body ul {
+  list-style: none;
+  padding-left: 0;
+}
+.split-card .body ul li {
+  position: relative;
+  padding-left: 1.7em;
+  margin-bottom: 0.7em;
+}
+.split-card .body ul li:before {
+  content: '\2192'; /* Unicode right arrow */
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: #E6C99A; /* Sandal color */
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 
