@@ -519,6 +519,14 @@ h2 * {
   text-align: center;
 }
 
+.cards-container .sub-heading {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .third .card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -803,22 +811,26 @@ h2 * {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    max-width: 1000px;
+    max-width: 1400px;
     counter-reset: step;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
   }.answer-card {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 1.5rem;
-    flex: 0 0 calc(25% - 1.5rem);
-    min-width: 160px;
+    padding: 4rem;
+    flex: 0 0 auto;
+    width: 360px;
+    height: 360px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    gap: 3rem;
+    text-align: center;
   }
   .answer-card::before {
     counter-increment: step;
@@ -2170,7 +2182,7 @@ body {
       drop-shadow(0 0 8px #fff)
       drop-shadow(0 0 16px #fff)
       drop-shadow(0 0 24px #fff)
-      drop-shadow(0 0 32px rgba(255,255,255,0.8))
+      drop-shadow(0  0 32px rgba(255,255,255,0.8))
       drop-shadow(0 0 48px rgba(255,255,255,0.6));
   }
 }
@@ -2503,6 +2515,15 @@ body {
 }
 .first.approach-section .split-approach-container {
   margin-top: 0 !important;
+}
+
+/* Center align the sub-headings inside .cards-container for the UI/UX cards */
+.cards-container .sub-heading {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Center align the card title, left align the rest of the content in split-card */
