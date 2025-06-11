@@ -2535,4 +2535,104 @@ body {
   font-weight: bold;
 }
 
+/* --- SECTION 7: Types of Web Solutions Table Styles --- */
+.web-types-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2rem 0 1.5rem 0;
+}
+.web-types-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0,0,0,0.18);
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+}
+.web-types-table th, .web-types-table td {
+  padding: 1em 1.2em;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.web-types-table th {
+  background: rgba(212,175,55,0.13);
+  color: #ffe9a7;
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.web-types-table tr:last-child td {
+  border-bottom: none;
+}
+.web-types-table td {
+  font-size: 1em;
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .web-types-table th, .web-types-table td {
+    padding: 0.7em 0.5em;
+    font-size: 0.98em;
+  }
+}
+@media (max-width: 600px) {
+  .web-types-table-wrapper {
+    margin: 1.2rem 0 1rem 0;
+  }
+  .web-types-table th, .web-types-table td {
+    padding: 0.6em 0.3em;
+    font-size: 0.93em;
+  }
+  .web-types-table th {
+    font-size: 1em;
+  }
+  .web-types-table {
+    font-size: 0.93em;
+    min-width: 320px;
+  }
+}
+@media (max-width: 420px) {
+  .web-types-table th, .web-types-table td {
+    padding: 0.45em 0.2em;
+    font-size: 0.89em;
+  }
+  .web-types-table {
+    font-size: 0.89em;
+    min-width: 220px;
+  }
+}
+.web-types-notes ul {
+  margin: 1.2em 0 0 0;
+  padding: 0 1.2em;
+  color: #ffe9a7;
+  font-size: 1em;
+  list-style: disc inside;
+}
+.web-types-notes li {
+  margin-bottom: 0.5em;
+}
+
+/* --- SECTION 7: Web Types Background Consistency with Black Overlay --- */
+.web-types-bg {
+  background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.82)),
+    url('https://images.unsplash.com/photo-1617478755490-e21232a5eeaf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU1NjM5NA&ixlib=rb-1.2.1&q=75&w=1920') no-repeat right bottom / 180px auto,
+    linear-gradient(135deg, #181818 0%, #232323 100%);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.28);
+  min-height: 420px;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .web-types-bg {
+    background-size: auto 120px, 120px auto, auto;
+    min-height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .web-types-bg {
+    background-size: auto 80px, 80px auto, auto;
+    min-height: 220px;
+  }
+}
+
 
