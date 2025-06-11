@@ -1387,7 +1387,7 @@ h2 * {
 }
 
 .testimonial-text {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--secondary-clr);
   margin-bottom: 12px;
   text-align: center;
@@ -1405,6 +1405,11 @@ h2 * {
   hyphens: auto;
   max-width: 100%;
   line-height: 1.2;
+}
+
+/* Smaller font size for person names in testimonials */
+.testimonials .sub-heading {
+  font-size: 1.2rem;
 }
 
 .gallery_box_in:nth-child(1) { transform: rotateY(0deg) translateZ(450px); }
@@ -1444,13 +1449,16 @@ h2 * {
     height: 40px;
     margin-bottom: 10px;
   }
-  
-  .testimonial-text {
-    font-size: 0.95rem;
+    .testimonial-text {
+    font-size: 0.85rem;
+  }
+    .testimonial-name {
+    font-size: 0.9rem;
   }
   
-  .testimonial-name {
-    font-size: 0.9rem;
+  /* Even smaller font size for person names in testimonials on mobile */
+  .testimonials .sub-heading {
+    font-size: 1.2rem;
   }
 }
 
