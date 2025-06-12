@@ -2669,17 +2669,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 3rem 0 2rem 0;
+  margin: 3.5rem 0 2.5rem 0;
+  background: linear-gradient(120deg, rgba(212,175,55,0.08) 0%, rgba(255,251,230,0.03) 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(212,175,55,0.08);
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  position: relative;
 }
 .sixth .timeline {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 3.5rem;
+  gap: 4.5rem;
   position: relative;
   width: 100%;
-  max-width: 950px;
+  max-width: 1050px;
+  z-index: 1;
 }
 .sixth .timeline-item {
   display: flex;
@@ -2687,34 +2693,49 @@ body {
   align-items: center;
   position: relative;
   flex: 1 1 0;
-  min-width: 200px;
-  z-index: 1;
+  min-width: 220px;
+  z-index: 2;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+}
+.sixth .timeline-item:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(212,175,55,0.18);
 }
 .sixth .timeline-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: 50px;
-  right: -1.75rem;
-  width: 3.5rem;
-  height: 4px;
-  background: linear-gradient(90deg, #d4af37 0%, #fffbe6 100%);
-  border-radius: 2px;
+  top: 56px;
+  right: -2.2rem;
+  width: 4.4rem;
+  height: 6px;
+  background: linear-gradient(90deg, #d4af37 0%, #f1cc13 100%);
+  border-radius: 3px;
   z-index: 0;
+  opacity: 0.7;
+  animation: timeline-glow 2.5s infinite alternate;
+}
+@keyframes timeline-glow {
+  0% { box-shadow: 0 0 0px #fffbe6; opacity: 0.7; }
+  100% { box-shadow: 0 0 16px #fffbe6; opacity: 1; }
 }
 .sixth .timeline-icon {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #d4af37 0%, #fffbe6 100%);
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #d4af37 0%, #c2a92a 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #fff;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
   position: relative;
-  box-shadow: 0 4px 18px 0 rgba(212,175,55,0.18);
+  box-shadow: 0 4px 18px 0 rgba(212,175,55,0.18), 0 0 0 6px rgba(255,251,230,0.13);
   border: 3px solid #fffbe6;
+  transition: box-shadow 0.3s;
+}
+.sixth .timeline-item:hover .timeline-icon {
+  box-shadow: 0 0 0 10px #fffbe6, 0 8px 32px 0 rgba(212,175,55,0.18);
 }
 .sixth .timeline-icon[data-step]::after {
   content: attr(data-step);
@@ -2733,50 +2754,142 @@ body {
   font-size: 1.1rem;
   box-shadow: 0 2px 8px rgba(212,175,55,0.15);
   border: 2px solid #fff;
+  z-index: 2;
 }
 .sixth .timeline-title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #d4af37;
   margin-bottom: 0.5rem;
   text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(212,175,55,0.08);
 }
 .sixth .timeline-body {
   color: #fffbe6;
-  font-size: 1rem;
+  font-size: 1.05rem;
   text-align: center;
-  line-height: 1.6;
-  background: rgba(255,255,255,0.07);
-  border-radius: 10px;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 2px 12px 0 rgba(212,175,55,0.08);
+  line-height: 1.7;
+  background: rgba(255,255,255,0.10);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  box-shadow: 0 2px 12px 0 rgba(212,175,55,0.10);
+  min-height: 90px;
+  transition: background 0.3s;
+}
+.sixth .timeline-item:hover .timeline-body {
+  background: rgba(255,251,230,0.18);
+}
+.sixth .timeline-item {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: timelineFadeIn 0.8s cubic-bezier(.4,2,.6,1) forwards;
+}
+.sixth .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.sixth .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.sixth .timeline-item:nth-child(3) { animation-delay: 0.7s; }
+@keyframes timelineFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 @media (max-width: 900px) {
   .sixth .timeline {
-    gap: 1.5rem;
+    gap: 2rem;
   }
   .sixth .timeline-item {
     min-width: 140px;
   }
 }
 @media (max-width: 700px) {
+  .sixth .timeline-container {
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+  }
   .sixth .timeline {
     flex-direction: column;
     gap: 2.5rem;
     align-items: center;
+    max-width: 400px;
   }
   .sixth .timeline-item:not(:last-child)::after {
     content: '';
     position: absolute;
     left: 50%;
-    top: 80px;
+    top: 90px;
     right: auto;
-    width: 4px;
+    width: 6px;
     height: 2.5rem;
     background: linear-gradient(180deg, #d4af37 0%, #fffbe6 100%);
     border-radius: 2px;
     z-index: 0;
     transform: translateX(-50%);
+    opacity: 0.7;
+    animation: timeline-glow 2.5s infinite alternate;
+  }
+  .sixth .timeline-item {
+    min-width: 0;
+    width: 100%;
+    max-width: 350px;
+  }
+  .sixth .timeline-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .sixth .timeline-container {
+    padding: 0.7rem 0.1rem 0.7rem 0.1rem;
+    margin: 2rem 0 1.2rem 0;
+    border-radius: 10px;
+  }
+  .sixth .timeline {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    max-width: 98vw;
+    width: 100%;
+  }
+  .sixth .timeline-item {
+    min-width: 0;
+    width: 100%;
+    max-width: 98vw;
+    padding: 0.5rem 0.2rem;
+  }
+  .sixth .timeline-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .sixth .timeline-icon[data-step]::after {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    top: -10px;
+    right: -10px;
+  }
+  .sixth .timeline-title {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .sixth .timeline-body {
+    font-size: 0.92rem;
+    padding: 0.7rem 0.5rem;
+    min-height: 60px;
+  }
+  .sixth .timeline-item:not(:last-child)::after {
+    left: 50%;
+    top: 60px;
+    width: 4px;
+    height: 1.2rem;
+    background: linear-gradient(180deg, #d4af37 0%, #a88c00 100%);
+    border-radius: 2px;
+    z-index: 0;
+    transform: translateX(-50%);
+    opacity: 0.7;
+    animation: timeline-glow 2.5s infinite alternate;
   }
 }
 
