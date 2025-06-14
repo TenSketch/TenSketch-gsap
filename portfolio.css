@@ -66,6 +66,7 @@ section .bg > * {
   flex-direction: column;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
   margin-bottom: 1.5rem;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
 }
 
 .portfolio-image {
@@ -144,80 +145,70 @@ section .bg > * {
   z-index: 10;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   opacity: 1;
-  filter: brightness(1.1);
 }
 
 .portfolio-card.side {
-  transform: scale(0.9);
-  opacity: 0.7;
-  filter: brightness(0.8);
+  transform: scale(0.95);
+  opacity: 0.8;
 }
 
 .portfolio-card.side.left {
-  transform: scale(0.9) translateX(-15px) rotateY(5deg);
+  transform: scale(0.95) translateX(-10px);
 }
 
 .portfolio-card.side.right {
-  transform: scale(0.9) translateX(15px) rotateY(-5deg);
+  transform: scale(0.95) translateX(10px);
 }
 
 
 .portfolio-grid {
   position: relative;
-  perspective: 1000px;
 }
 
 
 .portfolio-card.sliding-out-left {
-  transform: translateX(-150%) scale(0.75) rotateY(15deg);
-  opacity: 0;
+  transform: translateX(-100%);
+  opacity: 1;
   z-index: 1;
-  filter: blur(2px);
 }
 
 .portfolio-card.sliding-out-right {
-  transform: translateX(150%) scale(0.75) rotateY(-15deg);
-  opacity: 0;
+  transform: translateX(100%);
+  opacity: 1;
   z-index: 1;
-  filter: blur(2px);
 }
 
 
 .portfolio-card.sliding-in-left {
-  transform: translateX(-150%) scale(0.75) rotateY(-15deg);
-  opacity: 0;
+  transform: translateX(-100%);
+  opacity: 1;
   z-index: 1;
-  filter: blur(2px);
 }
 
 .portfolio-card.sliding-in-right {
-  transform: translateX(150%) scale(0.75) rotateY(15deg);
-  opacity: 0;
+  transform: translateX(100%);
+  opacity: 1;
   z-index: 1;
-  filter: blur(2px);
 }
 
 
 .portfolio-card.moving-to-left {
-  transform: scale(0.9) translateX(-15px) rotateY(5deg);
-  opacity: 0.7;
+  transform: scale(0.95) translateX(-10px);
+  opacity: 0.8;
   z-index: 5;
-  filter: brightness(0.8);
 }
 
 .portfolio-card.moving-to-center {
-  transform: scale(1.05) rotateY(0deg);
+  transform: scale(1.05);
   opacity: 1;
   z-index: 10;
-  filter: brightness(1.1);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-card.moving-to-right {
-  transform: scale(0.9) translateX(15px) rotateY(-5deg);
-  opacity: 0.7;
+  transform: scale(0.95) translateX(10px);
+  opacity: 0.8;
   z-index: 5;
-  filter: brightness(0.8);
 }
 
 .portfolio-image {
@@ -599,56 +590,44 @@ section .bg > * {
   .portfolio-link {
     margin-top: auto;
     margin-bottom: 0.2rem;
-  }
-  .portfolio-card.sliding-in-left,
+  }  .portfolio-card.sliding-in-left,
   .portfolio-card.sliding-in-right {
-    animation: mobile-portfolio-slide-in 0.5s cubic-bezier(0.4,0,0.2,1) both;
+    animation: mobile-portfolio-slide-in 0.3s ease-out both;
   }
   .portfolio-card.sliding-in-left {
-    --slide-x: -90vw;
+    --slide-x: -100vw;
   }
   .portfolio-card.sliding-in-right {
-    --slide-x: 90vw;
+    --slide-x: 100vw;
   }
   @keyframes mobile-portfolio-slide-in {
     from {
-      opacity: 0;
-      transform: translateX(var(--slide-x, 0)) scale(0.8);
-      filter: blur(8px);
-    }
-    60% {
       opacity: 1;
-      filter: blur(2px);
+      transform: translateX(var(--slide-x, 0));
     }
     to {
       opacity: 1;
-      transform: translateX(0) scale(1);
-      filter: blur(0);
+      transform: translateX(0);
     }
   }
   .portfolio-card.sliding-out-left,
   .portfolio-card.sliding-out-right {
-    animation: mobile-portfolio-slide-out 0.4s cubic-bezier(0.4,0,0.2,1) both;
+    animation: mobile-portfolio-slide-out 0.3s ease-in both;
   }
   .portfolio-card.sliding-out-left {
-    --slide-x: -90vw;
+    --slide-x: -100vw;
   }
   .portfolio-card.sliding-out-right {
-    --slide-x: 90vw;
+    --slide-x: 100vw;
   }
   @keyframes mobile-portfolio-slide-out {
     from {
       opacity: 1;
-      transform: translateX(0) scale(1);
-      filter: blur(0);
-    }
-    40% {
-      filter: blur(2px);
+      transform: translateX(0);
     }
     to {
-      opacity: 0;
-      transform: translateX(var(--slide-x, 0)) scale(0.8);
-      filter: blur(8px);
+      opacity: 1;
+      transform: translateX(var(--slide-x, 0));
     }
   }
 }
