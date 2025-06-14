@@ -2,27 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
-/* Cosmic Color Palette */
 :root {
-    /* Primary Cosmic Colors */
+    
     --cosmic-purple: #8B5CF6;
     --cosmic-blue: #3B82F6;
     --cosmic-cyan: #06B6D4;
     --cosmic-pink: #EC4899;
     --cosmic-orange: #F97316;
     
-    /* Dark Matter */
+    
     --dark-space: #0A0A0F;
     --deep-space: #1A1A2E;
     --space-gray: #16213E;
     --nebula-dark: #0F0F23;
-      /* Light Elements */
+      
     --star-light: #FFFFFF;
     --moon-glow: #F8FAFC;
     --comet-tail: #E2E8F0;
     --galaxy-dust: #64748B;
     
-    /* Additional UI Colors */
+    
     --dark-bg: #0F0F23;
     --darker-bg: #0A0A0F;
     --light-gray: #F8FAFC;
@@ -32,12 +31,12 @@
     --card-bg: #1A1A2E;
     --card-border-radius: 15px;
     
-    /* Neon Accents */
+    
     --neon-green: #00FF88;
     --neon-blue: #00BFFF;
     --neon-purple: #BF00FF;
     --neon-pink: #FF007F;
-      /* Gradients */
+      
     --cosmic-gradient: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--cosmic-blue) 50%, var(--cosmic-cyan) 100%);
     --gradient-primary: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--cosmic-purple) 50%, var(--cosmic-pink) 100%);
     --brand-gradient: linear-gradient(135deg, var(--cosmic-pink) 0%, var(--cosmic-purple) 100%);
@@ -45,13 +44,12 @@
     --marketing-gradient: linear-gradient(135deg, var(--cosmic-orange) 0%, var(--cosmic-pink) 100%);
     --rainbow-gradient: linear-gradient(45deg, #ff0000, #ff8c00, #ffd700, #32cd32, #00bfff, #8a2be2, #ff1493);
     
-    /* Space Effects */
+    
     --glow-effect: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 80px currentColor;
     --cosmic-shadow: 0 25px 50px rgba(139, 92, 246, 0.3);
     --nebula-shadow: 0 0 100px rgba(59, 130, 246, 0.2);
 }
 
-/* Reset and Base */
 * {
     margin: 0;
     padding: 0;
@@ -77,7 +75,6 @@ html, body {
     padding: 0 2rem;
 }
 
-/* Mobile responsive container with equal left/right gaps */
 @media (max-width: 768px) {
     .container {
         padding: 0 1.5rem;
@@ -90,7 +87,6 @@ html, body {
     }
 }
 
-/* Cosmic Utilities */
 .gradient-text {
     background: var(--cosmic-gradient);
     -webkit-background-clip: text;
@@ -112,7 +108,7 @@ html, body {
     50% { filter: hue-rotate(180deg); }
 }
 
-/* Hero Section - Cosmic Wonder */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -123,7 +119,7 @@ html, body {
     background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, var(--dark-space) 70%);
 }
 
-/* Animated Starfield */
+
 .stars-field {
     position: absolute;
     width: 100%;
@@ -143,7 +139,7 @@ html, body {
     to { transform: translateY(-2000px); }
 }
 
-/* Falling Objects Animation */
+
 .falling-objects {
     position: absolute;
     width: 100%;
@@ -251,7 +247,7 @@ html, body {
     }
 }
 
-/* Position falling objects */
+
 .falling-object:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
 .falling-object:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 14s; }
 .falling-object:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 16s; }
@@ -261,7 +257,7 @@ html, body {
 .falling-object:nth-child(7) { left: 80%; animation-delay: 2.5s; animation-duration: 17s; }
 .falling-object:nth-child(8) { left: 90%; animation-delay: 4.5s; animation-duration: 12s; }
 
-/* Floating Particles */
+
 .floating-particles {
     position: absolute;
     width: 100%;
@@ -297,7 +293,7 @@ html, body {
     50% { transform: translateY(-30px) scale(1.2); opacity: 1; }
 }
 
-/* Cosmic Glow Effect */
+
 .cosmic-glow {
     position: absolute;
     top: 50%;
@@ -314,7 +310,7 @@ html, body {
     50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
 }
 
-/* Hero Content */
+
 .hero-content {
     position: relative;
     z-index: 10;
@@ -401,7 +397,7 @@ html, body {
     line-height: 1.6;
 }
 
-/* Typewriter Effect */
+
 .typewriter {
     overflow: hidden;
     border-right: 3px solid var(--cosmic-purple);
@@ -419,7 +415,7 @@ html, body {
     51%, 100% { border-color: transparent; }
 }
 
-/* Disable typewriter on mobile for better readability */
+
 @media (max-width: 768px) {
     .typewriter {
         animation: none;
@@ -431,7 +427,7 @@ html, body {
     }
 }
 
-/* Service Bubbles */
+
 .hero-services-preview {
     display: flex;
     justify-content: center;
@@ -493,7 +489,7 @@ html, body {
     color: var(--star-light);
 }
 
-/* Cosmic Button */
+
 .cosmic-btn {
     background: var(--cosmic-gradient);
     border: none;
@@ -550,7 +546,7 @@ html, body {
     height: 300px;
 }
 
-/* Scroll Indicator */
+
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -598,7 +594,7 @@ html, body {
     100% { transform: scaleY(0); }
 }
 
-/* Service Sections Base */
+
 .service-section {
     min-height: 100vh;
     display: flex;
@@ -674,7 +670,7 @@ html, body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Services Section */
+
 .services {
     padding: var(--section-padding);
     background: var(--darker-bg);
@@ -821,7 +817,7 @@ html, body {
     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
 }
 
-/* Process Section */
+
 .process {
     padding: var(--section-padding);
     background: var(--dark-bg);
@@ -901,7 +897,7 @@ html, body {
     line-height: 1.6;
 }
 
-/* Why Choose Section */
+
 .why-choose {
     padding: var(--section-padding);
     background: var(--darker-bg);
@@ -990,13 +986,13 @@ html, body {
     font-weight: 600;
 }
 
-/* Contact Section Styling - Matching Service Sections */
+
 .contact-section {
     background: var(--dark-space);
     position: relative;
 }
 
-/* Contact Background Elements */
+
 .contact-network {
     position: absolute;
     top: 50%;
@@ -1101,7 +1097,7 @@ html, body {
     animation-delay: 3s;
 }
 
-/* Contact Form Visual Styling */
+
 .contact-showcase {
     background: rgba(26, 26, 46, 0.4);
     backdrop-filter: blur(20px);
@@ -1173,7 +1169,7 @@ html, body {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Cosmic form dropdown option styling for visibility */
+
 .cosmic-form select option {
     background: rgba(26, 26, 46, 0.95);
     color: var(--star-light);
@@ -1183,7 +1179,7 @@ html, body {
     line-height: 1.4;
 }
 
-/* Cosmic form dropdown hover states */
+
 .cosmic-form select option:hover,
 .cosmic-form select option:focus {
     background: var(--cosmic-cyan);
@@ -1209,7 +1205,7 @@ html, body {
     height: 120%;
 }
 
-/* Contact Button Styling */
+
 .contact-btn {
     background: var(--cosmic-gradient);
     position: relative;
@@ -1302,7 +1298,7 @@ html, body {
     }
 }
 
-/* Form Styles */
+
 .form {
     background: var(--card-bg);
     padding: 3rem;
@@ -1334,7 +1330,7 @@ html, body {
     transition: all 0.3s ease;
 }
 
-/* Enhanced select styling for better visibility */
+
 .form-group select {
     cursor: pointer;
     -webkit-appearance: none;
@@ -1355,7 +1351,7 @@ html, body {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Dropdown option styling for visibility */
+
 .form-group select option {
     background: var(--dark-bg);
     color: var(--light-gray);
@@ -1365,7 +1361,7 @@ html, body {
     line-height: 1.4;
 }
 
-/* Ensure dropdown options are visible on all browsers */
+
 .form-group select option:hover,
 .form-group select option:focus {
     background: var(--cosmic-purple);
@@ -1394,7 +1390,7 @@ html, body {
     box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
 }
 
-/* Footer */
+
 .footer {
     background: var(--darker-bg);
     padding: 4rem 0 2rem;
@@ -1450,7 +1446,7 @@ html, body {
     color: var(--primary-blue);
 }
 
-/* Enhanced Footer Social Links */
+
 .social-links {
     display: flex;
     gap: 1rem;
@@ -1505,7 +1501,7 @@ html, body {
         0 0 20px rgba(59, 130, 246, 0.2);
 }
 
-/* Specific platform colors for footer social links */
+
 .social-links a[aria-label="Instagram"]:hover {
     box-shadow: 
         0 8px 25px rgba(225, 48, 108, 0.3),
@@ -1537,7 +1533,7 @@ html, body {
     color: var(--medium-gray);
 }
 
-/* Footer Mobile Responsive Styles */
+
 @media (max-width: 768px) {
     .footer {
         overflow-x: hidden;
@@ -1665,11 +1661,9 @@ html, body {
     }
 }
 
-/* ===============================================
-   BRAND IDENTITY SECTION - COSMIC SHOWCASE
-   =============================================== */
 
-/* Brand Identity Section Base */
+
+
 .brand-section {
     background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.08) 0%, var(--dark-space) 70%);
     position: relative;
@@ -1682,7 +1676,7 @@ html, body {
         radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
 }
 
-/* Morphing Shapes Animation */
+
 .morphing-shapes {
     position: absolute;
     width: 100%;
@@ -1751,7 +1745,7 @@ html, body {
     }
 }
 
-/* Brand Particles Animation */
+
 .brand-particles {
     position: absolute;
     width: 100%;
@@ -1803,7 +1797,7 @@ html, body {
     }
 }
 
-/* Brand Showcase Container */
+
 .brand-showcase {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1863,7 +1857,7 @@ html, body {
     letter-spacing: 0.05em;
 }
 
-/* Logo Animation Showcase */
+
 .logo-animation {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -1924,7 +1918,7 @@ html, body {
     animation-duration: 2s;
 }
 
-/* Color Palette Showcase */
+
 .color-palette {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -1984,7 +1978,7 @@ html, body {
     box-shadow: 0 0 20px currentColor;
 }
 
-/* Typography Showcase */
+
 .typography {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
@@ -2030,7 +2024,7 @@ html, body {
     opacity: 1;
 }
 
-/* Brand Button Specific Styling */
+
 .brand-btn {
     background: var(--brand-gradient);
 }
@@ -2074,7 +2068,7 @@ html, body {
     }
 }
 
-/* USP Container for Brand Section */
+
 .brand-section .usp-container {
     display: flex;
     flex-direction: column;
@@ -2163,7 +2157,7 @@ html, body {
     line-height: 1.6;
 }
 
-/* Company Registration Section - Enhanced Cosmic Design */
+
 .registration-section {
     background: linear-gradient(135deg, var(--space-gray) 0%, #0f1629 100%);
     position: relative;
@@ -2189,11 +2183,9 @@ html, body {
     100% { opacity: 0.9; transform: scale(1.02); }
 }
 
-/* ===============================================
-   REGISTRATION VISUAL ELEMENTS
-   =============================================== */
 
-/* Floating Documents */
+
+
 .floating-documents {
     position: absolute;
     top: 0;
@@ -2278,7 +2270,7 @@ html, body {
     }
 }
 
-/* Registration Showcase */
+
 .registration-showcase {
     display: flex;
     flex-direction: column;
@@ -2314,7 +2306,7 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
-/* Legal Process Steps */
+
 .legal-process {
     display: flex;
     align-items: center;
@@ -2413,7 +2405,7 @@ html, body {
     100% { width: 0%; }
 }
 
-/* Certificate Animation */
+
 .certificate-animation {
     display: flex;
     justify-content: center;
@@ -2494,7 +2486,7 @@ html, body {
     margin: 0 auto;
 }
 
-/* Enhanced USP Container */
+
 .usp-container {
     display: flex;
     flex-direction: column;
@@ -2568,7 +2560,7 @@ html, body {
     font-size: 1rem;
 }
 
-/* Registration Modal Styles */
+
 .registration-modal {
     position: fixed;
     top: 0;
@@ -2720,7 +2712,7 @@ html, body {
     transition: all 0.3s ease;
 }
 
-/* Enhanced select styling for better visibility */
+
 .form-group select {
     cursor: pointer;
     -webkit-appearance: none;
@@ -2742,7 +2734,7 @@ html, body {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Dropdown option styling for visibility */
+
 .form-group select option {
     background: var(--dark-space);
     color: var(--star-light);
@@ -2752,7 +2744,7 @@ html, body {
     line-height: 1.4;
 }
 
-/* Ensure dropdown options are visible on all browsers */
+
 .form-group select option:hover,
 .form-group select option:focus {
     background: var(--cosmic-cyan);
@@ -2849,7 +2841,7 @@ html, body {
 }
 
 @media (max-width: 600px) {
-  /* Reduce registration section padding and gap for mobile */
+  
   .registration-section {
     padding: 1.5rem 0 !important;
   }
@@ -2857,7 +2849,7 @@ html, body {
     padding: 1rem !important;
     gap: 1rem !important;
   }
-  /* Make modal content scrollable within viewport */
+  
   .modal-content {
     max-height: 90vh !important;
     overflow-y: auto !important;
@@ -2865,18 +2857,18 @@ html, body {
   .modal-body {
     padding: 0.5rem !important;
   }
-  /* Reduce form group spacing */
+  
   .form-group {
     margin-bottom: 0.8rem !important;
   }
 }
 
-/* Mobile responsive styles for service section */
+
 @media (max-width: 768px) {
     .service-section {
-        overflow: visible !important; /* Allow content to be visible on mobile */
-        min-height: auto !important; /* Remove viewport height restriction */
-        padding: 4rem 0 !important; /* Ensure adequate padding */
+        overflow: visible !important; 
+        min-height: auto !important; 
+        padding: 4rem 0 !important; 
     }
     
     .service-section .service-content,
@@ -2893,7 +2885,7 @@ html, body {
         direction: ltr !important;
         text-align: left;
     }
-    /* Always show left part (service-info) first, then right (service-visual) */
+    
     .service-section .service-content {
         flex-direction: column !important;
     }
@@ -2901,7 +2893,7 @@ html, body {
         flex-direction: column !important;
     }
     
-    /* Contact section specific mobile centering and equal gaps */
+    
     .contact-section .container {
         padding: 0 1.5rem !important;
         margin: 0 auto !important;
@@ -2959,7 +2951,7 @@ html, body {
     }
 }
 
-/* Mobile landscape */
+
 @media (max-width: 768px) {
     .registration-section {
         padding: 4rem 0;
@@ -2979,22 +2971,22 @@ html, body {
         font-size: 1rem;
     }
     
-    /* Legal grid adjustments */
+    
     .legal-grid .grid-line {
         opacity: 0.3;
     }
     
-    /* Floating documents - reduce on mobile */
+    
     .floating-documents .document {
         width: 40px;
         height: 55px;
     }
     
     .document.doc-3 {
-        display: none; /* Hide third document on mobile */
+        display: none; 
     }
     
-    /* Registration showcase */
+    
     .registration-showcase {
         padding: 2rem;
         gap: 2rem;
@@ -3024,7 +3016,7 @@ html, body {
         height: 20px;
     }
     
-    /* Certificate animation */
+    
     .certificate-animation {
         margin-top: 1rem;
     }
@@ -3041,7 +3033,7 @@ html, body {
         right: 15px;
     }
     
-    /* USP items */
+    
     .usp-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -3070,7 +3062,7 @@ html, body {
         line-height: 1.5;
     }
     
-    /* Registration button */
+    
     .cosmic-btn {
         padding: 1rem 2rem;
         font-size: 1rem;
@@ -3086,7 +3078,7 @@ html, body {
     }
 }
 
-/* Mobile portrait - Additional contact section centering */
+
 @media (max-width: 480px) {
     .contact-section .container {
         padding: 0 1rem !important;
@@ -3117,7 +3109,7 @@ html, body {
     }
 }
 
-/* Mobile portrait */
+
 @media (max-width: 480px) {
     .registration-section {
         padding: 3rem 0;
@@ -3147,7 +3139,7 @@ html, body {
         margin-top: 0.5rem;
     }
     
-    /* Further reduce floating documents */
+    
     .floating-documents .document {
         width: 35px;
         height: 45px;
@@ -3167,7 +3159,7 @@ html, body {
         height: 2px;
     }
     
-    /* Compact registration showcase */
+    
     .registration-showcase {
         padding: 1.5rem;
         gap: 1.5rem;
@@ -3200,7 +3192,7 @@ html, body {
         height: 15px;
     }
     
-    /* Smaller certificate */
+    
     .certificate {
         width: 100px;
         height: 75px;
@@ -3222,7 +3214,7 @@ html, body {
         height: 2px;
     }
     
-    /* Compact USP items */
+    
     .usp-item {
         padding: 1.2rem;
         border-radius: 12px;
@@ -3245,7 +3237,7 @@ html, body {
         line-height: 1.4;
     }
     
-    /* Compact button */
+    
     .cosmic-btn {
         padding: 0.9rem 1.8rem;
         font-size: 0.9rem;
@@ -3266,7 +3258,7 @@ html, body {
     }
 }
 
-/* Extra small devices */
+
 @media (max-width: 360px) {
     .registration-section .service-title {
         font-size: 1.8rem;
@@ -3308,7 +3300,7 @@ html, body {
     }
 }
 
-/* Registration Modal Mobile Enhancements */
+
 @media (max-width: 768px) {
     .modal-content {
         width: 95%;
@@ -3353,7 +3345,7 @@ html, body {
     .form-group select,
     .form-group textarea {
         padding: 0.8rem;
-        font-size: 1rem; /* Prevent zoom on iOS */
+        font-size: 1rem; 
     }
     
     .package-options {
@@ -3434,18 +3426,16 @@ html, body {
     }
 }
 
-/* ===============================================
-   SOCIAL MEDIA MARKETING SECTION - COSMIC SHOWCASE
-   =============================================== */
 
-/* Social Media Section Base */
+
+
 .marketing-section {
     background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, var(--dark-space) 70%);
     position: relative;
     overflow: hidden;
 }
 
-/* Social Network Background Animation */
+
 .social-network {
     position: absolute;
     top: 0;
@@ -3546,7 +3536,7 @@ html, body {
     }
 }
 
-/* Engagement Particles */
+
 .engagement-particles {
     position: absolute;
     top: 0;
@@ -3591,7 +3581,7 @@ html, body {
     }
 }
 
-/* Social Media Showcase */
+
 .social-showcase {
     display: flex;
     flex-direction: column;
@@ -3627,7 +3617,7 @@ html, body {
     100% { transform: rotate(360deg); }
 }
 
-/* Social Metrics */
+
 .social-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -3740,7 +3730,7 @@ html, body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Instagram */
+
 .platform-icon.instagram {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
@@ -3749,7 +3739,7 @@ html, body {
     box-shadow: 0 15px 40px rgba(225, 48, 108, 0.4);
 }
 
-/* Facebook */
+
 .platform-icon.facebook {
     background: linear-gradient(45deg, #1877f2 0%, #42a5f5 100%);
 }
@@ -3758,7 +3748,7 @@ html, body {
     box-shadow: 0 15px 40px rgba(24, 119, 242, 0.4);
 }
 
-/* LinkedIn */
+
 .platform-icon.linkedin {
     background: linear-gradient(45deg, #0077b5 0%, #00a0dc 100%);
 }
@@ -3767,7 +3757,7 @@ html, body {
     box-shadow: 0 15px 40px rgba(0, 119, 181, 0.4);
 }
 
-/* YouTube */
+
 .platform-icon.youtube {
     background: linear-gradient(45deg, #ff0000 0%, #ff4444 100%);
 }
@@ -3776,7 +3766,7 @@ html, body {
     box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
 }
 
-/* Marketing Button Specific Styling */
+
 .marketing-btn {
     background: var(--marketing-gradient);
     position: relative;
@@ -3840,7 +3830,7 @@ html, body {
     }
 }
 
-/* Responsive Design for Social Media Section */
+
 @media (max-width: 768px) {
     .social-metrics {
         grid-template-columns: 1fr;
@@ -3896,9 +3886,9 @@ html, body {
     }
 }
 
-/* Enhanced fix for content clipping in the registration section on mobile */
+
 @media (max-width: 768px) {
-  /* Container and section fixes */
+  
   .registration-section {
     overflow-x: hidden !important;
     padding: 4rem 0 !important;
@@ -3918,7 +3908,7 @@ html, body {
     max-width: 100% !important;
   }
   
-  /* USP container layout fixes */
+  
   .registration-section .usp-container {
     display: flex !important;
     flex-direction: column !important;
@@ -3929,7 +3919,7 @@ html, body {
     overflow-x: hidden !important;
   }
   
-  /* Individual USP item fixes */
+  
   .registration-section .usp-item {
     display: flex !important;
     align-items: flex-start !important;
@@ -3944,7 +3934,7 @@ html, body {
     flex-wrap: nowrap !important;
   }
   
-  /* Icon container fixes */
+  
   .registration-section .usp-icon {
     flex-shrink: 0 !important;
     width: 50px !important;
@@ -3952,7 +3942,7 @@ html, body {
     min-width: 50px !important;
   }
   
-  /* Content container fixes */
+  
   .registration-section .usp-content {
     flex: 1 !important;
     width: 100% !important;
@@ -3964,7 +3954,7 @@ html, body {
     overflow-x: hidden !important;
   }
   
-  /* Text content fixes */
+  
   .registration-section .usp-content h3 {
     font-size: 1.1rem !important;
     line-height: 1.3 !important;
@@ -3985,7 +3975,7 @@ html, body {
 }
 
 @media (max-width: 480px) {
-  /* Small mobile specific fixes */
+  
   .registration-section {
     padding: 3rem 0 !important;
   }
@@ -4018,7 +4008,7 @@ html, body {
 }
 
 @media (max-width: 360px) {
-  /* Extra small devices */
+  
   .registration-section .container {
     padding: 0 0.8rem !important;
   }
@@ -4044,7 +4034,7 @@ html, body {
   }
 }
 
-/* Registration Modal Mobile Enhancements */
+
 @media (max-width: 768px) {
     .modal-content {
         width: 95%;
@@ -4089,7 +4079,7 @@ html, body {
     .form-group select,
     .form-group textarea {
         padding: 0.8rem;
-        font-size: 1rem; /* Prevent zoom on iOS */
+        font-size: 1rem; 
     }
     
     .package-options {
@@ -4170,7 +4160,7 @@ html, body {
     }
 }
 
-/* Prevent horizontal scroll on mobile */
+
 html, body {
   max-width: 100vw;
   overflow-x: hidden;

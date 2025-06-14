@@ -1,9 +1,9 @@
-/* Universal section content padding */
+
 section .bg > * {
   padding: 2rem 5%;
 }
 
-/* Space Theme Contact Form Styles */
+
 .contact-form {
     max-width: 600px;
   width: 100%;
@@ -25,7 +25,7 @@ section .bg > * {
   overflow: hidden;
 }
 
-/* Cosmic background effect */
+
 .contact-form::before {
   content: '';
   position: absolute;
@@ -156,7 +156,7 @@ section .bg > * {
     0 0 20px rgba(59, 130, 246, 0.6);
 }
 
-/* Space Theme Contact Form - Mobile Responsive */
+
 @media (max-width: 768px) {
   .contact-form {
     margin: 0 1rem;
@@ -186,7 +186,7 @@ section .bg > * {
   }
 }
 
-/* Fix for potential viewport issues */
+
 @media (max-width: 390px) {
   .contact-form {
     margin: 0 0.5rem;
@@ -201,7 +201,7 @@ section .bg > * {
   }
 }
 
-/* Additional space effects for form section */
+
 .contact-form-section {
   position: relative;
   background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
@@ -229,7 +229,7 @@ section .bg > * {
   100% { transform: translateY(-1000px); }
 }
 
-/* Fix for mobile button clipping - Override container overflow */
+
 @media (max-width: 768px) {
   .contact-form-section.second .outer,
   .contact-form-section.second .inner {
@@ -245,7 +245,7 @@ section .bg > * {
   }
 }
 
-/* Extra fix for very small screens */
+
 @media (max-width: 480px) {
   .contact-form-section.second .outer,
   .contact-form-section.second .inner {
@@ -265,7 +265,7 @@ section .bg > * {
   }
 }
 
-/* Hide scrollbars completely */
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 0px !important;
@@ -283,7 +283,7 @@ body {
   scrollbar-width: none !important;
 }
 
-/* Remove vertical scroll for contact page */
+
 html, body {
   overflow: hidden !important;
   height: 100vh !important;
@@ -292,7 +292,7 @@ html, body {
   width: 100% !important;
 }
 
-/* Ensure sections fit within viewport */
+
 section {
   height: 100vh !important;
   max-height: 100vh !important;
@@ -313,7 +313,7 @@ section .bg {
   padding: 5vh 1rem 2vh !important;
 }
 
-/* Adjust form section to fit viewport */
+
 .contact-form-section .bg {
   display: flex !important;
   flex-direction: column !important;
@@ -324,7 +324,7 @@ section .bg {
 .contact-form {
 }
 
-/* Adjust location section to fit viewport */
+
 .location-section .bg {
   display: flex !important;
   flex-direction: column !important;
@@ -352,7 +352,7 @@ section .bg {
   height: 100% !important;
 }
 
-/* Mobile adjustments */
+
 @media (max-width: 768px) {
   .location-container {
     grid-template-columns: 1fr !important;
@@ -375,7 +375,7 @@ section .bg {
     padding: 1.5rem !important;
   }
   
-  /* Override previous mobile fixes that allowed overflow */
+  
   .contact-form-section.second .outer,
   .contact-form-section.second .inner {
     overflow: hidden !important;
@@ -409,7 +409,7 @@ section .bg {
     gap: 1rem !important;
   }
   
-  /* Override previous mobile fixes */
+  
   .contact-form-section.second .outer,
   .contact-form-section.second .inner {
     overflow: hidden !important;
@@ -427,10 +427,10 @@ section .bg {
   }
 }
 
-/* --- Enhanced Location & Socials Section --- */
-/* Section 3 styles removed as per request */
 
-/* --- Responsive Restyle --- */
+
+
+
 @media (max-width: 900px) {
   .location-social-container {
     flex-direction: column;

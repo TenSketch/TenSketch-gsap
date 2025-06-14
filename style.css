@@ -126,7 +126,7 @@ header .social-icon:hover {
   }
 }
 
-/* Logo Menu Styling - Legacy styles for compatibility */
+
 header .logo {
   width: clamp(120px, 25vw, 20%);
   filter: invert(1);
@@ -134,7 +134,7 @@ header .logo {
   display: none !important;
 }
 
-/* Split Logo Hamburger Menu Styles */
+
 .logo-container {
   position: fixed;
   left: 5%;
@@ -168,7 +168,7 @@ header .logo {
   transform: translateY(-50%);
   transition: all 0.5s cubic-bezier(0.77,0,0.175,1);
 }
-/* Animation states for open/close */
+
 .menu.open ~ .logo-container .logo-right {
   transform: translateX(20px);
   opacity: 0;
@@ -194,15 +194,15 @@ header .logo {
   .logo-right {
     left: 22px;
   }
-  /* Animation for mobile */
+  
   .menu.open ~ .logo-container .logo-right {
     transform: translateX(15px);
   }
 }
-/* Hide old .logo styles in header */
+
 header .logo { display: none !important; }
 
-/* Menu Navigation Styles - Black Glass */
+
 .menu {  position: fixed;
   top: 0;
   left: 0;
@@ -228,13 +228,13 @@ header .logo { display: none !important; }
   z-index: 4;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  /* Glassmorphism styles */
+  
   background: rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   border-radius: 10px;  border: 1px solid rgba(255, 255, 255, 0.18);
-  /* Menu width and other existing styles */
+  
   width: 70vw !important;
   min-width: unset;
   max-width: unset;
@@ -435,7 +435,7 @@ section .bg {
   background-position: center;
 }
 
-/* Universal section content padding for all pages except Beyond Web */
+
 body:not(.beyond-web) section .bg > * {
   padding: 2rem 5%;
 }
@@ -1406,7 +1406,7 @@ h2 * {
   line-height: 1.2;
 }
 
-/* Smaller font size for person names in testimonials */
+
 .testimonials .sub-heading {
   font-size: 1.2rem;
 }
@@ -1455,7 +1455,7 @@ h2 * {
     font-size: 0.9rem;
   }
   
-  /* Even smaller font size for person names in testimonials on mobile */
+  
   .testimonials .sub-heading {
     font-size: 1.2rem;
   }
@@ -2277,7 +2277,7 @@ body {
   }
 }
 
-/* --- SECTION 1: BEFORE YOU EVEN START (Custom Styles) --- */
+
 .first.approach-section {
   min-height: 100vh;
   width: 100vw;
@@ -2490,11 +2490,11 @@ body {
   }
 }
 
-/* Additional mobile responsiveness for smaller screens (Mobile S) */
+
 @media (max-width: 480px) {
   .approach-main-title {
-    padding-top: 130px; /* Slightly more padding for smaller screens */
-    min-height: 100px; /* Reduce min-height to compensate */
+    padding-top: 130px; 
+    min-height: 100px; 
   }
   .approach-main-title h1 {
     font-size: clamp(1.1rem, 6vw, 1.8rem);
@@ -2516,7 +2516,7 @@ body {
     margin-bottom: 0.5rem !important;
   }
 }
-/* Keep the gap between title and cards minimal */
+
 .first.approach-section .approach-main-title h1 {
   margin-bottom: 0 !important;
 }
@@ -2524,7 +2524,7 @@ body {
   margin-top: 0 !important;
 }
 
-/* Center align the sub-headings inside .cards-container for the UI/UX cards */
+
 .cards-container .sub-heading {
   text-align: center;
   width: 100%;
@@ -2533,17 +2533,18 @@ body {
   margin-right: auto;
 }
 
-/* Center align the card title, left align the rest of the content in split-card */
+
 .split-card .card-header .sub-heading {
   text-align: center;
   width: 100%;
   display: block;
 }
 .split-card .body, .split-card .body p, .split-card .body ul, .split-card .body li {
+  font-size: 1.25rem;
   text-align: left !important;
 }
 
-/* Custom arrow for split-card lists in web-solution.html */
+
 .split-card .body ul {
   list-style: none;
   padding-left: 0;
@@ -2554,16 +2555,16 @@ body {
   margin-bottom: 0.7em;
 }
 .split-card .body ul li:before {
-  content: '\2192'; /* Unicode right arrow */
+  content: '\2192'; 
   position: absolute;
   left: 0;
   top: 0.1em;
-  color: #E6C99A; /* Sandal color */
+  color: #E6C99A; 
   font-size: 1.1em;
   font-weight: bold;
 }
 
-/* --- SECTION 7: Types of Web Solutions Table Styles --- */
+
 .web-types-table-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -2641,7 +2642,7 @@ body {
   margin-bottom: 0.5em;
 }
 
-/* --- SECTION 7: Web Types Background Consistency with Black Overlay --- */
+
 .web-types-bg {
   background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.82)),
     url('https://images.unsplash.com/photo-1617478755490-e21232a5eeaf?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzU1NjM5NA&ixlib=rb-1.2.1&q=75&w=1920') no-repeat right bottom / 180px auto,
@@ -2663,7 +2664,7 @@ body {
   }
 }
 
-/* --- Timeline for Sixth Section (Web Solution) --- */
+
 .sixth .timeline-container {
   width: 100%;
   display: flex;

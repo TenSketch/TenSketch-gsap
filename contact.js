@@ -1,4 +1,4 @@
-// Contact form submission handler
+
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
@@ -11,7 +11,7 @@ if (contactForm) {
       alert('Please fill in all fields.');
       return;
     }
-    // You can replace this with AJAX or backend integration
+    
     alert('Thank you, ' + name + '! Your message has been received.');
     contactForm.reset();
   });

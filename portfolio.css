@@ -1,9 +1,7 @@
-/* Universal section content padding */
 section .bg > * {
   padding: 2rem 5%;
 }
 
-/* Portfolio Section Styles */
 .portfolio-section {
   min-height: 100vh;
   display: flex;
@@ -28,7 +26,6 @@ section .bg > * {
   color: #ffffff;
 }
 
-/* Enhanced smooth transitions for better performance */
 .portfolio-grid {
   display: flex;
   gap: 2rem;
@@ -38,10 +35,9 @@ section .bg > * {
   min-height: 500px;
   position: relative;
   overflow: hidden;
-  transform: translateZ(0); /* Enable hardware acceleration */
+  transform: translateZ(0); 
 }
 
-/* --- Portfolio Card Redesign for Full Content Visibility --- */
 .portfolio-card {
   flex: 0 0 350px;
   max-width: 100%;
@@ -151,13 +147,13 @@ section .bg > * {
   transform: scale(0.9) translateX(20px) rotateY(-5deg);
 }
 
-/* Enhanced Sliding Animation States */
+
 .portfolio-grid {
   position: relative;
   perspective: 1000px;
 }
 
-/* Exit animations - enhanced for smoother motion */
+
 .portfolio-card.sliding-out-left {
   transform: translateX(-150%) scale(0.75) rotateY(15deg);
   opacity: 0;
@@ -172,7 +168,7 @@ section .bg > * {
   filter: blur(2px);
 }
 
-/* Entry animations - enhanced for smoother motion */
+
 .portfolio-card.sliding-in-left {
   transform: translateX(-150%) scale(0.75) rotateY(-15deg);
   opacity: 0;
@@ -187,7 +183,7 @@ section .bg > * {
   filter: blur(2px);
 }
 
-/* Moving to positions - enhanced spotlight effect */
+
 .portfolio-card.moving-to-left {
   transform: scale(0.9) translateX(-20px) rotateY(5deg);
   opacity: 0.7;
@@ -333,7 +329,7 @@ section .bg > * {
   transform: translateX(3px);
 }
 
-/* Navigation */
+
 .portfolio-navigation {
   display: flex;
   align-items: center;
@@ -384,7 +380,7 @@ section .bg > * {
   transform: scale(1.1);
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
   .portfolio-card {
     flex: 0 0 300px;
@@ -584,7 +580,7 @@ section .bg > * {
   }
 }
 
-/* Simple Slide Animation */
+
 @keyframes slideIn {
   from {
     opacity: 0;

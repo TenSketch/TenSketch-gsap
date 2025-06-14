@@ -1,14 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize cosmic animations
     initCosmicAnimations();
     initHeroAnimations();
     initServiceAnimations();
-    initParticleSystem();
-    
-    // Form handling
+    initParticleSystem();    
     initContactForm();
 
-    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -27,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Cosmic Background Animations
+    
     function initCosmicAnimations() {
-        // Create dynamic stars
+        
         const starsField = document.querySelector('.stars-field');
         if (starsField) {
             for (let i = 0; i < 200; i++) {
@@ -43,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Animate falling objects
+        
         const fallingObjects = document.querySelectorAll('.falling-object');
         fallingObjects.forEach((obj, index) => {
             obj.style.left = Math.random() * 100 + '%';
@@ -51,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             obj.style.animationDuration = (Math.random() * 10 + 10) + 's';
         });
 
-        // Create floating particles
+        
         const particlesContainer = document.querySelector('.floating-particles');
         if (particlesContainer) {
             for (let i = 0; i < 50; i++) {
@@ -65,9 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Hero Animations
+    
     function initHeroAnimations() {
-        // Typewriter effect for subtitle
+        
         const typewriterElement = document.querySelector('.typewriter');
         if (typewriterElement) {
             const text = typewriterElement.textContent;
@@ -85,13 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(typeWriter, 2000);
         }
 
-        // Animate title words
+        
         const titleWords = document.querySelectorAll('.word-animation');
         titleWords.forEach((word, index) => {
             word.style.animationDelay = (index * 0.3) + 's';
         });
 
-        // Service bubbles hover effects
+        
         const serviceBubbles = document.querySelectorAll('.service-bubble');
         serviceBubbles.forEach(bubble => {
             bubble.addEventListener('mouseenter', function() {
@@ -105,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Cosmic scroll indicator
+        
         const scrollIndicator = document.querySelector('.scroll-indicator');
         if (scrollIndicator) {
             scrollIndicator.addEventListener('click', function() {
@@ -117,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Hide scroll indicator on scroll
+            
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 200) {
                     scrollIndicator.style.opacity = '0';
@@ -128,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Service Section Animations
+    
     function initServiceAnimations() {
-        // USP animations on scroll
+        
         const uspItems = document.querySelectorAll('.usp-item');
         const uspObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
@@ -150,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             uspObserver.observe(item);
         });
 
-        // Cosmic buttons with trail effect
+        
         const cosmicButtons = document.querySelectorAll('.cosmic-btn');
         cosmicButtons.forEach(button => {
             button.addEventListener('mousemove', function(e) {
@@ -158,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                // Create trail effect
+                
                 const trail = document.createElement('div');
                 trail.className = 'button-trail';
                 trail.style.left = x + 'px';
@@ -171,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Platform icons animation
+        
         const platformIcons = document.querySelectorAll('.platform-icon');
         platformIcons.forEach((icon, index) => {
             icon.addEventListener('mouseenter', function() {
@@ -187,12 +183,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Particle System
+    
     function initParticleSystem() {
         const particleContainer = document.querySelector('.floating-particles');
         if (!particleContainer) return;
 
-        // Add glow effect to particles
+        
         const particles = document.querySelectorAll('.particle');
         particles.forEach(particle => {
             particle.addEventListener('mouseenter', function() {
@@ -207,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Contact Form
+    
     function initContactForm() {
         const contactForm = document.querySelector('.contact-form form');
         if (contactForm) {
@@ -220,15 +216,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
 
-                // Simulate form submission
+                
                 setTimeout(() => {
                     submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
                     submitBtn.style.background = '#10B981';
                     
-                    // Show success notification
+                    
                     showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
                     
-                    // Reset form
+                    
                     setTimeout(() => {
                         this.reset();
                         submitBtn.innerHTML = originalText;
@@ -240,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Utility Functions
+    
     function showNotification(message, type = 'info') {
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
@@ -274,10 +270,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Make startJourney globally accessible
+    
     window.startJourney = startJourney;
 
-    // Intersection Observer for general animations
+    
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -288,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in-up');
                 
-                // Special animations for service content
+                
                 if (entry.target.classList.contains('service-content')) {
                     setTimeout(() => {
                         const usps = entry.target.querySelectorAll('.usp-item');
@@ -304,34 +300,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
+    
     const animateElements = document.querySelectorAll('.service-content, .contact-info, .contact-form');
     animateElements.forEach(el => observer.observe(el));
 
-    // Performance optimization for mobile
+    
     const isMobile = window.innerWidth < 768;
     if (isMobile) {
-        // Reduce particle count
+        
         const particles = document.querySelectorAll('.particle');
         particles.forEach((particle, index) => {
             if (index > 20) particle.remove();
         });
         
-        // Reduce stars count
+        
         const stars = document.querySelectorAll('.star');
         stars.forEach((star, index) => {
             if (index > 100) star.remove();
         });
     }
 
-    // Add dynamic background color change based on scroll
+    
     window.addEventListener('scroll', function() {
         const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
         const hue = scrollPercent * 60;
         document.documentElement.style.setProperty('--dynamic-hue', hue + 'deg');
     });
 
-    // Loading state management
+    
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
         
@@ -346,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Beyond Web: Cosmic landing page initialized!');
 });
 
-// CSS for notifications (inject into head)
+
 const notificationStyles = `
     .notification {
         position: fixed;
@@ -396,12 +392,12 @@ const notificationStyles = `
     }
 `;
 
-// Inject notification styles
+
 const styleSheet = document.createElement('style');
 styleSheet.textContent = notificationStyles;
 document.head.appendChild(styleSheet);
 
-// Service card hover effects
+
 const serviceCards = document.querySelectorAll('.service-card');
 serviceCards.forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -425,7 +421,7 @@ serviceCards.forEach(card => {
     });
 });
 
-// Counter animation for stats and social metrics
+
 const statNumbers = document.querySelectorAll('.stat-number, .counter');
 const animateCounters = (entries, observer) => {
     entries.forEach(entry => {
@@ -433,7 +429,7 @@ const animateCounters = (entries, observer) => {
             const counter = entry.target;
             let target;
             
-            // Handle different data attributes
+            
             if (counter.hasAttribute('data-target')) {
                 target = parseInt(counter.getAttribute('data-target'));
             } else {
@@ -442,7 +438,7 @@ const animateCounters = (entries, observer) => {
             
             const suffix = counter.textContent.replace(/[\d]/g, '');
             let current = 0;
-            const increment = target / 60;  // Increased duration for smoother animation
+            const increment = target / 60;  
             
             const updateCounter = () => {
                 if (current < target) {
@@ -453,7 +449,7 @@ const animateCounters = (entries, observer) => {
                 } else {
                     counter.textContent = target + suffix;
                     
-                    // Add a subtle glow effect when animation completes
+                    
                     counter.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
                     setTimeout(() => {
                         counter.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.3)';
@@ -475,46 +471,46 @@ statNumbers.forEach(counter => {
     counterObserver.observe(counter);
 });
 
-// Form handling
+
 const contactForm = document.querySelector('.form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
+        
         const formData = new FormData(this);
         const formObject = {};
         formData.forEach((value, key) => {
             formObject[key] = value;
         });
 
-        // Simulate form submission
+        
         const submitBtn = this.querySelector('.submit-btn');
         const originalText = submitBtn.innerHTML;
         
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
 
-        // Simulate API call
+        
         setTimeout(() => {
             submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
             submitBtn.style.background = 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)';
             
-            // Reset form
+            
             setTimeout(() => {
                 this.reset();
                 submitBtn.innerHTML = originalText;
                 submitBtn.style.background = '';
                 submitBtn.disabled = false;
                 
-                // Show success message
+                
                 showNotification('Thank you! We\'ll get back to you soon.', 'success');
             }, 2000);
         }, 1500);
     });
 }
 
-// Notification system
+
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -527,12 +523,12 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Trigger animation
+    
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
     
-    // Remove notification
+    
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
@@ -541,7 +537,7 @@ function showNotification(message, type = 'info') {
     }, 4000);
 }
 
-// Preview card interactions
+
 const previewCards = document.querySelectorAll('.preview-card');
 previewCards.forEach((card, index) => {
     card.style.animationDelay = `${index * 0.2}s`;
@@ -563,7 +559,7 @@ previewCards.forEach((card, index) => {
     });
 });
 
-// Floating shapes animation enhancement
+
 const shapes = document.querySelectorAll('.shape');
 shapes.forEach((shape, index) => {
     const randomX = Math.random() * 100;
@@ -572,7 +568,7 @@ shapes.forEach((shape, index) => {
     shape.style.left = randomX + '%';
     shape.style.top = randomY + '%';
     
-    // Add mouse interaction
+    
     document.addEventListener('mousemove', function(e) {
         const mouseX = e.clientX / window.innerWidth;
         const mouseY = e.clientY / window.innerHeight;
@@ -584,7 +580,7 @@ shapes.forEach((shape, index) => {
     });
 });
 
-// Timeline items animation
+
 const timelineItems = document.querySelectorAll('.timeline-item');
 timelineItems.forEach((item, index) => {
     const icon = item.querySelector('.timeline-icon');
@@ -593,20 +589,20 @@ timelineItems.forEach((item, index) => {
     }
 });
 
-// Service selection handling
+
 const serviceSelect = document.getElementById('service');
 if (serviceSelect) {
     serviceSelect.addEventListener('change', function() {
         const selectedService = this.value;
         const serviceCards = document.querySelectorAll('.service-card');
         
-        // Reset all cards
+        
         serviceCards.forEach(card => {
             card.style.opacity = '1';
             card.style.transform = '';
         });
         
-        // Highlight selected service
+        
         if (selectedService && selectedService !== '') {
             const targetCard = document.querySelector(`[data-service="${selectedService}"]`);
             if (targetCard) {
@@ -628,7 +624,7 @@ if (serviceSelect) {
     });
 }
 
-// Parallax effect for hero section
+
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const parallaxElements = document.querySelectorAll('.floating-shapes');
@@ -639,7 +635,7 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// Enhanced hover effects for buttons
+
 const buttons = document.querySelectorAll('.primary-btn, .secondary-btn, .service-btn, .submit-btn');
 buttons.forEach(button => {
     button.addEventListener('mouseenter', function() {
@@ -651,7 +647,7 @@ buttons.forEach(button => {
     });
 });
 
-// Lazy loading for images
+
 const images = document.querySelectorAll('img');
 const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -671,10 +667,10 @@ images.forEach(img => {
     imageObserver.observe(img);
 });
 
-// Add loading state management
+
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
-      // Trigger entrance animations
+      
     const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta');
     heroElements.forEach((element, index) => {
         setTimeout(() => {
@@ -683,9 +679,9 @@ window.addEventListener('load', function() {
     });
 });
 
-// Registration Portal Function
+
 function openRegistrationPortal() {
-    // Create modal overlay
+    
     const modal = document.createElement('div');
     modal.className = 'registration-modal';
     modal.innerHTML = `
@@ -784,10 +780,10 @@ function openRegistrationPortal() {
     
     document.body.appendChild(modal);
     
-    // Add event listeners
+    
     setupRegistrationForm();
     
-    // Animate modal in
+    
     gsap.fromTo(modal, {
         opacity: 0,
         scale: 0.8
@@ -818,19 +814,19 @@ function setupRegistrationForm() {
     
     window.nextStep = function() {
         if (currentStep < totalSteps) {
-            // Hide current step
+            
             const currentSection = document.querySelector(`[data-step="${currentStep}"]`);
             const nextSection = document.querySelector(`[data-step="${currentStep + 1}"]`);
             
             currentSection.classList.remove('active');
             nextSection.classList.add('active');
             
-            // Update step indicator
+            
             document.querySelectorAll('.step')[currentStep].classList.add('active');
             
             currentStep++;
             
-            // Show/hide navigation buttons
+            
             if (currentStep === totalSteps) {
                 document.querySelector('.btn-next').style.display = 'none';
                 document.querySelector('.submit-btn').style.display = 'block';
@@ -841,19 +837,19 @@ function setupRegistrationForm() {
     
     window.previousStep = function() {
         if (currentStep > 1) {
-            // Hide current step
+            
             const currentSection = document.querySelector(`[data-step="${currentStep}"]`);
             const prevSection = document.querySelector(`[data-step="${currentStep - 1}"]`);
             
             currentSection.classList.remove('active');
             prevSection.classList.add('active');
             
-            // Update step indicator
+            
             document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
             
             currentStep--;
             
-            // Show/hide navigation buttons
+            
             if (currentStep === 1) {
                 document.querySelector('.btn-prev').style.display = 'none';
             }
@@ -862,7 +858,7 @@ function setupRegistrationForm() {
         }
     };
     
-    // Package selection
+    
     document.querySelectorAll('.package-option').forEach(option => {
         option.addEventListener('click', function() {
             document.querySelectorAll('.package-option').forEach(opt => opt.classList.remove('selected'));
@@ -870,11 +866,11 @@ function setupRegistrationForm() {
         });
     });
     
-    // Form submission
+    
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Collect form data
+        
         const formData = new FormData(this);
         const selectedPackage = document.querySelector('.package-option.selected');
         
@@ -882,7 +878,7 @@ function setupRegistrationForm() {
             formData.append('package', selectedPackage.dataset.package);
         }
         
-        // Simulate form submission
+        
         const submitBtn = document.querySelector('.submit-btn');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = 'Processing...';
@@ -895,11 +891,11 @@ function setupRegistrationForm() {
     });
 }
 
-// Marketing Portal Function
+
 function openMarketingPortal() {
     showNotification('🚀 Social Media Marketing Portal opening soon! Contact us for immediate consultation.', 'info');
     
-    // Scroll to contact section
+    
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
         contactSection.scrollIntoView({
@@ -908,11 +904,11 @@ function openMarketingPortal() {
     }
 }
 
-// Brand Portal Function  
+
 function openBrandPortal() {
     showNotification('🎨 Brand Identity Portal launching soon! Contact us to start your brand transformation.', 'info');
     
-    // Scroll to contact section
+    
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
         contactSection.scrollIntoView({
@@ -921,16 +917,16 @@ function openBrandPortal() {
     }
 }
 
-// Contact Portal Function
+
 function openContactPortal() {
-    // Scroll to contact form
+    
     const contactForm = document.querySelector('#contactForm');
     if (contactForm) {
         contactForm.scrollIntoView({
             behavior: 'smooth'
         });
         
-        // Focus on first input
+        
         setTimeout(() => {
             const firstInput = contactForm.querySelector('input');
             if (firstInput) {
@@ -940,7 +936,7 @@ function openContactPortal() {
     }
 }
 
-// Make functions globally accessible
+
 window.openMarketingPortal = openMarketingPortal;
 window.openBrandPortal = openBrandPortal;
 window.openContactPortal = openContactPortal;
