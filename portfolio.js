@@ -29,6 +29,8 @@ class PortfolioGrid {
     this.grid = document.getElementById('portfolioGrid');
     this.prevBtn = document.getElementById('prevBtn');
     this.nextBtn = document.getElementById('nextBtn');
+    this.prevBtnMobile = document.getElementById('prevBtnMobile');
+    this.nextBtnMobile = document.getElementById('nextBtnMobile');
     this.indicators = document.getElementById('portfolioIndicators');
   }
 
@@ -342,6 +344,14 @@ class PortfolioGrid {
     
     if (this.nextBtn) {
       this.nextBtn.addEventListener('click', () => this.navigateToProject('next'));
+    }
+    
+    if (this.prevBtnMobile) {
+      this.prevBtnMobile.addEventListener('click', () => this.navigateToProject('prev'));
+    }
+    
+    if (this.nextBtnMobile) {
+      this.nextBtnMobile.addEventListener('click', () => this.navigateToProject('next'));
     }
     
     

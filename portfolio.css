@@ -8,14 +8,28 @@ section .bg > * {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: hidden;
 }
 
 .portfolio-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  overflow: visible;
 }
 
 .section-heading {
@@ -31,11 +45,11 @@ section .bg > * {
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
   min-height: 500px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transform: translateZ(0); 
+  flex: 1;
 }
 
 .portfolio-card {
@@ -140,11 +154,11 @@ section .bg > * {
 }
 
 .portfolio-card.side.left {
-  transform: scale(0.9) translateX(-20px) rotateY(5deg);
+  transform: scale(0.9) translateX(-15px) rotateY(5deg);
 }
 
 .portfolio-card.side.right {
-  transform: scale(0.9) translateX(20px) rotateY(-5deg);
+  transform: scale(0.9) translateX(15px) rotateY(-5deg);
 }
 
 
@@ -185,7 +199,7 @@ section .bg > * {
 
 
 .portfolio-card.moving-to-left {
-  transform: scale(0.9) translateX(-20px) rotateY(5deg);
+  transform: scale(0.9) translateX(-15px) rotateY(5deg);
   opacity: 0.7;
   z-index: 5;
   filter: brightness(0.8);
@@ -200,7 +214,7 @@ section .bg > * {
 }
 
 .portfolio-card.moving-to-right {
-  transform: scale(0.9) translateX(20px) rotateY(-5deg);
+  transform: scale(0.9) translateX(15px) rotateY(-5deg);
   opacity: 0.7;
   z-index: 5;
   filter: brightness(0.8);
@@ -337,6 +351,50 @@ section .bg > * {
   gap: 2rem;
 }
 
+/* Desktop navigation - buttons on sides, mobile buttons hidden */
+@media (min-width: 769px) {
+  .portfolio-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .portfolio-main .nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .portfolio-navigation .mobile-nav {
+    display: none;
+  }
+}
+
+/* Mobile navigation - side buttons hidden, bottom buttons shown */
+@media (max-width: 768px) {
+  .portfolio-main {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .portfolio-main .nav-btn {
+    display: none;
+  }
+  
+  .portfolio-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .portfolio-navigation .mobile-nav {
+    display: flex;
+  }
+}
+
 .nav-btn {
   width: 50px;
   height: 50px;
@@ -382,6 +440,10 @@ section .bg > * {
 
 
 @media (max-width: 1200px) {
+  .portfolio-container {
+    padding: 0 2rem;
+  }
+  
   .portfolio-card {
     flex: 0 0 300px;
     height: 400px;
@@ -392,9 +454,20 @@ section .bg > * {
   }
 }
 
+@media (max-width: 1000px) {
+  .portfolio-container {
+    padding: 0 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .portfolio-container {
     padding: 0 1rem;
+  }
+  
+  .portfolio-main {
+    flex-direction: column;
+    gap: 1rem;
   }
   
   .portfolio-grid {
