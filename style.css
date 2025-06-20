@@ -585,12 +585,17 @@ h2 * {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 1.5rem;
+  padding: 1rem;
   transition: all 0.4s ease;
-  flex: 0 0 calc(25% - 1.5rem);
-  min-width: 160px;
+  width: clamp(120px, 30vw, 220px);
+  height: clamp(120px, 30vw, 220px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .third .card:hover {
@@ -600,38 +605,51 @@ h2 * {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-@media (max-width: 992px) {
-  .third .card {
-    flex: 0 0 calc(50% - 1.5rem);
-  }
-}
-
 @media (max-width: 768px) {
   .cards-container {
-    gap: 1.5rem;
-    padding-inline: 0.75rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5rem;
     width: 100%;
-    max-width: 500px;
+    padding: 0 1rem;
+    max-width: 400px;
     margin: 2rem auto;
   }
   
   .third .card {
-    padding: 1rem;
+    width: 160px;
+    height: 160px;
+    padding: 0.75rem;
+    margin: 0 auto;
     flex: none;
-    width: 100%;
-    min-width: unset;
-    height: auto;
-    min-height: 140px;
-    margin: 0;
   }
-    .card-title {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.card-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-clr);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.card-desc {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  color: var(--secondary-clr);
+  text-align: center;
+  line-height: 1.5;
+  text-transform: none;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
   }
   
   .card-desc {
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
   }
 }
 
@@ -642,26 +660,6 @@ h2 * {
   
   .card-icon img {
     width: clamp(28px, 5vw, 40px);
-  }
-}
-
-@media (max-width: 768px) {
-  .cards-container {
-    gap: 1.5rem;
-    padding-inline: 1rem;
-  }
-  
-  .third .card {
-    padding: 1rem;
-    flex: 0 0 calc(50% - 1rem);
-  }
-}
-
-@media (max-width: 480px) {
-  .third .card {
-    flex: 0 0 100%;
-    max-width: 250px;
-    margin: 0 auto;
   }
 }
 
@@ -1384,12 +1382,34 @@ h2 * {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  padding: 4rem 2rem 2rem;
+  justify-content: center;
+  padding: 4rem 1rem 2rem;
 }
 
 .testimonials .section-heading {
   margin-bottom: 0;
   padding-top: 2rem;
+}
+
+.testimonial-hint {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 1rem 0 0 0;
+  font-style: italic;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.testimonial-hint i {
+  color: var(--accent-gold);
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.testimonial-hint:hover {
+  opacity: 1;
 }
 
 .gallery_box {
@@ -1474,11 +1494,11 @@ h2 * {
 
 @media (max-width: 600px) {
   .testimonials .bg {
-    padding: 2rem 1rem 1rem;
+    padding: 6rem 1rem 1rem;
   }
   
   .testimonials .section-heading {
-    padding-top: 1rem;
+    padding-top: 0;
     font-size: 2.5rem;
   }
   
@@ -1509,9 +1529,47 @@ h2 * {
     font-size: 0.9rem;
   }
   
-  
-  .testimonials .sub-heading {
+    .testimonials .sub-heading {
     font-size: 1.2rem;
+  }
+  
+  .testimonial-hint {
+    font-size: 0.8rem;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 601px) {
+  .testimonials .bg {
+    padding: 5rem 2rem 2rem;
+  }
+  
+  .testimonials .section-heading {
+    padding-top: 0;
+  }
+}
+
+/* Desktop/PC specific adjustments for testimonials */
+@media (min-width: 1024px) {
+  .testimonials .bg {
+    padding: 6rem 2rem 4rem;
+    justify-content: flex-start;
+    padding-top: 8rem;
+  }
+  
+  .testimonials .section-heading {
+    margin-bottom: 2rem;
+    padding-top: 0;
+  }
+  
+  .testimonial-hint {
+    font-size: 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+  
+  .gallery_box {
+    margin-top: 2rem;
   }
 }
 
