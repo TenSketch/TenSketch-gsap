@@ -635,7 +635,7 @@ h2 * {
 }
 
 .card-desc {
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-size: 0.95rem; /* Removed clamp, using normal font size */
   color: var(--secondary-clr);
   text-align: center;
   line-height: 1.5;
@@ -687,7 +687,7 @@ h2 * {
 }
 
 .card-desc {
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-size: 0.95rem; /* Removed clamp, using normal font size */
   color: var(--secondary-clr);
   text-align: center;
   line-height: 1.5;
