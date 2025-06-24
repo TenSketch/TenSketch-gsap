@@ -4,7 +4,6 @@
     "imageSrc": "assets/portfolio/PrabhatLegacy.png",
     "altText": "Prabhat Legacy Website Project",
     "title": "Prabhat Legacy",
-    "description": "Prabhat Arts International is a five-generation artistic lineage from Karnataka, India, renowned for Indian classical dance, music, and storytelling.",
     "techTags": ["HTML", "CSS", "JavaScript"],
     "liveUrl": "https://ukeuropetour.prabhatha.com"
   },
@@ -13,35 +12,151 @@
     "imageSrc": "assets/portfolio/ESPeople.png",
     "altText": "ESPeople Website Project",
     "title": "ESPeople",
-    "description": "ESPeople is a Learning & Development (L&D) consulting and training services provider, branded as “TrainingSmiths” to energize and synergize organizational teams through tailored people-development interventions.",
     "techTags": ["HTML", "CSS", "JavaScript"],
     "liveUrl": "https://espeople.in"
   },
   {
     "index": 2,
-    "imageSrc": "assets/portfolio/Success Solution.png",
-    "altText": "Success Solution Website Project",
-    "title": "Success Solution",
-    "description": "Success Solutions HR Consulting India Pvt. Ltd., headquartered in Chennai, Tamil Nadu.The site functions as a one-stop platform for organizations seeking expatriate staffing, recruitment process outsourcing (RPO), and global resource management solutions.",
+    "imageSrc": "assets/portfolio/velarinfra.png",
+    "altText": "Velar Infra Website Project",
+    "title": "Velar Infra",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://successsolutions.in"
+    "liveUrl": "https://velarinfra.com",
+    "filterTag": "Corporate & Business"
   },
   {
     "index": 3,
-    "imageSrc": "assets/portfolio/vanivihari.png",
-    "altText": "Vanavihari Website Project",
-    "title": "Vanavihari",
-    "description": "Vanavihari is a travel and adventure platform offering curated nature treks, group activities, and eco-tourism experiences across India, with a vibrant and modern design.",
+    "imageSrc": "assets/portfolio/akfoundationindia.png",
+    "altText": "AK Foundation India Website Project",
+    "title": "AK Foundation India",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://vanavihari.com/"
+    "liveUrl": "https://akfoundationindia.com",
+    "filterTag": "NGO & Social Impact"
   },
   {
     "index": 4,
+    "imageSrc": "assets/portfolio/usdtrust.png",
+    "altText": "USD Trust Website Project",
+    "title": "USD Trust",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://usdtrust.in",
+    "filterTag": "NGO & Social Impact"
+  },
+  {
+    "index": 5,
+    "imageSrc": "assets/portfolio/ukeuropetour.png",
+    "altText": "UK Europe Tour Website Project",
+    "title": "UK Europe Tour",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://ukeuropetour.prabhatha.com",
+    "filterTag": "Consulting & Training"
+  },
+  {
+    "index": 6,
+    "imageSrc": "assets/portfolio/divyaprabhath.png",
+    "altText": "Divya Prabhath Website Project",
+    "title": "Divya Prabhath",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://divyaprabhath.com",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 7,
+    "imageSrc": "assets/portfolio/spbmuseum.png",
+    "altText": "SPB Museum Website Project",
+    "title": "SPB Museum",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 8,
     "imageSrc": "assets/portfolio/Spcharn.png",
     "altText": "SP Charan Official Website Project",
     "title": "SP Charan Official",
-    "description": "The official website of SP Charan, renowned playback singer, actor, and producer, showcasing his musical legacy, concert highlights, and a gallery of performances.",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://spcharanofficial.com/"
+    "liveUrl": "https://spcharanofficial.com",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 9,
+    "imageSrc": "assets/portfolio/prabhatha.png",
+    "altText": "Prabhatha Foundation Website Project",
+    "title": "Prabhatha Foundation",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 10,
+    "imageSrc": "assets/portfolio/sharatprabhath.png",
+    "altText": "Sharat Prabhath Website Project",
+    "title": "Sharat Prabhath",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 11,
+    "imageSrc": "assets/portfolio/ncdesigns.png",
+    "altText": "NC Designs Studio Website Project",
+    "title": "NC Designs Studio",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 12,
+    "imageSrc": "assets/portfolio/artoholic.png",
+    "altText": "Artoholic Website Project",
+    "title": "Artoholic",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 13,
+    "imageSrc": "assets/portfolio/geotattoos.png",
+    "altText": "Geo Tattoos Website Project",
+    "title": "Geo Tattoos",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 14,
+    "imageSrc": "assets/portfolio/padapa.png",
+    "altText": "Padapa Website Project",
+    "title": "Padapa",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 15,
+    "imageSrc": "assets/portfolio/gurusgallery.png",
+    "altText": "Guru's Gallery Website Project",
+    "title": "Guru's Gallery",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 16,
+    "imageSrc": "assets/portfolio/charisjute.png",
+    "altText": "Charis Jute Website Project",
+    "title": "Charis Jute",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://charis-jute.netlify.app",
+    "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 17,
+    "imageSrc": "assets/portfolio/sanforddrughouse.png",
+    "altText": "Sanford Drug House Website Project",
+    "title": "Sanford Drug House",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "#",
+    "filterTag": "Healthcare & Wellness"
   }
 ]

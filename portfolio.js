@@ -1,4 +1,3 @@
-
 class PortfolioGrid {
   constructor() {
     this.projects = [];
@@ -41,7 +40,6 @@ class PortfolioGrid {
       <img src="${project.imageSrc}" alt="${project.altText}" class="portfolio-image" loading="lazy">
       <div class="portfolio-content">
         <h3 class="portfolio-title">${project.title}</h3>
-        <p class="portfolio-description">${project.description}</p>
         <div class="portfolio-tech">
           ${project.techTags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
         </div>
