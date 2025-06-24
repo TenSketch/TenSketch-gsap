@@ -1405,7 +1405,7 @@ h2 * {
   font-style: italic;
   opacity: 0.92;
   z-index: 1002;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
   pointer-events: none;
   letter-spacing: 0.5px;
   transition: opacity 0.3s;
@@ -2949,14 +2949,16 @@ body {
 }
 @media (max-width: 600px) {
   .sixth .timeline {
-    min-width: 0;
-    width: 100%;
-    max-width: 100vw;
+    flex-direction: column;
+    gap: 1.2rem;
   }
   .sixth .timeline-item {
     min-width: 0;
     width: 100%;
     max-width: 100vw;
+  }
+  .sixth .timeline-item:not(:last-child)::after {
+    content: none;
   }
 }
 @media (max-width: 480px) {
@@ -2971,5 +2973,46 @@ body {
     max-width: 100vw;
   }
 }
+@media (max-width: 600px) {
+  .sixth .timeline-title {
+    margin-top: -2rem;
+  }
+  .sixth .timeline-body {
+    font-size: 0.82rem;
+    padding: 0.5rem 0.5rem;
+    max-width: 98vw;
+    height: 90px;
+    max-height: 90px;
+  }
+  .sixth .timeline-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+  .sixth .timeline-icon[data-step]::after {
+    width: 15px;
+    height: 15px;
+    font-size: 0.65rem;
+    top: -6px;
+    right: -6px;
+  }
+}
+@media (max-width: 600px) {
+  .sixth .timeline-body {
+    height: 120px;
+    max-height: 120px;
+  }
+}
 
+@media (max-width: 600px) {
+  .sixth .timeline-icon {
+    display: none;
+  }
+}
 
+@media (max-width: 600px) {
+  .sixth .timeline {
+    gap: 2.5rem;
+  }
+}
