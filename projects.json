@@ -1,11 +1,11 @@
-[
-  {
+[  {
     "index": 0,
     "imageSrc": "assets/portfolio/PrabhatLegacy.png",
     "altText": "Prabhat Legacy Website Project",
     "title": "Prabhat Legacy",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://ukeuropetour.prabhatha.com"
+    "liveUrl": "https://ukeuropetour.prabhatha.com",
+    "filterTag": "Arts, Culture & Personal Brands"
   },
   {
     "index": 1,
@@ -13,7 +13,8 @@
     "altText": "ESPeople Website Project",
     "title": "ESPeople",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://espeople.in"
+    "liveUrl": "https://espeople.in",
+    "filterTag": "Consulting & Training"
   },
   {
     "index": 2,

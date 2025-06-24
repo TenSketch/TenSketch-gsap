@@ -1,25 +1,29 @@
 class PortfolioGrid {
   constructor() {
     this.projects = [];
+    this.originalProjects = [];
     this.currentIndex = 0;
     this.isTransitioning = false;
+    this.currentFilter = 'all';
     this.init();
   }
-
   async init() {
     await this.loadProjects();
     this.setupElements();
     this.renderPortfolio();
     this.setupEventListeners();
+    this.setupFilterEvents();
     this.setupGSAPAnimations();
   }
 
   async loadProjects() {
     try {
       const response = await fetch('projects.json');
-      this.projects = await response.json();
+      this.originalProjects = await response.json();
+      this.projects = [...this.originalProjects];
     } catch (error) {
       console.error('Error loading projects:', error);
+      this.originalProjects = [];
       this.projects = []; 
     }
   }
@@ -31,6 +35,7 @@ class PortfolioGrid {
     this.prevBtnMobile = document.getElementById('prevBtnMobile');
     this.nextBtnMobile = document.getElementById('nextBtnMobile');
     this.indicators = document.getElementById('portfolioIndicators');
+    this.filterBtns = document.querySelectorAll('.filter-btn');
   }
 
   createPortfolioCard(project, position) {
@@ -116,7 +121,6 @@ class PortfolioGrid {
     this.prevBtn.disabled = this.projects.length <= 1;
     this.nextBtn.disabled = this.projects.length <= 1;
   }
-
   navigateToProject(direction) {
     if (this.isTransitioning || this.projects.length <= 1) return;
     
@@ -368,6 +372,8 @@ class PortfolioGrid {
     window.addEventListener('resize', this.debounce(() => {
       this.handleResize();
     }, 250));
+    
+    this.setupFilterEvents();
   }
 
   handleResize() {
@@ -513,6 +519,38 @@ class PortfolioGrid {
         }
       }
     );
+  }
+
+  setupFilterEvents() {
+    this.filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const filter = e.target.getAttribute('data-filter');
+        this.setActiveFilter(filter);
+        this.filterProjects(filter);
+      });
+    });
+  }
+
+  setActiveFilter(filter) {
+    this.filterBtns.forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector(`[data-filter="${filter}"]`);
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+    }
+    this.currentFilter = filter;
+  }
+
+  filterProjects(filter) {
+    if (filter === 'all') {
+      this.projects = this.originalProjects;
+    } else {
+      this.projects = this.originalProjects.filter(project => 
+        project.filterTag === filter
+      );
+    }
+    
+    this.currentIndex = 0;
+    this.renderPortfolio();
   }
 }
 
