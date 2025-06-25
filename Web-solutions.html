@@ -81,9 +81,9 @@
     }
     .flip-card {
       width: 100%;
-      max-width: 150px;
-      min-width: 110px;
-      height: 60px;
+      max-width: 300px;
+      min-width: 220px;
+      height: 120px;
       perspective: 800px;
       margin-bottom: 0;
     }
@@ -101,6 +101,17 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(4, 1fr);
       }
+      .flip-card {
+        max-width: 150px;
+        min-width: 110px;
+        height: 60px;
+      }
+      .web-type-title {
+        font-size: 0.98em;
+      }
+      .web-type-desc {
+        font-size: 0.92em;
+      }
     }
     @media (max-width: 700px) {
       .web-types-cards-container {
@@ -113,6 +124,12 @@
         max-width: 150px;
         min-width: 110px;
         height: 60px;
+      }
+      .web-type-title {
+        font-size: 0.98em;
+      }
+      .web-type-desc {
+        font-size: 0.92em;
       }
     }
     @media (max-width: 700px) {
@@ -207,6 +224,42 @@
         grid-template-columns: 1fr;
         gap: 1.2em;
       }
+    }
+      .lead-cta-section .section-heading {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 0.7em;
+      color: #b08a1e;
+    }
+    .lead-cta-text {
+      text-align: center;
+      font-size: 1.18em;
+      color: #222;
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+    }
+    .lead-cta-btn {
+      display: inline-block;
+      margin-top: 0.5em;
+      padding: 0.85em 2.2em;
+      font-size: 1.18em;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg,#d4af37 0%,#ffb347 100%);
+      border: none;
+      border-radius: 2em;
+      box-shadow: 0 4px 18px rgba(212,175,55,0.18);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s,transform 0.2s,box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .lead-cta-btn:hover {
+      background: linear-gradient(90deg,#ffb347 0%,#d4af37 100%);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(212,175,55,0.22);
     }
   </style>
 </head>
@@ -463,6 +516,23 @@
   </section>
   <!-- END SECTION 6 -->
     
+  <!-- SECTION 7: LEAD CTA - NEED CLARITY FIRST? -->
+  <section class="first">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg one">
+          <h2 class="section-heading">Need Clarity First?</h2>
+          <p class="section-text">
+            Still unsure which solution fits you?<br>
+            Get a free 15-min consult and walk out with a clear website direction.
+          </p>
+          <a href="#" class="cta-btn" style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;background:linear-gradient(90deg,#d4af37 0%,#ffb347 100%);border:none;border-radius:2em;box-shadow:0 4px 18px rgba(212,175,55,0.18);text-decoration:none;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;cursor:pointer;">👉 Book Your Free Clarity Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END SECTION 7 -->
+
   <!-- FOOTER -->
   <section class="minimal-footer">
     <div class="outer">
