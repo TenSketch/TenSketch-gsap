@@ -6,6 +6,83 @@
   <title>About TenSketch</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
   <link rel="stylesheet" href="style.css">
+  <style>
+    .challenges-cards-container {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2em 0 1em 0;
+      overflow-x: auto;
+      padding: 1.5em 0 1em 0;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: #d4af37 #f5f5f5;
+    }
+    .challenges-cards-container::-webkit-scrollbar {
+      height: 10px;
+    }
+    .challenges-cards-container::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #d4af37 0%, #ffb347 100%);
+      border-radius: 6px;
+    }
+    .challenges-cards-container::-webkit-scrollbar-track {
+      background: #dad9d92f;
+      border-radius: 6px;
+    }
+    .challenge-card {
+      border-radius: 1.2em;
+      box-shadow: 0 6px 24px rgba(212,175,55,0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+      padding: 2em 1.2em 1.5em 1.2em;
+      min-width: 200px;
+      max-width: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.18s, box-shadow 0.18s;
+      border: 1.5px solid #f7e7b7;
+      position: relative;
+      scroll-snap-align: start;
+      margin-bottom: 1em;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .challenge-card:hover, .challenge-card:focus {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 32px rgba(212,175,55,0.18), 0 2px 8px rgba(0,0,0,0.06);
+      z-index: 2;
+    }
+    .challenge-card > div:first-child {
+      font-size: 2.3em;
+      margin-bottom: 0.6em;
+      filter: drop-shadow(0 2px 6px #ffe9b3);
+    }
+    .challenge-card > div:nth-child(2) {
+      font-weight: 700;
+      font-size: 1.13em;
+      margin-bottom: 0.6em;
+      text-align: center;
+      color: #fff;
+    }
+    .challenge-card > div:nth-child(3) {
+      font-size: 1em;
+      color: #fff;
+      text-align: center;
+      margin-top: 0.2em;
+    }
+    @media (max-width: 700px) {
+      .challenges-cards-container {
+        gap: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+      .challenge-card {
+        min-width: 80vw;
+        max-width: 90vw;
+        padding: 1.5em 0.7em 1.2em 0.7em;
+      }
+    }
+  </style>
 </head>
 <body>  
   <header>
@@ -44,41 +121,100 @@
     </nav>
   </header>
 
-  <!-- SECTION 1: BEFORE YOU EVEN START -->
+  <!-- SECTION 1: HERO - NOT JUST A WEBSITE, A REAL SOLUTION -->
  <section class="first">
     <div class="outer">
       <div class="inner">
         <div class="bg one">
-          <h2 class="section-heading">Not Sure What a Website Should Cost?</h2>
+          <h2 class="section-heading">Not Just a Website, A Real Solution</h2>
           <p class="section-text">
-            You know you need a website, but pricing feels like a mystery.
-            ₹50k? ₹2 lakhs? More? Don't worry—most clients start here.
-            Scroll down to see how we make budgeting simple and transparent.
+            Most clients don’t need just a website. They need a solution that actually solves a business problem.
           </p>
-          </div>
+          <a href="#explore-needs" class="cta-btn" style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;background:linear-gradient(90deg,#d4af37 0%,#ffb347 100%);border:none;border-radius:2em;box-shadow:0 4px 18px rgba(212,175,55,0.18);text-decoration:none;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;cursor:pointer;">👉 Explore What You Truly Need</a>
         </div>
       </div>
     </div>
   </section>
   <!-- END SECTION 1 -->
 
-  <!-- SECTION 2: WRITING CONTENT = PROCRASTINATION OLYMPICS -->
+  <!-- SECTION 2: COMMON CHALLENGES & HOW WE HELP -->
   <section class="second">
     <div class="outer">
       <div class="inner">
         <div class="bg one">
-          <h2 class="section-heading">Our Solution: Clear, Upfront Pricing</h2>
-          <p class="section-text">
-            We start with a free consultation to understand your needs, then provide a detailed quote with no hidden costs. 
-            Whether it's a simple business website (₹75k-₹1.5L) or a complex e-commerce platform (₹2L-₹5L+), 
-            you'll know exactly what you're paying for and why. No surprises, no confusion—just honest pricing 
-            tailored to your business goals and budget.
-          </p>
+          <h2 class="section-heading">Common Challenges We Solve</h2>
+          <div class="challenges-cards-container">
+            <!-- Card 1 -->
+            <div class="challenge-card">
+              <div>📝</div>
+              <div>"We don't know what to include on the site"</div>
+              <div>We guide you on what matters most for your business goals—no guesswork.</div>
+            </div>
+            <!-- Card 2 -->
+            <div class="challenge-card">
+              <div>📄</div>
+              <div>"We have no content ready"</div>
+              <div>No problem! We help you create content or work with what you have.</div>
+            </div>
+            <!-- Card 3 -->
+            <div class="challenge-card">
+              <div>💡</div>
+              <div>"We have 3 ideas, but no clarity"</div>
+              <div>We help you prioritize your goals, not overwhelm you with tech talk.</div>
+            </div>
+            <!-- Card 4 -->
+            <div class="challenge-card">
+              <div>💰</div>
+              <div>"We don't know what it should cost"</div>
+              <div>We make pricing transparent and simple—no hidden fees, no surprises.</div>
+            </div>
+            <!-- Card 5 -->
+            <div class="challenge-card">
+              <div>🔄</div>
+              <div>"We tried before… and failed"</div>
+              <div>We turn past setbacks into a fresh, guided start—no judgment, just solutions.</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- END SECTION 2 -->
+
+  <!-- SECTION 3: BEFORE YOU START, LET'S GET ALIGNED -->
+  <section class="third">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg one" style="padding:2.5em 1em 2em 1em;">
+          <h2 class="section-heading" style="font-size:2em;text-align:center;margin-bottom:1.2em;">🧭 Before You Start, Let’s Get Aligned</h2>
+          <div class="challenges-cards-container">
+            <!-- Step 1 -->
+            <div class="challenge-card">
+              <div>1️⃣</div>
+              <div>Define your business goal</div>
+              <div>Clarify what you want to achieve so your website truly supports your objectives.</div>
+            </div>
+            <!-- Step 2 -->
+            <div class="challenge-card">
+              <div>2️⃣</div>
+              <div>Identify users and what they expect</div>
+              <div>Understand your audience to create a site that meets their needs and expectations.</div>
+            </div>
+            <!-- Step 3 -->
+            <div class="challenge-card">
+              <div>3️⃣</div>
+              <div>Decide what success looks like <span style='font-weight:400;font-size:0.98em;'>(leads, sales, awareness)</span></div>
+              <div>Set clear metrics so you know when your website is working for you.</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:0.5em;">
+            <span style="display:inline-block;background:#fff8e1;color:#b08a1e;font-weight:600;padding:0.7em 1.5em;border-radius:2em;font-size:1.08em;box-shadow:0 2px 8px rgba(212,175,55,0.10);">💡 We help you map this in just one discovery call.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END SECTION 3 -->
 
   <!-- SECTION 6: OUR THREE-PHASE WORKFLOW -->
   <section class="sixth">
