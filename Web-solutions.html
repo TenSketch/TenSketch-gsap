@@ -72,15 +72,108 @@
     }
     @media (max-width: 700px) {
       .challenges-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 1em;
         padding-left: 0.5em;
         padding-right: 0.5em;
+        max-width: 100vw;
       }
       .challenge-card {
-        min-width: 80vw;
-        max-width: 90vw;
-        padding: 1.5em 0.7em 1.2em 0.7em;
+        min-width: 0;
+        max-width: 95vw;
+        padding: 1em 0.6em 0.8em 0.6em;
+        border-radius: 1em;
+        box-shadow: 0 4px 16px rgba(212,175,55,0.10), 0 1px 4px rgba(0,0,0,0.04);
+        font-size: 0.98em;
       }
+      .challenge-card > div:first-child {
+        font-size: 1.3em;
+        margin-bottom: 0.3em;
+      }
+      .challenge-card > div:nth-child(2) {
+        font-size: 0.98em;
+        margin-bottom: 0.2em;
+      }
+      .challenge-card > div:nth-child(3) {
+        font-size: 0.9em;
+        margin-top: 0.05em;
+      }
+    }
+    .web-types-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+      margin: 2em 0 1em 0;
+    }
+    .web-type-card {
+      width: 270px;
+      height: 90px;
+      perspective: 800px;
+      position: relative;
+      border-radius: 1.1em;
+      box-shadow: 0 4px 18px rgba(212,175,55,0.10);
+      background: #fff;
+      margin-bottom: 1em;
+      transition: box-shadow 0.18s;
+    }
+    .web-type-card .card-face {
+      width: 100%;
+      height: 100%;
+      border-radius: 1.1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.18em;
+      font-weight: 600;
+      position: absolute;
+      top: 0; left: 0;
+      backface-visibility: hidden;
+      transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+      background: #fff;
+      color: #222;
+      padding: 0 1.2em;
+      box-sizing: border-box;
+    }
+    .web-type-card .card-front span {
+      font-size: 1.5em;
+      margin-right: 0.5em;
+    }
+    .web-type-card .card-back {
+      background: #222;
+      color: #fff;
+      transform: rotateY(180deg);
+      font-size: 1.05em;
+      font-weight: 400;
+    }
+    .web-type-card.flipped .card-front {
+      transform: rotateY(180deg);
+    }
+    .web-type-card.flipped .card-back {
+      transform: rotateY(0deg);
+    }
+    @media (max-width: 900px) {
+      .web-types-cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .web-type-card {
+        width: 98vw;
+        max-width: 370px;
+      }
+    }
+    .web-types-note {
+      text-align: center;
+      margin-top: 1.2em;
+      font-size: 1.08em;
+      color: #b08a1e;
+      font-weight: 600;
+      background: #fff8e1;
+      border-radius: 2em;
+      display: inline-block;
+      padding: 0.7em 1.5em;
+      box-shadow: 0 2px 8px rgba(212,175,55,0.10);
     }
   </style>
 </head>
@@ -216,6 +309,56 @@
   </section>
   <!-- END SECTION 3 -->
 
+  <!-- SECTION 4: TYPES OF WEB SOLUTIONS WE OFFER -->
+  <section class="fourth">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg web-types-bg">
+          <h2 class="section-heading">Types of Web Solutions We Offer</h2>
+          <div class="web-types-cards-container">
+            <!-- Card 1 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>🖼️</span> Static Websites</div>
+              <div class="card-face card-back">Brochure, personal, NGO, etc.</div>
+            </div>
+            <!-- Card 2 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>📰</span> CMS-Based Sites</div>
+              <div class="card-face card-back">Blogs, news, media</div>
+            </div>
+            <!-- Card 3 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>🛠️</span> Custom Web Apps</div>
+              <div class="card-face card-back">ERPs, dashboards, client portals</div>
+            </div>
+            <!-- Card 4 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>🛒</span> E-commerce Solutions</div>
+              <div class="card-face card-back">Product sales, bookings</div>
+            </div>
+            <!-- Card 5 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>🎯</span> Microsites & Campaigns</div>
+              <div class="card-face card-back">Launches, events, brand stories</div>
+            </div>
+            <!-- Card 6 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>📊</span> Dashboards/Admin Panels</div>
+              <div class="card-face card-back">Internal tools, analytics</div>
+            </div>
+            <!-- Card 7 -->
+            <div class="web-type-card">
+              <div class="card-face card-front"><span>🚀</span> Landing Pages</div>
+              <div class="card-face card-back">High-converting ad campaigns</div>
+            </div>
+          </div>
+          <div class="web-types-note">✔ All are custom-built, scalable, performance-first.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END SECTION 4 -->
+
   <!-- SECTION 6: OUR THREE-PHASE WORKFLOW -->
   <section class="sixth">
     <div class="outer">
@@ -270,72 +413,6 @@
     </div>
   </section>
   <!-- END SECTION 6 -->
-  
-  <!-- SECTION 7: TYPES OF WEB SOLUTIONS WE OFFER -->
- <!-- <section class="seventh">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg web-types-bg">
-          <div class="content-web-types">
-            <h2 class="section-heading">Types of Web Solutions We Offer</h2>
-            <div class="web-types-intro">
-              <p><span style="font-size:1.3em;">🧩</span> <strong>We Offer Solutions, Not Just Websites</strong><br>
-              Every business has a different story. That’s why we don’t just say “we build websites.”<br>
-              We offer solutions tailored to your need, budget, and business goal.</p>
-            </div>
-            <div class="web-types-table-wrapper">
-              <table class="web-types-table">
-                <thead>
-                  <tr>
-                    <th>⚙️ What We Build</th>
-                    <th>Ideal For</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Static Websites</td>
-                    <td>Informational, brochure-style websites</td>
-                  </tr>
-                  <tr>
-                    <td>Dynamic CMS Sites</td>
-                    <td>Blogs, content-driven brands</td>
-                  </tr>
-                  <tr>
-                    <td>Custom Web Applications</td>
-                    <td>Portals, ERPs, dashboards, internal tools</td>
-                  </tr>
-                  <tr>
-                    <td>E-commerce Platforms</td>
-                    <td>Products, bookings, services</td>
-                  </tr>
-                  <tr>
-                    <td>Brand Microsites</td>
-                    <td>Campaigns, launches, storytelling</td>
-                  </tr>
-                  <tr>
-                    <td>Admin Dashboards</td>
-                    <td>Business intelligence, reporting, internal ops</td>
-                  </tr>
-                  <tr>
-                    <td>Landing Pages</td>
-                    <td>Campaigns, ads, high-conversion CTAs</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="web-types-notes">
-              <ul>
-                <li>Fully custom-coded — no WordPress or drag-n-drop.</li>
-                <li>Performance-optimized — fast load, low bounce.</li>
-                <li>Built to scale — add features later without redoing everything.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!-- END SECTION 7 -->
     
   <!-- FOOTER -->
   <section class="minimal-footer">
@@ -357,5 +434,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
+  <script>
+    // Auto-flip cards one after another
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.web-type-card');
+      let current = 0;
+      function flipNext() {
+        cards.forEach((c,i)=>c.classList.remove('flipped'));
+        cards[current].classList.add('flipped');
+        current = (current + 1) % cards.length;
+      }
+      if(cards.length) {
+        flipNext();
+        setInterval(flipNext, 2200);
+      }
+    });
+  </script>
 </body>
 </html>
