@@ -70,6 +70,51 @@
       text-align: center;
       margin-top: 0.2em;
     }
+    .web-types-cards-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1em;
+      justify-items: center;
+      align-items: stretch;
+      margin: 2em 0 1em 0;
+    }
+    .flip-card {
+      width: 100%;
+      max-width: 150px;
+      min-width: 110px;
+      height: 60px;
+      perspective: 800px;
+      margin-bottom: 0;
+    }
+    .flip-card-inner, .flip-card-front, .flip-card-back {
+      border-radius: 0.7em !important;
+    }
+    .web-type-title {
+      font-size: 0.98em;
+    }
+    .web-type-desc {
+      font-size: 0.92em;
+    }
+    @media (max-width: 1100px) {
+      .web-types-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .web-types-cards-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0.7em;
+      }
+      .flip-card {
+        width: 98vw;
+        max-width: 150px;
+        min-width: 110px;
+        height: 60px;
+      }
+    }
     @media (max-width: 700px) {
       .challenges-cards-container {
         display: grid;
@@ -99,81 +144,6 @@
         font-size: 0.9em;
         margin-top: 0.05em;
       }
-    }
-    .web-types-cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5em;
-      justify-content: center;
-      margin: 2em 0 1em 0;
-    }
-    .web-type-card {
-      width: 270px;
-      height: 90px;
-      perspective: 800px;
-      position: relative;
-      border-radius: 1.1em;
-      box-shadow: 0 4px 18px rgba(212,175,55,0.10);
-      background: #fff;
-      margin-bottom: 1em;
-      transition: box-shadow 0.18s;
-    }
-    .web-type-card .card-face {
-      width: 100%;
-      height: 100%;
-      border-radius: 1.1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.18em;
-      font-weight: 600;
-      position: absolute;
-      top: 0; left: 0;
-      backface-visibility: hidden;
-      transition: transform 0.7s cubic-bezier(.4,2,.6,1);
-      background: #fff;
-      color: #222;
-      padding: 0 1.2em;
-      box-sizing: border-box;
-    }
-    .web-type-card .card-front span {
-      font-size: 1.5em;
-      margin-right: 0.5em;
-    }
-    .web-type-card .card-back {
-      background: #222;
-      color: #fff;
-      transform: rotateY(180deg);
-      font-size: 1.05em;
-      font-weight: 400;
-    }
-    .web-type-card.flipped .card-front {
-      transform: rotateY(180deg);
-    }
-    .web-type-card.flipped .card-back {
-      transform: rotateY(0deg);
-    }
-    @media (max-width: 900px) {
-      .web-types-cards-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .web-type-card {
-        width: 98vw;
-        max-width: 370px;
-      }
-    }
-    .web-types-note {
-      text-align: center;
-      margin-top: 1.2em;
-      font-size: 1.08em;
-      color: #b08a1e;
-      font-weight: 600;
-      background: #fff8e1;
-      border-radius: 2em;
-      display: inline-block;
-      padding: 0.7em 1.5em;
-      box-shadow: 0 2px 8px rgba(212,175,55,0.10);
     }
   </style>
 </head>
@@ -279,7 +249,7 @@
     <div class="outer">
       <div class="inner">
         <div class="bg one" style="padding:2.5em 1em 2em 1em;">
-          <h2 class="section-heading" style="font-size:2em;text-align:center;margin-bottom:1.2em;">🧭 Before You Start, Let’s Get Aligned</h2>
+          <h2 class="section-heading" style="font-size:2em;text-align:center;margin-bottom:1.2em;margin-top:1.7em;">🧭 Before You Start, Let’s Get Aligned</h2>
           <div class="challenges-cards-container">
             <!-- Step 1 -->
             <div class="challenge-card">
@@ -309,47 +279,90 @@
   </section>
   <!-- END SECTION 3 -->
 
-  <!-- SECTION 4: TYPES OF WEB SOLUTIONS WE OFFER -->
-  <section class="fourth">
+
+  <!--Section 4-->
+   <section class="fifth ">
     <div class="outer">
       <div class="inner">
-        <div class="bg web-types-bg">
+        <div class="bg">
           <h2 class="section-heading">Types of Web Solutions We Offer</h2>
           <div class="web-types-cards-container">
-            <!-- Card 1 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>🖼️</span> Static Websites</div>
-              <div class="card-face card-back">Brochure, personal, NGO, etc.</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="Static Websites">🖼️</span>
+                  <div class="web-type-title">Static Websites</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">Brochure, personal, NGO, etc.</div>
+                </div>
+              </div>
             </div>
-            <!-- Card 2 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>📰</span> CMS-Based Sites</div>
-              <div class="card-face card-back">Blogs, news, media</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="CMS-Based Sites">📰</span>
+                  <div class="web-type-title">CMS-Based Sites</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">Blogs, news, media</div>
+                </div>
+              </div>
             </div>
-            <!-- Card 3 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>🛠️</span> Custom Web Apps</div>
-              <div class="card-face card-back">ERPs, dashboards, client portals</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="Custom Web Apps">🛠️</span>
+                  <div class="web-type-title">Custom Web Apps</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">ERPs, dashboards, client portals</div>
+                </div>
+              </div>
             </div>
-            <!-- Card 4 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>🛒</span> E-commerce Solutions</div>
-              <div class="card-face card-back">Product sales, bookings</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="E-commerce Solutions">🛒</span>
+                  <div class="web-type-title">E-commerce Solutions</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">Product sales, bookings</div>
+                </div>
+              </div>
             </div>
-            <!-- Card 5 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>🎯</span> Microsites & Campaigns</div>
-              <div class="card-face card-back">Launches, events, brand stories</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="Microsites & Campaigns">🎯</span>
+                  <div class="web-type-title">Microsites & Campaigns</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">Launches, events, brand stories</div>
+                </div>
+              </div>
             </div>
-            <!-- Card 6 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>📊</span> Dashboards/Admin Panels</div>
-              <div class="card-face card-back">Internal tools, analytics</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="Dashboards/Admin Panels">📊</span>
+                  <div class="web-type-title">Dashboards/Admin Panels</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">Internal tools, analytics</div>
+                </div>
+              </div>
             </div>
-            <!-- Card 7 -->
-            <div class="web-type-card">
-              <div class="card-face card-front"><span>🚀</span> Landing Pages</div>
-              <div class="card-face card-back">High-converting ad campaigns</div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span role="img" aria-label="Landing Pages">🚀</span>
+                  <div class="web-type-title">Landing Pages</div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="web-type-desc">High-converting ad campaigns</div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="web-types-note">✔ All are custom-built, scalable, performance-first.</div>
@@ -357,7 +370,6 @@
       </div>
     </div>
   </section>
-  <!-- END SECTION 4 -->
 
   <!-- SECTION 6: OUR THREE-PHASE WORKFLOW -->
   <section class="sixth">
