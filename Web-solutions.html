@@ -145,6 +145,69 @@
         margin-top: 0.05em;
       }
     }
+    .process-cards-container {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      align-items: stretch;
+      margin: 2em 0 1em 0;
+      flex-wrap: wrap;
+    }
+    .process-card {
+      background: #fff;
+      border-radius: 1.1em;
+      box-shadow: 0 4px 18px rgba(212,175,55,0.10);
+      padding: 1.5em 1.2em 1.2em 1.2em;
+      min-width: 180px;
+      max-width: 260px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow 0.18s, transform 0.18s;
+    }
+    .process-card:hover {
+      box-shadow: 0 12px 32px rgba(212,175,55,0.18), 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateY(-6px) scale(1.03);
+    }
+    .process-icon {
+      font-size: 2.2em;
+      margin-bottom: 0.5em;
+    }
+    .process-title {
+      font-weight: 700;
+      font-size: 1.18em;
+      margin-bottom: 0.5em;
+      color: #b08a1e;
+    }
+    .process-desc {
+      font-size: 1em;
+      color: #222;
+    }
+    @media (max-width: 900px) {
+      .process-cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .process-card {
+        max-width: 98vw;
+      }
+    }
+    .process-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+      justify-items: center;
+      align-items: stretch;
+      margin: 2em 0 1em 0;
+    }
+    @media (max-width: 900px) {
+      .process-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2em;
+      }
+    }
   </style>
 </head>
 <body>  
@@ -376,49 +439,23 @@
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <div class="content-workflow">
-            <h2 class="section-heading">Our Three-Phase Workflow</h2>
-            <div class="timeline-container">
-              <div class="timeline">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                  <div class="timeline-icon" data-step="1">
-                    <i class="fas fa-handshake"></i>
-                  </div>
-                  <div class="timeline-content">
-                    <div class="timeline-title">Client Relationship</div>
-                    <div class="timeline-body">
-                      We start by understanding your vision, goals, and unique needs. This sets the foundation for a strong, collaborative partnership.
-                    </div>
-                  </div>
-                </div>
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                  <div class="timeline-icon" data-step="2">
-                    <i class="fas fa-project-diagram"></i>
-                  </div>
-                  <div class="timeline-content">
-                    <div class="timeline-title">Project Phase</div>
-                    <div class="timeline-body">
-                      We design, build, and iterate with you at every step. Transparent updates, clear milestones, and no surprises.
-                    </div>
-                  </div>
-                </div>
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item">
-                  <div class="timeline-icon" data-step="3">
-                    <i class="fas fa-life-ring"></i>
-                  </div>
-                  <div class="timeline-content">
-                    <div class="timeline-title">Support & Maintenance</div>
-                    <div class="timeline-body">
-                      After launch, we’re still here. Ongoing support, updates, and advice—so your solution keeps working for you.
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <h2 class="section-heading">What Working With TenSketch Feels Like</h2>
+          <div class="challenges-cards-container process-cards-grid">
+            <div class="challenge-card">
+              <div>🧭</div>
+              <div>Understand & Plan</div>
+              <div>We listen, ask the right questions, and map your goals to a clear, actionable plan.</div>
             </div>
-            <!-- Optional: Animated tick marks/icons on scroll (to be implemented in JS/CSS) -->
+            <div class="challenge-card">
+              <div>🎨</div>
+              <div>Design & Build</div>
+              <div>We craft, iterate, and develop your solution with transparency and creativity at every step.</div>
+            </div>
+            <div class="challenge-card">
+              <div>🚀</div>
+              <div>Support & Grow</div>
+              <div>After launch, we’re here for ongoing support, updates, and advice to help you grow.</div>
+            </div>
           </div>
         </div>
       </div>
