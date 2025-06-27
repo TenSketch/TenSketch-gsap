@@ -1,15 +1,14 @@
-section .bg > * {
-  padding: 2rem 5%;
-}
-
 .portfolio-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-  overflow-x: visible;
-  overflow-y: hidden;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%), url('assets/images/your-bg-image.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  margin-top: 0; /* Remove margin-top to eliminate white space */
+  padding-top: 0; /* Ensure no padding at the top */
 }
 
 .portfolio-container {
@@ -433,13 +432,23 @@ section .bg > * {
   .portfolio-container {
     padding: 0 0.5rem;
   }
+  .section-heading {
+    font-size: clamp(0.6rem, 4vw, 1.25rem);
+    margin-bottom: 0.18rem; /* Lower heading closer to filters */
+  }
+  .portfolio-filters {
+    gap: 0.08rem; /* Reduce gap between filter buttons and cards */
+    margin-bottom: 0.18rem; /* Lower the filter buttons further */
+    padding: 0 0.1rem;
+  }
   .portfolio-main {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.01rem; /* Half the gap between filters and cards */
+    margin-bottom: 0.18rem; /* Lower the filter buttons */
   }
   .portfolio-grid {
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.04rem; /* Reduce gap between cards */
+    margin-bottom: 0.04rem; /* Lower cards closer to navigation */
   }
   .portfolio-card {
     flex: 0 0 140px;
@@ -455,32 +464,9 @@ section .bg > * {
   .portfolio-card.side.right {
     transform: scale(0.95);
   }
-  .section-heading {
-    font-size: clamp(0.6rem, 4vw, 1.25rem);
-    margin-bottom: 1rem;
-  }
-  .portfolio-content {
-    padding: 0.5rem;
-  }
-  .portfolio-title {
-    font-size: clamp(0.6rem, 1.5vw, 0.6rem);
-  }
-  .portfolio-description {
-    font-size: clamp(0.6rem, 1vw, 0.6rem);
-  }
-  .portfolio-tech {
-    gap: 0.25rem;
-    margin-bottom: 0.6rem;
-  }
-  .tech-tag {
-    font-size: 0.35rem;
-    padding: 0.15rem 0.4rem;
-  }
-  .portfolio-link {
-    font-size: 0.45rem;
-    padding: 0.4rem 0.75rem;
-    border-radius: 12px;
-    margin-top: 0.25rem;
+  .portfolio-navigation {
+    margin-top: 0.02rem; /* Reduce gap above navigation buttons */
+    padding: 0.15rem 0.2rem; /* Slightly smaller padding for compact look */
   }
   .nav-btn {
     width: 25px;
