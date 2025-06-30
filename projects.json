@@ -1,15 +1,7 @@
-[  {
-    "index": 0,
-    "imageSrc": "assets/portfolio/PrabhatLegacy.png",
-    "altText": "Prabhat Legacy Website Project",
-    "title": "Prabhat Legacy",
-    "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://ukeuropetour.prabhatha.com",
-    "filterTag": "Arts, Culture & Personal Brands"
-  },
+[  
   {
     "index": 1,
-    "imageSrc": "assets/portfolio/ESPeople.png",
+    "imageSrc": "assets/portfolio/5.png",
     "altText": "ESPeople Website Project",
     "title": "ESPeople",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -18,7 +10,7 @@
   },
   {
     "index": 2,
-    "imageSrc": "assets/portfolio/velarinfra.png",
+    "imageSrc": "assets/portfolio/17.png",
     "altText": "Velar Infra Website Project",
     "title": "Velar Infra",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -27,7 +19,7 @@
   },
   {
     "index": 3,
-    "imageSrc": "assets/portfolio/akfoundationindia.png",
+    "imageSrc": "assets/portfolio/1.png",
     "altText": "AK Foundation India Website Project",
     "title": "AK Foundation India",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -36,7 +28,7 @@
   },
   {
     "index": 4,
-    "imageSrc": "assets/portfolio/usdtrust.png",
+    "imageSrc": "assets/portfolio/15.png",
     "altText": "USD Trust Website Project",
     "title": "USD Trust",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -44,17 +36,8 @@
     "filterTag": "NGO & Social Impact"
   },
   {
-    "index": 5,
-    "imageSrc": "assets/portfolio/ukeuropetour.png",
-    "altText": "UK Europe Tour Website Project",
-    "title": "UK Europe Tour",
-    "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://ukeuropetour.prabhatha.com",
-    "filterTag": "Consulting & Training"
-  },
-  {
     "index": 6,
-    "imageSrc": "assets/portfolio/divyaprabhath.png",
+    "imageSrc": "assets/portfolio/4.png",
     "altText": "Divya Prabhath Website Project",
     "title": "Divya Prabhath",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -63,25 +46,16 @@
   },
   {
     "index": 7,
-    "imageSrc": "assets/portfolio/spbmuseum.png",
-    "altText": "SPB Museum Website Project",
-    "title": "SPB Museum",
+    "imageSrc": "assets/portfolio/16.png",
+    "altText": "Vanavihar",
+    "title": "Vanavhihar",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
-    "filterTag": "Arts, Culture & Personal Brands"
-  },
-  {
-    "index": 8,
-    "imageSrc": "assets/portfolio/Spcharn.png",
-    "altText": "SP Charan Official Website Project",
-    "title": "SP Charan Official",
-    "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "https://spcharanofficial.com",
+    "liveUrl": "vanavihar.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
   {
     "index": 9,
-    "imageSrc": "assets/portfolio/prabhatha.png",
+    "imageSrc": "assets/portfolio/10.png",
     "altText": "Prabhatha Foundation Website Project",
     "title": "Prabhatha Foundation",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -90,7 +64,7 @@
   },
   {
     "index": 10,
-    "imageSrc": "assets/portfolio/sharatprabhath.png",
+    "imageSrc": "assets/portfolio/11.png",
     "altText": "Sharat Prabhath Website Project",
     "title": "Sharat Prabhath",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -98,17 +72,8 @@
     "filterTag": "Arts, Culture & Personal Brands"
   },
   {
-    "index": 11,
-    "imageSrc": "assets/portfolio/ncdesigns.png",
-    "altText": "NC Designs Studio Website Project",
-    "title": "NC Designs Studio",
-    "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
-    "filterTag": "Design, Art, & Lifestyle"
-  },
-  {
     "index": 12,
-    "imageSrc": "assets/portfolio/artoholic.png",
+    "imageSrc": "assets/portfolio/2.png",
     "altText": "Artoholic Website Project",
     "title": "Artoholic",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -117,7 +82,7 @@
   },
   {
     "index": 13,
-    "imageSrc": "assets/portfolio/geotattoos.png",
+    "imageSrc": "assets/portfolio/6.png",
     "altText": "Geo Tattoos Website Project",
     "title": "Geo Tattoos",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -126,7 +91,7 @@
   },
   {
     "index": 14,
-    "imageSrc": "assets/portfolio/padapa.png",
+    "imageSrc": "assets/portfolio/8.png",
     "altText": "Padapa Website Project",
     "title": "Padapa",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -135,7 +100,7 @@
   },
   {
     "index": 15,
-    "imageSrc": "assets/portfolio/gurusgallery.png",
+    "imageSrc": "assets/portfolio/7.png",
     "altText": "Guru's Gallery Website Project",
     "title": "Guru's Gallery",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -144,20 +109,11 @@
   },
   {
     "index": 16,
-    "imageSrc": "assets/portfolio/charisjute.png",
+    "imageSrc": "assets/portfolio/3.png",
     "altText": "Charis Jute Website Project",
     "title": "Charis Jute",
     "techTags": ["HTML", "CSS", "JavaScript"],
     "liveUrl": "https://charis-jute.netlify.app",
     "filterTag": "Design, Art, & Lifestyle"
-  },
-  {
-    "index": 17,
-    "imageSrc": "assets/portfolio/sanforddrughouse.png",
-    "altText": "Sanford Drug House Website Project",
-    "title": "Sanford Drug House",
-    "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
-    "filterTag": "Healthcare & Wellness"
   }
 ]
