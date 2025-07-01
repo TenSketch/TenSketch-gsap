@@ -229,6 +229,81 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(title);
         });
     }
+
+    // Dynamically load logos from logo.json and render them in the grid
+    function renderLogoGrid() {
+        fetch('logo.json')
+            .then(response => response.json())
+            .then(logos => {
+                const logoGrid = document.getElementById('logoGrid');
+                if (!logoGrid) return;
+                logoGrid.innerHTML = '';
+                logos.forEach((logo, idx) => {
+                    const logoItem = document.createElement('div');
+                    logoItem.className = 'logo-item';
+                    logoItem.setAttribute('data-category', 'logo');
+                    logoItem.setAttribute('data-logo', idx + 1);
+                    logoItem.innerHTML = `
+                        <div class="logo-card">
+                            <div class="logo-image">
+                                <img src="${logo.path}" alt="${logo.name}" loading="lazy">
+                                <div class="logo-overlay">
+                                    <div class="overlay-content">
+                                        <button class="view-btn" onclick="openImageFullscreen('${logo.path}')">
+                                            <i class="fas fa-eye"></i>
+                                            <span>View Details</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="logo-info">
+                                <h3 class="logo-title">${logo.name}</h3>
+                                <p class="logo-category">Logo</p>
+                            </div>
+                        </div>
+                    `;
+                    logoGrid.appendChild(logoItem);
+                });
+            });
+    }
+
+    // Open image in fullscreen mode (make globally accessible)
+    window.openImageFullscreen = function(imageSrc) {
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.style.position = 'fixed';
+        img.style.top = '0';
+        img.style.left = '0';
+        img.style.width = '100vw';
+        img.style.height = '100vh';
+        img.style.objectFit = 'contain';
+        img.style.background = 'rgba(0,0,0,0.95)';
+        img.style.zIndex = '9999';
+        img.style.cursor = 'zoom-out';
+        img.id = 'fullscreenLogoImage';
+        document.body.appendChild(img);
+        img.addEventListener('click', closeImageFullscreen);
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', escCloseImageFullscreen);
+    }
+
+    function closeImageFullscreen() {
+        const img = document.getElementById('fullscreenLogoImage');
+        if (img) {
+            img.remove();
+            document.body.style.overflow = 'auto';
+            document.removeEventListener('keydown', escCloseImageFullscreen);
+        }
+    }
+
+    function escCloseImageFullscreen(e) {
+        if (e.key === 'Escape') {
+            closeImageFullscreen();
+        }
+    }
+
+    // Call renderLogoGrid on DOMContentLoaded
+    renderLogoGrid();
 });
 
 // Global functions for buttons and interactions
