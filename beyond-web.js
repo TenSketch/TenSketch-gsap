@@ -147,27 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         
-        const cosmicButtons = document.querySelectorAll('.cosmic-btn');
-        cosmicButtons.forEach(button => {
-            button.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                
-                const trail = document.createElement('div');
-                trail.className = 'button-trail';
-                trail.style.left = x + 'px';
-                trail.style.top = y + 'px';
-                this.appendChild(trail);
-                
-                setTimeout(() => {
-                    trail.remove();
-                }, 600);
-            });
-        });
-
-        
         const platformIcons = document.querySelectorAll('.platform-icon');
         platformIcons.forEach((icon, index) => {
             icon.addEventListener('mouseenter', function() {
