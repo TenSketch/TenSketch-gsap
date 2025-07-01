@@ -1,3 +1,94 @@
+/* Contact Page Color Scheme */
+:root {
+  --primary-clr: #000000;
+  --primary-dark: #1A1A1A;
+  --secondary-clr: #FFFFFF;
+  --secondary-light: #F4F4F4;
+  --accent-gold: #D4AF37;
+  --accent-sandal: #E6C99A;
+  --primary-clr-rgb: 0, 0, 0;
+  --primary-dark-rgb: 26, 26, 26;
+  --secondary-clr-rgb: 255, 255, 255;
+  --secondary-light-rgb: 244, 244, 244;
+  --accent-gold-rgb: 212, 175, 55;
+  --accent-sandal-rgb: 230, 201, 154;
+}
+
+/* Apply color scheme to contact page elements */
+body {
+  background-color: var(--primary-clr);
+  color: var(--secondary-clr);
+}
+
+.section-heading {
+  color: var(--secondary-clr) !important;
+}
+
+.section-text {
+  color: var(--secondary-clr) !important;
+}
+
+.example-inline {
+  color: var(--secondary-clr) !important;
+  border-color: rgba(var(--accent-gold-rgb), 0.4) !important;
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.1) 0%, rgba(var(--accent-gold-rgb), 0.05) 100%) !important;
+}
+
+.example-inline i {
+  color: var(--accent-gold) !important;
+}
+
+.example-inline strong {
+  color: var(--accent-gold) !important;
+}
+
+.industry-tag {
+  color: var(--secondary-clr) !important;
+  border-color: rgba(var(--accent-gold-rgb), 0.4) !important;
+  background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.1) 0%, rgba(var(--accent-gold-rgb), 0.05) 100%) !important;
+}
+
+.industry-tag i {
+  color: var(--accent-gold) !important;
+}
+
+/* Contact form styling */
+.contact-form {
+  background: linear-gradient(145deg, 
+    rgba(var(--primary-dark-rgb), 0.8) 0%, 
+    rgba(var(--primary-clr-rgb), 0.9) 100%) !important;
+  border-color: rgba(var(--accent-gold-rgb), 0.3) !important;
+  color: var(--secondary-clr) !important;
+}
+
+.contact-form label {
+  color: var(--secondary-clr) !important;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: rgba(var(--primary-dark-rgb), 0.6) !important;
+  border-color: rgba(var(--accent-gold-rgb), 0.3) !important;
+  color: var(--secondary-clr) !important;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-gold) !important;
+  box-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.3) !important;
+}
+
+.btn-cta {
+  background: var(--accent-gold) !important;
+  color: var(--primary-clr) !important;
+}
+
+.btn-cta:hover {
+  background: var(--accent-sandal) !important;
+}
+
 section .bg > * {
   padding: 2rem 5%;
 }
@@ -160,29 +251,9 @@ section .bg > * {
 
 @media (max-width: 768px) {
   .contact-form {
-    margin: 0 1rem;
-    padding: 2rem 1.5rem;
-    width: calc(100% - 2rem);
-  }
-  
-  .contact-form .btn-submit {
-    padding: 1.2rem 2.5rem;
-    font-size: 1rem;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .contact-form .form-actions {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .contact-form .form-actions .btn-cta,
-  .contact-form .form-actions a.btn-cta {
-    width: 100%;
-    justify-content: center;
-    margin: 0 !important;
-    margin-top: 0.5em !important;
+    max-width: 95vw;
+    padding: 1.2rem 0.7rem !important;
+    font-size: 0.97rem;
   }
 }
 
@@ -195,23 +266,47 @@ section .bg > * {
 
 @media (max-width: 480px) {
   .contact-form {
-    padding-bottom: 2.5rem !important;
-    margin-bottom: 0 !important;
+    max-width: 92vw;
+    padding: 0.2rem 0 !important;
+    font-size: 0.78rem;
+    border-radius: 7px;
+    gap: 0.5rem !important;
+  }
+  .contact-form label {
+    font-size: 0.68rem;
+    margin-bottom: 0.08rem;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.3rem;
+    border-radius: 6px;
+    min-height: 24px;
+  }
+  .contact-form .form-actions {
+    gap: 0.3rem;
   }
 }
 
-
 @media (max-width: 390px) {
   .contact-form {
-    margin: 0 0.5rem;
-    width: calc(100% - 1rem);
-    padding: 1.5rem 1rem;
+    max-width: 99vw;
+    margin: 0 0.1rem;
+    width: calc(100% - 0.2rem);
+    padding: 0.3rem 0.1rem;
+    font-size: 0.7rem;
+    gap: 0.3rem !important;
   }
-  
-  .contact-form .btn-submit {
-    padding: 1.1rem 1.5rem;
-    font-size: 0.95rem;
-    min-height: 50px;
+  .contact-form label {
+    font-size: 0.6rem;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.2rem;
+    min-height: 18px;
   }
 }
 
@@ -572,5 +667,84 @@ section .bg {
   }
   .first .industry-tag {
     font-size: 1rem !important;
+  }
+}
+
+/* Pixie Image Styles */
+.pixie-container {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pixie-image {
+  width: 320px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+  animation: pixie-float 6s ease-in-out infinite;
+}
+
+@keyframes pixie-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+/* Responsive adjustments for pixie */
+@media (max-width: 1024px) {
+  .pixie-container {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .pixie-image {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pixie-container {
+    top: 1rem;
+    right: 1rem;
+    opacity: 0.6;
+  }
+  
+  .pixie-image {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixie-container {
+    top: 0.5rem;
+    right: 0.5rem;
+    opacity: 0.5;
+  }
+  
+  .pixie-image {
+    width: 300px;
+  }
+}
+
+/* Alternative positioning for smaller screens to avoid interference with form */
+@media (max-width: 480px) {
+  .pixie-container {
+    position: fixed;
+    top: auto;
+    bottom: 2rem;
+    right: 1rem;
+    z-index: 10;
   }
 }
