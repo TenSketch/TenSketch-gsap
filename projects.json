@@ -10,7 +10,7 @@
   },
   {
     "index": 2,
-    "imageSrc": "assets/portfolio/17.png",
+    "imageSrc": "assets/portfolio/16.png",
     "altText": "Velar Infra Website Project",
     "title": "Velar Infra",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -28,7 +28,7 @@
   },
   {
     "index": 4,
-    "imageSrc": "assets/portfolio/15.png",
+    "imageSrc": "assets/portfolio/13.png",
     "altText": "USD Trust Website Project",
     "title": "USD Trust",
     "techTags": ["HTML", "CSS", "JavaScript"],
@@ -46,29 +46,29 @@
   },
   {
     "index": 7,
-    "imageSrc": "assets/portfolio/16.png",
+    "imageSrc": "assets/portfolio/14.png",
     "altText": "Vanavihar",
     "title": "Vanavhihar",
     "techTags": ["HTML", "CSS", "JavaScript"],
     "liveUrl": "vanavihar.com",
-    "filterTag": "Arts, Culture & Personal Brands"
+    "filterTag": "Tourism & Eco Experiences"
   },
   {
     "index": 9,
-    "imageSrc": "assets/portfolio/10.png",
+    "imageSrc": "assets/portfolio/9.png",
     "altText": "Prabhatha Foundation Website Project",
     "title": "Prabhatha Foundation",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
+    "liveUrl": "http://prabhatha.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
   {
     "index": 10,
-    "imageSrc": "assets/portfolio/11.png",
+    "imageSrc": "assets/portfolio/10.png",
     "altText": "Sharat Prabhath Website Project",
     "title": "Sharat Prabhath",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
+    "liveUrl": "http://sharatprabhath.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
   {
@@ -77,7 +77,7 @@
     "altText": "Artoholic Website Project",
     "title": "Artoholic",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
+    "liveUrl": "http://artoholic.co.in",
     "filterTag": "Design, Art, & Lifestyle"
   },
   {
@@ -86,7 +86,7 @@
     "altText": "Geo Tattoos Website Project",
     "title": "Geo Tattoos",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
+    "liveUrl": "http://geotattoos.com",
     "filterTag": "Design, Art, & Lifestyle"
   },
   {
@@ -95,7 +95,7 @@
     "altText": "Padapa Website Project",
     "title": "Padapa",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
+    "liveUrl": "http://padapa.in",
     "filterTag": "Design, Art, & Lifestyle"
   },
   {
@@ -104,7 +104,7 @@
     "altText": "Guru's Gallery Website Project",
     "title": "Guru's Gallery",
     "techTags": ["HTML", "CSS", "JavaScript"],
-    "liveUrl": "#",
+    "liveUrl": "http://gurus-gallery-mssw.tensketch.com",
     "filterTag": "Design, Art, & Lifestyle"
   },
   {
@@ -115,5 +115,32 @@
     "techTags": ["HTML", "CSS", "JavaScript"],
     "liveUrl": "https://charis-jute.netlify.app",
     "filterTag": "Design, Art, & Lifestyle"
+  },
+  {
+    "index": 17,
+    "imageSrc": "assets/portfolio/18.png",
+    "altText": "Risse Wealth",
+    "title": "Risse wealth",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://therissewealth.com/",
+    "filterTag": "Corporate & Business"
+  },
+  {
+    "index": 18,
+    "imageSrc": "assets/portfolio/15.png",
+    "altText": "SP Charan",
+    "title": "SP Charan",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "http://spcharanofficial.com",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 19,
+    "imageSrc": "assets/portfolio/19.png",
+    "altText": "Workforce Solutions ",
+    "title": "Workforce Solutions ",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "http://workforcesolutionshr.com",
+    "filterTag": "Corporate & Business"
   }
 ]
