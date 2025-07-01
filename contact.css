@@ -370,6 +370,7 @@ section .bg > * {
   }
   
   .contact-form {
+    margin-top: 4.5rem !important;
     margin-bottom: 3rem !important;
   }
 }
@@ -513,6 +514,7 @@ section .bg {
   .contact-form {
     padding: 1rem !important;
     gap: 1rem !important;
+    margin-top: 4.5rem !important;
   }
   
   
@@ -673,11 +675,14 @@ section .bg {
 /* Pixie Image Styles */
 .pixie-container {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 0;
   pointer-events: none;
   opacity: 0.8;
+  display: flex;
+  align-items: center;
 }
 
 .pixie-image {
@@ -716,35 +721,41 @@ section .bg {
 
 @media (max-width: 768px) {
   .pixie-container {
-    top: 1rem;
-    right: 1rem;
-    opacity: 0.6;
-  }
-  
-  .pixie-image {
-    width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .pixie-container {
+    left: 50%;
     top: 0.5rem;
-    right: 0.5rem;
-    opacity: 0.5;
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.7;
+    width: 100vw;
+    justify-content: center;
   }
-  
   .pixie-image {
-    width: 300px;
+    width: 120px;
   }
 }
 
-/* Alternative positioning for smaller screens to avoid interference with form */
 @media (max-width: 480px) {
   .pixie-container {
-    position: fixed;
-    top: auto;
-    bottom: 2rem;
-    right: 1rem;
-    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 0.2rem;
+    right: auto;
+    bottom: auto;
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.6;
+    width: 100vw;
+    justify-content: center;
+  }
+  .pixie-image {
+    width: 150px;
+  }
+  .contact-form {
+    margin-top: 4.5rem !important;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    min-height: 32px;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.93rem;
   }
 }
