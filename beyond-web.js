@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const serviceBubbles = document.querySelectorAll('.service-bubble');
         serviceBubbles.forEach(bubble => {
             bubble.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.05)';
+                this.style.transform = 'translateY(-10px)';
                 this.style.boxShadow = '0 20px 40px rgba(139, 92, 246, 0.3)';
             });
             
             bubble.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+                this.style.transform = 'translateY(0)';
                 this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
             });
         });

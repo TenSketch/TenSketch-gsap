@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Portfolio - Creative Excellence | TenSketch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="logo-portfolio.css">
+</head>
+<body class="logo-portfolio">
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Animated Background -->
+        <div class="hero-background">
+            <div class="stars-field"></div>
+            <div class="falling-objects">
+                <div class="falling-object palette"></div>
+                <div class="falling-object star"></div>
+                <div class="falling-object diamond"></div>
+                <div class="falling-object rocket"></div>
+                <div class="falling-object circle"></div>
+                <div class="falling-object triangle"></div>
+                <div class="falling-object brush"></div>
+                <div class="falling-object sparkle"></div>
+            </div>
+            <div class="floating-particles"></div>
+            <div class="cosmic-glow"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="badge-text">🎨 Logo Portfolio</span>
+                    <div class="badge-glow"></div>
+                </div>
+                <h1 class="hero-title">
+                    <span class="word-animation">Our</span>
+                    <span class="word-animation gradient-text">Logo</span>
+                    <br>
+                    <span class="word-animation">Universe</span>
+                </h1>
+                <p class="hero-subtitle typewriter">
+                    A showcase of brands we've brought to life.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span class="counter" data-target="100">0</span>+
+                        </div>
+                        <div class="stat-label">Logos Created</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span class="counter" data-target="50">0</span>+
+                        </div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span class="counter" data-target="15">0</span>+
+                        </div>
+                        <div class="stat-label">Industries</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="cosmic-btn primary" onclick="scrollToGallery()">
+                        <span class="btn-text">Explore Gallery</span>
+                        <div class="cosmic-trail"></div>
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+            <div class="scroll-line"></div>
+            <span>View Portfolio</span>
+        </div>
+    </section>
+
+    <!-- Gallery Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <h2 class="filter-title">
+                    <span class="gradient-text">Filter</span> by Category
+                </h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-globe"></i>
+                        <span>All Logos</span>
+                    </button>
+                    <button class="filter-btn" data-filter="tech">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Technology</span>
+                    </button>
+                    <button class="filter-btn" data-filter="business">
+                        <i class="fas fa-building"></i>
+                        <span>Business</span>
+                    </button>
+                    <button class="filter-btn" data-filter="creative">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Creative</span>
+                    </button>
+                    <button class="filter-btn" data-filter="healthcare">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Healthcare</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-background">
+            <div class="portfolio-grid-lines">
+                <div class="grid-line vertical"></div>
+                <div class="grid-line vertical"></div>
+                <div class="grid-line horizontal"></div>
+                <div class="grid-line horizontal"></div>
+            </div>
+            <div class="creative-particles"></div>
+        </div>
+        
+        <div class="container">
+            <div class="gallery-header">
+                <h2 class="section-title">
+                    <span class="title-word">Creative</span>
+                    <span class="title-word gradient-text">Excellence</span>
+                    <span class="title-subtitle">Every logo tells a unique story</span>
+                </h2>
+            </div>
+
+            <div class="logo-grid" id="logoGrid">
+                <!-- Logo items will be dynamically generated -->
+                <div class="logo-item" data-category="tech" data-logo="1">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/1.png" alt="Logo 1" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(1)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Tech Innovate</h3>
+                            <p class="logo-category">Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="business" data-logo="2">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/2.png" alt="Logo 2" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(2)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Business Pro</h3>
+                            <p class="logo-category">Business</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="creative" data-logo="3">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/3.png" alt="Logo 3" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(3)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Creative Studio</h3>
+                            <p class="logo-category">Creative</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="healthcare" data-logo="4">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/4.png" alt="Logo 4" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(4)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Health Plus</h3>
+                            <p class="logo-category">Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="tech" data-logo="5">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/5.png" alt="Logo 5" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(5)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Digital Wave</h3>
+                            <p class="logo-category">Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="business" data-logo="6">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/6.png" alt="Logo 6" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(6)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Elite Corp</h3>
+                            <p class="logo-category">Business</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="creative" data-logo="7">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/7.png" alt="Logo 7" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(7)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Art Vision</h3>
+                            <p class="logo-category">Creative</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="tech" data-logo="8">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/8.png" alt="Logo 8" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(8)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Code Matrix</h3>
+                            <p class="logo-category">Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="healthcare" data-logo="9">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/9.png" alt="Logo 9" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(9)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Care Medical</h3>
+                            <p class="logo-category">Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="business" data-logo="10">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/10.png" alt="Logo 10" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(10)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Global Solutions</h3>
+                            <p class="logo-category">Business</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="creative" data-logo="11">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/11.png" alt="Logo 11" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(11)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Design Hub</h3>
+                            <p class="logo-category">Creative</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-item" data-category="tech" data-logo="12">
+                    <div class="logo-card">
+                        <div class="logo-image">
+                            <img src="assets/portfolio/12.png" alt="Logo 12" loading="lazy">
+                            <div class="logo-overlay">
+                                <div class="overlay-content">
+                                    <button class="view-btn" onclick="openLogoModal(12)">
+                                        <i class="fas fa-eye"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3 class="logo-title">Future Tech</h3>
+                            <p class="logo-category">Technology</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more-container">
+                <button class="cosmic-btn load-more" onclick="loadMoreLogos()">
+                    <span class="btn-text">Load More Logos</span>
+                    <div class="btn-particles"></div>
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="section-background">
+            <div class="cta-particles"></div>
+            <div class="cosmic-rings">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    <span class="title-word">Ready to Create</span>
+                    <span class="title-word gradient-text">Your Logo?</span>
+                </h2>
+                <p class="cta-subtitle">
+                    Join the brands that trust TenSketch for their visual identity. Let's create something extraordinary together.
+                </p>
+                <div class="cta-buttons">
+                    <button class="cosmic-btn primary" onclick="startLogoProject()">
+                        <span class="btn-text">Start Your Project</span>
+                        <div class="cosmic-trail"></div>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+                    <button class="cosmic-btn secondary" onclick="viewBeyondWeb()">
+                        <span class="btn-text">View All Services</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Modal -->
+    <div id="logoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Logo Details</h3>
+                <button class="modal-close" onclick="closeLogoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Logo Details">
+                </div>
+                <div class="modal-info">
+                    <h4 id="modalLogoName">Logo Name</h4>
+                    <p id="modalCategory">Category</p>
+                    <p id="modalDescription">Logo description goes here...</p>
+                    <div class="modal-tags">
+                        <span class="tag">Modern</span>
+                        <span class="tag">Minimalist</span>
+                        <span class="tag">Professional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch">
+                    <p>Creative Excellence in Logo Design</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Portfolio</h4>
+                        <ul>
+                            <li><a href="#gallery">Logo Gallery</a></li>
+                            <li><a href="portfolio.html">Web Portfolio</a></li>
+                            <li><a href="Our-work.html">Our Work</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="beyond-web.html">Beyond Web</a></li>
+                            <li><a href="Web-solutions.html">Web Solutions</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TenSketch. All rights reserved. | Crafting visual identities that inspire.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="logo-portfolio.js"></script>
+</body>
+</html>
