@@ -142,5 +142,23 @@
     "techTags": ["HTML", "CSS", "JavaScript"],
     "liveUrl": "http://workforcesolutionshr.com",
     "filterTag": "Corporate & Business"
+  },
+  {
+    "index": 20,
+    "imageSrc": "assets/portfolio/20.png",
+    "altText": "Birth Ravivi ",
+    "title": "Birth with Iraivi",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://birthwithiraivi.com/",
+    "filterTag": "Arts, Culture & Personal Brands"
+  },
+  {
+    "index": 21,
+    "imageSrc": "assets/portfolio/21.png",
+    "altText": "Aradhya Trust",
+    "title": "Aradhya Trust",
+    "techTags": ["HTML", "CSS", "JavaScript"],
+    "liveUrl": "https://aaradhyatrust.org/",
+    "filterTag": "Corporate & Business"
   }
 ]

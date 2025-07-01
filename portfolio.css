@@ -7,15 +7,13 @@
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  margin-top: 0; /* Remove margin-top to eliminate white space */
-  padding-top: 0; /* Ensure no padding at the top */
 }
 
 .portfolio-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 80px 3rem 0 3rem; /* Reduced top padding to move content down */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +34,7 @@
   font-size: clamp(1.2rem, 7vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 3rem;
+  margin-top: 150px !important;
   color: #ffffff;
 }
 
@@ -518,8 +517,11 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.2rem;
-  margin-bottom: 2.5rem;
+  margin-top: 40px;
   padding: 0 1.5rem;
+  position: relative;
+  z-index: 1000;
+  
 }
 
 .filter-btn {
@@ -537,6 +539,7 @@
   letter-spacing: 0.5px;
   position: relative;
   overflow: hidden;
+  z-index: 1001;
 }
 
 .filter-btn::before {
