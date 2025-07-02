@@ -179,22 +179,40 @@ section .bg > * {
 }
 
 .contact-form select {
+  width: 100%;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 20px;
-  padding-right: 3rem;
+  background-image: none;
+  padding-right: 2.5em;
+  position: relative;
 }
 
-.contact-form select option {
-  background: rgba(26, 26, 46, 0.95);
-  color: #F8FAFC;
-  padding: 0.5rem;
-  border: none;
+.select-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-gold);
+  font-size: 1.2em;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.select-wrapper:hover .dropdown-icon {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.contact-form select::after {
+  display: none;
 }
 
 .contact-form input:focus,
