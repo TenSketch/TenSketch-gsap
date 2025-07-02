@@ -103,7 +103,7 @@ section .bg > * {
     rgba(16, 16, 35, 0.9) 100%);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 20px;
+  border-radius: 12px;
   box-shadow: 
     0 25px 50px rgba(139, 92, 246, 0.2),
     0 0 100px rgba(59, 130, 246, 0.1);
@@ -295,7 +295,7 @@ section .bg > * {
     max-width: 92vw;
     padding: 0.2rem 0 !important;
     font-size: 0.78rem;
-    border-radius: 7px;
+    border-radius: 12px;
     gap: 0.5rem !important;
   }
   .contact-form label {
@@ -631,7 +631,7 @@ section .bg {
   .map-block iframe {
     min-height: 120px;
     height: 160px;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 }
 @media (max-width: 400px) {
@@ -644,7 +644,7 @@ section .bg {
   .map-block iframe {
     min-height: 80px;
     height: 100px;
-    border-radius: 10px;
+    border-radius: 12px;
   }
   .social-icon {
     width: 32px;
