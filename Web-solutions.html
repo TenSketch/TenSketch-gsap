@@ -463,6 +463,40 @@
     .challenge-card i {
       filter: none !important;
     }
+    
+    /* Process cards animation - flow from top one after another */
+    .sixth .challenge-card {
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .sixth .process-cards-grid.animate .challenge-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .sixth .process-cards-grid.animate .challenge-card:nth-child(1) {
+      transition-delay: 0.2s;
+    }
+    
+    .sixth .process-cards-grid.animate .challenge-card:nth-child(2) {
+      transition-delay: 0.4s;
+    }
+    
+    .sixth .process-cards-grid.animate .challenge-card:nth-child(3) {
+      transition-delay: 0.6s;
+    }
+    
+    /* Container fade in */
+    .sixth .process-cards-grid {
+      opacity: 0;
+      transition: opacity 0.5s ease-out;
+    }
+    
+    .sixth .process-cards-grid.animate {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>  
@@ -895,7 +929,7 @@
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <h2 class="section-heading">What Working With TenSketch Feels Like</h2>
+          <h2 class="section-heading">Our three step process</h2>
           <div class="challenges-cards-container process-cards-grid">
             <div class="challenge-card">
               <div></div>
@@ -969,6 +1003,25 @@
       if(challengeCards.length) {
         flipNext();
         setInterval(flipNext, 2200);
+      }
+
+      // Intersection Observer for section 6 animation
+      const processSection = document.querySelector('.sixth');
+      const processCardsGrid = document.querySelector('.sixth .process-cards-grid');
+      
+      if (processSection && processCardsGrid) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              processCardsGrid.classList.add('animate');
+              observer.unobserve(entry.target); // Only animate once
+            }
+          });
+        }, {
+          threshold: 0.3 // Trigger when 30% of section is visible
+        });
+        
+        observer.observe(processSection);
       }
     });
   </script>
