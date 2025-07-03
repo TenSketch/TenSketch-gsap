@@ -52,7 +52,30 @@ class PortfolioGrid {
         </a>
       </div>
     `;
+    // Add click event to image for modal
+    const img = card.querySelector('.portfolio-image');
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      this.openImageModal(project.imageSrc, project.altText);
+    });
     return card;
+  }
+
+  openImageModal(imageSrc, altText) {
+    let modal = document.getElementById('portfolioImageModal');
+    if (!modal) return;
+    const modalImg = modal.querySelector('.modal-img');
+    modalImg.src = imageSrc;
+    modalImg.alt = altText;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeImageModal() {
+    let modal = document.getElementById('portfolioImageModal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   getVisibleProjects() {
@@ -370,6 +393,20 @@ class PortfolioGrid {
     }, 250));
     
     this.setupFilterEvents();
+    // Modal close logic
+    const modal = document.getElementById('portfolioImageModal');
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close')) {
+          this.closeImageModal();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('open') && e.key === 'Escape') {
+          this.closeImageModal();
+        }
+      });
+    }
   }
 
   handleResize() {
