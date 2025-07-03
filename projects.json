@@ -4,7 +4,7 @@
     "imageSrc": "assets/portfolio/5.png",
     "altText": "ESPeople Website Project",
     "title": "ESPeople",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://espeople.in",
     "filterTag": "Consulting & Training"
   },
@@ -13,7 +13,7 @@
     "imageSrc": "assets/portfolio/16.png",
     "altText": "Velar Infra Website Project",
     "title": "Velar Infra",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://velarinfra.com",
     "filterTag": "Corporate & Business"
   },
@@ -22,7 +22,7 @@
     "imageSrc": "assets/portfolio/1.png",
     "altText": "AK Foundation India Website Project",
     "title": "AK Foundation India",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://akfoundationindia.com",
     "filterTag": "NGO & Social Impact"
   },
@@ -31,7 +31,7 @@
     "imageSrc": "assets/portfolio/13.png",
     "altText": "USD Trust Website Project",
     "title": "USD Trust",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["React", "Tailwind"],
     "liveUrl": "https://usdtrust.in",
     "filterTag": "NGO & Social Impact"
   },
@@ -40,7 +40,7 @@
     "imageSrc": "assets/portfolio/4.png",
     "altText": "Divya Prabhath Website Project",
     "title": "Divya Prabhath",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Tailwind"],
     "liveUrl": "https://divyaprabhath.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
@@ -49,7 +49,7 @@
     "imageSrc": "assets/portfolio/14.png",
     "altText": "Vanavihar",
     "title": "Vanavhihar",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Angular", "Bootstrap", "Node"],
     "liveUrl": "vanavihar.com",
     "filterTag": "Tourism & Eco Experiences"
   },
@@ -58,7 +58,7 @@
     "imageSrc": "assets/portfolio/9.png",
     "altText": "Prabhatha Foundation Website Project",
     "title": "Prabhatha Foundation",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://prabhatha.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
@@ -67,7 +67,7 @@
     "imageSrc": "assets/portfolio/10.png",
     "altText": "Sharat Prabhath Website Project",
     "title": "Sharat Prabhath",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://sharatprabhath.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
@@ -76,7 +76,7 @@
     "imageSrc": "assets/portfolio/2.png",
     "altText": "Artoholic Website Project",
     "title": "Artoholic",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://artoholic.co.in",
     "filterTag": "Design, Art, & Lifestyle"
   },
@@ -85,7 +85,7 @@
     "imageSrc": "assets/portfolio/6.png",
     "altText": "Geo Tattoos Website Project",
     "title": "Geo Tattoos",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://geotattoos.com",
     "filterTag": "Design, Art, & Lifestyle"
   },
@@ -94,7 +94,7 @@
     "imageSrc": "assets/portfolio/8.png",
     "altText": "Padapa Website Project",
     "title": "Padapa",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap"],
     "liveUrl": "http://padapa.in",
     "filterTag": "Design, Art, & Lifestyle"
   },
@@ -103,7 +103,7 @@
     "imageSrc": "assets/portfolio/7.png",
     "altText": "Guru's Gallery Website Project",
     "title": "Guru's Gallery",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap"],
     "liveUrl": "http://gurus-gallery-mssw.tensketch.com",
     "filterTag": "Design, Art, & Lifestyle"
   },
@@ -112,7 +112,7 @@
     "imageSrc": "assets/portfolio/3.png",
     "altText": "Charis Jute Website Project",
     "title": "Charis Jute",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "PHP"],
     "liveUrl": "https://charis-jute.netlify.app",
     "filterTag": "Design, Art, & Lifestyle"
   },
@@ -121,7 +121,7 @@
     "imageSrc": "assets/portfolio/18.png",
     "altText": "Risse Wealth",
     "title": "Risse wealth",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["HTML", "CSS", "JS"],
     "liveUrl": "https://therissewealth.com/",
     "filterTag": "Corporate & Business"
   },
@@ -130,7 +130,7 @@
     "imageSrc": "assets/portfolio/15.png",
     "altText": "SP Charan",
     "title": "SP Charan",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Tailwind"],
     "liveUrl": "http://spcharanofficial.com",
     "filterTag": "Arts, Culture & Personal Brands"
   },
@@ -139,7 +139,7 @@
     "imageSrc": "assets/portfolio/19.png",
     "altText": "Workforce Solutions ",
     "title": "Workforce Solutions ",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["React", "Tailwind"],
     "liveUrl": "http://workforcesolutionshr.com",
     "filterTag": "Corporate & Business"
   },
@@ -148,7 +148,7 @@
     "imageSrc": "assets/portfolio/20.png",
     "altText": "Birth Ravivi ",
     "title": "Birth with Iraivi",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://birthwithiraivi.com/",
     "filterTag": "Arts, Culture & Personal Brands"
   },
@@ -157,7 +157,7 @@
     "imageSrc": "assets/portfolio/21.png",
     "altText": "Aradhya Trust",
     "title": "Aradhya Trust",
-    "techTags": ["HTML", "CSS", "JavaScript"],
+    "techTags": [],
     "liveUrl": "https://aaradhyatrust.org/",
     "filterTag": "Corporate & Business"
   }
