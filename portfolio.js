@@ -44,7 +44,6 @@ class PortfolioGrid {
     card.innerHTML = `
       <img src="${project.imageSrc}" alt="${project.altText}" class="portfolio-image" loading="lazy">
       <div class="portfolio-content">
-        <h3 class="portfolio-title">${project.title}</h3>
         <div class="portfolio-tech">
           ${project.techTags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
         </div>
@@ -248,15 +247,12 @@ class PortfolioGrid {
   }
 
   renderNewCards() {
-    
     this.grid.innerHTML = '';
-    const visibleProjects = this.getVisibleProjects();
-    
-    visibleProjects.forEach(({ project, position }) => {
+    const newVisibleProjects = this.getVisibleProjects();
+    newVisibleProjects.forEach(({ project, position }) => {
       const card = this.createPortfolioCard(project, position);
       this.grid.appendChild(card);
     });
-    
     this.updateIndicators();
     this.updateNavigationButtons();
   }
