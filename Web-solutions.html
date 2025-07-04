@@ -43,46 +43,6 @@
       background: #dad9d92f;
       border-radius: 12px;
     }
-    .challenge-card {
-      border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(212,175,55,0.10), 0 1.5px 6px rgba(0,0,0,0.04);
-      padding: 2em 1.2em 1.5em 1.2em;
-      min-width: 200px;
-      max-width: 240px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.18s, box-shadow 0.18s;
-      border: 1.5px solid #f7e7b7;
-      position: relative;
-      scroll-snap-align: start;
-      margin-bottom: 1em;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .challenge-card:hover, .challenge-card:focus {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 12px 32px rgba(212,175,55,0.18), 0 2px 8px rgba(0,0,0,0.06);
-      z-index: 2;
-    }
-    .challenge-card > div:first-child {
-      font-size: 2.3em;
-      margin-bottom: 0.6em;
-      filter: drop-shadow(0 2px 6px #ffe9b3);
-    }
-    .challenge-card > div:nth-child(2) {
-      font-weight: 700;
-      font-size: 1.13em;
-      margin-bottom: 0.6em;
-      text-align: center;
-      color: #fff;
-    }
-    .challenge-card > div:nth-child(3) {
-      font-size: 1em;
-      color: #fff;
-      text-align: center;
-      margin-top: 0.2em;
-    }
     .web-types-cards-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -418,42 +378,37 @@
       background: url('https://images.pexels.com/photos/1755683/pexels-photo-1755683.jpeg') center center/cover no-repeat !important;
     }
     
-    .challenge-card > div:first-child,
-    .challenge-card i {
-      filter: none !important;
-    }
-    
     /* Process cards animation - flow from top one after another */
-    .sixth .challenge-card {
+    .process-section .answer-card {
       opacity: 0;
       transform: translateY(-50px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
     
-    .sixth .process-cards-grid.animate .challenge-card {
+    .process-section .analysis-answers.animate .answer-card {
       opacity: 1;
       transform: translateY(0);
     }
     
-    .sixth .process-cards-grid.animate .challenge-card:nth-child(1) {
+    .process-section .analysis-answers.animate .answer-card:nth-child(1) {
       transition-delay: 0.2s;
     }
     
-    .sixth .process-cards-grid.animate .challenge-card:nth-child(2) {
+    .process-section .analysis-answers.animate .answer-card:nth-child(2) {
       transition-delay: 0.4s;
     }
     
-    .sixth .process-cards-grid.animate .challenge-card:nth-child(3) {
+    .process-section .analysis-answers.animate .answer-card:nth-child(3) {
       transition-delay: 0.6s;
     }
     
     /* Container fade in */
-    .sixth .process-cards-grid {
+    .process-section .analysis-answers {
       opacity: 0;
       transition: opacity 0.5s ease-out;
     }
     
-    .sixth .process-cards-grid.animate {
+    .process-section .analysis-answers.animate {
       opacity: 1;
     }
     /* Section 3 specific layout - horizontal on PC, vertical on mobile */
@@ -473,25 +428,58 @@
       }
     }
     /* Section 2: Increase card size to prevent content clipping */
-    .fifth .web-types-cards-container .flip-card {
+
+    .challenges-section .web-types-cards-container .flip-card {
       min-width: 260px;
       max-width: 340px;
       height: 180px;
       padding-right: 30px;
     }
     @media (max-width: 1100px) {
-      .fifth .web-types-cards-container .flip-card {
+      .challenges-section .web-types-cards-container .flip-card {
         min-width: 180px;
         max-width: 240px;
         height: 130px;
       }
     }
     @media (max-width: 700px) {
-      .fifth .web-types-cards-container .flip-card {
+      .challenges-section .web-types-cards-container .flip-card {
         min-width: 120px;
         max-width: 180px;
         height: 100px;
       }
+    }
+    
+    /* Animation styles for web solutions section */
+    .web-solutions-section .flip-card {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    /* First card should always be visible by default */
+    .web-solutions-section .flip-card:first-child {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    .web-solutions-section .flip-card.hidden {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    
+    .web-solutions-section .flip-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .web-solutions-section .flip-card-inner {
+      transform: rotateY(0deg);
+      transition: transform 0.8s ease-in-out;
+    }
+    
+    .web-solutions-section .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
     }
   </style>
 </head>
@@ -719,7 +707,7 @@
   <!-- END SECTION 1 -->
 
   <!--Section 2-->
-   <section class="fifth ">
+   <section class="challenges-section">
     <div class="outer">
       <div class="inner">
         <div class="bg one" style="background: url('https://images.pexels.com/photos/2823459/pexels-photo-2823459.jpeg') center center/cover no-repeat !important;">
@@ -793,43 +781,34 @@
   </section>
 
   <!-- SECTION 3: BEFORE YOU START, LET'S GET ALIGNED -->
-  <section class="third">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg one" style="padding:2.5em 1em 2em 1em;">
-          <h2 class="section-heading" style="font-size:2em;text-align:center;margin-bottom:1.2em;margin-top:1.7em;">Before you start...</h2>
-          <div class="challenges-cards-container">
-            <!-- Step 1 -->
-            <div class="challenge-card">
-              <div><i class="fas fa-1" style="color:#E6C99A;"></i></div>
-              <div>Define your business goal</div>
-              <div>Clarify what you want to achieve so your website truly supports your objectives.</div>
-            </div>
-            <!-- Step 2 -->
-            <div class="challenge-card">
-              <div><i class="fas fa-2" style="color:#E6C99A;"></i></div>
-              <div>Identify users and what they expect</div>
-              <div>Understand your audience to create a site that meets their needs and expectations.</div>
-            </div>
-            <!-- Step 3 -->
-            <div class="challenge-card">
-              <div><i class="fas fa-3" style="color:#E6C99A;"></i></div>
-              <div>Decide what success looks like <span style='font-weight:400;font-size:0.98em;'>(leads, sales, awareness)</span></div>
-              <div>Set clear metrics so you know when your website is working for you.</div>
-            </div>
+    <section class="sixth">
+  <div class="outer">
+    <div class="inner">
+      <div class="bg">
+        <h2 class="section-heading">Before you start, let's get aligned</h2>
+        <div class="analysis-answers">
+          <div class="answer-card">
+            <img src="assets/images/goal-100.png" alt="Define your business goal" class="answer-img">
+            <p class="answer-text"><b>Define your business goal</b><br>Clarify what you want to achieve so your website truly supports your objectives.</p>
           </div>
-          <div style="text-align:center;margin-top:0.5em;">
-            <span style="color:#b08a1e;font-weight:600;font-size:1.08em;">💡 We help you map this in just one discovery call.</span>
+          <div class="answer-card">
+            <img src="assets/images/target-audience-100.png" alt="Identify users and what they expect" class="answer-img">
+            <p class="answer-text"><b>Identify users and what they expect</b><br>Understand your audience to create a site that meets their needs and expectations.</p>
+          </div>
+          <div class="answer-card">
+            <img src="assets/images/sell-100.png" alt="Decide what success looks like" class="answer-img">
+            <p class="answer-text"><b>Decide what success looks like <span style='font-weight:400;'>(leads, sales, awareness)</span></b><br>Set clear metrics so you know when your website is working for you.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!-- END SECTION 3 -->
 
 
   <!--Section 4-->
-   <section class="fifth ">
+   <section class="fifth web-solutions-section">
     <div class="outer">
       <div class="inner">
         <div class="bg">
@@ -920,32 +899,29 @@
   </section>
 
   <!-- SECTION 6: OUR THREE-PHASE WORKFLOW -->
-  <section class="sixth">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg">
-          <h2 class="section-heading">Our three step process</h2>
-          <div class="challenges-cards-container process-cards-grid">
-            <div class="challenge-card">
-              <div></div>
-              <div>Understand & Plan</div>
-              <div>We listen, ask the right questions, and map your goals to a clear, actionable plan.</div>
-            </div>
-            <div class="challenge-card">
-              <div><i class="fas fa-palette" style="color:#E6C99A;"></i></div>
-              <div>Design & Build</div>
-              <div>We craft, iterate, and develop your solution with transparency and creativity at every step.</div>
-            </div>
-            <div class="challenge-card">
-              <div><i class="fas fa-rocket" style="color:#E6C99A;"></i></div>
-              <div>Support & Grow</div>
-              <div>After launch, we’re here for ongoing support, updates, and advice to help you grow.</div>
-            </div>
+    <section class="sixth process-section">
+  <div class="outer">
+    <div class="inner">
+      <div class="bg">
+        <h2 class="section-heading">Our three step process</h2>
+        <div class="analysis-answers">
+          <div class="answer-card">
+            <div class="answer-img"><i class="fas fa-lightbulb" style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
+            <p class="answer-text"><b>Understand & Plan</b><br>We listen, ask the right questions, and map your goals to a clear, actionable plan.</p>
+          </div>
+          <div class="answer-card">
+            <div class="answer-img"><i class="fas fa-palette" style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
+            <p class="answer-text"><b>Design & Build</b><br>We craft, iterate, and develop your solution with transparency and creativity at every step.</p>
+          </div>
+          <div class="answer-card">
+            <div class="answer-img"><i class="fas fa-rocket" style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
+            <p class="answer-text"><b>Support & Grow</b><br>After launch, we’re here for ongoing support, updates, and advice to help you grow.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!-- END SECTION 6 -->
     
   <!-- SECTION 7: LEAD CTA - NEED CLARITY FIRST? -->
@@ -958,7 +934,7 @@
             Still unsure which solution fits you?<br>
             Get a free 15-min consult and walk out with a clear website direction.
           </p>
-          <a href="#" class="cta-btn" style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;background:linear-gradient(90deg,#b8960f 0%,#a0810d 100%);border:none;border-radius:2em;box-shadow:0 4px 18px rgba(184,150,15,0.18);text-decoration:none;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;cursor:pointer;">👉 Book Your Free Clarity Call</a>
+          <a href="#" class="cta-btn" style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;background:linear-gradient(90deg,#b8960f 0%,#a0810d 100%);border:none;border-radius:2em;box-shadow:0 4px 18px rgba(184,150,15,0.18);text-decoration:none;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;cursor:pointer;">Book Your Free Clarity Call</a>
         </div>
       </div>
     </div>
@@ -988,8 +964,8 @@
   <script>
     // Challenge flip cards animation for section 2
     document.addEventListener('DOMContentLoaded', function() {
-      const challengeCards = document.querySelectorAll('.second .flip-card');
-      const section2 = document.querySelector('.second');
+      const challengeCards = document.querySelectorAll('.challenges-section .flip-card');
+      const section2 = document.querySelector('.challenges-section');
       let animationStarted = false;
       let hasUserScrolled = false;
 
@@ -1059,13 +1035,13 @@
       });
 
       // Intersection Observer for section 6 animation
-      const processSection = document.querySelector('.sixth');
-      const processCardsGrid = document.querySelector('.sixth .process-cards-grid');
-      if (processSection && processCardsGrid) {
+      const processSection = document.querySelector('.process-section');
+      const processCardsContainer = document.querySelector('.process-section .analysis-answers');
+      if (processSection && processCardsContainer) {
         const processObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              processCardsGrid.classList.add('animate');
+              processCardsContainer.classList.add('animate');
               processObserver.unobserve(entry.target); // Only animate once
             }
           });
@@ -1073,6 +1049,67 @@
           threshold: 0.3 // Trigger when 30% of section is visible
         });
         processObserver.observe(processSection);
+      }
+
+      // Animation for web solutions section
+      const webSolutionsSection = document.querySelector('.web-solutions-section');
+      const webSolutionsCards = document.querySelectorAll('.web-solutions-section .flip-card');
+      
+      if (webSolutionsSection && webSolutionsCards.length > 0) {
+        // Initially hide all cards except the first one
+        webSolutionsCards.forEach((card, index) => {
+          if (index === 0) {
+            // Ensure first card is visible and remove any hidden class
+            card.classList.remove('hidden');
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+        
+        const webSolutionsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Animate cards sequentially
+              webSolutionsCards.forEach((card, index) => {
+                if (index === 0) {
+                  // First card is already visible, just flip it
+                  setTimeout(() => {
+                    card.classList.add('flipped');
+                    setTimeout(() => {
+                      card.classList.remove('flipped');
+                    }, 200); // Flip back after 200ms
+                  }, 200); // Flip after 200ms
+                } else {
+                  // Other cards animate in with delay
+                  const delay = index * 50; // 50ms between cards
+                  setTimeout(() => {
+                    card.classList.remove('hidden');
+                    card.classList.add('animate');
+                    setTimeout(() => {
+                      card.classList.add('flipped');
+                      setTimeout(() => {
+                        card.classList.remove('flipped');
+                      }, 200); // Flip back after 200ms
+                    }, 200); // Flip after 200ms
+                  }, delay);
+                }
+              });
+              webSolutionsObserver.unobserve(entry.target); // Only animate once
+            }
+          });
+        }, {
+          threshold: 0.05, // Trigger when only 5% of section is visible
+          rootMargin: '50px 0px 0px 0px' // Trigger 50px before section enters viewport
+        });
+        webSolutionsObserver.observe(webSolutionsSection);
+        // Manual flip on click for web solutions cards
+        webSolutionsCards.forEach(card => {
+          card.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+          });
+        });
       }
     });
   </script>
