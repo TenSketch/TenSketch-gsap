@@ -450,6 +450,36 @@
       }
     }
     
+    /* Animation styles for section 2 challenge cards */
+    .challenges-section .flip-card {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .challenges-section .flip-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .challenges-section .flip-card-inner {
+      transform: rotateY(0deg);
+      transition: transform 0.8s ease-in-out;
+    }
+    
+    .challenges-section .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    /* Web types note styling */
+    .web-types-note {
+      text-align: center;
+      margin-top: 1.5em;
+      color: #E6C99A;
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
+    
     /* Animation styles for web solutions section */
     .web-solutions-section .flip-card {
       opacity: 1;
@@ -967,62 +997,59 @@
       const challengeCards = document.querySelectorAll('.challenges-section .flip-card');
       const section2 = document.querySelector('.challenges-section');
       let animationStarted = false;
-      let hasUserScrolled = false;
 
-      // Helper to check if section2 is in viewport
-      function isSectionInView() {
-        if (!section2) return false;
-        const rect = section2.getBoundingClientRect();
-        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        // At least 30% of section should be visible
-        return (
-          rect.top < windowHeight - rect.height * 0.7 &&
-          rect.bottom > rect.height * 0.3
-        );
-      }
+      console.log('Challenge cards found:', challengeCards.length);
+      console.log('Section 2 found:', section2);
 
-      // Set hasUserScrolled to true on any scroll
-      function onScroll() {
-        hasUserScrolled = true;
-      }
-      window.addEventListener('scroll', onScroll);
+      // Initially hide all cards and ensure they show front side
+      challengeCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(-50px)';
+        card.classList.remove('flipped'); // Ensure cards start with front side visible
+      });
 
-      // Add a small delay before setting up the observer
-      setTimeout(() => {
-        // Intersection Observer for slide-down animation - trigger when section is properly visible
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            // Only trigger if user has scrolled and animation hasn't started
-            if (entry.isIntersecting && !animationStarted && hasUserScrolled) {
-              animationStarted = true;
-              startSequentialAnimation();
-              observer.unobserve(entry.target); // Only animate once
-            }
-          });
-        }, {
-          threshold: 0.3, // Trigger when 30% of section is visible
-          rootMargin: '0px 0px -200px 0px'
+      // Intersection Observer for slide-down animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !animationStarted) {
+            console.log('Section 2 is in view, starting animation');
+            animationStarted = true;
+            startSequentialAnimation();
+            observer.unobserve(entry.target); // Only animate once
+          }
         });
-        if (section2) {
-          observer.observe(section2);
-        }
-      }, 500); // 0.5 second delay before setting up observer
+      }, {
+        threshold: 0.2, // Trigger when 20% of section is visible
+        rootMargin: '0px 0px -100px 0px'
+      });
+
+      if (section2) {
+        observer.observe(section2);
+      }
 
       // Sequential animation function
       function startSequentialAnimation() {
+        console.log('Starting sequential animation for', challengeCards.length, 'cards');
         challengeCards.forEach((card, index) => {
           setTimeout(() => {
+            console.log('Animating card', index + 1);
             // First: slide down the card
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
             card.classList.add('show');
+            
             // Then: flip the card after slide down completes
             setTimeout(() => {
               card.classList.add('flipped');
+              console.log('Card', index + 1, 'flipped to back');
+              
               // Remove flip after showing back content for 2 seconds
               setTimeout(() => {
                 card.classList.remove('flipped');
+                console.log('Card', index + 1, 'flipped back to front');
               }, 2000);
-            }, 800); // Wait for slide down animation to complete
-          }, index * 1200); // 1.2 second delay between each card
+            }, 600); // Wait for slide down animation to complete
+          }, index * 3000); // 3 second delay between each card
         });
       }
 
