@@ -613,6 +613,33 @@
   }
 }
 
+/* Add to the bottom of the file for mobile-specific adjustments */
+@media (max-width: 600px) {
+  .portfolio-section .section-heading {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .portfolio-section .outer {
+    padding-top: 0.1rem !important;
+  }
+  .portfolio-section .bg.two {
+    padding-top: 0.1rem !important;
+  }
+}
+
+@media (min-width: 601px) {
+  .portfolio-section .section-heading {
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .portfolio-section .outer {
+    padding-top: 1.2rem !important;
+  }
+  .portfolio-section .bg.two {
+    padding-top: 1.2rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   .portfolio-main .nav-btn {
     display: none !important;
@@ -622,5 +649,26 @@
   }
   .portfolio-navigation .nav-btn:not(.mobile-nav) {
     display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-filters {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.7rem !important;
+    padding: 0 0.2rem;
+  }
+  .filter-btn {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.2rem;
+    border-radius: 14px;
+    margin: 0;
   }
 }
