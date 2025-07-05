@@ -825,7 +825,6 @@ h2 * {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -859,7 +858,8 @@ h2 * {
   line-height: 1.3;
 }
 
-@media (min-width: 769px) {  .analysis-answers {
+@media (min-width: 769px) {  
+  .analysis-answers {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -867,11 +867,11 @@ h2 * {
     counter-reset: step;
     justify-content: center;
     gap: 2rem;
-  }.answer-card {
+  }
+  .answer-card {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);  
     flex: 0 0 calc(25% - 1.5rem);
     min-width: 160px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
@@ -880,7 +880,7 @@ h2 * {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
     text-align: center;
     min-height: 180px;
   }  .answer-card::before {
