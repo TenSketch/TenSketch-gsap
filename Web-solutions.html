@@ -331,6 +331,17 @@
       }
     }
 
+    /* Responsive padding for hard questions heading */
+    .hard-questions-heading {
+      padding-top: 100px;
+    }
+    
+    @media (max-width: 700px) {
+      .hard-questions-heading {
+        padding-top: 200px !important;
+      }
+    }
+    
     /* Additional styles for the second section as per the code change */
     .flipCard-container {
       display: grid;
@@ -476,7 +487,7 @@
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <h2 class="section-heading" style="padding-top: 250px;">We Asked the Hard Questions</h2>
+          <h2 class="section-heading hard-questions-heading">We Asked the Hard Questions</h2>
           <div class="flipCard-container" style="display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:1.5em;margin-top:2em;justify-items:center;">
             <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
               <div class="flip-card-inner">
