@@ -56,7 +56,7 @@
           </p>
           <!-- Replaced chevron with animated mouse scroll indicator -->
           <div style="display:flex; justify-content:center; margin-top:2.5em;">
-            <div class="mouse-wrap">
+            <div class="mouse-wrap fade-in-mouse">
               <div class="mouse">
                 <div class="frame">
                   <svg version="1.1" id="mouse" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -162,6 +162,34 @@
             top:90px;
             transform:translateX(-50%) translateY(0);
             margin-left:6px;
+          }
+          .fade-in-mouse {
+            opacity: 0;
+            transform: translateY(60px) scale(0.92);
+            animation: fadeInMouseUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) 1.2s forwards;
+          }
+          @keyframes fadeInMouseUp {
+            0% {
+              opacity: 0;
+              transform: translateY(60px) scale(0.92);
+            }
+            60% {
+              opacity: 0.7;
+              transform: translateY(10px) scale(1.01);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+          @keyframes fadeInMouse {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+          @keyframes mouseDepthIn {
+            0% { transform: scale(0.7) translateZ(-200px); filter: blur(6px); }
+            60% { filter: blur(2px); }
+            100% { transform: scale(1) translateZ(0); filter: blur(0); }
           }
           @keyframes DrawLine {
             0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
