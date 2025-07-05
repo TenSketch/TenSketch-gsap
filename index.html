@@ -94,13 +94,13 @@
             position:absolute;
             left:50%;
             top:75%; /* Lowered from 50% to 75% */
-            transform:translate(-50%,-50%) translateY(20px);
-            transition: opacity 0.5s, transform 0.5s;
+            transform:translate(-50%,-50%) translateY(80px);
+            transition: opacity 0.25s, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
           }
           .hidden-mouse {
             opacity: 0;
             pointer-events: none;
-            transform:translate(-50%,-50%) translateY(40px);
+            transform:translate(-50%,-50%) translateY(160px);
           }
           .mouse-wrap:not(.hidden-mouse) {
             opacity: 1;
