@@ -56,7 +56,7 @@
           </p>
           <!-- Replaced chevron with animated mouse scroll indicator -->
           <div style="display:flex; justify-content:center; margin-top:2.5em;">
-            <div class="mouse-wrap hidden-mouse">
+            <div class="mouse-wrap">
               <div class="mouse">
                 <div class="frame">
                   <svg version="1.1" id="mouse" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -89,23 +89,12 @@
           <style>
           /* Mouse Scroll Indicator Styles */
           @import url(https://fonts.googleapis.com/css?family=Raleway);
-          .mouse-wrap {
+          .mouse-wrap{
             display:inline-block;
             position:absolute;
             left:50%;
             top:75%; /* Lowered from 50% to 75% */
-            transform:translate(-50%,-50%) translateY(80px);
-            transition: opacity 0.25s, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-          .hidden-mouse {
-            opacity: 0;
-            pointer-events: none;
-            transform:translate(-50%,-50%) translateY(160px);
-          }
-          .mouse-wrap:not(.hidden-mouse) {
-            opacity: 1;
-            pointer-events: auto;
-            transform:translate(-50%,-50%) translateY(0);
+            transform:translate(-50%,-50%);
           }
           .mouse {
             top:0;
@@ -495,7 +484,7 @@
 <section class="minimal-footer">
   <div class="outer">
     <div class="inner">        <div class="bg">
-          <p class="footer-text text-center mb-0">Copyright © 2017 - <script>document.write(new Date().getFullYear());</script>&nbsp;TenSketch</p>
+          <p class="footer-text">© 2025 TenSketch. Crafted for visionary brands.</p>
           <div class="footer-links">
             <a href="https://www.tensketch.com" class="footer-link">Home</a> |
             <a href="https://www.tensketch.com/services" class="footer-link">Services</a> |
@@ -512,14 +501,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/SplitText.min.js"></script> -->
   <script src="main.js"></script>
-  <script>
-    // Show mouse icon after 2.5 seconds with fade up
-    window.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        var mouseWrap = document.querySelector('.mouse-wrap');
-        if(mouseWrap) mouseWrap.classList.remove('hidden-mouse');
-      }, 700);
-    });
-  </script>
 </body>
 </html>

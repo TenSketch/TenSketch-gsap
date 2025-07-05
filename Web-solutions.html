@@ -7,42 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
   <link rel="stylesheet" href="style.css">
   <style>
-    .flipCard-container {
-      display: flex;
-      gap: 2em;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 2em 0 1em 0;
-      /* Remove horizontal scroll on large screens */
-      overflow-x: visible;
-      padding: 1.5em 0 1em 0;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: #b8960f #f5f5f5;
-    }
-    /* Keep overflow-x: auto only for mobile */
-    @media (max-width: 700px) {
-      .flipCard-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.7em;
-        padding-left: 0.3em;
-        padding-right: 0.3em;
-        max-width: 100vw;
-        overflow-x: auto;
-      }
-    }
-    .flipCard-container::-webkit-scrollbar {
-      height: 10px;
-    }
-    .flipCard-container::-webkit-scrollbar-thumb {
-      background: linear-gradient(90deg, #b8960f 0%, #a0810d 100%);
-      border-radius: 12px;
-    }
-    .flipCard-container::-webkit-scrollbar-track {
-      background: #dad9d92f;
-      border-radius: 12px;
-    }
     .web-types-cards-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -56,7 +20,7 @@
       width: 100%;
       max-width: 300px;
       min-width: 220px;
-      height: 150px; /* increased from 120px */
+      height: 150px;
       perspective: 1000px;
       margin-bottom: 0;
       opacity: 1;
@@ -117,17 +81,6 @@
       transform: rotateY(180deg);
       font-size: 1rem;
     }
-    .challenge-title {
-      font-weight: 600;
-      font-size: 0.9em;
-      color: #fff;
-      margin-top: 0.5rem;
-    }
-    .challenge-desc {
-      font-size: 0.95em;
-      color: #fff;
-      line-height: 1.4;
-    }
     .flip-card-inner, .flip-card-front, .flip-card-back {
       border-radius: 12px !important;
     }
@@ -153,12 +106,6 @@
       .flip-card-front i {
         font-size: 2em;
       }
-      .challenge-title {
-        font-size: 0.85em;
-      }
-      .challenge-desc {
-        font-size: 0.9em;
-      }
       .web-type-title {
         font-size: 0.98em;
       }
@@ -176,14 +123,7 @@
         width: 98vw;
         max-width: 150px;
         min-width: 110px;
-        height: 80px; /* increased from 60px */
-      }
-      /* Section 3 specific flip cards - make them larger on mobile */
-      .third .flip-card {
-        width: 95%;
-        max-width: 380px;
-        min-width: 280px;
-        height: 140px;
+        height: 80px;
       }
       /* Center the last flip card on mobile */
       .web-types-cards-container > .flip-card:last-child {
@@ -191,325 +131,160 @@
         justify-self: center;
       }
     }
-    @media (max-width: 700px) {
-      .flipCard-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.7em;
-        padding-left: 0.3em;
-        padding-right: 0.3em;
-        max-width: 100vw;
-        overflow-x: auto;
-      }
-      /* Section 3 specific mobile layout - single column */
-      .third .challenges-cards-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-        overflow-x: visible;
-      }
-      .challenge-card {
-        min-width: 0;
-        max-width: 90vw;
-        padding: 0.7em 0.4em 0.6em 0.4em;
-        border-radius: 0.7em;
-        box-shadow: 0 3px 10px rgba(212,175,55,0.10), 0 1px 2px rgba(0,0,0,0.04);
-        font-size: 0.92em;
-      }
-      /* Section 3 specific card styling */
-      .third .challenge-card {
-        width: 95%;
-        max-width: 380px;
-        padding: 1.8em 1.4em;
-        margin-bottom: 0;
-      }
-      .challenge-card > div:first-child {
-        font-size: 1.05em;
-        margin-bottom: 0.18em;
-      }
-      .challenge-card > div:nth-child(2) {
-        font-size: 0.92em;
-        margin-bottom: 0.1em;
-      }
-      .challenge-card > div:nth-child(3) {
-        font-size: 0.84em;
-        margin-top: 0.02em;
-      }
+    /* Mouse Scroll Indicator Styles */
+    @import url(https://fonts.googleapis.com/css?family=Raleway);
+    .mouse-wrap{
+      display:inline-block;
+      position:absolute;
+      left:50%;
+      top:75%; /* Lowered from 50% to 75% */
+      transform:translate(-50%,-50%);
     }
-    @media (min-width: 701px) and (max-width: 1100px) {
-      .flipCard-container {
-        gap: 1.2em;
-        padding: 1em 0 0.5em 0;
-      }
-      .challenge-card {
-        min-width: 140px;
-        max-width: 170px;
-        padding: 1.1em 0.7em 0.8em 0.7em;
-        font-size: 0.92em;
-      }
-      .challenge-card > div:first-child {
-        font-size: 1.5em;
-        margin-bottom: 0.3em;
-      }
-      .challenge-card > div:nth-child(2) {
-        font-size: 1em;
-        margin-bottom: 0.2em;
-      }
-      .challenge-card > div:nth-child(3) {
-        font-size: 0.92em;
-        margin-top: 0.05em;
-      }
+    .mouse {
+      top:0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      animation: nudgeMouse 5.5s ease-out infinite;
     }
-    .process-cards-container {
-      display: flex;
-      gap: 1.5em;
-      justify-content: center;
-      align-items: stretch;
-      margin: 2em 0 1em 0;
-      flex-wrap: wrap;
+    .mouse:after {
+      content: '';
+      background-color: #ffffff;
+      width: 7px;
+      height: 7px;
+      border-radius: 100%;
+      animation: trackBallSlide 5.5s linear infinite;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      transform:translateY(20px);
     }
-    .process-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(212,175,55,0.10);
-      padding: 1.5em 1.2em 1.2em 1.2em;
-      min-width: 180px;
-      max-width: 260px;
-      flex: 1 1 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: box-shadow 0.18s, transform 0.18s;
-    }
-    .process-card:hover {
-      box-shadow: 0 12px 32px rgba(212,175,55,0.18), 0 2px 8px rgba(0,0,0,0.06);
-      transform: translateY(-6px) scale(1.03);
-    }
-    .process-icon {
-      font-size: 2.2em;
-      margin-bottom: 0.5em;
-    }
-    .process-title {
-      font-weight: 700;
-      font-size: 1.18em;
-      margin-bottom: 0.5em;
-      color: #b08a1e;
-    }
-    .process-desc {
-      font-size: 1em;
-      color: #222;
-    }
-    @media (max-width: 900px) {
-      .process-cards-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .process-card {
-        max-width: 98vw;
-      }
-    }
-    .process-cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2em;
-      justify-items: center;
-      align-items: stretch;
-      margin: 2em 0 1em 0;
-    }
-    @media (max-width: 900px) {
-      .process-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2em;
-      }
-    }
-      .lead-cta-section .section-heading {
-      text-align: center;
-      font-size: 2em;
-      margin-bottom: 0.7em;
-      color: #b08a1e;
-    }
-    .lead-cta-text {
-      text-align: center;
-      font-size: 1.18em;
-      color: #222;
-      margin-bottom: 0.5em;
-      line-height: 1.5;
-    }
-    .lead-cta-btn {
-      display: inline-block;
-      margin-top: 0.5em;
-      padding: 0.85em 2.2em;
-      font-size: 1.18em;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(90deg,#b8960f 0%,#a0810d 100%);
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(212,175,55,0.18);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: background 0.2s,transform 0.2s,box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .lead-cta-btn:hover {
-      background: linear-gradient(90deg,#a0810d 0%,#b8960f 100%);
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 8px 24px rgba(212,175,55,0.22);
-    }
-    .third .challenges-cards-container .challenge-card {
-      /* Remove blur for section 3 cards */
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-    .second .flipCard-container .flip-card {
-      /* Remove blur for section 2 cards */
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-    .second .flipCard-container .flip-card > div:first-child {
-      /* Remove icon blur for section 2 */
-      filter: none;
-    }
-      .third .bg.one {
-      background: url('https://images.pexels.com/photos/1755683/pexels-photo-1755683.jpeg') center center/cover no-repeat !important;
-    }
-    
-    /* Process cards animation - flow from top one after another */
-    .process-section .answer-card {
-      opacity: 0;
-      transform: translateY(-50px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    
-    .process-section .analysis-answers.animate .answer-card {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .process-section .analysis-answers.animate .answer-card:nth-child(1) {
-      transition-delay: 0.2s;
-    }
-    
-    .process-section .analysis-answers.animate .answer-card:nth-child(2) {
-      transition-delay: 0.4s;
-    }
-    
-    .process-section .analysis-answers.animate .answer-card:nth-child(3) {
-      transition-delay: 0.6s;
-    }
-    
-    /* Container fade in */
-    .process-section .analysis-answers {
-      opacity: 0;
-      transition: opacity 0.5s ease-out;
-    }
-    
-    .process-section .analysis-answers.animate {
-      opacity: 1;
-    }
-    /* Section 3 specific layout - horizontal on PC, vertical on mobile */
-    .third .challenges-cards-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: stretch;
-      gap: 2em;
+    .mouse .frame {
       width: 100%;
+      position: absolute;
+      z-index: 1;
     }
-    @media (max-width: 700px) {
-      .third .challenges-cards-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-      }
+    .mouse .frame path {
+      fill: none;
+      stroke: #e4c590; /* Sandal color */
+      stroke-width: 3;
+      opacity:0.5;
     }
-    /* Section 2: Increase card size to prevent content clipping */
+    .mouse .mouse-left,
+    .mouse .mouse-right {
+      width: 50%;
+      position: absolute;
+      z-index: 2;
+    }
+    .mouse .mouse-right {
+      right: 0;
+    }
+    .mouse .Animate-Draw {
+      fill: none;
+      stroke: #c2a472;
+      stroke-width: 3;
+      fill-opacity: 1;
+    }
+    .mouse .mouse-left .Animate-Draw {
+      animation: DrawLine 5.5s ease-out infinite;
+    }
+    .mouse .mouse-right .Animate-Draw {
+      animation: DrawLineBack 5.5s ease-out infinite;
+    }
+    .mouse-wrap p {
+      font-family: "Raleway", sans-serif;
+      letter-spacing: 12px;
+      font-size:14px;
+      color: #ffffff;
+      animation:nudgeText 5.5s ease-out infinite;
+      position:absolute;
+      left:50%;
+      top:90px;
+      transform:translateX(-50%) translateY(0);
+      margin-left:6px;
+    }
+    @keyframes DrawLine {
+      0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      22% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      38%{ stroke-dashOffset: 125; stroke-dasharray: 120; stroke-opacity:1; }
+      38.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
+      48%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      64%{ stroke-dashOffset: 125; stroke-dasharray: 120; stroke-opacity:1; }
+      64.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
+      74%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      90%{ stroke-opacity:1; stroke-dashOffset: 125; stroke-dasharray: 120; }
+      90.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
+    }
+    @keyframes DrawLineBack {
+      0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      22% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      38%{ stroke-dashOffset: -114; stroke-dasharray: 120; stroke-opacity:1; }
+      38.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
+      48%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      64%{ stroke-dashOffset: -114; stroke-dasharray: 120; stroke-opacity:1; }
+      64.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
+      74%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
+      90%{ stroke-opacity:1; stroke-dashOffset: -114; stroke-dasharray: 120; }
+      90.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
+    }
+    @keyframes nudgeMouse {
+      0% { transform: translateY(0) translateX(-50%); }
+      22% { transform: translateY(0px) translateX(-50%); }
+      38%{ transform: translateY(9px) translateX(-50%); }
+      48%{ transform: translateY(0px) translateX(-50%); }
+      64%{ transform: translateY(9px) translateX(-50%); }
+      74%{ transform: translateY(0px) translateX(-50%); }
+      90%{ transform: translateY(9px) translateX(-50%); }
+    }
+    @keyframes nudgeText {
+      0% { transform: translateY(0) translateX(-50%) scaleY(1); opacity:1; }
+      22% { transform: translateY(0px) translateX(-50%)  scaleY(1); opacity:1; }
+      38%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
+      48%{ transform: translateY(0px) translateX(-50%) scaleY(1); opacity:1; }
+      64%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
+      74%{ transform: translateY(0px) translateX(-50%) scaleY(1); opacity:1; }
+      90%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
+    }
+    @keyframes trackBallSlide {
+      0% { transform:translateY(20px) scale(1); opacity:1; }
+      22% { transform:translateY(20px) scale(1); opacity:1; }
+      26%{ transform:translateY(30px) scale(0.9); opacity:1; }
+      34%{ transform:translateY(55px) scale(0.1); opacity:0; }
+      41%{ transform:translateY(30px) scale(0); opacity:0.3; }
+      48%{ transform:translateY(20px) scale(1); opacity:1; }
+      52%{ transform:translateY(30px) scale(0.9); opacity:1; }
+      60%{ transform:translateY(55px) scale(0.1); opacity:0; }
+      67%{ transform:translateY(30px) scale(0); opacity:0.3; }
+      74%{ transform:translateY(20px) scale(1); opacity:1; }
+      78%{ transform:translateY(30px) scale(0.9); opacity:1; }
+      86%{ transform:translateY(55px) scale(0.1); opacity:0; }
+      93%{ transform:translateY(30px) scale(0); opacity:0.3; }
+      100%{ transform:translateY(20px) scale(1); opacity:1; }
+    }
 
-    .challenges-section .web-types-cards-container .flip-card {
-      min-width: 260px;
-      max-width: 340px;
-      height: 180px;
-      padding-right: 30px;
+     /* Web Solutions Section Card Style Update */
+    .web-solutions-section .flip-card-front,
+    .web-solutions-section .flip-card-back {
+      background: rgba(255, 255, 255, 0.055) !important;
+      color: #222 !important;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+      border: 1px solid rgba(212,175,55,0.13);
     }
-    @media (max-width: 1100px) {
-      .challenges-section .web-types-cards-container .flip-card {
-        min-width: 180px;
-        max-width: 240px;
-        height: 130px;
-      }
+    .web-solutions-section .flip-card-front i {
+      color: #b8960f !important;
     }
-    @media (max-width: 700px) {
-      .challenges-section .web-types-cards-container .flip-card {
-        min-width: 120px;
-        max-width: 180px;
-        height: 100px;
-      }
+    .web-solutions-section .flip-card-inner, 
+    .web-solutions-section .flip-card-front, 
+    .web-solutions-section .flip-card-back {
+      border-radius: 18px !important;
     }
-    
-    /* Animation styles for section 2 challenge cards */
-    .challenges-section .flip-card {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    
-    .challenges-section .flip-card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .challenges-section .flip-card-inner {
-      transform: rotateY(0deg);
-      transition: transform 0.8s ease-in-out;
-    }
-    
-    .challenges-section .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    
-    /* Web types note styling */
-    .web-types-note {
-      text-align: center;
-      margin-top: 1.5em;
-      color: #E6C99A;
-      font-size: 0.95em;
-      opacity: 0.9;
-    }
-    
-    /* Animation styles for web solutions section */
-    .web-solutions-section .flip-card {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    
-    /* First card should always be visible by default */
-    .web-solutions-section .flip-card:first-child {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-    
-    .web-solutions-section .flip-card.hidden {
-      opacity: 0;
-      transform: translateY(-100px);
-    }
-    
-    .web-solutions-section .flip-card.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .web-solutions-section .flip-card-inner {
-      transform: rotateY(0deg);
-      transition: transform 0.8s ease-in-out;
-    }
-    
-    .web-solutions-section .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
+    .web-solutions-section .web-type-title, 
+    .web-solutions-section .web-type-desc {
+      color: #ffffff !important;
     }
   </style>
 </head>
