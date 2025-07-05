@@ -90,6 +90,19 @@
     .web-type-desc {
       font-size: 0.92em;
     }
+    .challenge-title {
+      font-size: 0.98em;
+    }
+    .challenge-desc {
+      font-size: 0.92em;
+    }
+    .web-types-note {
+      text-align: center;
+      margin-top: 1.5em;
+      font-size: 0.9em;
+      color: #E6C99A;
+      opacity: 0.8;
+    }
     @media (max-width: 1100px) {
       .web-types-cards-container {
         grid-template-columns: repeat(2, 1fr);
@@ -317,7 +330,58 @@
         font-size: 1.5em;
       }
     }
-    /* ...existing code... */
+
+    /* Additional styles for the second section as per the code change */
+    .flipCard-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1.5em;
+      margin-top: 2em;
+      justify-items: center;
+    }
+    .flipCard-container .flip-card {
+      width: 270px;
+      min-width: 180px;
+      height: 160px;
+      max-width: 340px;
+    }
+    .flipCard-container .flip-card-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.18em;
+    }
+    .flipCard-container .flip-card-front i {
+      color: #E6C99A;
+      font-size: 2.2em;
+      margin-bottom: 0.4em;
+    }
+    .flipCard-container .flip-card-back {
+      font-size: 1em;
+    }
+    @media (max-width: 700px) {
+      .flipCard-container {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(5, 1fr) !important;
+        margin-top: 3.5em !important;
+        margin-bottom: 1.5em !important;
+      }
+      .flipCard-container .flip-card {
+        width: 98vw !important;
+        max-width: 170px !important;
+        min-width: 110px !important;
+        height: 110px !important;
+      }
+      .flipCard-container .flip-card-front i {
+        font-size: 1.5em !important;
+      }
+      .flipCard-container .flip-card[style*='grid-column:1/3'] {
+        grid-column: auto !important;
+        justify-self: center !important;
+      }
+    }
   </style>
 </head>
 <body>  
@@ -370,8 +434,8 @@
              Explore What You Truly Need
           </div>
         </div>
-      </div }
-    </div>
+      </div
+      
      <div style="display:flex; justify-content:center; margin-top:2.5em;">
             <div class="mouse-wrap">
               <div class="mouse">
@@ -403,219 +467,101 @@
               <p>Scroll</p>
             </div>
           </div>
-          <style>
-          /* Mouse Scroll Indicator Styles */
-          @import url(https://fonts.googleapis.com/css?family=Raleway);
-          .mouse-wrap{
-            display:inline-block;
-            position:absolute;
-            left:50%;
-            top:75%; /* Lowered from 50% to 75% */
-            transform:translate(-50%,-50%);
-          }
-          .mouse {
-            top:0;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 48px;
-            animation: nudgeMouse 5.5s ease-out infinite;
-          }
-          .mouse:after {
-            content: '';
-            background-color: #ffffff;
-            width: 7px;
-            height: 7px;
-            border-radius: 100%;
-            animation: trackBallSlide 5.5s linear infinite;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            transform:translateY(20px);
-          }
-          .mouse .frame {
-            width: 100%;
-            position: absolute;
-            z-index: 1;
-          }
-          .mouse .frame path {
-            fill: none;
-            stroke: #e4c590; /* Sandal color */
-            stroke-width: 3;
-            opacity:0.5;
-          }
-          .mouse .mouse-left,
-          .mouse .mouse-right {
-            width: 50%;
-            position: absolute;
-            z-index: 2;
-          }
-          .mouse .mouse-right {
-            right: 0;
-          }
-          .mouse .Animate-Draw {
-            fill: none;
-            stroke: #c2a472;
-            stroke-width: 3;
-            fill-opacity: 1;
-          }
-          .mouse .mouse-left .Animate-Draw {
-            animation: DrawLine 5.5s ease-out infinite;
-          }
-          .mouse .mouse-right .Animate-Draw {
-            animation: DrawLineBack 5.5s ease-out infinite;
-          }
-          .mouse-wrap p {
-            font-family: "Raleway", sans-serif;
-            letter-spacing: 12px;
-            font-size:14px;
-            color: #ffffff;
-            animation:nudgeText 5.5s ease-out infinite;
-            position:absolute;
-            left:50%;
-            top:90px;
-            transform:translateX(-50%) translateY(0);
-            margin-left:6px;
-          }
-          @keyframes DrawLine {
-            0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            22% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            38%{ stroke-dashOffset: 125; stroke-dasharray: 120; stroke-opacity:1; }
-            38.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-            48%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            64%{ stroke-dashOffset: 125; stroke-dasharray: 120; stroke-opacity:1; }
-            64.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-            74%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            90%{ stroke-opacity:1; stroke-dashOffset: 125; stroke-dasharray: 120; }
-            90.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-          }
-          @keyframes DrawLineBack {
-            0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            22% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            38%{ stroke-dashOffset: -114; stroke-dasharray: 120; stroke-opacity:1; }
-            38.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-            48%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            64%{ stroke-dashOffset: -114; stroke-dasharray: 120; stroke-opacity:1; }
-            64.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-            74%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-            90%{ stroke-opacity:1; stroke-dashOffset: -114; stroke-dasharray: 120; }
-            90.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-          }
-          @keyframes nudgeMouse {
-            0% { transform: translateY(0) translateX(-50%); }
-            22% { transform: translateY(0px) translateX(-50%); }
-            38%{ transform: translateY(9px) translateX(-50%); }
-            48%{ transform: translateY(0px) translateX(-50%); }
-            64%{ transform: translateY(9px) translateX(-50%); }
-            74%{ transform: translateY(0px) translateX(-50%); }
-            90%{ transform: translateY(9px) translateX(-50%); }
-          }
-          @keyframes nudgeText {
-            0% { transform: translateY(0) translateX(-50%) scaleY(1); opacity:1; }
-            22% { transform: translateY(0px) translateX(-50%)  scaleY(1); opacity:1; }
-            38%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
-            48%{ transform: translateY(0px) translateX(-50%) scaleY(1); opacity:1; }
-            64%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
-            74%{ transform: translateY(0px) translateX(-50%) scaleY(1); opacity:1; }
-            90%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
-          }
-          @keyframes trackBallSlide {
-            0% { transform:translateY(20px) scale(1); opacity:1; }
-            22% { transform:translateY(20px) scale(1); opacity:1; }
-            26%{ transform:translateY(30px) scale(0.9); opacity:1; }
-            34%{ transform:translateY(55px) scale(0.1); opacity:0; }
-            41%{ transform:translateY(30px) scale(0); opacity:0.3; }
-            48%{ transform:translateY(20px) scale(1); opacity:1; }
-            52%{ transform:translateY(30px) scale(0.9); opacity:1; }
-            60%{ transform:translateY(55px) scale(0.1); opacity:0; }
-            67%{ transform:translateY(30px) scale(0); opacity:0.3; }
-            74%{ transform:translateY(20px) scale(1); opacity:1; }
-            78%{ transform:translateY(30px) scale(0.9); opacity:1; }
-            86%{ transform:translateY(55px) scale(0.1); opacity:0; }
-            93%{ transform:translateY(30px) scale(0); opacity:0.3; }
-            100%{ transform:translateY(20px) scale(1); opacity:1; }
-          }
-          </style>
         </div>
   </section>
   <!-- END SECTION 1 -->
 
-  <!--Section 2-->
-   <section class="challenges-section">
+  
+  <section class="fifth">
     <div class="outer">
       <div class="inner">
-        <div class="bg one" style="background: url('https://images.pexels.com/photos/2823459/pexels-photo-2823459.jpeg') center center/cover no-repeat !important;">
-          <h2 class="section-heading">Common Challenges We solve</h2>
-          <div class="web-types-cards-container">
-            <!-- Card 1 -->
-            <div class="flip-card">
+        <div class="bg">
+          <h2 class="section-heading" style="padding-top: 250px;">We Asked the Hard Questions</h2>
+          <div class="flipCard-container" style="display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:1.5em;margin-top:2em;justify-items:center;">
+            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
               <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-pen-to-square" style="color:#E6C99A;"></i>
-                  <div class="challenge-title">"don't know what to include on site"</div>
+                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
+                  <i class="fas fa-box-open" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                  What are you selling?
                 </div>
-                <div class="flip-card-back">
-                  <div class="challenge-desc">We Guide you on what matters most for your business goals- no guesswork.</div>
+                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                  We Guide you on what matters most for your business goals- no guesswork.
                 </div>
               </div>
             </div>
-            <!-- Card 2 -->
-            <div class="flip-card">
+            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
               <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-file-lines" style="color:#E6C99A;"></i>
-                  <div class="challenge-title">We have no content ready.</div>
+                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
+                  <i class="fas fa-users" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                  Who are you selling it to?
                 </div>
-                <div class="flip-card-back">
-                  <div class="challenge-desc">No problem! We help you create content or work with what you have.</div>
+                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                  No problem! We help you create content or work with what you have.
                 </div>
               </div>
             </div>
-            <!-- Card 3 -->
-            <div class="flip-card">
-              <div class="flip-card-inner"> 
-                <div class="flip-card-front">
-                  <i class="fas fa-lightbulb" style="color:#E6C99A;"></i>
-                  <div class="challenge-title">"We have 3 ideas, but no clarity"</div>
+            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
+              <div class="flip-card-inner">
+                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
+                  <i class="fas fa-question-circle" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                  Why should they care?
                 </div>
-                <div class="flip-card-back">
-                  <div class="challenge-desc">We help you prioritize your goals, not overwhelm you with tech talk.</div>
+                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                  We help you prioritize your goals, not overwhelm you with tech talk.
                 </div>
               </div>
             </div>
-            <!-- Card 4 -->
-            <div class="flip-card">
+            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
               <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-coins" style="color:#E6C99A;"></i>
-                  <div class="challenge-title">don't know what it should cost</div>
+                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
+                  <i class="fas fa-bullseye" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                  What's your primary goal?
                 </div>
-                <div class="flip-card-back">
-                  <div class="challenge-desc">We make pricing transparent and simple—no hidden fees, no surprises.</div>
+                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                  We make pricing transparent and simple—no hidden fees, no surprises.
                 </div>
               </div>
             </div>
-            <!-- Card 5 -->
-            <div class="flip-card">
+            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;grid-column:1/3;justify-self:center;">
               <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-rotate-right" style="color:#E6C99A;"></i>
-                  <div class="challenge-title">"We tried before... and failed"</div>
+                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
+                  <i class="fas fa-trophy" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                  Who's your competition?
                 </div>
-                <div class="flip-card-back">
-                  <div class="challenge-desc">We turn past setbacks into a fresh, guided start—no judgment, just solutions.</div>
+                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                  We turn past setbacks into a fresh, guided start—no judgment, just solutions.
                 </div>
               </div>
             </div>
           </div>
-          <div class="web-types-note">💡 <b>Hint:</b> Click on a card to flip it and read more.</div>
+          <style>
+            @media (max-width: 700px) {
+              .flipCard-container {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: repeat(5, 1fr) !important;
+                margin-top: 3.5em !important;
+                margin-bottom: 1.5em !important;
+              }
+              .flipCard-container .flip-card {
+                width: 98vw !important;
+                max-width: 170px !important;
+                min-width: 110px !important;
+                height: 110px !important;
+              }
+              .flipCard-container .flip-card-front i {
+                font-size: 1.5em !important;
+              }
+              .flipCard-container .flip-card[style*='grid-column:1/3'] {
+                grid-column: auto !important;
+                justify-self: center !important;
+              }
+            }
+          </style>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- SECTION 3: BEFORE YOU START, LET'S GET ALIGNED -->
     <section class="sixth">
@@ -799,153 +745,83 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
   <script>
-    // Challenge flip cards animation for section 2
-    document.addEventListener('DOMContentLoaded', function() {
-      const challengeCards = document.querySelectorAll('.challenges-section .flip-card');
-      const section2 = document.querySelector('.challenges-section');
-      let animationStarted = false;
-
-      console.log('Challenge cards found:', challengeCards.length);
-      console.log('Section 2 found:', section2);
-
-      // Initially hide all cards and ensure they show front side
-      challengeCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(-50px)';
-        card.classList.remove('flipped'); // Ensure cards start with front side visible
-      });
-
-      // Intersection Observer for slide-down animation
-      const observer = new IntersectionObserver((entries) => {
+    // Intersection Observer for section 6 animation
+    const processSection = document.querySelector('.process-section');
+    const processCardsContainer = document.querySelector('.process-section .analysis-answers');
+    if (processSection && processCardsContainer) {
+      const processObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && !animationStarted) {
-            console.log('Section 2 is in view, starting animation');
-            animationStarted = true;
-            startSequentialAnimation();
-            observer.unobserve(entry.target); // Only animate once
+          if (entry.isIntersecting) {
+            processCardsContainer.classList.add('animate');
+            processObserver.unobserve(entry.target); // Only animate once
           }
         });
       }, {
-        threshold: 0.2, // Trigger when 20% of section is visible
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.3 // Trigger when 30% of section is visible
       });
+      processObserver.observe(processSection);
+    }
 
-      if (section2) {
-        observer.observe(section2);
-      }
-
-      // Sequential animation function
-      function startSequentialAnimation() {
-        console.log('Starting sequential animation for', challengeCards.length, 'cards');
-        challengeCards.forEach((card, index) => {
-          setTimeout(() => {
-            console.log('Animating card', index + 1);
-            // First: slide down the card
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-            card.classList.add('show');
-            
-            // Then: flip the card after slide down completes
-            setTimeout(() => {
-              card.classList.add('flipped');
-              console.log('Card', index + 1, 'flipped to back');
-              
-              // Remove flip after showing back content for 2 seconds
-              setTimeout(() => {
-                card.classList.remove('flipped');
-                console.log('Card', index + 1, 'flipped back to front');
-              }, 2000);
-            }, 600); // Wait for slide down animation to complete
-          }, index * 3000); // 3 second delay between each card
-        });
-      }
-
-      // Manual flip on click
-      challengeCards.forEach(card => {
-        card.addEventListener('click', function() {
-          // Toggle flip state
-          this.classList.toggle('flipped');
-        });
+    // Animation for web solutions section
+    const webSolutionsSection = document.querySelector('.web-solutions-section');
+    const webSolutionsCards = document.querySelectorAll('.web-solutions-section .flip-card');
+    
+    if (webSolutionsSection && webSolutionsCards.length > 0) {
+      // Initially hide all cards except the first one
+      webSolutionsCards.forEach((card, index) => {
+        if (index === 0) {
+          // Ensure first card is visible and remove any hidden class
+          card.classList.remove('hidden');
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        } else {
+          card.classList.add('hidden');
+        }
       });
-
-      // Intersection Observer for section 6 animation
-      const processSection = document.querySelector('.process-section');
-      const processCardsContainer = document.querySelector('.process-section .analysis-answers');
-      if (processSection && processCardsContainer) {
-        const processObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              processCardsContainer.classList.add('animate');
-              processObserver.unobserve(entry.target); // Only animate once
-            }
-          });
-        }, {
-          threshold: 0.3 // Trigger when 30% of section is visible
-        });
-        processObserver.observe(processSection);
-      }
-
-      // Animation for web solutions section
-      const webSolutionsSection = document.querySelector('.web-solutions-section');
-      const webSolutionsCards = document.querySelectorAll('.web-solutions-section .flip-card');
       
-      if (webSolutionsSection && webSolutionsCards.length > 0) {
-        // Initially hide all cards except the first one
-        webSolutionsCards.forEach((card, index) => {
-          if (index === 0) {
-            // Ensure first card is visible and remove any hidden class
-            card.classList.remove('hidden');
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-        
-        const webSolutionsObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Animate cards sequentially
-              webSolutionsCards.forEach((card, index) => {
-                if (index === 0) {
-                  // First card is already visible, just flip it
+      const webSolutionsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Animate cards sequentially
+            webSolutionsCards.forEach((card, index) => {
+              if (index === 0) {
+                // First card is already visible, just flip it
+                setTimeout(() => {
+                  card.classList.add('flipped');
+                  setTimeout(() => {
+                    card.classList.remove('flipped');
+                  }, 200); // Flip back after 200ms
+                }, 200); // Flip after 200ms
+              } else {
+                // Other cards animate in with delay
+                const delay = index * 50; // 50ms between cards
+                setTimeout(() => {
+                  card.classList.remove('hidden');
+                  card.classList.add('animate');
                   setTimeout(() => {
                     card.classList.add('flipped');
                     setTimeout(() => {
                       card.classList.remove('flipped');
                     }, 200); // Flip back after 200ms
                   }, 200); // Flip after 200ms
-                } else {
-                  // Other cards animate in with delay
-                  const delay = index * 50; // 50ms between cards
-                  setTimeout(() => {
-                    card.classList.remove('hidden');
-                    card.classList.add('animate');
-                    setTimeout(() => {
-                      card.classList.add('flipped');
-                      setTimeout(() => {
-                        card.classList.remove('flipped');
-                      }, 200); // Flip back after 200ms
-                    }, 200); // Flip after 200ms
-                  }, delay);
-                }
-              });
-              webSolutionsObserver.unobserve(entry.target); // Only animate once
-            }
-          });
-        }, {
-          threshold: 0.05, // Trigger when only 5% of section is visible
-          rootMargin: '50px 0px 0px 0px' // Trigger 50px before section enters viewport
+                }, delay);
+              }
+            });
+            webSolutionsObserver.unobserve(entry.target); // Only animate once
+          }
         });
-        webSolutionsObserver.observe(webSolutionsSection);
-        // Manual flip on click for web solutions cards
-        webSolutionsCards.forEach(card => {
-          card.addEventListener('click', function() {
-            this.classList.toggle('flipped');
-          });
+      }, {
+        threshold: 0.05, // Trigger when only 5% of section is visible
+        rootMargin: '50px 0px 0px 0px' // Trigger 50px before section enters viewport
+      });
+      webSolutionsObserver.observe(webSolutionsSection);
+      // Manual flip on click for web solutions cards
+      webSolutionsCards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('flipped');
         });
-      }
-    });
+      });
+    }
   </script>
 </body>
 </html>
