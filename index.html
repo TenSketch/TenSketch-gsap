@@ -56,7 +56,7 @@
           </p>
           <!-- Replaced chevron with animated mouse scroll indicator -->
           <div style="display:flex; justify-content:center; margin-top:2.5em;">
-            <div class="mouse-wrap">
+            <div class="mouse-wrap hidden-mouse">
               <div class="mouse">
                 <div class="frame">
                   <svg version="1.1" id="mouse" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -89,12 +89,23 @@
           <style>
           /* Mouse Scroll Indicator Styles */
           @import url(https://fonts.googleapis.com/css?family=Raleway);
-          .mouse-wrap{
+          .mouse-wrap {
             display:inline-block;
             position:absolute;
             left:50%;
             top:75%; /* Lowered from 50% to 75% */
-            transform:translate(-50%,-50%);
+            transform:translate(-50%,-50%) translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+          }
+          .hidden-mouse {
+            opacity: 0;
+            pointer-events: none;
+            transform:translate(-50%,-50%) translateY(40px);
+          }
+          .mouse-wrap:not(.hidden-mouse) {
+            opacity: 1;
+            pointer-events: auto;
+            transform:translate(-50%,-50%) translateY(0);
           }
           .mouse {
             top:0;
@@ -501,5 +512,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/SplitText.min.js"></script> -->
   <script src="main.js"></script>
+  <script>
+    // Show mouse icon after 2.5 seconds with fade up
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var mouseWrap = document.querySelector('.mouse-wrap');
+        if(mouseWrap) mouseWrap.classList.remove('hidden-mouse');
+      }, 700);
+    });
+  </script>
 </body>
 </html>
