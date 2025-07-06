@@ -1,4 +1,3 @@
-
 gsap.registerPlugin(Observer);
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,94 +93,97 @@ document.addEventListener('mousedown', function(e) {
 });
 
 
-const sections      = document.querySelectorAll("section"),
-      images        = document.querySelectorAll(".bg"),
-      outerWrappers = gsap.utils.toArray(".outer"),
-      innerWrappers = gsap.utils.toArray(".inner");
+// Disable parallax/section scroll effect on Terms and Conditions page
+if (!window.location.pathname.includes('terms-and-conditions.html')) {
+  const sections      = document.querySelectorAll("section"),
+        images        = document.querySelectorAll(".bg"),
+        outerWrappers = gsap.utils.toArray(".outer"),
+        innerWrappers = gsap.utils.toArray(".inner");
 
-let currentIndex = -1,
-    animating;
+  let currentIndex = -1,
+      animating;
 
 
-function gotoSection(index, direction) {
-  
-  if (index < 0 || index >= sections.length) return;
-  animating = true;
-  const fromTop = direction === -1,
-        dFactor = fromTop ? -1 : 1,
-        tl = gsap.timeline({
-          defaults: { duration: 1.25, ease: "power1.inOut" },
-          onComplete: () => animating = false
-        });
-
-  if (currentIndex >= 0) {
-    gsap.set(sections[currentIndex], { zIndex: 0 });
-    tl.to(images[currentIndex], { yPercent: -15 * dFactor })
-      .set(sections[currentIndex], { autoAlpha: 0 });
-  }
-
-  gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
-  tl.fromTo(
-      [ outerWrappers[index], innerWrappers[index] ],
-      { yPercent: i => i ? -100 * dFactor : 100 * dFactor },
-      { yPercent: 0 },
-      0
-    )
-    .fromTo(
-      images[index],
-      { yPercent: 15 * dFactor },
-      { yPercent: 0 },
-      0
-    );
-
-  currentIndex = index;
-  
-  if (sections[index].classList.contains("fifth")) {
+  function gotoSection(index, direction) {
     
-    const flipCards = document.querySelectorAll(".fifth .flip-card");
-    if (flipCards && flipCards.length > 0) {
-      playCardEntry();
-    }  }
+    if (index < 0 || index >= sections.length) return;
+    animating = true;
+    const fromTop = direction === -1,
+          dFactor = fromTop ? -1 : 1,
+          tl = gsap.timeline({
+            defaults: { duration: 1.25, ease: "power1.inOut" },
+            onComplete: () => animating = false
+          });
+
+    if (currentIndex >= 0) {
+      gsap.set(sections[currentIndex], { zIndex: 0 });
+      tl.to(images[currentIndex], { yPercent: -15 * dFactor })
+        .set(sections[currentIndex], { autoAlpha: 0 });
+    }
+
+    gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
+    tl.fromTo(
+        [ outerWrappers[index], innerWrappers[index] ],
+        { yPercent: i => i ? -100 * dFactor : 100 * dFactor },
+        { yPercent: 0 },
+        0
+      )
+      .fromTo(
+        images[index],
+        { yPercent: 15 * dFactor },
+        { yPercent: 0 },
+        0
+      );
+
+    currentIndex = index;
     
-  if (sections[index].classList.contains("second")) {
+    if (sections[index].classList.contains("fifth")) {
+      
+      const flipCards = document.querySelectorAll(".fifth .flip-card");
+      if (flipCards && flipCards.length > 0) {
+        playCardEntry();
+      }  }
+      
+    if (sections[index].classList.contains("second")) {
+      
+      const craftCards = document.querySelectorAll('.craft-card');
+      if (craftCards && craftCards.length > 0) {
+        playCraftCardsAnimation();
+      }
+    }
     
-    const craftCards = document.querySelectorAll('.craft-card');
-    if (craftCards && craftCards.length > 0) {
-      playCraftCardsAnimation();
+    
+    if (sections[index].classList.contains('ux-problems')) {
+      
+      playUXTitleAnimation();
+      setTimeout(() => playUXProblemsAnimation(), 300); 
+    }
+      
+    if (sections[index].classList.contains("testimonials")) {
+      playTestimonialsAnimation();
+    }
+    
+    
+    if (sections[index].classList.contains("sixth")) {
+      playInsightsAnimation();
     }
   }
-  
-  
-  if (sections[index].classList.contains('ux-problems')) {
-    
-    playUXTitleAnimation();
-    setTimeout(() => playUXProblemsAnimation(), 300); 
-  }
-    
-  if (sections[index].classList.contains("testimonials")) {
-    playTestimonialsAnimation();
-  }
-  
-  
-  if (sections[index].classList.contains("sixth")) {
-    playInsightsAnimation();
-  }
+
+  Observer.create({
+    type: "wheel,touch,pointer",
+    wheelSpeed: -1,
+    onDown:  () => {
+      if (!animating && currentIndex > 0) gotoSection(currentIndex - 1, -1);
+    },
+    onUp:    () => {
+      if (!animating && currentIndex < sections.length - 1) gotoSection(currentIndex + 1,  1);
+    },
+    tolerance: 10,
+    preventDefault: true
+  });
+
+  gotoSection(0, 1);
 }
-
-Observer.create({
-  type: "wheel,touch,pointer",
-  wheelSpeed: -1,
-  onDown:  () => {
-    if (!animating && currentIndex > 0) gotoSection(currentIndex - 1, -1);
-  },
-  onUp:    () => {
-    if (!animating && currentIndex < sections.length - 1) gotoSection(currentIndex + 1,  1);
-  },
-  tolerance: 10,
-  preventDefault: true
-});
-
-gotoSection(0, 1);
 
 
 function playCraftCardsAnimation() {
