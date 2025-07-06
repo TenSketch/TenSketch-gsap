@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://2025.tensketch.com/sitemap.xml
