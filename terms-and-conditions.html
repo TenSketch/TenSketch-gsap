@@ -7,8 +7,29 @@
   <link rel="icon" href="assets/images/TenSketch_logo_full_size_PNG.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Override problematic CSS to ensure scrolling works */
+    html, body {
+      height: auto !important;
+      min-height: 100vh !important;
+      overflow: visible !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    body {
+      background: #232323 !important;
+      color: #fff !important;
+    }
+    /* Ensure main content can scroll */
+    main {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+  </style>
 </head>
-  <body style="background: #232323 !important; min-height:100vh; color: #fff;">
+<body>
   <header>
     <div class="navbar">
       <a href="/" class="nav-logo">
@@ -45,44 +66,55 @@
     </nav>
   </header>
 
-  <main style="max-width:1200px; width:95vw; margin:2em auto 1em auto; background:rgba(30,30,30,0.98); padding:2em 2vw; border-radius:1.2em; box-shadow:0 4px 32px rgba(0,0,0,0.18); color:#fff; font-size:1.45em; min-height:40vh; position:relative; z-index:1;">
+  <main style="max-width:1200px; width:95vw; margin:2em auto 1em auto; background:rgba(30,30,30,0.98); padding:2em 2vw; border-radius:1.2em; box-shadow:0 4px 32px rgba(0,0,0,0.18); color:#fff; font-size:1.45em; position:relative; z-index:1;">
     <h1 style="text-align:center; font-size:3em; margin-bottom:0.5em; letter-spacing:0.08em; color:var(--accent-gold,#D4AF37);">Terms and Conditions</h1>
-    <ol style="padding-left:1.2em;">
-      <li><strong>Project Commencement</strong><br>
-        All projects will commence only after advance payment is received and the agreement is signed.
-      </li><br>
-      <li><strong>Domain & Hosting Management</strong><br>
-        At TenSketch, we handle end-to-end digital services, including domain management, hosting, code maintenance, support, and ongoing maintenance for every client. We either purchase the client’s domain or request its transfer to our account for seamless auto-renewals. This enables clients to focus on their business while we manage technical aspects.<br><br>
-        For businesses in critical security categories (e.g., banking, finance, large healthcare, or education organizations), the client reserves the right to retain control of domain and server as part of our special secured client service.<br><br>
-        The same applies to code ownership: only special secured category clients will have the right to own the project code.
-      </li><br>
-      <li><strong>Termination & Transfer</strong><br>
-        If a client wishes to terminate the agreement before the agreed tenure, they must pay a total of 5 years’ maintenance fees plus 5 times the initial development fee. Upon payment, we will transfer the domain to the client; however, the code remains the property of TenSketch. This does not apply to special secured category clients, who retain in-house ownership from the outset.
-      </li><br>
-      <li><strong>Content & Assets</strong><br>
-        Clients are responsible for providing all assets required for design and development. The use of copyrighted content is strictly prohibited, and TenSketch accepts no responsibility for any legal issues arising from unauthorized content provided by the client.<br><br>
-        If the client supplies or requests copyright-free assets, TenSketch will add credits to the original creators as required.<br><br>
-        Clients cannot request removal of credits unless they pay for or license the asset themselves.
-      </li><br>
-      <li><strong>Timeline & Delays</strong><br>
-        TenSketch will provide an estimated project timeline. Timelines may extend if delays are caused by incomplete requirements, late approvals, or unresponsive communication from the client.
-      </li><br>
-      <li><strong>Revisions & Scope</strong><br>
-        The agreement includes up to two rounds of revisions for each major phase (design, development). Additional revisions or changes outside the agreed scope will be billed separately at our standard hourly rates.
-      </li><br>
-      <li><strong>Data Privacy & Security</strong><br>
-        TenSketch commits to protecting confidential client data and will not disclose or sell any proprietary information. However, TenSketch is not liable for breaches due to external hacking or security failures beyond our control.
-      </li><br>
-      <li><strong>Maintenance & Warranty</strong><br>
-        TenSketch provides a 30-day warranty period post-launch for bug fixes related to the agreed scope. Additionally, for static websites, we offer one year of maintenance free of charge, which includes minor updates and support within the scope defined at project start. Ongoing maintenance beyond this period or outside the agreed scope requires a separate maintenance contract or renewal.
-      </li><br>
-      <li><strong>Dispute Resolution</strong><br>
-        Any disputes will be resolved amicably between both parties. If unresolved, they shall be subject to the exclusive jurisdiction of the courts of Chennai, Tamil Nadu, India.
-      </li><br>
-      <li><strong>Force Majeure</strong><br>
-        TenSketch will not be held liable for any delay or failure in performance due to events beyond our reasonable control, including natural disasters, war, strikes, pandemics, or internet outages.
-      </li>
-    </ol>
+    <div style="line-height:1.6; padding:1em 0;">
+      <ol style="padding-left:1.2em;">
+        <li style="margin-bottom:2em;"><strong>Project Commencement</strong><br>
+          All projects will commence only after advance payment is received and the agreement is signed.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Domain & Hosting Management</strong><br>
+          At TenSketch, we handle end-to-end digital services, including domain management, hosting, code maintenance, support, and ongoing maintenance for every client. We either purchase the client's domain or request its transfer to our account for seamless auto-renewals. This enables clients to focus on their business while we manage technical aspects.<br><br>
+          For businesses in critical security categories (e.g., banking, finance, large healthcare, or education organizations), the client reserves the right to retain control of domain and server as part of our special secured client service.<br><br>
+          The same applies to code ownership: only special secured category clients will have the right to own the project code.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Termination & Transfer</strong><br>
+          If a client wishes to terminate the agreement before the agreed tenure, they must pay a total of 5 years' maintenance fees plus 5 times the initial development fee. Upon payment, we will transfer the domain to the client; however, the code remains the property of TenSketch. This does not apply to special secured category clients, who retain in-house ownership from the outset.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Content & Assets</strong><br>
+          Clients are responsible for providing all assets required for design and development. The use of copyrighted content is strictly prohibited, and TenSketch accepts no responsibility for any legal issues arising from unauthorized content provided by the client.<br><br>
+          If the client supplies or requests copyright-free assets, TenSketch will add credits to the original creators as required.<br><br>
+          Clients cannot request removal of credits unless they pay for or license the asset themselves.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Timeline & Delays</strong><br>
+          TenSketch will provide an estimated project timeline. Timelines may extend if delays are caused by incomplete requirements, late approvals, or unresponsive communication from the client.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Revisions & Scope</strong><br>
+          The agreement includes up to two rounds of revisions for each major phase (design, development). Additional revisions or changes outside the agreed scope will be billed separately at our standard hourly rates.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Data Privacy & Security</strong><br>
+          TenSketch commits to protecting confidential client data and will not disclose or sell any proprietary information. However, TenSketch is not liable for breaches due to external hacking or security failures beyond our control.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Maintenance & Warranty</strong><br>
+          TenSketch provides a 30-day warranty period post-launch for bug fixes related to the agreed scope. Additionally, for static websites, we offer one year of maintenance free of charge, which includes minor updates and support within the scope defined at project start. Ongoing maintenance beyond this period or outside the agreed scope requires a separate maintenance contract or renewal.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Dispute Resolution</strong><br>
+          Any disputes will be resolved amicably between both parties. If unresolved, they shall be subject to the exclusive jurisdiction of the courts of Chennai, Tamil Nadu, India.
+        </li>
+        
+        <li style="margin-bottom:2em;"><strong>Force Majeure</strong><br>
+          TenSketch will not be held liable for any delay or failure in performance due to events beyond our reasonable control, including natural disasters, war, strikes, pandemics, or internet outages.
+        </li>
+      </ol>
+    </div>
   </main>
 
   <footer class="minimal-footer" style="background:rgba(20,20,20,0.98); border-radius:1.2em 1.2em 0 0; box-shadow:0 -2px 24px rgba(0,0,0,0.18); font-size:1.1em; padding:2.5em 0 1.5em 0; margin-top:2em; text-align:center; color:#d4af37; position:relative; z-index:1;">
