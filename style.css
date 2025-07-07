@@ -314,7 +314,7 @@ header .logo { display: none !important; }
 
 .menu a {
   color: var(--secondary-clr);
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem); /* smaller text size */
   letter-spacing: clamp(0.05em, 0.1vw, 0.1em);
   padding: clamp(0.25rem, 1vw, 0.4rem) clamp(0.5rem, 2vw, 0.8rem);
   transition: all 0.3s ease;
@@ -2202,7 +2202,7 @@ body {
 
 .btn-submit:active {
   transform: translateY(0);
-  transition: all 0.1s;
+  transition: all  0.1s;
 }
 
 .btn-submit i {
