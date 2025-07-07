@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://2025.tensketch.com/sitemap.xml
+Sitemap: https://www.tensketch.com/sitemap.xml
