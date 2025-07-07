@@ -363,17 +363,24 @@
     /* Additional styles for the second section as per the code change */
     .flipCard-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
       gap: 1.5em;
       margin-top: 2em;
       justify-items: center;
     }
     .flipCard-container .flip-card {
-      width: 270px;
-      min-width: 180px;
+      width: 100%;
+      min-width: 0;
+      max-width: none;
       height: 160px;
-      max-width: 340px;
+      grid-column: auto !important;
+      justify-self: stretch;
+    }
+    /* Remove special grid-column for the 5th card */
+    .flipCard-container .flip-card[style*='grid-column:1/3'] {
+      grid-column: auto !important;
+      justify-self: stretch !important;
     }
     .flipCard-container .flip-card-front {
       display: flex;
@@ -390,10 +397,33 @@
     .flipCard-container .flip-card-back {
       font-size: 1em;
     }
+    @media (max-width: 1200px) and (min-width: 701px) {
+      .flipCard-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(3, 1fr) !important;
+        gap: 1.2em !important;
+        margin-top: 2.5em !important;
+      }
+      .flipCard-container .flip-card {
+        width: 100% !important;
+        max-width: 300px !important;
+        min-width: 200px !important;
+        height: 140px !important;
+      }
+      .flipCard-container .flip-card-front i {
+        font-size: 1.8em !important;
+      }
+      .flipCard-container .flip-card:nth-child(5) {
+        grid-column: 1 / span 2 !important;
+        justify-self: center !important;
+        max-width: 250px !important;
+      }
+    }
     @media (max-width: 700px) {
       .flipCard-container {
-        grid-template-columns: 1fr !important;
-        grid-template-rows: repeat(5, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(3, 1fr) !important;
+        gap: 1em !important;
         margin-top: 3.5em !important;
         margin-bottom: 1.5em !important;
       }
@@ -406,9 +436,10 @@
       .flipCard-container .flip-card-front i {
         font-size: 1.5em !important;
       }
-      .flipCard-container .flip-card[style*='grid-column:1/3'] {
-        grid-column: auto !important;
+      .flipCard-container .flip-card:nth-child(5) {
+        grid-column: 1 / span 2 !important;
         justify-self: center !important;
+        max-width: 150px !important;
       }
     }
   </style>
@@ -505,8 +536,8 @@
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <h2 class="section-heading hard-questions-heading">We Asked the Hard Questions</h2>
-          <div class="flipCard-container" style="display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:1.5em;margin-top:2em;justify-items:center;">
+          <h2 class="section-heading hard-questions-heading">Common Challenges We See (And Solve)</h2>
+          <div class="flipCard-container" style="display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr;gap:1.5em;margin-top:2em;justify-items:center;">
             <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
               <div class="flip-card-inner">
                 <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
@@ -564,10 +595,33 @@
             </div>
           </div>
           <style>
+            @media (max-width: 1200px) and (min-width: 701px) {
+              .flipCard-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(3, 1fr) !important;
+                gap: 1.2em !important;
+                margin-top: 2.5em !important;
+              }
+              .flipCard-container .flip-card {
+                width: 100% !important;
+                max-width: 300px !important;
+                min-width: 200px !important;
+                height: 140px !important;
+              }
+              .flipCard-container .flip-card-front i {
+                font-size: 1.8em !important;
+              }
+              .flipCard-container .flip-card:nth-child(5) {
+                grid-column: 1 / span 2 !important;
+                justify-self: center !important;
+                max-width: 250px !important;
+              }
+            }
             @media (max-width: 700px) {
               .flipCard-container {
-                grid-template-columns: 1fr !important;
-                grid-template-rows: repeat(5, 1fr) !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(3, 1fr) !important;
+                gap: 1em !important;
                 margin-top: 3.5em !important;
                 margin-bottom: 1.5em !important;
               }
@@ -580,9 +634,10 @@
               .flipCard-container .flip-card-front i {
                 font-size: 1.5em !important;
               }
-              .flipCard-container .flip-card[style*='grid-column:1/3'] {
-                grid-column: auto !important;
+              .flipCard-container .flip-card:nth-child(5) {
+                grid-column: 1 / span 2 !important;
                 justify-self: center !important;
+                max-width: 150px !important;
               }
             }
           </style>
