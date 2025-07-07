@@ -45,7 +45,7 @@
     </nav>
   </header>
 
-  <main style="width: 98vw; max-width: none; margin: 2em auto 1em auto; background:rgba(0,0,0,0.7); padding:2em 2vw; border-radius:1.2em; box-shadow:0 4px 32px rgba(0,0,0,0.18); color:#fff; font-size:1.45em; min-height: 40vh;">
+  <main style="max-width:800px; width:95vw; margin:2em auto 1em auto; background:rgba(0,0,0,0.7); padding:2em 2vw; border-radius:1.2em; box-shadow:0 4px 32px rgba(0,0,0,0.18); color:#fff; font-size:1.45em; min-height:40vh; position:relative; z-index:1;">
     <h1 style="text-align:center; font-size:3em; margin-bottom:0.5em; letter-spacing:0.08em; color:var(--accent-gold,#D4AF37);">Terms and Conditions</h1>
     <ol style="padding-left:1.2em;">
       <li><strong>Project Commencement</strong><br>
@@ -85,25 +85,28 @@
     </ol>
   </main>
 
-  <footer class="minimal-footer" style="font-size:1.4em; padding:2.5em 0; height: 200px;">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg">
-          <p class="footer-text" style="margin-bottom:1.2em;">© 2025 TenSketch. Crafted for visionary brands.</p>
-          <div class="footer-links" style="line-height:2.2;">
-            <a href="/" class="footer-link">Home</a> |
-            <a href="About.html" class="footer-link">About us</a> |
-            <a href="Web-solutions.html" class="footer-link">Services</a> |
-            <a href="Beyond-Web.html" class="footer-link">Branding</a> |
-            <a href="privacy-policy.html" class="footer-link">Privacy policy</a> |
-            <a href="terms-and-conditions.html" class="footer-link">Terms and conditions</a> |
-            <a href="Contact.html" class="footer-link">Contact us</a>
-          </div>
-        </div>
-      </div>
+  <footer class="minimal-footer" style="background:rgba(20,20,20,0.98); border-radius:1.2em 1.2em 0 0; box-shadow:0 -2px 24px rgba(0,0,0,0.18); font-size:1.1em; padding:2.5em 0 1.5em 0; margin-top:2em; text-align:center; color:#d4af37; position:relative; z-index:1;">
+    <div style="max-width:800px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:1.2em;">
+      <p class="text-center mb-0" style="margin:0; font-weight:600; letter-spacing:0.04em;">Copyright © 2017 - <script>document.write(new Date().getFullYear());</script> TenSketch</p>
+      <nav style="display:flex; flex-wrap:wrap; gap:1.2em; justify-content:center;">
+        <a href="/" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">Home</a>
+        <a href="About.html" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">About us</a>
+        <a href="Web-solutions.html" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">Services</a>
+        <a href="Beyond-Web.html" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">Branding</a>
+        <a href="privacy-policy.html" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">Privacy policy</a>
+        <a href="terms-and-conditions.html" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">Terms and conditions</a>
+        <a href="Contact.html" class="footer-link" style="color:#fff; text-decoration:none; transition:color 0.2s;">Contact us</a>
+      </nav>
     </div>
+    <style>
+      .footer-link:hover { color: #d4af37 !important; text-decoration: underline; }
+      .minimal-footer { border-top: 1px solid rgba(255,255,255,0.08); }
+    </style>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
