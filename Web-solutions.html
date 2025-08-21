@@ -1,450 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Solutions: Custom Websites & Apps Tailored for Your Business | TenSketch</title>
-  <meta name="description" content="From static websites to advanced web apps, discover our range of handcrafted solutions that bring your ideas to life.">
-  <meta name="keywords" content="web solutions, custom website development, dynamic websites, e-commerce, microsites, admin dashboards, TenSketch">
+  <meta name="description"
+    content="From static websites to advanced web apps, discover our range of handcrafted solutions that bring your ideas to life.">
+  <meta name="keywords"
+    content="web solutions, custom website development, dynamic websites, e-commerce, microsites, admin dashboards, TenSketch">
   <!-- Favicon -->
   <link rel="icon" href="assets/images/TenSketch_logo_full_size_PNG.png" type="image/png">
   <!-- Open Graph -->
   <meta property="og:title" content="Web Solutions: Custom Websites & Apps Tailored for Your Business | TenSketch" />
-  <meta property="og:description" content="From static websites to advanced web apps, discover our range of handcrafted solutions that bring your ideas to life." />
+  <meta property="og:description"
+    content="From static websites to advanced web apps, discover our range of handcrafted solutions that bring your ideas to life." />
   <meta property="og:url" content="https://www.tensketch.com/web-solutions" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.tensketch.com/path/to/og-image.jpg" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <link rel="stylesheet" href="style.css">
-  <style>
-    .web-types-cards-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 1em;
-      justify-items: start;
-      align-items: stretch;
-      justify-content: start; /* Ensure grid aligns left */
-      margin-left: 0; /* Remove any centering */
-      margin-right: auto;
-    }
-    .flip-card {
-      width: 100%;
-      max-width: 300px;
-      min-width: 220px;
-      height: 150px;
-      perspective: 1000px;
-      margin-bottom: 0;
-      opacity: 1;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .flip-card::before {
-      content: "";
-      position: absolute;
-      top: -100%;
-      left: -100%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, rgba(212,175,55,0.4) 0%, rgba(212,175,55,0.2) 20%, rgba(212,175,55,0) 70%);
-      transform: translate(0, 0) rotate(45deg);
-      transition: transform 0.6s ease;
-      pointer-events: none;
-    }
-    .flip-card:hover::before {
-      transform: translate(50%, 50%) rotate(45deg);
-    }
-    .flip-card-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.6s ease;
-      transform: rotateY(0deg);
-    }
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(212,175,55,0.2);
-      border-radius: 12px !important;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      backface-visibility: hidden;
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      text-align: center;
-    }
-    .flip-card-front {
-      background: transparent;
-    }
-    .flip-card-front i {
-      font-size: 2.5em;
-      margin-bottom: 0.5rem;
-    }
-    .flip-card-back {
-      background: rgba(212,175,55,0.05);
-      color: #E6C99A;
-      transform: rotateY(180deg);
-      font-size: 1rem;
-    }
-    .flip-card-inner, .flip-card-front, .flip-card-back {
-      border-radius: 12px !important;
-    }
-    .web-type-title {
-      font-size: 0.98em;
-    }
-    .web-type-desc {
-      font-size: 0.92em;
-    }
-    .challenge-title {
-      font-size: 0.98em;
-    }
-    .challenge-desc {
-      font-size: 0.92em;
-    }
-    .web-types-note {
-      text-align: center;
-      margin-top: 1.5em;
-      font-size: 0.9em;
-      color: #ffffff;
-      opacity: 0.8;
-    }
-    @media (max-width: 1100px) {
-      .web-types-cards-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        justify-content: start !important;
-        margin-left: 0 !important;
-        margin-right: auto !important;
-      }
-      .flip-card {
-        max-width: 220px;
-        min-width: 160px;
-        height: 120px;
-      }
-      .flip-card-front, .flip-card-back {
-        padding: 0.75rem;
-      }
-      .flip-card-front i {
-        font-size: 2em;
-      }
-      .web-type-title {
-        font-size: 0.98em;
-      }
-      .web-type-desc {
-        font-size: 0.92em;
-      }
-    }
-    @media (max-width: 700px) {
-      .web-types-cards-container {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(4, 1fr);
-        gap: 0.7em;
-        justify-content: start !important;
-        margin-left: 0 !important;
-        margin-right: auto !important;
-      }
-      .flip-card {
-        width: 98vw;
-        max-width: 150px;
-        min-width: 110px;
-        height: 80px;
-      }
-      /* Center the last flip card on mobile */
-      .web-types-cards-container > .flip-card:last-child {
-        grid-column: 1 / span 2;
-        justify-self: center;
-      }
-    }
-    /* Mouse Scroll Indicator Styles */
-    @import url(https://fonts.googleapis.com/css?family=Raleway);
-    .mouse-wrap{
-      display:inline-block;
-      position:absolute;
-      left:50%;
-      top:75%; /* Lowered from 50% to 75% */
-      transform:translate(-50%,-50%);
-    }
-    .mouse {
-      top:0;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 48px;
-      animation: nudgeMouse 5.5s ease-out infinite;
-    }
-    .mouse:after {
-      content: '';
-      background-color: #ffffff;
-      width: 7px;
-      height: 7px;
-      border-radius: 100%;
-      animation: trackBallSlide 5.5s linear infinite;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      transform:translateY(20px);
-    }
-    .mouse .frame {
-      width: 100%;
-      position: absolute;
-      z-index: 1;
-    }
-    .mouse .frame path {
-      fill: none;
-      stroke: #e4c590; /* Sandal color */
-      stroke-width: 3;
-      opacity:0.5;
-    }
-    .mouse .mouse-left,
-    .mouse .mouse-right {
-      width: 50%;
-      position: absolute;
-      z-index: 2;
-    }
-    .mouse .mouse-right {
-      right: 0;
-    }
-    .mouse .Animate-Draw {
-      fill: none;
-      stroke: #c2a472;
-      stroke-width: 3;
-      fill-opacity: 1;
-    }
-    .mouse .mouse-left .Animate-Draw {
-      animation: DrawLine 5.5s ease-out infinite;
-    }
-    .mouse .mouse-right .Animate-Draw {
-      animation: DrawLineBack 5.5s ease-out infinite;
-    }
-    .mouse-wrap p {
-      font-family: "Raleway", sans-serif;
-      letter-spacing: 12px;
-      font-size:14px;
-      color: #ffffff;
-      animation:nudgeText 5.5s ease-out infinite;
-      position:absolute;
-      left:50%;
-      top:90px;
-      transform:translateX(-50%) translateY(0);
-      margin-left:6px;
-    }
-    @keyframes DrawLine {
-      0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      22% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      38%{ stroke-dashOffset: 125; stroke-dasharray: 120; stroke-opacity:1; }
-      38.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-      48%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      64%{ stroke-dashOffset: 125; stroke-dasharray: 120; stroke-opacity:1; }
-      64.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-      74%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      90%{ stroke-opacity:1; stroke-dashOffset: 125; stroke-dasharray: 120; }
-      90.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-    }
-    @keyframes DrawLineBack {
-      0% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      22% { stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      38%{ stroke-dashOffset: -114; stroke-dasharray: 120; stroke-opacity:1; }
-      38.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-      48%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      64%{ stroke-dashOffset: -114; stroke-dasharray: 120; stroke-opacity:1; }
-      64.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-      74%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:1; }
-      90%{ stroke-opacity:1; stroke-dashOffset: -114; stroke-dasharray: 120; }
-      90.1%{ stroke-dashOffset: 0; stroke-dasharray: 120; stroke-opacity:0; }
-    }
-    @keyframes nudgeMouse {
-      0% { transform: translateY(0) translateX(-50%); }
-      22% { transform: translateY(0px) translateX(-50%); }
-      38%{ transform: translateY(9px) translateX(-50%); }
-      48%{ transform: translateY(0px) translateX(-50%); }
-      64%{ transform: translateY(9px) translateX(-50%); }
-      74%{ transform: translateY(0px) translateX(-50%); }
-      90%{ transform: translateY(9px) translateX(-50%); }
-    }
-    @keyframes nudgeText {
-      0% { transform: translateY(0) translateX(-50%) scaleY(1); opacity:1; }
-      22% { transform: translateY(0px) translateX(-50%)  scaleY(1); opacity:1; }
-      38%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
-      48%{ transform: translateY(0px) translateX(-50%) scaleY(1); opacity:1; }
-      64%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
-      74%{ transform: translateY(0px) translateX(-50%) scaleY(1); opacity:1; }
-      90%{ transform: translateY(5px) translateX(-50%) scaleY(0.9); opacity:0.5; }
-    }
-    @keyframes trackBallSlide {
-      0% { transform:translateY(20px) scale(1); opacity:1; }
-      22% { transform:translateY(20px) scale(1); opacity:1; }
-      26%{ transform:translateY(30px) scale(0.9); opacity:1; }
-      34%{ transform:translateY(55px) scale(0.1); opacity:0; }
-      41%{ transform:translateY(30px) scale(0); opacity:0.3; }
-      48%{ transform:translateY(20px) scale(1); opacity:1; }
-      52%{ transform:translateY(30px) scale(0.9); opacity:1; }
-      60%{ transform:translateY(55px) scale(0.1); opacity:0; }
-      67%{ transform:translateY(30px) scale(0); opacity:0.3; }
-      74%{ transform:translateY(20px) scale(1); opacity:1; }
-      78%{ transform:translateY(30px) scale(0.9); opacity:1; }
-      86%{ transform:translateY(55px) scale(0.1); opacity:0; }
-      93%{ transform:translateY(30px) scale(0); opacity:0.3; }
-      100%{ transform:translateY(20px) scale(1); opacity:1; }
-    }
 
-     /* Web Solutions Section Card Style Update */
-    .web-solutions-section .flip-card {
-      width: 100%;
-      max-width: 340px;
-      min-width: 250px;
-      height: 180px;
-    }
-    .web-solutions-section .flip-card-front,
-    .web-solutions-section .flip-card-back {
-      background: rgba(255, 255, 255, 0.055) !important;
-      color: #222 !important;
-      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
-      border: 1px solid rgba(212,175,55,0.13);
-      font-size: 1.15em;
-      padding: 1.2rem;
-    }
-    .web-solutions-section .flip-card-front i {
-      color: #b8960f !important;
-      font-size: 2.8em;
-    }
-    .web-solutions-section .flip-card-inner, 
-    .web-solutions-section .flip-card-front, 
-    .web-solutions-section .flip-card-back {
-      border-radius: 18px !important;
-    }
-    .web-solutions-section .web-type-title, 
-    .web-solutions-section .web-type-desc {
-      color: #ffffff !important;
-      font-size: 1.08em;
-    }
-    @media (max-width: 1100px) {
-      .web-solutions-section .flip-card {
-        max-width: 250px;
-        min-width: 170px;
-        height: 130px;
-      }
-      .web-solutions-section .flip-card-front i {
-        font-size: 2.1em;
-      }
-    }
-    @media (max-width: 700px) {
-      .web-solutions-section .flip-card {
-        width: 98vw;
-        max-width: 170px;
-        min-width: 120px;
-        height: 90px;
-      }
-      .web-solutions-section .flip-card-front i {
-        font-size: 1.5em;
-      }
-    }
 
-    /* Responsive padding for hard questions heading */
-    .hard-questions-heading {
-      padding-top: 100px;
-    }
-    
-    @media (max-width: 700px) {
-      .hard-questions-heading {
-        padding-top: 200px !important;
-      }
-    }
-    
-    /* Additional styles for the second section as per the code change */
-    .flipCard-container {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr;
-      gap: 1.5em;
-      margin-top: 2em;
-      justify-items: center;
-    }
-    .flipCard-container .flip-card {
-      width: 100%;
-      min-width: 0;
-      max-width: none;
-      height: 160px;
-      grid-column: auto !important;
-      justify-self: stretch;
-    }
-    /* Remove special grid-column for the 5th card */
-    .flipCard-container .flip-card[style*='grid-column:1/3'] {
-      grid-column: auto !important;
-      justify-self: stretch !important;
-    }
-    .flipCard-container .flip-card-front {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.18em;
-    }
-    .flipCard-container .flip-card-front i {
-      color: #E6C99A;
-      font-size: 2.2em;
-      margin-bottom: 0.4em;
-    }
-    .flipCard-container .flip-card-back {
-      font-size: 1em;
-    }
-    @media (max-width: 1200px) and (min-width: 701px) {
-      .flipCard-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-template-rows: repeat(3, 1fr) !important;
-        gap: 1.2em !important;
-        margin-top: 2.5em !important;
-      }
-      .flipCard-container .flip-card {
-        width: 100% !important;
-        max-width: 300px !important;
-        min-width: 200px !important;
-        height: 140px !important;
-      }
-      .flipCard-container .flip-card-front i {
-        font-size: 1.8em !important;
-      }
-      .flipCard-container .flip-card:nth-child(5) {
-        grid-column: 1 / span 2 !important;
-        justify-self: center !important;
-        max-width: 250px !important;
-      }
-    }
-    @media (max-width: 700px) {
-      .flipCard-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-template-rows: repeat(3, 1fr) !important;
-        gap: 1em !important;
-        margin-top: 3.5em !important;
-        margin-bottom: 1.5em !important;
-      }
-      .flipCard-container .flip-card {
-        width: 98vw !important;
-        max-width: 170px !important;
-        min-width: 110px !important;
-        height: 110px !important;
-      }
-      .flipCard-container .flip-card-front i {
-        font-size: 1.5em !important;
-      }
-      .flipCard-container .flip-card:nth-child(5) {
-        grid-column: 1 / span 2 !important;
-        justify-self: center !important;
-        max-width: 150px !important;
-      }
-    }
-  </style>
 </head>
-<body>  
+
+<body>
   <header>
     <div class="navbar">
       <a href="/" class="nav-logo">
@@ -453,14 +34,16 @@
       <a href="https://instagram.com/tensketch" class="social-icon" target="_blank" rel="noopener">
         <i class="fa-brands fa-instagram"></i>
       </a>
-    </div>    <div id="logo-menu" class="logo-container">
+    </div>
+    <div id="logo-menu" class="logo-container">
       <svg class="logo-menu-border" viewBox="0 0 60 60">
         <circle cx="30" cy="30" r="26" fill="none" stroke-width="2" stroke="rgba(255,255,255,0.25)" />
         <circle cx="30" cy="30" r="26" fill="none" stroke-width="2" class="logo-menu-glow" />
       </svg>
       <img src="assets/images/logo-left.png" alt="Logo Left Half" class="logo-half logo-left">
       <img src="assets/images/logo-right.png" alt="Logo Right Half" class="logo-half logo-right">
-    </div>    <nav class="menu">
+    </div>
+    <nav class="menu">
       <button class="menu-close" aria-label="Close Menu">
         <img src="assets/images/cross.png" alt="Close">
       </button>
@@ -469,20 +52,22 @@
         <li><a href="About.html">Our Story</a></li>
         <!-- <li><a href="Think-ux-first.html">Think Ux First</a></li> -->
         <li><a href="Web-solutions.html">Web Solutions</a></li>
-        <li><a href="Our-work.html">Our Work</a></li>       
+        <li><a href="Our-work.html">Our Work</a></li>
         <li><a href="Beyond-Web.html">Beyond Web</a></li>
         <li><a href="Contact.html">let's talk</a></li>
         <!-- Phone & WhatsApp icons below Let's talk -->
         <li style="display: flex; justify-content: center; gap: 1.2em; margin-top: 0.5em;">
-          <a href="tel:+919840167444" target="_blank" aria-label="Call us" style="font-size:1.7em; color: #d4af37;"><i class="fas fa-phone"></i></a>
-          <a href="https://wa.me/919840167444" target="_blank" aria-label="WhatsApp" style="font-size:1.7em; color: #d4af37;"><i class="fab fa-whatsapp"></i></a>
+          <a href="tel:+919840167444" target="_blank" aria-label="Call us" style="font-size:1.7em; color: #d4af37;"><i
+              class="fas fa-phone"></i></a>
+          <a href="https://wa.me/919840167444" target="_blank" aria-label="WhatsApp"
+            style="font-size:1.7em; color: #d4af37;"><i class="fab fa-whatsapp"></i></a>
         </li>
       </ul>
     </nav>
   </header>
 
   <!-- SECTION 1: HERO - NOT JUST A WEBSITE, A REAL SOLUTION -->
- <section class="first">
+  <section class="first">
     <div class="outer">
       <div class="inner">
         <div class="bg one">
@@ -490,275 +75,246 @@
           <p class="section-text">
             Most clients don’t need just a website. They need a solution that actually solves a business problem.
           </p>
-          <div style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;border:none;letter-spacing:0.03em;position:relative;overflow:hidden;">
-             Explore What You Truly Need
+          <p class="text-center">
+            Explore What You Truly Need
+          </p>
+        </div>
+      </div <div class="d-flex">
+      <div class="mouse-wrap">
+        <div class="mouse">
+          <div class="frame">
+            <svg version="1.1" id="mouse" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 54.9 91" style="enable-background:new 0 0 54.9 91;" xml:space="preserve">
+              <path id="XMLID_173_" class="st0" linejoin="round" stroke-linecap="round" stroke-miterlimit="10" d="M27.4,3.6L27.4,3.6C14.2,3.6,3.5,14.3,3.5,27.5v36c0,13.2,10.7,23.9,23.9,23.9h0
+                    c13.2,0,23.9-10.7,23.9-23.9v-36C51.4,14.3,40.7,3.6,27.4,3.6z" />
+            </svg>
+          </div>
+          <div class="mouse-left">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27.4 91"
+              style="enable-background:new 0 0 27.4 91;" xml:space="preserve">
+              <path linejoin="round" stroke-linecap="round" stroke-miterlimit="10" class="Draw-Frame Animate-Draw"
+                d="M27.4,87.5L27.4,87.5c-13.2,0-23.9-10.7-23.9-23.9v-36c0-13.2,10.7-23.9,23.9-23.9h0" />
+            </svg>
+          </div>
+          <div class="mouse-right">
+            <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27.4 91"
+              style="enable-background:new 0 0 27.4 91;" xml:space="preserve">
+              <path linejoin="round" stroke-linecap="round" stroke-miterlimit="10" class="Draw-Frame Animate-Draw"
+                d="M0,3.6L0,3.6c13.2,0,23.9,10.7,23.9,23.9v36c0,13.2-10.7,23.9-23.9,23.9h0" />
+            </svg>
           </div>
         </div>
-      </div
-      
-     <div style="display:flex; justify-content:center; margin-top:2.5em;">
-            <div class="mouse-wrap">
-              <div class="mouse">
-                <div class="frame">
-                  <svg version="1.1" id="mouse" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                   viewBox="0 0 54.9 91" style="enable-background:new 0 0 54.9 91;" xml:space="preserve">
-                    <path id="XMLID_173_" class="st0"
-                      linejoin="round" stroke-linecap="round" stroke-miterlimit="10" d="M27.4,3.6L27.4,3.6C14.2,3.6,3.5,14.3,3.5,27.5v36c0,13.2,10.7,23.9,23.9,23.9h0
-                    c13.2,0,23.9-10.7,23.9-23.9v-36C51.4,14.3,40.7,3.6,27.4,3.6z"/>
-                  </svg>
-                </div>
-                <div class="mouse-left">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                   viewBox="0 0 27.4 91" style="enable-background:new 0 0 27.4 91;" xml:space="preserve">
-                    <path 
-                      linejoin="round" stroke-linecap="round" stroke-miterlimit="10"
-                      class="Draw-Frame Animate-Draw" d="M27.4,87.5L27.4,87.5c-13.2,0-23.9-10.7-23.9-23.9v-36c0-13.2,10.7-23.9,23.9-23.9h0"/>
-                  </svg>
-                </div>
-                <div class="mouse-right">
-                  <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                   viewBox="0 0 27.4 91" style="enable-background:new 0 0 27.4 91;" xml:space="preserve">
-                    <path 
-                      linejoin="round" stroke-linecap="round" stroke-miterlimit="10"
-                      class="Draw-Frame Animate-Draw" d="M0,3.6L0,3.6c13.2,0,23.9,10.7,23.9,23.9v36c0,13.2-10.7,23.9-23.9,23.9h0"/>
-                  </svg>
-                </div>
-              </div>
-              <p>Scroll</p>
-            </div>
-          </div>
-        </div>
+        <p>Scroll</p>
+      </div>
+    </div>
+    </div>
   </section>
   <!-- END SECTION 1 -->
 
-  
+
   <section class="fifth">
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <h2 class="section-heading hard-questions-heading">Common Challenges We See (And Solve)</h2>
-          <div class="flipCard-container" style="display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr;gap:1.5em;margin-top:2em;justify-items:center;">
-            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
+          <h2 class="section-heading">Common challenges we solve</h2>
+          <div class="flipCard-container">
+            <div class="flip-card">
               <div class="flip-card-inner">
-                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
-                  <i class="fas fa-box-open" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                <div class="flip-card-front">
+                  <i class="fas fa-box-open"></i>
                   We don't know what to include on the site
                 </div>
-                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                <div class="flip-card-back">
                   We guide you on what matters most for your business goals—no guesswork.
                 </div>
               </div>
             </div>
-            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
+            <div class="flip-card">
               <div class="flip-card-inner">
-                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
-                  <i class="fas fa-users" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                <div class="flip-card-front">
+                  <i class="fas fa-users"></i>
                   We have no content ready
                 </div>
-                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                <div class="flip-card-back">
                   No problem! We help you create content or work with what you have.
                 </div>
               </div>
             </div>
-            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
+            <div class="flip-card">
               <div class="flip-card-inner">
-                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
-                  <i class="fas fa-question-circle" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                <div class="flip-card-front">
+                  <i class="fas fa-question-circle"></i>
                   We have 3 ideas, but no clarity
                 </div>
-                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                <div class="flip-card-back">
                   We help you prioritize your goals, not overwhelm you with tech talk.
                 </div>
               </div>
             </div>
-            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;">
+            <div class="flip-card">
               <div class="flip-card-inner">
-                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
-                  <i class="fas fa-bullseye" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                <div class="flip-card-front">
+                  <i class="fas fa-bullseye"></i>
                   We don't know what it should cost
                 </div>
-                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                <div class="flip-card-back">
                   We make pricing transparent and simple—no hidden fees, no surprises.
                 </div>
               </div>
             </div>
-            <div class="flip-card" style="width:270px;min-width:180px;height:160px;max-width:340px;background:#ffffff11;color:#ffffff;grid-column:1/3;justify-self:center;">
+            <div class="flip-card">
               <div class="flip-card-inner">
-                <div class="flip-card-front" style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.18em;background:#ffffff11;color:#ffffff;">
-                  <i class="fas fa-trophy" style="color:#E6C99A;font-size:2.2em;margin-bottom:0.4em;"></i>
+                <div class="flip-card-front">
+                  <i class="fas fa-trophy"></i>
                   We tried before… and failed
                 </div>
-                <div class="flip-card-back" style="font-size:1em;background:#ffffff11;color:#ffffff;">
+                <div class="flip-card-back">
                   We turn past setbacks into a fresh, guided start—no judgment, just solutions.
                 </div>
               </div>
             </div>
           </div>
-          <style>
-            @media (max-width: 1200px) and (min-width: 701px) {
-              .flipCard-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                grid-template-rows: repeat(3, 1fr) !important;
-                gap: 1.2em !important;
-                margin-top: 2.5em !important;
-              }
-              .flipCard-container .flip-card {
-                width: 100% !important;
-                max-width: 300px !important;
-                min-width: 200px !important;
-                height: 140px !important;
-              }
-              .flipCard-container .flip-card-front i {
-                font-size: 1.8em !important;
-              }
-              .flipCard-container .flip-card:nth-child(5) {
-                grid-column: 1 / span 2 !important;
-                justify-self: center !important;
-                max-width: 250px !important;
-              }
-            }
-            @media (max-width: 700px) {
-              .flipCard-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                grid-template-rows: repeat(3, 1fr) !important;
-                gap: 1em !important;
-                margin-top: 3.5em !important;
-                margin-bottom: 1.5em !important;
-              }
-              .flipCard-container .flip-card {
-                width: 98vw !important;
-                max-width: 170px !important;
-                min-width: 110px !important;
-                height: 110px !important;
-              }
-              .flipCard-container .flip-card-front i {
-                font-size: 1.5em !important;
-              }
-              .flipCard-container .flip-card:nth-child(5) {
-                grid-column: 1 / span 2 !important;
-                justify-self: center !important;
-                max-width: 150px !important;
-              }
-            }
-          </style>
+
         </div>
       </div>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
   <!-- SECTION 3: BEFORE YOU START, LET'S GET ALIGNED -->
-    <section class="sixth">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg">
-        <h2 class="section-heading" style="padding-top: 120px;">Before you start, let's get aligned</h2>
-        <div class="analysis-answers">
-          <div class="answer-card">
-            <img src="assets/images/goal-100.png" alt="Define your business goal" class="answer-img">
-            <p class="answer-text"><b>Define your business goal</b><br>Clarify what you want to achieve so your website truly supports your objectives.</p>
-          </div>
-          <div class="answer-card">
-            <img src="assets/images/target-audience-100.png" alt="Identify users and what they expect" class="answer-img">
-            <p class="answer-text"><b>Identify users and what they expect</b><br>Understand your audience to create a site that meets their needs and expectations.</p>
-          </div>
-          <div class="answer-card">
-            <img src="assets/images/sell-100.png" alt="Decide what success looks like" class="answer-img">
-            <p class="answer-text"><b>Decide what success looks like <span style='font-weight:400;'>(leads, sales)</span></b><br>Set clear metrics so you know when your website is working for you.</p>
+  <section class="sixth">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading" >Before you start, let's get aligned</h2>
+          <div class="analysis-answers">
+            <div class="answer-card">
+              <div class="d-flex">
+                <img src="assets/images/goal-100.png" alt="Define your business goal" class="answer-img">
+                <h3 class="sub-heading my-0">Set Goals</h3>
+              </div>
+              <p class="answer-text">
+                Clarify what you want to achieve so your website truly supports your objectives.</p>
+            </div>
+            <div class="answer-card">
+              <div class="d-flex">
+                <img src="assets/images/target-audience-100.png" alt="Identify users and what they expect"
+                  class="answer-img">
+                <h3 class="sub-heading my-0">Identify Users</h3>
+              </div>
+              <p class="answer-text">
+                Understand your audience to create a site that meets their needs and expectations.</p>
+            </div>
+            <div class="answer-card">
+              <div class="d-flex">
+                <img src="assets/images/sell-100.png" alt="Decide what success looks like" class="answer-img">
+                <h3 class="sub-heading my-0">Visualize Results</h3>
+              </div>
+              <p class="answer-text">
+                Set clear metrics so you know when your website is working for you.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- END SECTION 3 -->
 
 
   <!--Section 4-->
-   <section class="fifth web-solutions-section">
+  <section class="fifth ">
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <h2 class="section-heading">Types of Web Solutions We Offer</h2>
-          <div class="web-types-cards-container">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-image" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">Static Websites</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">Brochure, personal, NGO, etc.</div>
-                </div>
-              </div>
-            </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-newspaper" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">CMS-Based Sites</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">Blogs, news, media</div>
-                </div>
-              </div>
-            </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-screwdriver-wrench" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">Custom Web Apps</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">ERPs, dashboards, client portals</div>
-                </div>
-              </div>
-            </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-cart-shopping" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">E-commerce Solutions</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">Product sales, bookings</div>
-                </div>
-              </div>
-            </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-bullseye" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">Microsites & Campaigns</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">Launches, events, brand stories</div>
-                </div>
-              </div>
-            </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-chart-bar" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">Dashboards/Admin Panels</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">Internal tools, analytics</div>
-                </div>
-              </div>
-            </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <i class="fas fa-rocket" style="color:#E6C99A;"></i>
-                  <div class="web-type-title">Landing Pages</div>
-                </div>
-                <div class="flip-card-back">
-                  <div class="web-type-desc">High-converting ad campaigns</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 class="section-heading">Our Web Solutions</h2>
+          <div class="flipCard-container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-image icon-gold"></i>
+        Static Websites
+      </div>
+      <div class="flip-card-back">
+        Brochure, personal, NGO, etc.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-newspaper icon-gold"></i>
+        CMS-Based Sites
+      </div>
+      <div class="flip-card-back">
+        Blogs, news, media
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-screwdriver-wrench icon-gold"></i>
+        Custom Web Apps
+      </div>
+      <div class="flip-card-back">
+        ERPs, dashboards, client portals
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-cart-shopping icon-gold"></i>
+        E-commerce Solutions
+      </div>
+      <div class="flip-card-back">
+        Product sales, bookings
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-bullseye icon-gold"></i>
+        Microsites & Campaigns
+      </div>
+      <div class="flip-card-back">
+        Launches, events, brand stories
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-chart-bar icon-gold"></i>
+        Dashboards/Admin Panels
+      </div>
+      <div class="flip-card-back">
+        Internal tools, analytics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <i class="fas fa-rocket icon-gold"></i>
+        Landing Pages
+      </div>
+      <div class="flip-card-back">
+        High-converting ad campaigns
+      </div>
+    </div>
+  </div>
+</div>
+
           <div class="web-types-note">💡 <b>Hint:</b> Click on a card to flip it and read more.</div>
         </div>
       </div>
@@ -766,31 +322,37 @@
   </section>
 
   <!-- SECTION 6: OUR THREE-PHASE WORKFLOW -->
-    <section class="sixth process-section">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg">
-        <h2 class="section-heading">Our three step process</h2>
-        <div class="analysis-answers">
-          <div class="answer-card">
-            <div class="answer-img"><i class="fas fa-lightbulb" style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
-            <p class="answer-text"><b>Understand & Plan</b><br>We listen, ask the right questions, and map your goals to a clear, actionable plan.</p>
-          </div>
-          <div class="answer-card">
-            <div class="answer-img"><i class="fas fa-palette" style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
-            <p class="answer-text"><b>Design & Build</b><br>We craft, iterate, and develop your solution with transparency and creativity at every step.</p>
-          </div>
-          <div class="answer-card">
-            <div class="answer-img"><i class="fas fa-rocket" style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
-            <p class="answer-text"><b>Support & Grow</b><br>After launch, we’re here for ongoing support, updates, and advice to help you grow.</p>
+  <section class="sixth process-section">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading">Our three step process</h2>
+          <div class="analysis-answers">
+            <div class="answer-card">
+              <div class="answer-img"><i class="fas fa-lightbulb"
+                  style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
+              <p class="answer-text"><b>Understand & Plan</b><br>We listen, ask the right questions, and map your goals
+                to a clear, actionable plan.</p>
+            </div>
+            <div class="answer-card">
+              <div class="answer-img"><i class="fas fa-palette"
+                  style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
+              <p class="answer-text"><b>Design & Build</b><br>We craft, iterate, and develop your solution with
+                transparency and creativity at every step.</p>
+            </div>
+            <div class="answer-card">
+              <div class="answer-img"><i class="fas fa-rocket"
+                  style="font-size:2.2em; color:#E6C99A; margin-bottom:0.5em;"></i></div>
+              <p class="answer-text"><b>Support & Grow</b><br>After launch, we’re here for ongoing support, updates, and
+                advice to help you grow.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- END SECTION 6 -->
-    
+
   <!-- SECTION 7: LEAD CTA - NEED CLARITY FIRST? -->
   <section class="first">
     <div class="outer">
@@ -801,7 +363,9 @@
             Still unsure which solution fits you?<br>
             Get a free 15-min consult and walk out with a clear website direction.
           </p>
-          <a href="contact.html" class="cta-btn" style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;background:linear-gradient(90deg,#b8960f 0%,#a0810d 100%);border:none;border-radius:2em;box-shadow:0 4px 18px rgba(184,150,15,0.18);text-decoration:none;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;cursor:pointer;">Book Your Free Clarity Call</a>
+          <a href="contact.html" class="cta-btn"
+            style="display:inline-block;margin-top:1.5em;padding:0.85em 2.2em;font-size:1.25em;font-weight:600;color:#fff;background:linear-gradient(90deg,#b8960f 0%,#a0810d 100%);border:none;border-radius:2em;box-shadow:0 4px 18px rgba(184,150,15,0.18);text-decoration:none;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;cursor:pointer;">Book
+            Your Free Clarity Call</a>
         </div>
       </div>
     </div>
@@ -811,7 +375,8 @@
   <!-- FOOTER -->
   <section class="minimal-footer">
     <div class="outer">
-      <div class="inner">        <div class="bg">
+      <div class="inner">
+        <div class="bg">
           <div class="footer-links">
             <a href="/" class="footer-link">Home</a> |
             <a href="About.html" class="footer-link">About us</a> |
@@ -821,7 +386,9 @@
             <a href="terms-and-conditions.html" class="footer-link">Terms and conditions</a> |
             <a href="Contact.html" class="footer-link">Contact us</a>
           </div>
-          <p class="footer-text text-center mb-0">Copyright © 2017 - <script>document.write(new Date().getFullYear());</script> TenSketch</p>
+          <p class="footer-text text-center mb-0">Copyright © 2017 -
+            <script>document.write(new Date().getFullYear());</script> TenSketch
+          </p>
         </div>
       </div>
     </div>
@@ -829,7 +396,8 @@
 
   <!-- GSAP Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
   <script>
     // Intersection Observer for section 6 animation
@@ -849,66 +417,14 @@
       processObserver.observe(processSection);
     }
 
-    // Animation for web solutions section
-    const webSolutionsSection = document.querySelector('.web-solutions-section');
-    const webSolutionsCards = document.querySelectorAll('.web-solutions-section .flip-card');
-    
-    if (webSolutionsSection && webSolutionsCards.length > 0) {
-      // Initially hide all cards except the first one
-      webSolutionsCards.forEach((card, index) => {
-        if (index === 0) {
-          // Ensure first card is visible and remove any hidden class
-          card.classList.remove('hidden');
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-      
-      const webSolutionsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Animate cards sequentially
-            webSolutionsCards.forEach((card, index) => {
-              if (index === 0) {
-                // First card is already visible, just flip it
-                setTimeout(() => {
-                  card.classList.add('flipped');
-                  setTimeout(() => {
-                    card.classList.remove('flipped');
-                  }, 200); // Flip back after 200ms
-                }, 200); // Flip after 200ms
-              } else {
-                // Other cards animate in with delay
-                const delay = index * 50; // 50ms between cards
-                setTimeout(() => {
-                  card.classList.remove('hidden');
-                  card.classList.add('animate');
-                  setTimeout(() => {
-                    card.classList.add('flipped');
-                    setTimeout(() => {
-                      card.classList.remove('flipped');
-                    }, 200); // Flip back after 200ms
-                  }, 200); // Flip after 200ms
-                }, delay);
-              }
-            });
-            webSolutionsObserver.unobserve(entry.target); // Only animate once
-          }
-        });
-      }, {
-        threshold: 0.05, // Trigger when only 5% of section is visible
-        rootMargin: '50px 0px 0px 0px' // Trigger 50px before section enters viewport
-      });
-      webSolutionsObserver.observe(webSolutionsSection);
-      // Manual flip on click for web solutions cards
-      webSolutionsCards.forEach(card => {
-        card.addEventListener('click', function() {
-          this.classList.toggle('flipped');
-        });
-      });
-    }
+   
+
+   
   </script>
+
+  <div class="section-heading-new">
+    New heading <span>to learn</span>
+  </div>
 </body>
+
 </html>

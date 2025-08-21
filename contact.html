@@ -55,45 +55,43 @@
   </header>
 
   <!-- SECTION 1: UX RESEARCH HERO -->
-  <section class="first">
+  <section class="first ">
     <div class="outer">
       <div class="inner">
-        <div class="bg one" style="position:relative; overflow:hidden;">
-          <!-- Removed Background Video for Section 1 -->
-          <div style="position:relative; z-index:1;">
-            <div class="ux-hero">
+        <div class="bg one">
+            <div class="container">
               <h2 class="section-heading">Contact Us</h2>
-              <div class="ux-content">
                 <p class="section-text">
                   Ready to take your user experience to the next level? <br>
                   Reach out and let’s start a conversation about your project, your goals, and how we can help.
                 </p>
-                <div class="ux-examples-compact">
-                  <div class="example-inline">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email: <strong>info@tensketch.com</strong></span>
+                <div class="d-flex justify-content-center my-2">
+                  <div class="col">
+                   
+                    <p><i class="fas fa-envelope"></i> info@tensketch.com</p>
                   </div>
-                  <div class="example-inline">
-                    <i class="fas fa-phone"></i>
-                    <span>Phone: <strong style="font-family: 'Montserrat', Arial, sans-serif; font-weight: 500; letter-spacing: 0.5px;">+91-9840167444</strong></span>
+                  <div class="col">
+                   
+                    <p><i class="fas fa-phone"></i> <span class="number">+91-9840167444</span></p>
                   </div>
-                  <div class="example-inline">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Address: <strong>NO 9/33, Jeevan Bhima Nagar,<br > Anna Nagar Western Extn, Ambattur, Chennai- 600101, Tamil Nadu./strong></span>
-                  </div>
+                  <!-- <div class="col">
+                    
+                    <address>
+                      <i class="fas fa-map-marker-alt"></i>
+                      No. <span class="number">9/33</span>, Jeevan Bhima Nagar,<br> Anna Nagar Western Extn, <br> Chennai- <span class="number">600101</span>, Tamil Nadu.
+                    </address>
+                  </div> -->
                 </div>
                 <p class="section-text highlight">
                   We respond within 24 hours on business days.
                 </p>
-                <div class="industry-tags-compact">
+                <p class="industry-tags-compact text-center">
                   <span class="industry-tag"><i class="fas fa-globe"></i> Serving clients worldwide</span>
-                </div>
-                <p class="section-text closing">
-                  Or use the form below to send us a direct message.
                 </p>
-              </div>
+                <!-- <p class="section-text closing">
+                  Or use the form below to send us a direct message.
+                </p> -->
             </div>
-          </div>
         </div>
       </div>
     </div> 
@@ -107,10 +105,10 @@
           <!-- Removed Background Video for Section 2 -->
           <!-- Pixie Image -->
           <div class="pixie-container">
-            <img src="assets/images/file_00000000d34c61f9b59d719076fe09eb.png" alt="Pixie" class="pixie-image">
+            <img src="assets/images/pixi-talking-in-mobile.png" alt="pixi-talking-in-mobile" class="pixie-image">
           </div>
-          <div style="position:relative; z-index:1;">
-            <h2 class="section-heading" style="padding-top: 100px;">Get in Touch</h2>
+          <div class="form-column">
+            <h2 class="section-heading">Get in Touch</h2>
             <form class="contact-form" id="contact-form">
               <div class="form-group">
                 <label for="contact-name">Full Name</label>
@@ -139,9 +137,9 @@
                 <textarea id="contact-message" name="message" rows="4" required></textarea>
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn-cta" style="margin-top:1.2em; font-size:1.1em; padding:0.8em 2.2em; background:#e4c590; color:#222; border-radius:2em; box-shadow:0 2px 8px 0 rgba(228,197,144,0.08); transition:background 0.2s; text-decoration:none; display:inline-flex; align-items:center; gap:0.7em;">
+                <button type="submit" class="btn-cta">
                   <i class="fas fa-paper-plane"></i>
-                  Send Message
+                 Submit
                 </button>
               </div>
             </form>
