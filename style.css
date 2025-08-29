@@ -566,7 +566,7 @@ section .bg .clip-text {
 }
 
 .container {
-  width: min(90%, 991px);
+  width: min(90%, 1024px);
   margin-inline: auto;
 }
 
@@ -1126,9 +1126,9 @@ h2 * {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  /* gap: 2rem; */
   padding-inline: 2rem;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 4rem auto 1rem;
   flex-wrap: wrap;
   text-align: center;
@@ -3690,4 +3690,171 @@ body {
 .icon-gold{
   color: var(--accent-sandal);
 }
+
+/* new css added from here */
+
+/* Contact icons in menu */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 0.5em;
+}
+
+.icon-gold {
+  font-size: 1.7em;
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  opacity: 0.8; 
+}
+
+/* Process Section-OUR THREE-PHASE WORKFLOW  */
+.process-icon {
+  font-size: 2.2em;
+  color: #E6C99A;
+  margin-bottom: 0.5em;
+}
+
+/*  Call-to-Action Button*/
+.cta-btn {
+  display: inline-block;
+  margin-top: 1.5em;
+  padding: 0.85em 2.2em;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #b8960f 0%, #a0810d 100%);
+  border: none;
+  border-radius: 2em;
+  box-shadow: 0 4px 18px rgba(184, 150, 15, 0.18);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Hover + Active Effects */
+.cta-btn:hover {
+  background: linear-gradient(90deg, #caa826 0%, #b1911b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(184, 150, 15, 0.25);
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 12px rgba(184, 150, 15, 0.2);
+}
+
+/* Portfolio Image Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+
+.modal-close {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.modal-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+}
+
+/* Common Page Styles ( Privacy Policy + Terms)  */
+.legal-main {
+  max-width: 1200px;
+  width: 95vw;
+  margin: 2em auto 1em auto;
+  padding: 2em 2vw;
+  color: #fff;
+  font-size: 1.45em;
+  position: relative;
+  z-index: 1;
+}
+
+.legal-title {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold, #D4AF37);
+}
+
+.legal-content {
+  line-height: 1.6;
+  padding: 1em 0;
+}
+
+.legal-content p {
+  margin-bottom: 1.5em;
+}
+
+.legal-content ul,
+.legal-content ol {
+  margin-bottom: 2em;
+  padding-left: 1.5em;
+}
+
+.legal-content li {
+  margin-bottom: 1.5em;
+}
+
+.legal-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2em 0;
+}
+
+.legal-link {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
+/*  Privacy Policy */
+.policy-date {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 2em;
+  color: #ccc;
+}
+
+.policy-heading {
+  color: #d4af37;
+  margin-bottom: 1em;
+  font-size: 1.8em;
+}
+
+/* Terms & Conditions */
+.legal-content ol {
+  list-style: decimal;
+  padding-left: 1.2em;
+}
+
+.legal-content ol li {
+  margin-bottom: 2em;
+}
+
 
