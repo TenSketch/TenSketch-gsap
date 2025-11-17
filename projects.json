@@ -3,6 +3,7 @@
     "index": 1,
     "imageSrc": "assets/portfolio/5.png",
     "altText": "ESPeople Website Project",
+    "description": "Online platform for professional networking and resources for ES professionals.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://espeople.in",
     "filterTag": "Consulting & Training"
@@ -11,6 +12,7 @@
     "index": 2,
     "imageSrc": "assets/portfolio/16.png",
     "altText": "Velar Infra Website Project",
+    "description": "Corporate website showcasing Velar Infra's projects and services.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://velarinfra.com",
     "filterTag": "Corporate & Business"
@@ -19,6 +21,7 @@
     "index": 3,
     "imageSrc": "assets/portfolio/1.png",
     "altText": "AK Foundation India Website Project",
+    "description": "NGO site highlighting AK Foundation's social initiatives and impact.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://akfoundationindia.com",
     "filterTag": "NGO & Social Impact"
@@ -27,6 +30,7 @@
     "index": 4,
     "imageSrc": "assets/portfolio/13.png",
     "altText": "USD Trust Website Project",
+    "description": "Trust website focused on community programs and donation channels.",
     "techTags": ["React", "Tailwind"],
     "liveUrl": "https://usdtrust.in",
     "filterTag": "NGO & Social Impact"
@@ -35,6 +39,7 @@
     "index": 6,
     "imageSrc": "assets/portfolio/4.png",
     "altText": "Divya Prabhath Website Project",
+    "description": "Personal portfolio site for Divya Prabhath showcasing work and events.",
     "techTags": ["Tailwind"],
     "liveUrl": "https://divyaprabhath.com",
     "filterTag": "Arts, Culture & Personal Brands"
@@ -43,6 +48,7 @@
     "index": 7,
     "imageSrc": "assets/portfolio/14.png",
     "altText": "Vanavihar",
+    "description": "Tourism site highlighting Vanavihar's eco experiences and bookings.",
     "techTags": ["Angular", "Bootstrap", "Node"],
     "liveUrl": "vanavihar.com",
     "filterTag": "Tourism & Eco Experiences"
@@ -51,6 +57,7 @@
     "index": 9,
     "imageSrc": "assets/portfolio/9.png",
     "altText": "Prabhatha Foundation Website Project",
+    "description": "Cultural foundation website presenting programs and community outreach.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://prabhatha.com",
     "filterTag": "Arts, Culture & Personal Brands"
@@ -59,6 +66,7 @@
     "index": 10,
     "imageSrc": "assets/portfolio/10.png",
     "altText": "Sharat Prabhath Website Project",
+    "description": "Artist portfolio site for Sharat Prabhath with galleries and news.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://sharatprabhath.com",
     "filterTag": "Arts, Culture & Personal Brands"
@@ -67,6 +75,7 @@
     "index": 12,
     "imageSrc": "assets/portfolio/2.png",
     "altText": "Artoholic Website Project",
+    "description": "E-commerce and portfolio for Artoholic's art collections and events.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://artoholic.co.in",
     "filterTag": "Design, Art, & Lifestyle"
@@ -75,6 +84,7 @@
     "index": 13,
     "imageSrc": "assets/portfolio/6.png",
     "altText": "Geo Tattoos Website Project",
+    "description": "Studio site for Geo Tattoos showcasing portfolio and booking info.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "http://geotattoos.com",
     "filterTag": "Design, Art, & Lifestyle"
@@ -83,6 +93,7 @@
     "index": 14,
     "imageSrc": "assets/portfolio/8.png",
     "altText": "Padapa Website Project",
+    "description": "Community-focused site for Padapa featuring programs and resources.",
     "techTags": ["Bootstrap"],
     "liveUrl": "http://padapa.in",
     "filterTag": "Design, Art, & Lifestyle"
@@ -91,6 +102,7 @@
     "index": 15,
     "imageSrc": "assets/portfolio/7.png",
     "altText": "Guru's Gallery Website Project",
+    "description": "Gallery website for Guru's Gallery with exhibitions and artist bios.",
     "techTags": ["Bootstrap"],
     "liveUrl": "http://gurus-gallery-mssw.tensketch.com",
     "filterTag": "Design, Art, & Lifestyle"
@@ -99,6 +111,7 @@
     "index": 16,
     "imageSrc": "assets/portfolio/3.png",
     "altText": "Charis Jute Website Project",
+    "description": "E-commerce and product showcase site for Charis Jute products.",
     "techTags": ["Bootstrap", "PHP"],
     "liveUrl": "https://charis-jute.netlify.app",
     "filterTag": "Design, Art, & Lifestyle"
@@ -107,6 +120,7 @@
     "index": 17,
     "imageSrc": "assets/portfolio/18.png",
     "altText": "Risse Wealth",
+    "description": "Financial services site for Risse Wealth with services overview.",
     "techTags": ["HTML", "CSS", "JS"],
     "liveUrl": "https://therissewealth.com/",
     "filterTag": "Corporate & Business"
@@ -115,6 +129,7 @@
     "index": 18,
     "imageSrc": "assets/portfolio/15.png",
     "altText": "SP Charan",
+    "description": "Personal brand site for SP Charan with music and event updates.",
     "techTags": ["Tailwind"],
     "liveUrl": "http://spcharanofficial.com",
     "filterTag": "Arts, Culture & Personal Brands"
@@ -123,6 +138,7 @@
     "index": 19,
     "imageSrc": "assets/portfolio/19.png",
     "altText": "Workforce Solutions ",
+    "description": "HR solutions website describing Workforce Solutions' services.",
     "techTags": ["React", "Tailwind"],
     "liveUrl": "http://workforcesolutionshr.com",
     "filterTag": "Corporate & Business"
@@ -131,6 +147,7 @@
     "index": 20,
     "imageSrc": "assets/portfolio/20.png",
     "altText": "Birth Ravivi ",
+    "description": "Maternity and wellness site for Birth Ravivi featuring resources.",
     "techTags": ["Bootstrap", "Hugo"],
     "liveUrl": "https://birthwithiraivi.com/",
     "filterTag": "Arts, Culture & Personal Brands"
@@ -139,6 +156,7 @@
     "index": 21,
     "imageSrc": "assets/portfolio/21.png",
     "altText": "Aradhya Trust",
+    "description": "NGO website for Aradhya Trust highlighting programs and impact.",
     "techTags": [],
     "liveUrl": "https://aaradhyatrust.org/",
     "filterTag": "Corporate & Business"

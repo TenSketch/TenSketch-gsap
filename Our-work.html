@@ -19,10 +19,10 @@
   <meta property="og:image" content="https://www.tensketch.com/path/to/og-image.jpg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="our-work.css">
 </head>
 
-<body>
+<body class="normal-scroll">
   <header>
     <div class="navbar">
       <a href="/" class="nav-logo">
@@ -64,97 +64,44 @@
   </header>
 
   <!-- SECTION 2: PORTFOLIO SHOWCASE -->
-  <section class="second portfolio-section" id="portfolio">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg two">
-          <h2 class="section-heading">Our Portfolio</h2>
 
-          <!-- Filter Buttons -->
-          <div class="portfolio-filters" id="portfolioFilters">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="Corporate & Business">Corporate</button>
-            <button class="filter-btn" data-filter="NGO & Social Impact">NGO</button>
-            <button class="filter-btn" data-filter="Consulting & Training">Consulting</button>
-            <button class="filter-btn" data-filter="Tourism & Eco Experiences">Tourism</button>
-            <button class="filter-btn" data-filter="Arts, Culture & Personal Brands">Arts</button>
-            <button class="filter-btn" data-filter="Design, Art, & Lifestyle">Design</button>
-            <button class="filter-btn" data-filter="Healthcare & Wellness">Healthcare</button>
-          </div>
+  <!-- Scroll container keeps the page to a single viewport while content scrolls inside -->
+  <div class="site-scroll">
 
-          <div class="portfolio-container">
-            <div class="portfolio-main">
-              <div class="portfolio-grid" id="portfolioGrid">
-                <!-- Portfolio cards will be dynamically loaded here -->
-              </div>
-            </div>
-            <div class="portfolio-navigation">
-              <button class="nav-btn prev-btn mobile-nav" id="prevBtnMobile" aria-label="Previous Portfolio">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <div class="portfolio-indicators" id="portfolioIndicators">
-                <!-- Indicators will be dynamically generated -->
-              </div>
-              <button class="nav-btn next-btn mobile-nav" id="nextBtnMobile" aria-label="Next Portfolio">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
-          </div>
+<!-- Portfolio Section -->
+<section class="portfolio-page">
+  <div class="portfolio-wrapper">
+    <!-- Sidebar Filters -->
+    <aside class="portfolio-filters">
+      <button data-filter="all" class="active">All Projects</button>
+      <button data-filter="Corporate">Corporate</button>
+      <button data-filter="NGO">NGO</button>
+      <button data-filter="Consulting">Consulting</button>
+    </aside>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid" id="portfolioGrid">
+      <!-- Example Card -->
+      <div class="portfolio-card">
+        <img src="https://source.unsplash.com/600x400/?office" class="portfolio-img" alt="Corporate Project">
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Corporate Website</h3>
+          <p class="portfolio-desc">A modern corporate site with brand storytelling and responsive design.</p>
+          <p class="portfolio-tech">Tech: HTML, CSS, Angular</p>
+          <a href="#" class="portfolio-cta" aria-label="Visit project">Visit Now</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <section class="minimal-footer">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg">
-          <div class="footer-links">
-            <a href="/" class="footer-link">Home</a> |
-            <a href="About.html" class="footer-link">About us</a> |
-            <a href="Web-solutions.html" class="footer-link">Services</a> |
-            <a href="Beyond-Web.html" class="footer-link">Branding</a> |
-            <a href="privacy-policy.html" class="footer-link">Privacy policy</a> |
-            <a href="terms-and-conditions.html" class="footer-link">Terms and conditions</a> |
-            <a href="Contact.html" class="footer-link">Contact us</a>
-          </div>
-          <p class="footer-text text-center mb-0">Copyright © 2017 -
-            <script>document.write(new Date().getFullYear());</script> TenSketch
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
- <!-- Portfolio Image Modal -->
-<div id="portfolioImageModal" class="modal-overlay">
-  <span class="modal-close">&times;</span>
-  <img class="modal-img" src="" alt="Portfolio Image">
 </div>
-
   <!-- GSAP Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-  <script src="main.js"></script>
-  <script src="portfolio.js"></script>
-  <script>
-    // Modal open/close show/hide logic
-    const modal = document.getElementById('portfolioImageModal');
-    if (modal) {
-      modal.classList.remove('open');
-      modal.style.display = 'none';
-      const observer = new MutationObserver(() => {
-        if (modal.classList.contains('open')) {
-          modal.style.display = 'flex';
-        } else {
-          modal.style.display = 'none';
-        }
-      });
-      observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
-    }
-  </script>
+  <script src="main-normal-scroll.js"></script>
+  <script src="our-work.js"></script>
 </body>
 
 </html>

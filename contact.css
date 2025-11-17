@@ -427,18 +427,18 @@ body::-webkit-scrollbar {
   display: none !important;
 }
 
-html {
+body:not(.normal-scroll) html {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
 
-body {
+body:not(.normal-scroll) body {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
 
-
-html, body {
+body:not(.normal-scroll) html,
+body:not(.normal-scroll) body {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
@@ -446,21 +446,20 @@ html, body {
   width: 100% !important;
 }
 
-
-section {
+body:not(.normal-scroll) section {
   height: 100vh !important;
   max-height: 100vh !important;
   overflow: hidden !important;
 }
 
-section .outer,
-section .inner {
+body:not(.normal-scroll) section .outer,
+body:not(.normal-scroll) section .inner {
   height: 100vh !important;
   max-height: 100vh !important;
   overflow: hidden !important;
 }
 
-section .bg {
+body:not(.normal-scroll) section .bg {
   height: 100vh !important;
   max-height: 100vh !important;
   overflow: visible !important;
