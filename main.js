@@ -350,8 +350,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   
-  initApproachAnimations();
-});
+  initApproachAnimations();});
 
 
 const cards = document.querySelectorAll('.card');
@@ -620,6 +619,43 @@ function playTestimonialsAnimation() {
     
     testimonialsInitialized = true;
   });
+}
+
+
+// Pixi CTA Section Animation
+const pixiCtaSection = document.querySelector('.pixi-cta-section');
+
+if (pixiCtaSection) {
+  const pixiCharacter = pixiCtaSection.querySelector('.pixi-character');
+  const formCard = pixiCtaSection.querySelector('.pixi-form-card');
+
+  if (pixiCharacter && formCard) {
+    gsap.set(pixiCharacter, { opacity: 0, scale: 0.5, y: 30 });
+    gsap.set(formCard, { opacity: 0, y: 30 });
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: pixiCtaSection,
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: 'play none none none',
+        once: true
+      }
+    })
+    .to(pixiCharacter, {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "elastic.out(1, 0.75)"
+    })
+    .to(formCard, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out"
+    }, "+=0.3");
+  }
 }
 
 

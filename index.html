@@ -349,26 +349,59 @@
                 <img src="assets/images/Section-7.png" alt="Pixi arranging UI blocks" class="pixi-designer">
               </div>
             </div>
-
-            <!-- Headline & Subtext (MOVED TO TOP) & Cards (MOVED TO TOP) -->
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <!-- PIXI CTA SECTION -->
+  <section class="pixi-cta-section">
     <div class="outer">
       <div class="inner">
         <div class="bg">
-          <div class="container">
+          <div class="pixi-cta-container">
+            
+            <!-- Pixi Character (appears first) -->
+            <div class="pixi-character">
+              <img src="assets/images/pixiCta.png" alt="Pixi - Your confidence builder" class="pixi-img">
+              <div class="pixi-speech-bubble">
+                <p>"Before we build your site, let me build your confidence! 🎁"</p>
+              </div>
+            </div>
 
-            <h2 class="section-heading">Insight to Impact</h2>
-            <p class="section-text">
-              After asking the right questions and analyzing the core of the business, we uncovered exactly what needed
-              to be done. We mapped the customer's journey, identified gaps, and designed a breathtaking UX/UI that
-              speaks directly to the audience's needs, positioning the brand for maximum conversion.
-            </p>
+            <!-- Form Card (appears after Pixi) -->
+            <div class="pixi-form-card">
+              <h3 class="pixi-form-title">Get Your Free Surprise Gift</h3>
+              <p class="pixi-form-subtitle">A simple form → Free recommendations → A small surprise 🎁</p>
+              
+              <form class="pixi-quick-form creative-form" autocomplete="on">
+                <div class="creative-field">
+                  <input id="pixi-name" name="name" type="text" placeholder=" " required />
+                  <label for="pixi-name" class="floating-label">Your name</label>
+                  <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+                </div>
+
+                <div class="creative-field">
+                  <input id="pixi-phone" name="phone" type="tel" placeholder=" " required />
+                  <label for="pixi-phone" class="floating-label">Phone / WhatsApp</label>
+                  <span class="input-icon"><i class="fa-solid fa-phone"></i></span>
+                </div>
+
+                <div class="creative-field">
+                  <textarea id="pixi-project" name="project" rows="2" placeholder=" " required></textarea>
+                  <label for="pixi-project" class="floating-label">What do you want to build?</label>
+                  <span class="input-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                </div>
+
+                <div class="creative-actions">
+                  <button type="submit" class="pixi-cta-btn">🚀 Surprise me</button>
+                </div>
+
+                <p class="pixi-promise">No spam — just tailored ideas & a small surprise.</p>
+              </form>
+            </div>
+
           </div>
         </div>
       </div>
@@ -428,37 +461,19 @@
     </div>
   </section>
 
-
-
-  <section class="lead-cta">
-    <div class="outer">
-      <div class="inner">
-        <div class="bg">
-          <div class="container d-grid justify-items-center">
-            <h2 class="section-heading">Looking to transform your brand experience?</h2>
-            <p class="section-text">
-              Partner with TenSketch to craft a stunning, high-converting website tailored for your business growth.
-            </p>
-            <button class="btn-cta" onclick="window.location.href='contact.html'">Contact us</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <section class="minimal-footer">
     <div class="outer">
       <div class="inner">
         <div class="bg">
           <div class="footer-links">
             <a href="/" class="footer-link">Home</a> |
-            <a href="About.html" class="footer-link">About us</a> |
+            <a href="About.html" class="footer-link">About</a> |
             <a href="Web-solutions.html" class="footer-link">Services</a> |
-            <a href="Beyond-Web.html" class="footer-link">Branding</a> |
-            <a href="privacy-policy.html" class="footer-link">Privacy policy</a> |
-            <a href="terms-and-conditions.html" class="footer-link">Terms and conditions</a> |
-            <a href="Contact.html" class="footer-link">Contact us</a>
+            <a href="portfolio.html" class="footer-link">Portfolio</a> |
+            <a href="Contact.html" class="footer-link">Contact</a> |
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a> |
+            <a href="terms-and-conditions.html" class="footer-link">Terms &amp; Conditions</a> |
+            <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
           </div>
           <p class="footer-text text-center mb-0">Copyright © 2017 -
             <script>document.write(new Date().getFullYear());</script> TenSketch
