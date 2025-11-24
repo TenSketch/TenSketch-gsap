@@ -361,11 +361,18 @@ function updateActiveCard() {
     card.classList.toggle('active', i === activeIndex);
   });
 }
-updateActiveCard();
-setInterval(() => {
-  activeIndex = (activeIndex + 1) % cards.length;
+
+if (cards.length) {
   updateActiveCard();
-}, 3000);
+  // Run the auto-rotation a few times instead of forever to reduce CPU
+  let rotationsLeft = Math.min(cards.length * 2, 8); // cap cycles
+  const intervalId = setInterval(() => {
+    activeIndex = (activeIndex + 1) % cards.length;
+    updateActiveCard();
+    rotationsLeft -= 1;
+    if (rotationsLeft <= 0) clearInterval(intervalId);
+  }, 3000);
+}
 
 
 
@@ -596,12 +603,11 @@ function playTestimonialsAnimation() {
       testimonialsRotationTl.kill();
     }
     
-    testimonialsRotationTl = gsap.timeline({});
+    testimonialsRotationTl = gsap.timeline({ repeat: 0 });
     testimonialsRotationTl.to(galleryBoxOuter, {
-      duration: duration,
+      duration: Math.min(duration, 30),
       rotateY: 360,
-      ease: "none",
-      repeat: -1
+      ease: "none"
     });
     
     
@@ -870,12 +876,13 @@ function playUXTitleAnimation() {
   });
 
   
+  // Subtle single pulse instead of infinite breathing to lighten CPU
   titleTL.to(title, {
     scale: 1.01,
-    duration: 3,
+    duration: 1.5,
     ease: "sine.inOut",
     yoyo: true,
-    repeat: -1
+    repeat: 1
   }, "-=0.5");
 
   
