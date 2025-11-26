@@ -603,10 +603,10 @@ function playTestimonialsAnimation() {
       testimonialsRotationTl.kill();
     }
     
-    testimonialsRotationTl = gsap.timeline({ repeat: 0 });
+    testimonialsRotationTl = gsap.timeline({ repeat: -1 });
     testimonialsRotationTl.to(galleryBoxOuter, {
       duration: Math.min(duration, 30),
-      rotateY: 360,
+      rotateY: "+=360",
       ease: "none"
     });
     
