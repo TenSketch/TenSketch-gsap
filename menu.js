@@ -2,28 +2,51 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   const menu = document.querySelector('nav.menu');
-  const logoMenu = document.getElementById('logo-menu');
+  const menuBtn = document.querySelector('.logo-container') || document.getElementById('logo-menu');
   const closeBtn = document.querySelector('.menu-close');
+  const menuItems = document.querySelectorAll('nav.menu li');
 
-  if (logoMenu && menu) {
-    logoMenu.addEventListener('click', function () {
-      menu.classList.add('open');
+  function toggleMenu() {
+    if (!menu || !menuBtn) return;
+    menu.classList.toggle('open');
+    menuBtn.classList.toggle('open');
+    if (menu.classList.contains('open')) {
       document.body.style.overflow = 'hidden';
-    });
-  }
-
-  if (closeBtn && menu) {
-    closeBtn.addEventListener('click', function () {
-      menu.classList.remove('open');
+      if (window.gsap && menuItems.length) {
+        gsap.to(menuItems, {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.5,
+          ease: 'back.out(1.7)',
+          delay: 0.3
+        });
+      }
+    } else {
       document.body.style.overflow = '';
-    });
+      if (window.gsap && menuItems.length) {
+        gsap.to(menuItems, {
+          y: 20,
+          opacity: 0,
+          duration: 0.3
+        });
+      }
+    }
   }
 
-  // Optional: Close menu when clicking outside
+  if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+  if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking outside
   document.addEventListener('click', function (e) {
-    if (menu.classList.contains('open') && !menu.contains(e.target) && !logoMenu.contains(e.target)) {
+    if (!menu || !menuBtn) return;
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !menuBtn.contains(e.target)) {
       menu.classList.remove('open');
+      menuBtn.classList.remove('open');
       document.body.style.overflow = '';
+      if (window.gsap && menuItems.length) {
+        gsap.to(menuItems, { y: 20, opacity: 0, duration: 0.3 });
+      }
     }
   });
 });

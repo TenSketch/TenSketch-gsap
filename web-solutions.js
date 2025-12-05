@@ -155,6 +155,56 @@
 
         // power cards hover/enter
         if (gsap && gsap.registerPlugin && window.ScrollTrigger) {
+          gsap.registerPlugin(ScrollTrigger);
+
+          // === SERVICE CARDS ANIMATION ===
+          gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.to(card, {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              delay: i * 0.2,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            });
+          });
+
+          // Service card icons pulse on scroll
+          gsap.utils.toArray('.service-card-icon').forEach((icon) => {
+            gsap.fromTo(icon, 
+              { scale: 0.8, rotation: -10 },
+              {
+                scale: 1,
+                rotation: 0,
+                duration: 0.8,
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                  trigger: icon,
+                  start: 'top 85%'
+                }
+              }
+            );
+          });
+
+          // Read more links stagger
+          gsap.utils.toArray('.read-more-link').forEach((link, i) => {
+            gsap.from(link, {
+              x: -20,
+              opacity: 0,
+              duration: 0.6,
+              delay: 0.5 + i * 0.1,
+              scrollTrigger: {
+                trigger: link.closest('.service-card'),
+                start: 'top 70%'
+              }
+            });
+          });
+
+          // Power cards (if still present)
           gsap.utils.toArray('.power-card').forEach((el, i) => {
             gsap.fromTo(el, { y: 40, opacity: 0 }, {
               y: 0,

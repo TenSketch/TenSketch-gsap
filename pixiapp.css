@@ -1,0 +1,1037 @@
+/* =========================================
+   PIXIAPP - MODERN KINETIC THEME
+   ========================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
+/* === CSS Variables === */
+:root {
+  --k-bg: #0a0a0a;
+  --k-surface: #141414;
+  --k-surface-hover: #1f1f1f;
+  --k-text: #ffffff;
+  --k-text-muted: #888888;
+  --k-gold: #e6c99a;
+  --k-gold-dark: #d4af37;
+  --grad-gold: linear-gradient(135deg, var(--k-gold-dark) 0%, var(--k-gold) 100%);
+  --logo-left-offset: 0px;
+  --logo-right-offset: -3px;
+  --logo-left-rotate: 0deg;
+  --logo-right-rotate: 0deg;
+
+  /* Vibrant Gradients */
+  --grad-sunset: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+  --grad-ocean: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+  --grad-purple: linear-gradient(135deg, #da22ff 0%, #9733ee 100%);
+  --grad-prism: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.4));
+
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+
+  --section-padding: 8rem 0;
+}
+
+/* === Base Styles === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--k-bg);
+  color: var(--k-text);
+  font-family: "Outfit", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Menu overlay removed from pixiapp (menu-specific rules intentionally omitted) */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(180deg, #fff, #666);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+  color: var(--k-text-muted);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* === NAV / HEADER === */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  /* mix-blend-mode removed - it breaks backdrop-filter on child elements like .menu */
+}
+
+.nav-logo {
+  height: 40px;
+}
+
+.nav-logo img {
+  height: 100%;
+  width: auto;
+}
+
+/* === NAV / HEADER - (copied from web-solutions.css) === */
+.pixiapp-page header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 5%;
+  width: 100%;
+  z-index: 3;
+  height: auto;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  letter-spacing: 0.4em;
+  top: 3%;
+  background: transparent;
+}
+
+.pixiapp-page header .navbar {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 5;
+  mix-blend-mode: difference; /* moved here from header so it doesn't break menu backdrop-filter */
+}
+
+.pixiapp-page header .nav-logo {
+  height: 80px;
+}
+
+.pixiapp-page header .nav-logo img {
+  height: 100%;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.pixiapp-page header .nav-logo:hover img {
+  transform: scale(1.05);
+}
+
+.pixiapp-page header .social-icon {
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+  color: var(--k-text);
+  transition: all 0.3s ease;
+}
+
+.pixiapp-page header .social-icon:hover {
+  color: var(--k-gold);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .pixiapp-page header .navbar {
+    top: 20px;
+  }
+
+
+
+  .pixiapp-page header .nav-logo {
+    height: 80px;
+  }
+}
+
+/* Menu and hamburger removed from pixiapp: nav overlay and toggle styles intentionally omitted */
+
+/* === Menu Panel (copied/adapted from pixiai) === */
+.pixiapp-page .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.692);
+  backdrop-filter: blur(19px) saturate(150%) brightness(0.7);
+  -webkit-backdrop-filter: blur(19px) saturate(150%) brightness(0.7);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  z-index: 10000;
+}
+
+.pixiapp-page .menu.open {
+  transform: translateX(0);
+}
+
+.pixiapp-page .menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* ensure menu content is above any overlay pattern */
+}
+
+.pixiapp-page .menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px, 70px 70px;
+  background-position: 0 0, 25px 25px, 35px 35px;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 1; /* sits above the base background but below ul content */
+}
+.pixiapp-page .menu li {
+  margin: 1.5rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.pixiapp-page .menu.open li {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pixiapp-page .menu a {
+  color: var(--k-text);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  letter-spacing: clamp(0.05em, 0.1vw, 0.1em);
+  padding: clamp(0.25rem, 1vw, 0.4rem) clamp(0.5rem, 2vw, 0.8rem);
+  border-radius: 12px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.pixiapp-page .menu a:hover {
+  color: var(--k-gold);
+  transform: translateY(-2px);
+}
+.pixiapp-page .menu a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--k-gold);
+  transition: width 0.3s ease;
+}
+.pixiapp-page .menu a:hover::after {
+  width: 100%;
+}
+
+.pixiapp-page .menu-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 999;
+  background: none !important;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+.pixiapp-page .menu-close:hover {
+  transform: translateZ(0) scale(1.1) rotate(90deg);
+  opacity: 0.8;
+}
+.pixiapp-page .menu-close img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.pixiapp-page .menu-close:hover img {
+  filter: drop-shadow(0 0 8px var(--k-gold));
+  transform: scale(1.15) rotate(90deg);
+}
+
+.pixiapp-page .contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 0.5em;
+}
+.pixiapp-page .icon-gold {
+  font-size: 1.7em;
+  color: var(--k-gold);
+}
+
+/* Logo border glow */
+.pixiapp-page .logo-menu-border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  pointer-events: none;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 50%;
+  overflow: visible;
+}
+.pixiapp-page .logo-menu-border svg,
+.pixiapp-page .logo-menu-border circle {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 50%;
+  overflow: visible;
+}
+.pixiapp-page .logo-menu-glow {
+  stroke: #fff;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff)
+    drop-shadow(0 0 24px #fff);
+  stroke-dasharray: 25 138.36;
+  stroke-dashoffset: 163.36;
+  animation: logoMenuGlowAnim 2.5s linear infinite;
+  stroke-linecap: round;
+  opacity: 1;
+}
+@keyframes logoMenuGlowAnim {
+  0% {
+    stroke-dashoffset: 163.36;
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.8;
+  }
+}
+
+/* Logo container (two halves) */
+.pixiapp-page .logo-container {
+  position: fixed;
+  left: 5%;
+  top: 90%;
+  transform: translateY(-50%);
+  z-index: 10001;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: none;
+}
+.pixiapp-page .logo-half {
+  position: absolute;
+  max-width: 30px;
+  max-height: 30px;
+  z-index: 3;
+}
+.pixiapp-page .logo-left {
+  left: 10px;
+  top: 50%;
+  transform: translateY(calc(-50% + var(--logo-left-offset))) rotate(var(--logo-left-rotate));
+  transition: none;
+}
+.pixiapp-page .logo-right {
+  left: 35px;
+  top: 55%;
+  transform: translateY(calc(-50% + var(--logo-right-offset))) rotate(var(--logo-right-rotate));
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.pixiapp-page .menu.open ~ .logo-container .logo-right,
+.pixiapp-page .logo-container.open .logo-right {
+  transform: translateY(calc(-50% + var(--logo-right-offset))) translateX(20px) rotate(var(--logo-right-rotate));
+  opacity: 0;
+}
+
+@media (max-width: 600px) {
+  .pixiapp-page .logo-container {
+    left: 10px;
+    /* keep circle same as desktop (60px) */
+    width: 60px;
+    height: 60px;
+  }
+  .pixiapp-page .logo-half {
+    /* enlarge the inner logo images so they sit bigger inside the circle */
+    max-width: 34px;
+    max-height: 34px;
+  }
+  .pixiapp-page .logo-left {
+    left: 10px;
+    --logo-left-offset: 0px;
+  }
+  .pixiapp-page .logo-right {
+    left: 33px;
+    --logo-right-offset: -2px;
+  }
+}
+
+/* === HERO: FROSTED GLASS KINETIC === */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--k-text-muted);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-desc {
+  font-size: 1.2rem;
+  color: var(--k-text-muted);
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Frosted Shapes */
+.frosted-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  perspective: 1000px;
+}
+
+.shape {
+  position: absolute;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  top: 20%;
+  left: 15%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+  bottom: 20%;
+  right: 15%;
+  transform: rotate(45deg);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: 50%;
+  right: 30%;
+  background: linear-gradient(135deg,
+      rgba(255, 81, 47, 0.1),
+      rgba(221, 36, 118, 0.1));
+  animation: float 12s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+/* === WHY PIXIAPP: CREATIVE BENTO GRID === */
+.why-section {
+  padding: var(--section-padding);
+}
+
+.widget-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 220px);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* === WHY PIXIAPP: SIMPLE BENTO GRID === */
+.why-section {
+  padding: var(--section-padding);
+}
+
+.widget-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Simple 3-column grid */
+  grid-auto-rows: 240px;
+  /* Fixed row height */
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.widget-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.widget-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.widget-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.widget-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.widget-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* Simple Grid Spans */
+
+/* 1. Large Card (Top Left) */
+.widget-1 {
+  grid-column: span 2;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02));
+}
+
+/* 2. Tall Card (Right) */
+.widget-2 {
+  grid-row: span 2;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02));
+}
+
+/* 4. Wide Card (Bottom Center) */
+.widget-4 {
+  grid-column: span 1;
+}
+
+/* 5. Standard Card */
+.widget-5 {
+  grid-column: span 2;
+  background: linear-gradient(135deg,
+      rgba(33, 147, 176, 0.1),
+      rgba(109, 213, 237, 0.05));
+  border-color: rgba(33, 147, 176, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .widget-board {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .widget-1,
+  .widget-2,
+  .widget-3,
+  .widget-4,
+  .widget-5 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* === CAPABILITIES: PRISMATIC GLASS CARDS === */
+.services-section {
+  padding: var(--section-padding);
+  perspective: 2000px;
+  /* Deep perspective for tilt */
+}
+
+/* Reduce visual gap specifically between Why section and Capabilities */
+.pixiapp-page .why-section {
+  padding-bottom: calc(var(--section-padding) / 2);
+}
+
+.pixiapp-page .services-section {
+  padding-top: calc(var(--section-padding) / 2);
+}
+
+.prism-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.prism-card {
+  position: relative;
+  height: 350px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  /* Smooth tilt */
+  overflow: hidden;
+}
+
+/* Prismatic Border Effect */
+.prism-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: var(--grad-gold);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.prism-card:hover::before {
+  opacity: 1;
+  background: var(--grad-gold);
+}
+
+/* Glare Effect */
+.prism-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.15),
+      transparent 40%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.prism-card:hover .prism-glare {
+  opacity: 1;
+}
+
+.prism-content {
+  transform: translateZ(30px);
+  /* Pop out text */
+  z-index: 3;
+}
+
+.prism-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateZ(50px);
+  /* Pop out icon more */
+}
+
+.prism-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.prism-card p {
+  color: var(--k-text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* === SAAS PRODUCTS: STACK === */
+.stack-section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+.stack-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  height: 200vh;
+  /* Scroll space */
+}
+
+.stack-card {
+  position: sticky;
+  top: 150px;
+  background: var(--k-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+  transform-origin: top center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stack-card h3 {
+  z-index: 4;
+  overflow: hidden;
+  /* ensure pseudo elements don't overflow */
+  margin-bottom: 0.5rem;
+}
+
+.stack-card p {
+  color: var(--k-text-muted);
+}
+
+.stack-number {
+  font-size: 4rem;
+  font-weight: 800;
+  /* Gold gradient for the stack numbers to match theme */
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--k-gold);
+  /* fallback */
+}
+
+/* === PROCESS: PIPELINE === */
+.process-section {
+  padding: var(--section-padding);
+}
+
+.pipeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 50px;
+}
+
+.pipeline-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.pipeline-fill {
+
+  /* menu overlay rules removed */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background: var(--grad-gold);
+  border-radius: 2px;
+  box-shadow: 0 0 15px var(--k-gold);
+}
+
+.process-step {
+  margin-bottom: 6rem;
+  position: relative;
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+.process-step.active {
+  opacity: 1;
+}
+
+.step-dot {
+  position: absolute;
+  left: -58px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--k-bg);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.process-step.active .step-dot {
+  background: var(--k-gold);
+  border-color: var(--k-gold);
+  box-shadow: 0 0 20px var(--k-gold);
+}
+
+.process-step h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.process-step p {
+  font-size: 1.1rem;
+  color: var(--k-text-muted);
+  line-height: 1.6;
+}
+
+/* === CTA === */
+.cta-section {
+  padding: 10rem 0;
+  text-align: center;
+  background: radial-gradient(circle at center,
+      rgba(255, 81, 47, 0.1),
+      transparent 70%);
+}
+
+.cta-title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.cta-btn-big {
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  background: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn-big:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+}
+
+/* === FOOTER === */
+footer {
+  padding: 4rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-links a {
+  margin: 0 1rem;
+  color: var(--k-text-muted);
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .widget-board {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .widget-card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .prism-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-card {
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stack-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+  }
+
+  /* Keep reduced spacing between Why and Capabilities on smaller screens too */
+  .pixiapp-page .why-section {
+    padding-bottom: calc(var(--section-padding) / 2);
+  }
+
+  .pixiapp-page .services-section {
+    padding-top: calc(var(--section-padding) / 2);
+  }
+}
+
+/* Menu styles removed for PixiApp */
