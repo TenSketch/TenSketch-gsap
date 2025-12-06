@@ -230,6 +230,7 @@ h3 {
 }
 
 @media (max-width: 600px) {
+
   /* Keep the outer circle size unchanged on small screens
      and increase the inner logo image halves so they appear larger
      while the circular border remains the same. */
@@ -797,6 +798,234 @@ h3 {
 .bento-card p {
   color: var(--pixi-gray);
   line-height: 1.6;
+}
+
+/* === Navbar Controls & Theme Toggle (Unified) === */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--pixi-white);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--pixi-gold);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .nav-controls {
+    gap: 20px;
+  }
+}
+
+/* === LIGHT MODE STYLES === */
+body.light-mode {
+  background-color: #f9f9f9;
+  background-image: none;
+  /* Remove dark paper texture if specific one needed, or swap */
+  color: #1a1a1a;
+}
+
+/* Update Vars locally for light mode could also work, but direct overrides are safer for specificity here */
+body.light-mode {
+  --pixi-white: #1a1a1a;
+  --pixi-gray: #555;
+}
+
+body.light-mode header .nav-logo img {
+  filter: invert(1);
+}
+
+body.light-mode .social-icon,
+body.light-mode .theme-toggle-btn {
+  color: #1a1a1a;
+}
+
+body.light-mode .social-icon:hover,
+body.light-mode .theme-toggle-btn:hover {
+  color: var(--pixi-gold);
+}
+
+body.light-mode .logo-container .logo-half {
+  filter: invert(1);
+}
+
+body.light-mode .logo-menu-border circle {
+  stroke: rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .logo-menu-glow {
+  stroke: #000;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Hero Section Light */
+body.light-mode .hero-bg-doodle path,
+body.light-mode .hero-bg-doodle circle,
+body.light-mode .hero-bg-doodle rect {
+  stroke: rgba(212, 175, 55, 0.4);
+  /* Softer gold on white */
+}
+
+body.light-mode .hero-heading {
+  color: #000;
+}
+
+body.light-mode .highlight-text::after {
+  opacity: 0.3;
+  /* Softer highlight */
+}
+
+body.light-mode .hero-desc {
+  color: #444;
+}
+
+/* Bento Cards Light */
+body.light-mode .bento-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .bento-card::before,
+body.light-mode .bento-card::after {
+  border-color: var(--pixi-gold);
+}
+
+body.light-mode .bento-card:hover {
+  background: #fffdf0;
+  /* Very light gold tint */
+}
+
+body.light-mode .bento-card h3 {
+  color: #000;
+}
+
+body.light-mode .bento-card p {
+  color: #555;
+}
+
+/* Services Light */
+body.light-mode .services-section {
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+}
+
+body.light-mode .services-section::before {
+  background: #f9f9f9;
+}
+
+body.light-mode .service-item {
+  color: #1a1a1a;
+}
+
+body.light-mode .service-item h3 {
+  color: #000;
+}
+
+body.light-mode .service-item p {
+  color: #555;
+}
+
+body.light-mode .service-icon {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+/* Products Light */
+body.light-mode .products-section {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+body.light-mode .product-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .product-card h3 {
+  color: #000;
+}
+
+body.light-mode .product-card p {
+  color: #555;
+}
+
+body.light-mode .product-features li {
+  color: #444;
+}
+
+/* Process Light */
+body.light-mode .process-section {
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+}
+
+body.light-mode .step-content {
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .process-step:nth-child(odd) .step-content::after {
+  border-left-color: #ffffff;
+}
+
+body.light-mode .process-step:nth-child(even) .step-content::after {
+  border-right-color: #ffffff;
+}
+
+body.light-mode .process-line {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .step-marker {
+  background: #fff;
+  border: 2px solid var(--pixi-gold);
+  color: #000;
+}
+
+body.light-mode .step-content h3 {
+  color: #000;
+}
+
+body.light-mode .step-content p {
+  color: #555;
+}
+
+/* Footer Light */
+body.light-mode .minimal-footer {
+  background: #f0f0f0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .minimal-footer a {
+  color: #333;
+}
+
+body.light-mode .minimal-footer p {
+  color: #666 !important;
 }
 
 .card-large {

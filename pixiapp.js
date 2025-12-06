@@ -142,4 +142,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Theme Toggler Logic ---
+  function setupThemeToggler() {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Check saved theme
+    const savedTheme = localStorage.getItem("hero-theme");
+    if (savedTheme === "light") {
+      body.classList.add("light-mode");
+      if (themeToggleBtn) {
+        const icon = themeToggleBtn.querySelector("i");
+        if (icon) {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        }
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+
+        const icon = themeToggleBtn.querySelector("i");
+        if (body.classList.contains("light-mode")) {
+          if (icon) {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+          }
+          localStorage.setItem("hero-theme", "light");
+        } else {
+          if (icon) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+          }
+          localStorage.setItem("hero-theme", "dark");
+        }
+      });
+    }
+  }
+
+  // Initialize theme toggler
+  setupThemeToggler();
+
 });

@@ -159,7 +159,8 @@ header {
   align-items: center;
   padding: 0 5%;
   z-index: 5;
-  mix-blend-mode: difference; /* moved here from header so it doesn't break menu backdrop-filter */
+  mix-blend-mode: difference;
+  /* moved here from header so it doesn't break menu backdrop-filter */
 }
 
 .pixiapp-page header .nav-logo {
@@ -237,7 +238,8 @@ header {
   margin: 0;
   text-align: center;
   position: relative;
-  z-index: 2; /* ensure menu content is above any overlay pattern */
+  z-index: 2;
+  /* ensure menu content is above any overlay pattern */
 }
 
 .pixiapp-page .menu::before {
@@ -252,18 +254,22 @@ header {
   background-position: 0 0, 25px 25px, 35px 35px;
   opacity: 0.06;
   pointer-events: none;
-  z-index: 1; /* sits above the base background but below ul content */
+  z-index: 1;
+  /* sits above the base background but below ul content */
 }
+
 .pixiapp-page .menu li {
   margin: 1.5rem 0;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
 .pixiapp-page .menu.open li {
   opacity: 1;
   transform: translateY(0);
 }
+
 .pixiapp-page .menu a {
   color: var(--k-text);
   font-size: clamp(0.9rem, 1.5vw, 1.2rem);
@@ -274,10 +280,12 @@ header {
   display: inline-block;
   transition: all 0.3s ease;
 }
+
 .pixiapp-page .menu a:hover {
   color: var(--k-gold);
   transform: translateY(-2px);
 }
+
 .pixiapp-page .menu a::after {
   content: "";
   position: absolute;
@@ -288,6 +296,7 @@ header {
   background-color: var(--k-gold);
   transition: width 0.3s ease;
 }
+
 .pixiapp-page .menu a:hover::after {
   width: 100%;
 }
@@ -309,16 +318,19 @@ header {
   transition: all 0.3s ease;
   transform: translateZ(0);
 }
+
 .pixiapp-page .menu-close:hover {
   transform: translateZ(0) scale(1.1) rotate(90deg);
   opacity: 0.8;
 }
+
 .pixiapp-page .menu-close img {
   width: 100%;
   height: 100%;
   display: block;
   transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
 }
+
 .pixiapp-page .menu-close:hover img {
   filter: drop-shadow(0 0 8px var(--k-gold));
   transform: scale(1.15) rotate(90deg);
@@ -330,6 +342,7 @@ header {
   gap: 1.2em;
   margin-top: 0.5em;
 }
+
 .pixiapp-page .icon-gold {
   font-size: 1.7em;
   color: var(--k-gold);
@@ -349,6 +362,7 @@ header {
   border-radius: 50%;
   overflow: visible;
 }
+
 .pixiapp-page .logo-menu-border svg,
 .pixiapp-page .logo-menu-border circle {
   background: none !important;
@@ -356,31 +370,36 @@ header {
   border-radius: 50%;
   overflow: visible;
 }
+
 .pixiapp-page .logo-menu-glow {
   stroke: #fff;
   stroke-width: 3;
-  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff)
-    drop-shadow(0 0 24px #fff);
+  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff) drop-shadow(0 0 24px #fff);
   stroke-dasharray: 25 138.36;
   stroke-dashoffset: 163.36;
   animation: logoMenuGlowAnim 2.5s linear infinite;
   stroke-linecap: round;
   opacity: 1;
 }
+
 @keyframes logoMenuGlowAnim {
   0% {
     stroke-dashoffset: 163.36;
     opacity: 0.8;
   }
+
   25% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.9;
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     stroke-dashoffset: 0;
     opacity: 0.8;
@@ -403,18 +422,21 @@ header {
   height: 60px;
   background: none;
 }
+
 .pixiapp-page .logo-half {
   position: absolute;
   max-width: 30px;
   max-height: 30px;
   z-index: 3;
 }
+
 .pixiapp-page .logo-left {
   left: 10px;
   top: 50%;
   transform: translateY(calc(-50% + var(--logo-left-offset))) rotate(var(--logo-left-rotate));
   transition: none;
 }
+
 .pixiapp-page .logo-right {
   left: 35px;
   top: 55%;
@@ -422,7 +444,7 @@ header {
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.pixiapp-page .menu.open ~ .logo-container .logo-right,
+.pixiapp-page .menu.open~.logo-container .logo-right,
 .pixiapp-page .logo-container.open .logo-right {
   transform: translateY(calc(-50% + var(--logo-right-offset))) translateX(20px) rotate(var(--logo-right-rotate));
   opacity: 0;
@@ -435,15 +457,18 @@ header {
     width: 60px;
     height: 60px;
   }
+
   .pixiapp-page .logo-half {
     /* enlarge the inner logo images so they sit bigger inside the circle */
     max-width: 34px;
     max-height: 34px;
   }
+
   .pixiapp-page .logo-left {
     left: 10px;
     --logo-left-offset: 0px;
   }
+
   .pixiapp-page .logo-right {
     left: 33px;
     --logo-right-offset: -2px;
@@ -1035,3 +1060,247 @@ footer {
 }
 
 /* Menu styles removed for PixiApp */
+
+/* === Navbar Controls & Theme Toggle === */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--k-text);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--k-gold);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .nav-controls {
+    gap: 20px;
+  }
+}
+
+/* === LIGHT MODE STYLES === */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+}
+
+body.light-mode {
+  --k-text: #1a1a1a;
+  --k-text-muted: #555;
+  --k-surface: #ffffff;
+  --k-surface-hover: #f0f0f0;
+}
+
+/* Header & Nav Light */
+body.light-mode header .nav-logo img {
+  filter: invert(1);
+}
+
+body.light-mode .social-icon,
+body.light-mode .theme-toggle-btn {
+  color: #1a1a1a;
+}
+
+body.light-mode .social-icon:hover,
+body.light-mode .theme-toggle-btn:hover {
+  color: var(--k-gold);
+}
+
+body.light-mode .logo-container .logo-half {
+  filter: invert(1);
+}
+
+body.light-mode .logo-menu-border circle {
+  stroke: rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .logo-menu-glow {
+  stroke: #000;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Hero Section Light */
+body.light-mode .hero-section {
+  background: #f9f9f9;
+}
+
+body.light-mode .hero-title {
+  color: #000;
+}
+
+body.light-mode .hero-desc {
+  color: #444;
+}
+
+body.light-mode .hero-btn {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+body.light-mode .hero-btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .shape {
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.03) 0%,
+      rgba(0, 0, 0, 0.01) 100%);
+  border-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Why Section / Widget Cards Light */
+body.light-mode .why-section {
+  background: #f9f9f9;
+}
+
+body.light-mode .section-title {
+  background: linear-gradient(180deg, #000, #666);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light-mode .section-desc {
+  color: #555;
+}
+
+body.light-mode .widget-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .widget-card:hover {
+  background: #fafafa;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .widget-card h3 {
+  color: #000;
+}
+
+body.light-mode .widget-card p {
+  color: #555;
+}
+
+body.light-mode .widget-icon {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+/* Services / Prism Cards Light */
+body.light-mode .services-section {
+  background: #f0f0f0;
+}
+
+body.light-mode .prism-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .prism-card h3 {
+  color: #000;
+}
+
+body.light-mode .prism-card p {
+  color: #555;
+}
+
+body.light-mode .prism-icon {
+  background: linear-gradient(135deg, #333, #666);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Stack Section Light */
+body.light-mode .stack-section {
+  background: #f9f9f9;
+}
+
+body.light-mode .stack-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .stack-card h3 {
+  color: #000;
+}
+
+body.light-mode .stack-card p {
+  color: #555;
+}
+
+/* Process Section Light */
+body.light-mode .process-section {
+  background: #f9f9f9;
+}
+
+body.light-mode .pipeline-line {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .process-step h3 {
+  color: #000;
+}
+
+body.light-mode .process-step p {
+  color: #555;
+}
+
+body.light-mode .step-dot {
+  background: #fff;
+  border-color: #333;
+}
+
+body.light-mode .process-step.active .step-dot {
+  background: var(--k-gold);
+  border-color: var(--k-gold);
+}
+
+/* CTA Section Light */
+body.light-mode .cta-section {
+  background: #ffffff;
+}
+
+body.light-mode .cta-title {
+  color: #000;
+}
+
+body.light-mode .cta-btn-big {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+body.light-mode .cta-btn-big:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Light */
+body.light-mode footer {
+  background: #f0f0f0;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .footer-links a {
+  color: #555;
+}
+
+body.light-mode .footer-links a:hover {
+  color: #000;
+}

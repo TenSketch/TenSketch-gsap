@@ -10,13 +10,12 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-surface: rgba(255, 255, 255, 0.03);
   /* Primary accent used across PIXIAI components */
-  --accent-color: #e6c99a; /* user requested */
-  --holo-gradient: linear-gradient(
-    135deg,
-    var(--accent-color),
-    #ffdba5,
-    #fff7ed
-  );
+  --accent-color: #e6c99a;
+  /* user requested */
+  --holo-gradient: linear-gradient(135deg,
+      var(--accent-color),
+      #ffdba5,
+      #fff7ed);
 
   --font-main: "Outfit", sans-serif;
   /* logo offsets for menu toggle animations */
@@ -353,11 +352,9 @@ img {
   left: -20%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(
-    circle,
-    rgba(230, 201, 154, 0.08) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(230, 201, 154, 0.08) 0%,
+      transparent 70%);
   transform: translateY(-50%);
   pointer-events: none;
 }
@@ -403,12 +400,10 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(230, 201, 154, 0.1),
-    rgba(0, 240, 255, 0.05),
-    transparent
-  );
+  background: linear-gradient(135deg,
+      rgba(230, 201, 154, 0.1),
+      rgba(0, 240, 255, 0.05),
+      transparent);
   opacity: 0;
   transition: opacity 0.6s;
   border-radius: 24px;
@@ -597,17 +592,16 @@ img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(230, 201, 154, 0.4),
-    rgba(0, 240, 255, 0.2),
-    transparent
-  );
+  background: radial-gradient(circle at 30% 30%,
+      rgba(230, 201, 154, 0.4),
+      rgba(0, 240, 255, 0.2),
+      transparent);
   filter: blur(40px);
   animation: orbPulse 4s ease-in-out infinite;
 }
 
 @keyframes orbPulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -995,19 +989,23 @@ header {
 .pixiai-v2 header .nav-logo {
   height: 64px;
 }
+
 .pixiai-v2 header .nav-logo img {
   height: 100%;
   width: auto;
   transition: all 0.3s ease;
 }
+
 .pixiai-v2 header .nav-logo:hover img {
   transform: scale(1.05);
 }
+
 .pixiai-v2 header .social-icon {
   font-size: clamp(1.2rem, 2.5vw, 2.2rem);
   color: var(--starlight);
   transition: all 0.3s ease;
 }
+
 .pixiai-v2 header .social-icon:hover {
   color: var(--accent-color);
   transform: scale(1.1);
@@ -1029,35 +1027,36 @@ header {
   height: 60px;
   background: none;
 }
+
 .pixiai-v2 .logo-half {
   position: absolute;
   max-width: 30px;
   max-height: 30px;
   z-index: 3;
 }
+
 .pixiai-v2 .logo-left {
   left: 10px;
   top: 50%;
-  transform: translateY(calc(-50% + var(--logo-left-offset)))
-    rotate(var(--logo-left-rotate));
+  transform: translateY(calc(-50% + var(--logo-left-offset))) rotate(var(--logo-left-rotate));
   transition: none;
 }
+
 .pixiai-v2 .logo-right {
   left: 35px;
   top: 55%;
-  transform: translateY(calc(-50% + var(--logo-right-offset)))
-    rotate(var(--logo-right-rotate));
+  transform: translateY(calc(-50% + var(--logo-right-offset))) rotate(var(--logo-right-rotate));
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.pixiai-v2 .menu.open ~ .logo-container .logo-right,
+.pixiai-v2 .menu.open~.logo-container .logo-right,
 .pixiai-v2 .logo-container.open .logo-right {
-  transform: translateY(calc(-50% + var(--logo-right-offset))) translateX(20px)
-    rotate(var(--logo-right-rotate));
+  transform: translateY(calc(-50% + var(--logo-right-offset))) translateX(20px) rotate(var(--logo-right-rotate));
   opacity: 0;
 }
 
 @media (max-width: 600px) {
+
   /* Keep the outer circle size unchanged on small screens
      and increase the inner logo image halves so they appear larger
      while the circular border remains the same. */
@@ -1067,15 +1066,18 @@ header {
     width: 60px;
     height: 60px;
   }
+
   .pixiai-v2 .logo-half {
     /* enlarge the inner logo images so they sit bigger inside the circle */
     max-width: 34px;
     max-height: 34px;
   }
+
   .pixiai-v2 .logo-left {
     left: 10px;
     --logo-left-offset: 0px;
   }
+
   .pixiai-v2 .logo-right {
     left: 33px;
     --logo-right-offset: -2px;
@@ -1101,6 +1103,7 @@ header {
   transition: transform 0.5s ease;
   z-index: 10000;
 }
+
 .pixiai-v2 .menu.open {
   transform: translateX(0);
 }
@@ -1117,16 +1120,19 @@ header {
   margin: 0;
   text-align: center;
 }
+
 .pixiai-v2 .menu li {
   margin: 1.5rem 0;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
 .pixiai-v2 .menu.open li {
   opacity: 1;
   transform: translateY(0);
 }
+
 .pixiai-v2 .menu a {
   color: var(--starlight);
   font-size: clamp(0.9rem, 1.5vw, 1.2rem);
@@ -1137,10 +1143,12 @@ header {
   display: inline-block;
   transition: all 0.3s ease;
 }
+
 .pixiai-v2 .menu a:hover {
   color: var(--accent-color);
   transform: translateY(-2px);
 }
+
 .pixiai-v2 .menu a::after {
   content: "";
   position: absolute;
@@ -1151,6 +1159,7 @@ header {
   background-color: var(--accent-color);
   transition: width 0.3s ease;
 }
+
 .pixiai-v2 .menu a:hover::after {
   width: 100%;
 }
@@ -1172,16 +1181,19 @@ header {
   transition: all 0.3s ease;
   transform: translateZ(0);
 }
+
 .pixiai-v2 .menu-close:hover {
   transform: translateZ(0) scale(1.1) rotate(90deg);
   opacity: 0.8;
 }
+
 .pixiai-v2 .menu-close img {
   width: 100%;
   height: 100%;
   display: block;
   transition: filter 0.3s, box-shadow 0.3s, transform 0.3s;
 }
+
 .pixiai-v2 .menu-close:hover img {
   filter: drop-shadow(0 0 8px var(--accent-color));
   transform: scale(1.15) rotate(90deg);
@@ -1193,6 +1205,7 @@ header {
   gap: 1.2em;
   margin-top: 0.5em;
 }
+
 .pixiai-v2 .icon-gold {
   font-size: 1.7em;
   color: var(--accent-color);
@@ -1212,6 +1225,7 @@ header {
   border-radius: 50%;
   overflow: visible;
 }
+
 .pixiai-v2 .logo-menu-border svg,
 .pixiai-v2 .logo-menu-border circle {
   background: none !important;
@@ -1219,33 +1233,316 @@ header {
   border-radius: 50%;
   overflow: visible;
 }
+
 .pixiai-v2 .logo-menu-glow {
   stroke: #fff;
   stroke-width: 3;
-  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff)
-    drop-shadow(0 0 24px #fff);
+  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fff) drop-shadow(0 0 24px #fff);
   stroke-dasharray: 25 138.36;
   stroke-dashoffset: 163.36;
   animation: logoMenuGlowAnim 2.5s linear infinite;
   stroke-linecap: round;
   opacity: 1;
 }
+
 @keyframes logoMenuGlowAnim {
   0% {
     stroke-dashoffset: 163.36;
     opacity: 0.8;
   }
+
   25% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.9;
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     stroke-dashoffset: 0;
     opacity: 0.8;
   }
+}
+
+/* === Navbar Controls & Theme Toggle === */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--starlight);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .nav-controls {
+    gap: 20px;
+  }
+}
+
+/* === LIGHT MODE STYLES === */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+}
+
+body.light-mode {
+  --starlight: #1a1a1a;
+  --void-bg: #f9f9f9;
+  --glass-surface: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Header & Nav Light */
+body.light-mode header .nav-logo img {
+  filter: invert(1);
+}
+
+body.light-mode .social-icon,
+body.light-mode .theme-toggle-btn {
+  color: #1a1a1a;
+}
+
+body.light-mode .social-icon:hover,
+body.light-mode .theme-toggle-btn:hover {
+  color: var(--accent-color);
+}
+
+body.light-mode .logo-container .logo-half {
+  filter: invert(1);
+}
+
+body.light-mode .logo-menu-border circle {
+  stroke: rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .logo-menu-glow {
+  stroke: #000;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Hero Section Light */
+body.light-mode .hero-v2 {
+  background: #f9f9f9;
+}
+
+body.light-mode .hero-title-v2 {
+  color: #000;
+}
+
+body.light-mode .hero-title-v2 span {
+  color: var(--accent-color);
+}
+
+body.light-mode .hero-subtitle-v2 {
+  color: #444;
+}
+
+/* Why Section Light */
+body.light-mode .why-section-v2 {
+  background: #f9f9f9;
+}
+
+body.light-mode .why-header h2 {
+  color: #000;
+}
+
+body.light-mode .why-header p {
+  color: #555;
+}
+
+body.light-mode .progress-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .progress-text {
+  color: #555;
+}
+
+body.light-mode .why-card-v2 {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .why-card-v2.active {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .why-card-v2 h3 {
+  color: #000;
+}
+
+body.light-mode .why-card-v2 p {
+  color: #555;
+}
+
+body.light-mode .card-num {
+  color: rgba(0, 0, 0, 0.08);
+}
+
+/* Services Section Light */
+body.light-mode .services-section-v2 {
+  background: #f0f0f0;
+}
+
+body.light-mode .section-title-v2 {
+  color: #000;
+}
+
+body.light-mode .section-title-v2::after {
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+body.light-mode .service-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .service-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .service-num {
+  color: rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .service-card:hover .service-num {
+  color: rgba(230, 201, 154, 0.15);
+}
+
+body.light-mode .service-icon {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .service-content h3 {
+  color: #000;
+}
+
+body.light-mode .service-content p {
+  color: #555;
+}
+
+body.light-mode .service-tag {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #555;
+}
+
+body.light-mode .service-arrow {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Products Section Light */
+body.light-mode .products-section-v2 {
+  background: #f9f9f9;
+}
+
+body.light-mode .products-wrapper {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .product-row {
+  background: #ffffff;
+}
+
+body.light-mode .product-row:hover {
+  background: #fafafa;
+}
+
+body.light-mode .product-row .num {
+  color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .product-row:hover .num {
+  color: rgba(230, 201, 154, 0.4);
+}
+
+body.light-mode .product-info h3 {
+  color: #000;
+}
+
+body.light-mode .product-info p {
+  color: #555;
+}
+
+body.light-mode .product-row .row-cta {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .product-row .row-cta i {
+  color: #555;
+}
+
+/* Process Section Light */
+body.light-mode .process-section-v2 {
+  background: #f9f9f9;
+}
+
+body.light-mode #process-path {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .step-content h3 {
+  color: #000;
+}
+
+body.light-mode .step-content p {
+  color: #555;
+}
+
+/* CTA Section Light */
+body.light-mode .cta-section-v2 {
+  background: #ffffff;
+}
+
+body.light-mode .cta-title-v2 {
+  color: #000;
+}
+
+body.light-mode .cta-btn-v2 {
+  border-color: rgba(0, 0, 0, 0.3);
+  color: #000;
+}
+
+body.light-mode .cta-btn-v2:hover {
+  background: #1a1a1a;
+  color: #fff;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Light */
+body.light-mode footer {
+  background: #f0f0f0;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .footer-links a {
+  color: #555;
+}
+
+body.light-mode .footer-links a:hover {
+  color: #000;
 }
