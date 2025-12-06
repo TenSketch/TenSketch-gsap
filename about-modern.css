@@ -50,6 +50,7 @@ body {
 .text-center {
   text-align: center;
 }
+
 .mb-0 {
   margin-bottom: 0;
 }
@@ -108,9 +109,16 @@ header .social-icon:hover {
   header .navbar {
     top: 20px;
   }
+
   header .social-icon {
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   }
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .logo-container {
@@ -138,6 +146,7 @@ header .social-icon:hover {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .logo-right {
   left: 35px;
   top: 50%;
@@ -145,11 +154,12 @@ header .social-icon:hover {
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.menu.open ~ .logo-container .logo-right {
+.menu.open~.logo-container .logo-right {
   transform: translateX(20px);
   opacity: 0;
 }
-.menu:not(.open) ~ .logo-container .logo-right {
+
+.menu:not(.open)~.logo-container .logo-right {
   transform: translateX(0);
   opacity: 1;
 }
@@ -160,13 +170,16 @@ header .social-icon:hover {
     width: 40px;
     height: 40px;
   }
+
   .logo-half {
     max-width: 20px;
     max-height: 20px;
   }
+
   .logo-left {
     left: 8px;
   }
+
   .logo-right {
     left: 22px;
   }
@@ -195,10 +208,12 @@ header .social-icon:hover {
     stroke-dashoffset: 163.36;
     opacity: 0.8;
   }
+
   50% {
     stroke-dashoffset: 80;
     opacity: 1;
   }
+
   100% {
     stroke-dashoffset: 0;
     opacity: 0.8;
@@ -231,11 +246,9 @@ header .social-icon:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(
-    circle at 20% 50%,
-    rgba(255, 255, 255, 0.05) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle at 20% 50%,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px);
   background-size: 50px 50px;
   opacity: 0.3;
 }
@@ -288,6 +301,7 @@ header .social-icon:hover {
   color: var(--accent-gold);
   transform: translateY(-2px);
 }
+
 .menu a:hover::after {
   width: 100%;
 }
@@ -315,6 +329,7 @@ header .social-icon:hover {
 .menu-close:hover {
   transform: scale(1.1) rotate(90deg);
 }
+
 .menu-close:active {
   transform: scale(0.95) rotate(90deg);
 }
@@ -407,6 +422,271 @@ body.modern-about {
   opacity: 0.8;
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--secondary-clr);
+  margin-left: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--accent-gold);
+  transform: scale(1.1);
+}
+
+/* Light Mode Hero Styles */
+.hero-section.light-mode {
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+}
+
+.hero-section.light-mode .hero-path {
+  stroke: rgba(212, 175, 55, 0.5);
+}
+
+.hero-section.light-mode .hero-subtitle {
+  color: #333;
+}
+
+/* Light Mode Header & Logo Adjustments */
+header.light-mode-active .nav-logo img {
+  filter: brightness(0);
+  /* Turn white logo black */
+}
+
+header.light-mode-active .social-icon,
+header.light-mode-active .social-icon i,
+header.light-mode-active .theme-toggle-btn,
+header.light-mode-active .theme-toggle-btn i {
+  color: var(--primary-clr);
+}
+
+.logo-container.light-mode-active .logo-half {
+  filter: brightness(0);
+  /* Turn white logo parts black */
+}
+
+.logo-container.light-mode-active .logo-menu-border circle {
+  stroke: var(--primary-clr);
+}
+
+/* Light Mode Meaning Section (About Us - Section 2) */
+.meaning-section.light-mode {
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+}
+
+.meaning-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.meaning-section.light-mode .lead-text {
+  color: var(--primary-clr);
+}
+
+.meaning-section.light-mode .meaning-text p {
+  color: #333;
+}
+
+.meaning-section.light-mode .meaning-svg circle {
+  stroke: var(--accent-gold);
+}
+
+.meaning-section.light-mode .meaning-svg text {
+  fill: var(--primary-clr);
+}
+
+/* Light Mode Heart Section */
+.heart-section.light-mode {
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+}
+
+.heart-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.heart-section.light-mode .heart-content p {
+  color: #333;
+}
+
+.heart-section.light-mode .pixi-speech-bubble {
+  background: var(--primary-clr);
+  color: var(--secondary-clr);
+}
+
+/* Light Mode Beliefs Section */
+.beliefs-section.light-mode {
+  background: var(--secondary-light);
+}
+
+.beliefs-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.beliefs-section.light-mode .craft-subtitle,
+.beliefs-section.light-mode .beliefs-desc {
+  color: #333;
+}
+
+.beliefs-section.light-mode .belief-card-modern {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+}
+
+.beliefs-section.light-mode .belief-card-modern::before {
+  color: rgba(0, 0, 0, 0.03);
+}
+
+.beliefs-section.light-mode .belief-card-modern:hover {
+  background: #fff;
+  border-color: var(--accent-gold);
+}
+
+.beliefs-section.light-mode .belief-card-modern:hover::before {
+  color: rgba(212, 175, 55, 0.1);
+}
+
+.beliefs-section.light-mode .belief-card-modern h3 {
+  color: var(--primary-clr);
+}
+
+.beliefs-section.light-mode .belief-card-modern p {
+  color: #555;
+}
+
+/* Light Mode Team Section */
+.team-section.light-mode {
+  background-color: var(--secondary-clr);
+}
+
+.team-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.team-section.light-mode .team-intro p {
+  color: #333;
+}
+
+.team-section.light-mode .team-member {
+  background: var(--secondary-light);
+}
+
+.team-section.light-mode .member-info h4 {
+  color: var(--accent-gold);
+}
+
+.team-section.light-mode .member-info .role {
+  color: var(--primary-clr);
+}
+
+.team-section.light-mode .member-info .desc {
+  color: #555;
+}
+
+/* Light Mode Benefits Section */
+.benefits-section.light-mode {
+  background-color: var(--secondary-clr);
+}
+
+.benefits-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.benefits-section.light-mode .benefits-intro p {
+  color: #333;
+}
+
+.benefits-section.light-mode .benefit-item {
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--accent-gold);
+}
+
+.benefits-section.light-mode .benefit-item:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.benefits-section.light-mode .benefit-item h4 {
+  color: var(--primary-clr);
+}
+
+.benefits-section.light-mode .benefit-item p {
+  color: #555;
+}
+
+/* Light Mode Timeline Section */
+.timeline-section.light-mode {
+  background-color: var(--secondary-clr);
+}
+
+.timeline-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.timeline-section.light-mode .step-content h4 {
+  color: var(--accent-gold);
+}
+
+.timeline-section.light-mode .step-content p {
+  color: #333;
+}
+
+.timeline-section.light-mode .timeline-journey-path {
+  stroke: rgba(212, 175, 55, 0.7);
+}
+
+.timeline-section.light-mode .timeline-journey-path-glow {
+  stroke: rgba(212, 175, 55, 0.3);
+}
+
+/* Light Mode Promise Section */
+.promise-section.light-mode {
+  background: radial-gradient(circle at center, var(--secondary-light) 0%, var(--secondary-clr) 70%);
+}
+
+.promise-section.light-mode .section-heading {
+  color: var(--accent-gold);
+}
+
+.promise-section.light-mode .promise-main {
+  color: var(--primary-clr);
+}
+
+.promise-section.light-mode .promise-sub {
+  color: #555;
+}
+
+.promise-section.light-mode .cta-button {
+  background: var(--accent-sandal);
+  color: var(--primary-clr);
+}
+
+/* Light Mode Footer */
+.minimal-footer.light-mode {
+  background-color: var(--secondary-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.minimal-footer.light-mode .footer-link {
+  color: var(--primary-clr);
+}
+
+.minimal-footer.light-mode .footer-link:hover {
+  color: var(--accent-gold);
+}
+
+.minimal-footer.light-mode .footer-text {
+  color: #555;
+}
+
 /* Meaning Section */
 .meaning-section {
   padding: 100px 0;
@@ -450,7 +730,8 @@ body.modern-about {
 
 .heart-image {
   position: relative;
-  min-height: 420px; /* ensure Pixi has vertical space to move */
+  min-height: 420px;
+  /* ensure Pixi has vertical space to move */
 }
 
 /* Removed heart-section background image rules since the image was removed from markup */
@@ -577,6 +858,7 @@ body.modern-about {
   .beliefs-layout {
     flex-direction: column;
   }
+
   .beliefs-sidebar {
     position: relative;
     top: 0;
@@ -584,9 +866,11 @@ body.modern-about {
     margin-bottom: 50px;
     text-align: center;
   }
+
   .beliefs-desc {
     margin: 2rem auto;
   }
+
   .belief-card-modern {
     padding: 40px;
   }
@@ -706,6 +990,7 @@ body.modern-about {
   bottom: 0;
   width: 10px;
 }
+
 .timeline-journey-canvas {
   position: absolute;
   top: 0;
@@ -750,13 +1035,14 @@ body.modern-about {
   top: 0;
   left: 40px;
   transform-origin: 50% 90%;
-  filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 0.3)) drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 15px 35px rgba(212, 175, 55, 0.3)) drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes pixiBounce {
   0% {
     transform: translateY(0) scale(1);
   }
+
   100% {
     transform: translateY(-8px) scale(1.02);
   }
@@ -791,22 +1077,28 @@ body.modern-about {
 }
 
 @keyframes sparkleFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0;
     transform: translateY(0) rotate(0deg) scale(0.5);
   }
+
   20% {
     opacity: 1;
     transform: translateY(-20px) rotate(45deg) scale(1);
   }
+
   40% {
     opacity: 0.8;
     transform: translateY(-40px) rotate(90deg) scale(1.1);
   }
+
   60% {
     opacity: 0.5;
     transform: translateY(-60px) rotate(135deg) scale(0.9);
   }
+
   80% {
     opacity: 0.2;
     transform: translateY(-80px) rotate(180deg) scale(0.7);
@@ -862,15 +1154,17 @@ body.modern-about {
 }
 
 @media (max-width: 768px) {
-  .meaning-grid, .heart-grid {
+
+  .meaning-grid,
+  .heart-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .timeline-wrapper {
     padding-left: 30px;
     padding-right: 150px;
   }
-  
+
   .timeline-journey-canvas {
     width: 160px;
   }
@@ -879,7 +1173,7 @@ body.modern-about {
     width: 100px;
     left: 25px;
   }
-  
+
   .pixi-sparkle {
     font-size: 1rem;
   }
@@ -895,7 +1189,7 @@ body.modern-about {
 /* Footer */
 .minimal-footer {
   padding: 50px 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
@@ -922,11 +1216,14 @@ body.modern-about {
 
 .pixi-wrapper {
   position: absolute;
-  bottom: 5%; /* lowered slightly (moved down) */
-  left: 10%; 
-  width: 300px; /* increased size */
+  bottom: 5%;
+  /* lowered slightly (moved down) */
+  left: 10%;
+  width: 300px;
+  /* increased size */
   z-index: 5;
-  opacity: 0; /* Hidden initially for GSAP to handle */
+  opacity: 0;
+  /* Hidden initially for GSAP to handle */
 }
 
 .pixi-hero {
@@ -963,7 +1260,7 @@ body.modern-about {
   font-size: 0.85rem;
   line-height: 1.3;
   font-weight: 600;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
   width: 160px;
   z-index: 10;
@@ -972,13 +1269,18 @@ body.modern-about {
 
 @media (max-width: 768px) {
   .heart-image {
-    min-height: 260px; /* reduce height on smaller screens while keeping space for Pixi */
+    min-height: 260px;
+    /* reduce height on smaller screens while keeping space for Pixi */
   }
+
   .pixi-wrapper {
-    width: 180px; /* increased mobile size */
-    bottom: 2%; /* lowered slightly on mobile */
+    width: 180px;
+    /* increased mobile size */
+    bottom: 2%;
+    /* lowered slightly on mobile */
     left: 5%;
   }
+
   .pixi-speech-bubble {
     width: 140px;
     font-size: 0.75rem;
@@ -1001,7 +1303,7 @@ body.modern-about {
   z-index: -1;
   opacity: 0;
   transform: translateY(30px) rotate(-6deg);
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35));
 }
 
 @media (max-width: 768px) {

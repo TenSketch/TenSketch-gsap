@@ -1,30 +1,98 @@
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 // --- Hero Animation ---
-const heroPath = document.querySelector(".hero-path");
-if (heroPath) {
-  const length = heroPath.getTotalLength();
-  gsap.set(heroPath, { strokeDasharray: length, strokeDashoffset: length });
+document.addEventListener("DOMContentLoaded", function() {
+  const heroPath = document.querySelector(".hero-path");
+  if (heroPath) {
+    const length = heroPath.getTotalLength();
+    gsap.set(heroPath, { strokeDasharray: length, strokeDashoffset: length });
+    
+    const heroTl = gsap.timeline();
+    heroTl.to(heroPath, {
+      strokeDashoffset: 0,
+      duration: 2.5,
+      ease: "power2.inOut"
+    })
+    .fromTo(".hero-title", 
+      { y: 100, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 1.2, 
+        ease: "power4.out"
+      }, 
+      "-=1.5"
+    )
+    .fromTo(".hero-subtitle", 
+      { y: 30, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 1, 
+        ease: "power3.out"
+      }, 
+      "-=0.8"
+    );
+  }
+
+  // --- Theme Toggler Logic ---
+  const themeToggleBtn = document.getElementById("hero-theme-toggle");
+  const heroSection = document.querySelector(".hero-section");
   
-  const heroTl = gsap.timeline();
-  heroTl.to(heroPath, {
-    strokeDashoffset: 0,
-    duration: 2.5,
-    ease: "power2.inOut"
-  })
-  .from(".hero-title", {
-    y: 100, 
-    opacity: 0, 
-    duration: 1.2, 
-    ease: "power4.out"
-  }, "-=1.5")
-  .from(".hero-subtitle", {
-    y: 30, 
-    opacity: 0, 
-    duration: 1, 
-    ease: "power3.out"
-  }, "-=0.8");
-}
+  if (themeToggleBtn && heroSection) {
+    // Get all sections that need light mode
+    const meaningSection = document.querySelector(".meaning-section");
+    const heartSection = document.querySelector(".heart-section");
+    const beliefsSection = document.querySelector(".beliefs-section");
+    const teamSection = document.querySelector(".team-section");
+    const benefitsSection = document.querySelector(".benefits-section");
+    const timelineSection = document.querySelector(".timeline-section");
+    const promiseSection = document.querySelector(".promise-section");
+    const footerSection = document.querySelector(".minimal-footer");
+    
+    const allSections = [
+      heroSection, meaningSection, heartSection, beliefsSection,
+      teamSection, benefitsSection, timelineSection, promiseSection, footerSection
+    ].filter(Boolean);
+    
+    // Check local storage on load
+    const savedTheme = localStorage.getItem("hero-theme");
+    if (savedTheme === "light") {
+      allSections.forEach(section => section.classList.add("light-mode"));
+      
+      const header = document.querySelector("header");
+      const logoContainer = document.querySelector(".logo-container");
+      
+      if (header) header.classList.add("light-mode-active");
+      if (logoContainer) logoContainer.classList.add("light-mode-active");
+      
+      const icon = themeToggleBtn.querySelector("i");
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+      allSections.forEach(section => section.classList.toggle("light-mode"));
+      
+      const header = document.querySelector("header");
+      const logoContainer = document.querySelector(".logo-container");
+      
+      if (header) header.classList.toggle("light-mode-active");
+      if (logoContainer) logoContainer.classList.toggle("light-mode-active");
+      
+      const icon = themeToggleBtn.querySelector("i");
+      if (heroSection.classList.contains("light-mode")) {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+        localStorage.setItem("hero-theme", "light");
+      } else {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+        localStorage.setItem("hero-theme", "dark");
+      }
+    });
+  }
+});
 
 // --- Meaning Section ---
 const meaningCircle = document.querySelector(".meaning-svg circle");
