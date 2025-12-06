@@ -248,23 +248,41 @@ ScrollTrigger.matchMedia({
     });
   },
   
-  // Mobile - Simple fade in
+  // Mobile & Tablet - Simple fade in with robust animation
   "(max-width: 899px)": function() {
-    gsap.set('.why-card-v2', { clearProps: "all" });
-    
     const cards = document.querySelectorAll('.why-card-v2');
-    cards.forEach(card => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none reverse"
+    
+    // Clear any previous transforms/styles from desktop version
+    gsap.set(cards, { clearProps: "all" });
+    
+    // Set initial state - cards start hidden
+    gsap.set(cards, { opacity: 0, y: 40 });
+    
+    cards.forEach((card, index) => {
+      // Use fromTo for reliable animation with explicit start and end states
+      gsap.fromTo(card, 
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",  // Trigger earlier for better mobile experience
+            end: "top 60%",
+            toggleActions: "play none none none", // Play once and stay visible
+            once: true  // Ensure animation only plays once, cards stay visible
+          }
         }
-      });
+      );
     });
+    
+    // Also handle progress bar on mobile (hidden in CSS, but let's update it anyway)
+    const progressFill = document.getElementById('why-progress-fill');
+    const progressText = document.getElementById('why-progress-text');
+    if (progressFill) progressFill.style.width = '100%';
+    if (progressText) progressText.textContent = `05 / 05`;
   }
 });
 
