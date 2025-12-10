@@ -20,9 +20,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="our-work.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="normal-scroll">
+  <div class="noise-overlay"></div>
+  
+  <!-- Header -->
   <header>
     <div class="navbar">
       <a href="/" class="nav-logo">
@@ -47,59 +51,114 @@
       <ul>
         <li><a href="index.html">Start here</a></li>
         <li><a href="About.html">Our Story</a></li>
-        <!-- <li><a href="Think-ux-first.html">Think Ux First</a></li> -->
         <li><a href="Web-solutions.html">Pixi Web</a></li>
         <li><a href="Our-work.html">Our Work</a></li>
         <li><a href="Beyond-Web.html">Beyond Web</a></li>
         <li><a href="Contact.html">let's talk</a></li>
-        <!-- Phone & WhatsApp icons below Let's talk -->
         <li class="contact-icons">
-          <a class="icon-gold" href="tel:+919840167444" target="_blank" aria-label="Call us"><i
-              class="fas fa-phone"></i></a>
-          <a class="icon-gold" href="https://wa.me/919840167444" target="_blank" aria-label="WhatsApp"><i
-              class="fab fa-whatsapp"></i></a>
+          <a class="icon-gold" href="tel:+919840167444" target="_blank" aria-label="Call us"><i class="fas fa-phone"></i></a>
+          <a class="icon-gold" href="https://wa.me/919840167444" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </li>
       </ul>
     </nav>
   </header>
 
-  <!-- SECTION 2: PORTFOLIO SHOWCASE -->
-
-  <!-- Scroll container keeps the page to a single viewport while content scrolls inside -->
-  <div class="site-scroll">
-
-<!-- Portfolio Section -->
-<section class="portfolio-page">
-  <div class="portfolio-wrapper">
-    <!-- Sidebar Filters -->
-    <aside class="portfolio-filters">
-      <button data-filter="all" class="active">All Projects</button>
-      <button data-filter="Corporate">Corporate</button>
-      <button data-filter="NGO">NGO</button>
-      <button data-filter="Consulting">Consulting</button>
-    </aside>
-
-    <!-- Portfolio Grid -->
-    <div class="portfolio-grid" id="portfolioGrid">
-      <!-- Example Card -->
-      <div class="portfolio-card">
-        <img src="https://source.unsplash.com/600x400/?office" class="portfolio-img" alt="Corporate Project">
-        <div class="portfolio-content">
-          <h3 class="portfolio-title">Corporate Website</h3>
-          <p class="portfolio-desc">A modern corporate site with brand storytelling and responsive design.</p>
-          <p class="portfolio-tech">Tech: HTML, CSS, Angular</p>
-          <a href="#" class="portfolio-cta" aria-label="Visit project">Visit Now</a>
+  <!-- Main Content -->
+  <main class="work-page">
+    
+    <!-- Hero Section -->
+    <section class="work-hero">
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+      
+      <div class="hero-content">
+        <div class="hero-title-wrap">
+          <h1 class="hero-title">
+            <span class="title-line" data-text="Our">Our</span>
+            <span class="title-line title-accent" data-text="Work">Work</span>
+          </h1>
+          <div class="title-underline"></div>
+        </div>
+        
+        <p class="hero-tagline">Crafted digital experiences that transform businesses</p>
+        
+        <!-- Filter Pills in Hero -->
+        <div class="filter-pills" id="filterPills">
+          <button class="filter-pill active" data-filter="all">
+            <span class="pill-text">All Projects</span>
+            <span class="pill-count" data-count="all">18</span>
+          </button>
+          <button class="filter-pill" data-filter="Corporate">
+            <span class="pill-text">Corporate</span>
+            <span class="pill-count" data-count="Corporate">4</span>
+          </button>
+          <button class="filter-pill" data-filter="NGO">
+            <span class="pill-text">Social Impact</span>
+            <span class="pill-count" data-count="NGO">2</span>
+          </button>
+          <button class="filter-pill" data-filter="Consulting">
+            <span class="pill-text">Consulting</span>
+            <span class="pill-count" data-count="Consulting">1</span>
+          </button>
+          <button class="filter-pill" data-filter="Tourism">
+            <span class="pill-text">Tourism</span>
+            <span class="pill-count" data-count="Tourism">1</span>
+          </button>
+          <button class="filter-pill" data-filter="Creative">
+            <span class="pill-text">Creative</span>
+            <span class="pill-count" data-count="Creative">4</span>
+          </button>
+          <button class="filter-pill" data-filter="Lifestyle">
+            <span class="pill-text">Lifestyle</span>
+            <span class="pill-count" data-count="Lifestyle">6</span>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+      
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span class="scroll-text">Scroll to explore</span>
+      </div>
+    </section>
 
-</div>
-  <!-- GSAP Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Observer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- Projects Grid Section -->
+    <section class="projects-section" id="projectsSection">
+      <div class="projects-container">
+        
+        <!-- Bento Grid -->
+        <div class="bento-grid" id="bentoGrid">
+          <!-- Projects will be injected via JS -->
+        </div>
+        
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">🔍</div>
+          <h3>No projects found</h3>
+          <p>Try selecting a different category</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="work-cta">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to create something amazing?</h2>
+        <p class="cta-text">Let's build your next digital experience together.</p>
+        <a href="Contact.html" class="cta-btn">
+          <span>Start a Project</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GSAP Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
   <script src="main-normal-scroll.js"></script>
   <script src="our-work.js"></script>
 </body>

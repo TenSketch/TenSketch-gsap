@@ -50,7 +50,7 @@
     "altText": "Vanavihar",
     "description": "Tourism site highlighting Vanavihar's eco experiences and bookings.",
     "techTags": ["Angular", "Bootstrap", "Node"],
-    "liveUrl": "vanavihar.com",
+    "liveUrl": "https://vanavihari.com/#/home",
     "filterTag": "Tourism & Eco Experiences"
   },
   {
