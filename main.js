@@ -79,26 +79,29 @@ function initStackedScroll() {
 
     let currentIndex = 0;  // Currently visible panel index (starts at 0 = top panel)
     let isAnimating = false;  // Flag to prevent double-firing during transitions
-    const animationDuration = 0.8;  // Duration of slide transitions
+    const animationDuration = 1.2;  // Slightly slower for smoother scanning effect
 
-    // Initialize all panels at yPercent: 0 (stacked in place)
-    gsap.set(panels, { yPercent: 0 });
+    // Ensure all panels start full height
+    // We rely on CSS z-index stacking (panel-1 on top)
+    gsap.set(panels, { height: '100vh' });
 
     /**
      * Navigate to next panel (scroll DOWN)
-     * Slides the current panel UP (yPercent: -100) to reveal the one beneath
+     * Shrinks the current panel height to 0 to reveal the one beneath
      */
     function goToNext() {
-        // Prevent if already at last panel or currently animating
+        // Prevent if already at last panel (panel-10, index 9) or currently animating
+        // Note: panels.length is 10. Max index is 9.
         if (currentIndex >= panels.length - 1 || isAnimating) return;
         
         isAnimating = true;
         const currentPanel = panels[currentIndex];
 
+        // Animate height from 100vh to 0
         gsap.to(currentPanel, {
-            yPercent: -100,
+            height: 0,
             duration: animationDuration,
-            ease: 'power2.inOut',
+            ease: 'power1.inOut', // Smoother ease than power2
             onComplete: () => {
                 currentIndex++;
                 isAnimating = false;
@@ -109,7 +112,7 @@ function initStackedScroll() {
 
     /**
      * Navigate to previous panel (scroll UP)
-     * Slides the previous panel DOWN (yPercent: 0) to cover the current one
+     * Restores the previous panel height to 100vh to cover the current one
      */
     function goToPrev() {
         // Prevent if already at first panel or currently animating
@@ -118,10 +121,11 @@ function initStackedScroll() {
         isAnimating = true;
         const previousPanel = panels[currentIndex - 1];
 
+        // Animate height back to 100vh
         gsap.to(previousPanel, {
-            yPercent: 0,
+            height: '100vh',
             duration: animationDuration,
-            ease: 'power2.inOut',
+            ease: 'power1.inOut', // Smoother ease than power2
             onComplete: () => {
                 currentIndex--;
                 isAnimating = false;

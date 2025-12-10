@@ -341,48 +341,65 @@ header .social-icon:hover {
   left: 0;
   width: 100%;
   height: 100vh;
-  will-change: transform;
+  will-change: height;
+  overflow: hidden;
+  /* border-bottom and box-shadow removed for smoother/cleaner look */
+}
+
+.panel-inner {
+  position: absolute;
+  /* Keep content fixed in viewport to prevent moving up with the panel shrink */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* Ensure backgrounds and flex layouts work as before */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Stack order: panel-1 on top, panel-9 at bottom */
 .panel-1 {
-  z-index: 8;
+  z-index: 9;
 }
 
 .panel-2 {
-  z-index: 7;
+  z-index: 8;
 }
 
 .panel-3 {
-  z-index: 6;
+  z-index: 7;
 }
 
 .panel-4 {
-  z-index: 5;
+  z-index: 6;
 }
 
 .panel-5 {
-  z-index: 4;
+  z-index: 5;
 }
 
 .panel-6 {
-  z-index: 3;
+  z-index: 4;
 }
 
 .panel-7 {
-  z-index: 2;
+  z-index: 3;
 }
 
 .panel-8 {
-  z-index: 1;
+  z-index: 2;
 }
 
 .panel-9 {
-  z-index: 0;
+  z-index: 1;
 }
 
 .panel-10 {
-  z-index: -1;
+  z-index: 0;
+  /* Footer doesn't need to shrink, but having the border is fine */
 }
 
 /* Hero Section */
