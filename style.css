@@ -16,11 +16,28 @@
   box-sizing: border-box;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   color: var(--white);
   background-color: #0d1117;
   overflow-x: hidden;
+}
+
+/* Headings & display text use Bebas Neue for strong, condensed display */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display {
+  font-family: 'Bebas Neue', cursive;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-weight: normal;
 }
 
 /* ===== NAVBAR STYLES ===== */

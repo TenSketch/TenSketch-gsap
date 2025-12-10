@@ -97,17 +97,34 @@ function initStackedScroll() {
         isAnimating = true;
         const currentPanel = panels[currentIndex];
 
-        // Animate height from 100vh to 0
-        gsap.to(currentPanel, {
-            height: 0,
-            duration: animationDuration,
-            ease: 'power1.inOut', // Smoother ease than power2
+        // Animate height from 100vh to 0 AND move inner content up slightly
+        const inner = currentPanel.querySelector('.panel-inner');
+        const nextPanel = panels[currentIndex + 1];
+        const nextInner = nextPanel ? nextPanel.querySelector('.panel-inner') : null;
+
+        // Timeline so both animations run in sync for a cohesive motion
+        const tl = gsap.timeline({
             onComplete: () => {
                 currentIndex++;
                 isAnimating = false;
                 animateSectionContent(currentIndex);
             }
         });
+
+        // Move inner content up a little so it visibly moves relative to viewport
+        if (inner) {
+            tl.to(inner, { yPercent: -15, duration: animationDuration, ease: 'power1.inOut' }, 0);
+        }
+
+        // Animate the incoming panel's inner to settle into place (starting slightly lower)
+        if (nextInner) {
+            // Ensure it starts slightly below so the settle animation is visible
+            gsap.set(nextInner, { yPercent: 15 });
+            tl.to(nextInner, { yPercent: 0, duration: animationDuration, ease: 'power1.inOut' }, 0);
+        }
+
+        // Shrink the panel to reveal the one beneath
+        tl.to(currentPanel, { height: 0, duration: animationDuration, ease: 'power1.inOut' }, 0);
     }
 
     /**
@@ -121,17 +138,33 @@ function initStackedScroll() {
         isAnimating = true;
         const previousPanel = panels[currentIndex - 1];
 
-        // Animate height back to 100vh
-        gsap.to(previousPanel, {
-            height: '100vh',
-            duration: animationDuration,
-            ease: 'power1.inOut', // Smoother ease than power2
+        // Animate height back to 100vh AND move inner content down slightly so it appears
+        // to settle into place (visible movement relative to viewport)
+        const inner = previousPanel.querySelector('.panel-inner');
+        const currentPanel = panels[currentIndex];
+        const currentInner = currentPanel ? currentPanel.querySelector('.panel-inner') : null;
+
+        const tl = gsap.timeline({
             onComplete: () => {
                 currentIndex--;
                 isAnimating = false;
                 animateSectionContent(currentIndex);
             }
         });
+
+        // Prepare inner to start slightly higher so the animation can move it into place
+        if (inner) {
+            // Start from -15% (slightly up) and animate to 0 (settle)
+            tl.fromTo(inner, { yPercent: -15 }, { yPercent: 0, duration: animationDuration, ease: 'power1.inOut' }, 0);
+        }
+
+        // Move the currently visible panel's inner down slightly so it visibly moves as it's covered
+        if (currentInner) {
+            tl.to(currentInner, { yPercent: 15, duration: animationDuration, ease: 'power1.inOut' }, 0);
+        }
+
+        // Restore height to cover the current panel
+        tl.to(previousPanel, { height: '100vh', duration: animationDuration, ease: 'power1.inOut' }, 0);
     }
 
     // Create GSAP Observer for scroll/wheel/touch/pointer events
