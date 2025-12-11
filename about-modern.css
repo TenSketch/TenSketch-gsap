@@ -361,11 +361,10 @@ body.modern-about {
 }
 
 .section-heading {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(3rem, 5vw, 5rem);
   color: var(--accent-gold);
   margin-bottom: 2rem;
-  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -405,7 +404,7 @@ body.modern-about {
 }
 
 .hero-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(4rem, 10vw, 8rem);
   line-height: 0.9;
   margin-bottom: 1rem;
@@ -418,7 +417,6 @@ body.modern-about {
 .hero-subtitle {
   font-size: 1.5rem;
   letter-spacing: 3px;
-  text-transform: uppercase;
   opacity: 0.8;
 }
 

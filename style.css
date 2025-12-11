@@ -8,6 +8,7 @@
   --primary-clr: #000000;
   --secondary-clr: #ffffff;
   --logo-transition: 0.4s;
+  --bg-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
 }
 
 * {
@@ -653,7 +654,7 @@ header .social-icon:hover {
 
 .ux-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   color: var(--white);
   display: flex;
   align-items: center;
@@ -706,7 +707,7 @@ header .social-icon:hover {
   }
 
   .ux-card h3 {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
     gap: 0.3rem;
   }
 
@@ -831,7 +832,7 @@ header .social-icon:hover {
 /* Front Face */
 .flip-card-front h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: var(--white);
   line-height: 1.4;
 }
@@ -882,7 +883,7 @@ header .social-icon:hover {
   }
 
   .flip-card-front h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .flip-card-back p {
@@ -916,7 +917,7 @@ header .social-icon:hover {
   }
 
   .flip-card-front .card-icon {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 0.25rem;
   }
 
@@ -1029,12 +1030,12 @@ header .social-icon:hover {
 }
 
 .pixi-card .card-icon {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 }
 
 .pixi-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   color: var(--white);
   margin: 0;
 }
@@ -1042,7 +1043,7 @@ header .social-icon:hover {
 .pixi-card p {
   font-family: 'Inter', sans-serif;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   margin: 0;
 }
@@ -1235,7 +1236,7 @@ header .social-icon:hover {
   /* Align bottom */
   justify-content: center;
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 760px;
   margin: 0 auto;
   position: relative;
 }
@@ -1247,6 +1248,8 @@ header .social-icon:hover {
   grid-template-rows: auto auto;
   gap: 1rem;
   flex: 1;
+  /* limit width so individual cards are narrower */
+  max-width: 520px;
 }
 
 /* Top Card spanning full width */
@@ -1296,7 +1299,7 @@ header .social-icon:hover {
 
 .blueprint-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   color: var(--white);
   margin-bottom: 0.3rem;
 }
@@ -1304,16 +1307,17 @@ header .social-icon:hover {
 .blueprint-card p {
   font-family: 'Inter', sans-serif;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.4;
 }
 
 /* Pixi Character Position */
 .blueprint-pixi {
   flex-shrink: 0;
-  width: 200px;
+  /* Reduce Pixi side artwork width to free more room for grid spacing */
+  width: 160px;
   z-index: 2;
-  margin-left: -30px;
+  margin-left: -20px;
 }
 
 /* Slight overlap for depth */
@@ -1481,7 +1485,7 @@ header .social-icon:hover {
   color: #000;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   margin-top: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1658,7 +1662,7 @@ header .social-icon:hover {
   .blueprint-pixi {
     margin-left: 0;
     margin-top: -1rem;
-    width: 150px;
+    width: 140px;
     order: 2;
     /* Move below grid */
   }
@@ -1667,6 +1671,7 @@ header .social-icon:hover {
     width: 100%;
     order: 1;
     gap: 0.75rem;
+    max-width: 520px;
   }
 
   .blueprint-card {
@@ -1752,7 +1757,7 @@ header .social-icon:hover {
   }
 
   .blueprint-pixi {
-    width: 100px;
+    width: 90px;
     margin-top: -0.5rem;
   }
 }
@@ -1953,7 +1958,7 @@ header .social-icon:hover {
 
 .section-heading {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 4.5vw, 2.8rem);
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
   margin: 0 0 1rem;
   color: var(--white);
   font-weight: 600;
@@ -2163,4 +2168,53 @@ header .social-icon:hover {
     font-size: 0.8rem;
     margin-top: 1rem;
   }
+}
+
+/* ===== GLOBAL BG IMAGE OVERLAY ===== */
+/* Apply a consistent black overlay for sections with background images */
+.hero,
+.dreams-section,
+.traffic-section,
+.ux-section,
+.questions-section,
+.pixi-section,
+.blueprint-section,
+.gift-section,
+.testimonials-bg {
+  position: relative;
+  /* Create stacking context for pseudo element */
+  overflow: hidden;
+  /* Prevent overlay spill */
+}
+
+.hero::before,
+.dreams-section::before,
+.traffic-section::before,
+.ux-section::before,
+.questions-section::before,
+.pixi-section::before,
+.blueprint-section::before,
+.gift-section::before,
+.testimonials-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  z-index: 1;
+  pointer-events: none;
+  /* Don't intercept clicks */
+}
+
+/* Ensure section inner content sits above the overlay */
+.hero-content,
+.dreams-content,
+.traffic-content,
+.ux-content,
+.questions-content,
+.pixi-content,
+.blueprint-content,
+.gift-container,
+.testimonials-bg>* {
+  position: relative;
+  z-index: 2;
 }

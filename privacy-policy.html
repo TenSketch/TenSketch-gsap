@@ -7,6 +7,7 @@
   <link rel="icon" href="assets/images/TenSketch_logo_full_size_PNG.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="legal.css">
   <style>
     /* Override problematic CSS to ensure scrolling works */
     html, body {
@@ -19,13 +20,8 @@
       padding: 0 !important;
     }
     body {
-      background: #232323 !important;
+      background: #0d1117 !important;
       color: #fff !important;
-    }
-    /* Ensure main content can scroll */
-    main {
-      position: relative !important;
-      z-index: 1 !important;
     }
   </style>
 </head>
@@ -35,9 +31,14 @@
       <a href="/" class="nav-logo">
         <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch Logo">
       </a>
-      <a href="https://instagram.com/tensketch" class="social-icon" target="_blank" rel="noopener">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
+      <div class="nav-controls">
+        <a href="https://www.instagram.com/website_designers_chennai/" class="social-icon" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
     </div>
     <div id="logo-menu" class="logo-container">
       <svg class="logo-menu-border" viewBox="0 0 60 60">
@@ -58,7 +59,6 @@
         <li><a href="Our-work.html">Our Work</a></li>
         <li><a href="Beyond-Web.html">Beyond Web</a></li>
         <li><a href="Contact.html">let's talk</a></li>
-        <!-- Phone & WhatsApp icons below Let's talk -->
         <li class="contact-icons">
           <a class="icon-gold" href="tel:+919840167444" target="_blank" aria-label="Call us"><i
               class="fas fa-phone"></i></a>
@@ -68,8 +68,6 @@
       </ul>
     </nav>
   </header>
-
-
 
   <main class="legal-main">
     <h1 class="legal-title">Privacy Policy</h1>
@@ -137,9 +135,7 @@
     </div>
   </main>
 
-
-
-   <section class="minimal-footer">
+  <section class="minimal-footer">
     <div class="outer">
       <div class="inner">
         <div class="bg">
@@ -150,6 +146,7 @@
             <a href="Beyond-Web.html" class="footer-link">Branding</a> |
             <a href="privacy-policy.html" class="footer-link">Privacy policy</a> |
             <a href="terms-and-conditions.html" class="footer-link">Terms and conditions</a> |
+            <a href="cookie-policy.html" class="footer-link">Cookie Policy</a> |
             <a href="Contact.html" class="footer-link">Contact us</a>
           </div>
           <p class="footer-text text-center mb-0">Copyright © 2017 -
@@ -164,5 +161,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="menu.js"></script>
+  <script src="legal.js"></script>
 </body>
 </html>

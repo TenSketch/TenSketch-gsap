@@ -7,6 +7,7 @@
   <link rel="icon" href="assets/images/TenSketch_logo_full_size_PNG.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="legal.css">
   <style>
     /* Override problematic CSS to ensure scrolling works */
     html, body {
@@ -19,13 +20,8 @@
       padding: 0 !important;
     }
     body {
-      background: #232323 !important;
+      background: #0d1117 !important;
       color: #fff !important;
-    }
-    /* Ensure main content can scroll */
-    main {
-      position: relative !important;
-      z-index: 1 !important;
     }
   </style>
 </head>
@@ -35,9 +31,14 @@
       <a href="/" class="nav-logo">
         <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch Logo">
       </a>
-      <a href="https://instagram.com/tensketch" class="social-icon" target="_blank" rel="noopener">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
+      <div class="nav-controls">
+        <a href="https://www.instagram.com/website_designers_chennai/" class="social-icon" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
     </div>
     <div id="logo-menu" class="logo-container">
       <svg class="logo-menu-border" viewBox="0 0 60 60">
@@ -58,7 +59,6 @@
         <li><a href="Our-work.html">Our Work</a></li>
         <li><a href="Beyond-Web.html">Beyond Web</a></li>
         <li><a href="Contact.html">let's talk</a></li>
-        <!-- Phone & WhatsApp icons below Let's talk -->
         <li class="contact-icons">
           <a class="icon-gold" href="tel:+919840167444" target="_blank" aria-label="Call us"><i
               class="fas fa-phone"></i></a>
@@ -70,53 +70,78 @@
   </header>
 
   <main class="legal-main">
-  <h1 class="legal-title">Terms and Conditions</h1>
-  <div class="legal-content">
-    <ol>
-      <li><strong>Project Commencement</strong><br>
-        All projects will commence only after advance payment is received and the agreement is signed.
-      </li>
+    <h1 class="legal-title">Terms and Conditions</h1>
+    <div class="legal-content">
+      <p class="policy-date">Last Updated: January 1, 2025</p>
 
-      <li><strong>Domain & Hosting Management</strong><br>
-        At TenSketch, we handle end-to-end digital services...
-      </li>
+      <p>Welcome to TenSketch. By accessing our website or engaging our services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
 
-      <li><strong>Termination & Transfer</strong><br>
-        If a client wishes to terminate the agreement...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">1. Project Commencement</h2>
+        <p>All projects will commence only after the agreed advance payment is received and the service agreement is signed by both parties. We reserve the right to delay the start date if these conditions are not met.</p>
+      </div>
 
-      <li><strong>Content & Assets</strong><br>
-        Clients are responsible for providing all assets required...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">2. Domain & Hosting Management</h2>
+        <p>At TenSketch, we handle end-to-end digital services. Unless explicitly agreed otherwise in writing, we manage the purchasing, configuration, and renewal of domains and hosting for projects we build. This ensures optimal performance, security, and integration.</p>
+        <p>If a client insists on managing their own hosting/domain, TenSketch is not responsible for server-side issues, downtime, or configuration errors.</p>
+      </div>
 
-      <li><strong>Timeline & Delays</strong><br>
-        TenSketch will provide an estimated project timeline...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">3. Termination & Transfer</h2>
+        <p>If a client wishes to terminate the agreement or transfer services away from TenSketch:</p>
+        <ul>
+          <li>All outstanding dues must be cleared in full.</li>
+          <li>A transfer fee may apply for facilitating the migration of assets and data.</li>
+          <li>TenSketch retains ownership of all code and design assets until final payment is made.</li>
+        </ul>
+      </div>
 
-      <li><strong>Revisions & Scope</strong><br>
-        The agreement includes up to two rounds of revisions...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">4. Content & Assets</h2>
+        <p>Clients are responsible for providing all text, images, and brand assets required for the project in a timely manner. Delays in providing content will result in a corresponding delay in the project timeline.</p>
+      </div>
 
-      <li><strong>Data Privacy & Security</strong><br>
-        TenSketch commits to protecting confidential client data...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">5. Timeline & Delays</h2>
+        <p>TenSketch will provide an estimated project timeline. However, we are not liable for delays caused by:
+          <ul>
+            <li>Delayed client feedback or content submission.</li>
+            <li>Changes in project scope (Scope Creep).</li>
+            <li>Third-party service outages or force majeure events.</li>
+          </ul>
+        </p>
+      </div>
 
-      <li><strong>Maintenance & Warranty</strong><br>
-        TenSketch provides a 30-day warranty period post-launch...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">6. Revisions & Scope</h2>
+        <p>The project agreement includes a specific number of revision rounds (typically two). Any additional changes or new features requested after approval will be billed separately as per our hourly rates.</p>
+      </div>
 
-      <li><strong>Dispute Resolution</strong><br>
-        Any disputes will be resolved amicably...
-      </li>
+      <div class="legal-section">
+        <h2 class="policy-heading">7. Data Privacy & Security</h2>
+        <p>TenSketch commits to protecting confidential client data. However, we are not liable for data breaches caused by client-managed passwords, compromised third-party integrations, or hosting accounts not managed by us.</p>
+      </div>
 
-      <li><strong>Force Majeure</strong><br>
-        TenSketch will not be held liable...
-      </li>
-    </ol>
-  </div>
-</main>
+      <div class="legal-section">
+        <h2 class="policy-heading">8. Maintenance & Warranty</h2>
+        <p>TenSketch provides a 30-day warranty period post-launch for fixing bugs related to our work. After this period, maintenance and updates are subject to a separate Annual Maintenance Contract (AMC).</p>
+      </div>
 
-   <section class="minimal-footer">
+      <div class="legal-section">
+        <h2 class="policy-heading">9. Dispute Resolution</h2>
+        <p>Any disputes arising from this agreement will be resolved amicably through negotiation. If unresolved, disputes shall be subject to the jurisdiction of the courts in Chennai, India.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="policy-heading">10. Force Majeure</h2>
+        <p>TenSketch will not be held liable for any failure to perform its obligations due to events beyond our reasonable control, including natural disasters, internet outages, or government restrictions.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="minimal-footer">
     <div class="outer">
       <div class="inner">
         <div class="bg">
@@ -127,6 +152,7 @@
             <a href="Beyond-Web.html" class="footer-link">Branding</a> |
             <a href="privacy-policy.html" class="footer-link">Privacy policy</a> |
             <a href="terms-and-conditions.html" class="footer-link">Terms and conditions</a> |
+            <a href="cookie-policy.html" class="footer-link">Cookie Policy</a> |
             <a href="Contact.html" class="footer-link">Contact us</a>
           </div>
           <p class="footer-text text-center mb-0">Copyright © 2017 -
@@ -141,5 +167,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="menu.js"></script>
+  <script src="legal.js"></script>
 </body>
 </html>

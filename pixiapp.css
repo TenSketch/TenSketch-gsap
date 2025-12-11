@@ -125,7 +125,7 @@ header {
 }
 
 .nav-logo {
-  height: 40px;
+  height: 80px;
 }
 
 .nav-logo img {
@@ -1303,4 +1303,27 @@ body.light-mode .footer-links a {
 
 body.light-mode .footer-links a:hover {
   color: #000;
+}
+/* === FOOTER STYLES === */
+footer {
+  padding: 4rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer-links a {
+  color: var(--k-text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.footer-links a:hover {
+  color: var(--k-gold);
 }
