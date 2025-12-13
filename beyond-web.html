@@ -2,580 +2,362 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Websites: Branding, SEO & Digital Strategy | TenSketch</title>
-    <meta name="description"
-        content="Explore services beyond website development – from branding and rebranding to SEO, social media marketing, and more.">
-    <meta name="keywords"
-        content="branding, SEO services, digital marketing, social media marketing, business registration, TenSketch">
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/TenSketch_logo_full_size_PNG.png" type="image/png">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Beyond Websites: Branding, SEO & Digital Strategy | TenSketch" />
-    <meta property="og:description"
-        content="Explore services beyond website development – from branding and rebranding to SEO, social media marketing, and more." />
-    <meta property="og:url" content="https://www.tensketch.com/beyond-web" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.tensketch.com/path/to/og-image.jpg" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="beyond-web.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Web — SEO, Branding & Content | TenSketch</title>
+  <meta name="description"
+    content="Go beyond the website. Holistic digital growth with data-driven SEO, engaging Social Media Marketing, and premium Photography/Videography.">
+  <meta name="keywords"
+    content="digital marketing, SEO services, social media marketing, SMM, photography, videography, content creation, brand strategy, TenSketch">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/TenSketch_logo_full_size_PNG.png" type="image/png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css"> <!-- Base styles (if needed) -->
+  <link rel="stylesheet" href="beyond-web.css">
 </head>
 
-<body class="beyond-web">
-    <!-- Hero Section -->
-    <section class="hero">
-        <!-- Animated Background -->
-        <div class="hero-background">
-            <div class="stars-field"></div>
-            <div class="falling-objects">
-                <div class="falling-object palette"></div>
-                <div class="falling-object building"></div>
-                <div class="falling-object megaphone"></div>
-                <div class="falling-object rocket"></div>
-                <div class="falling-object diamond"></div>
-                <div class="falling-object star"></div>
-                <div class="falling-object circle"></div>
-                <div class="falling-object triangle"></div>
-            </div>
-            <div class="floating-particles"></div>
-            <div class="cosmic-glow"></div>
+<body class="beyond-page">
+
+  <!-- Navigation (Consistent with other pages) -->
+  <header>
+    <div class="navbar">
+      <a href="/" class="nav-logo">
+        <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch Logo">
+      </a>
+      <div class="nav-controls">
+        <a href="https://www.instagram.com/website_designers_chennai/" class="social-icon" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Menu Button & Logo Animation Container -->
+    <div id="logo-menu" class="logo-container">
+      <svg class="logo-menu-border" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="26" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" />
+        <circle cx="30" cy="30" r="26" fill="none" stroke-width="2" class="logo-menu-glow" />
+      </svg>
+      <img src="assets/images/logo-left.png" alt="Logo Left" class="logo-half logo-left">
+      <img src="assets/images/logo-right.png" alt="Logo Right" class="logo-half logo-right">
+    </div>
+
+    <nav class="menu">
+      <button class="menu-close" aria-label="Close Menu">
+        <img src="assets/images/Cross_icon.png" alt="Close">
+      </button>
+      <ul>
+        <li><a href="index.html">Start here</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="Web-solutions.html">Pixi Web</a></li>
+        <li><a href="Our-work.html">Our Work</a></li>
+        <li><a href="Beyond-Web.html">Pixi Digital</a></li>
+        <li><a href="Contact.html">Let's talk</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="beyond-hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="eyebrow">The Digital Ecosystem</span>
+        <h1 class="hero-title">
+          Build <span class="gold-text">Influence.</span><br>
+          Not Just Interfaces.
+        </h1>
+        <p class="hero-desc">
+          A website is the foundation, but traffic is the fuel. We help you dominate search results, engage audiences on social, and capture your essence through lens.
+        </p>
+        <a href="#services" class="cta-btn">Explore Services</a>
+      </div>
+      <div class="hero-visual">
+         <!-- Abstract Digital Waves / Sphere -->
+         <div class="glow-sphere"></div>
+         <div class="floating-cards">
+            <div class="float-card card-1"><i class="fas fa-search"></i></div>
+            <div class="float-card card-2"><i class="fas fa-hashtag"></i></div>
+            <div class="float-card card-3"><i class="fas fa-camera"></i></div>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <div id="services" class="services-wrapper">
+    
+    <!-- Service 1: SEO - The Rank Elevator -->
+    <section class="service-section seo-section" data-color="#D4AF37">
+      <div class="container service-layout reverse">
+        <div class="service-text">
+          <div class="service-icon"><i class="fas fa-search-location"></i></div>
+          <h2 class="service-title">Search <span class="gold-text">Supremacy</span></h2>
+          <h3 class="service-subtitle">Don't Just Compete. Dominate.</h3>
+          <p>
+            Being on page 2 is being invisible. We engineer your digital presence to climb the ladder. Through technical precision, semantic authority, and user-centric signals, we secure your spot at the top—where the traffic is.
+          </p>
+          <ul class="service-features">
+             <li><i class="fas fa-check"></i> Technical Audits & Fixes</li>
+             <li><i class="fas fa-check"></i> Semantic Keyword Strategy</li>
+             <li><i class="fas fa-check"></i> Conversion-Driven Content</li>
+          </ul>
+          <a href="Contact.html" class="cta-btn">Get a Free Audit</a>
         </div>
-
-        <!-- Hero Content -->
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">
-                    <span class="badge-text">🚀 Beyond Web Services</span>
-                    <div class="badge-glow"></div>
+        <div class="service-visual">
+          <div class="visual-stage seo-stage">
+             <!-- Abstract Search Interface -->
+             <div class="search-frame">
+                <div class="search-bar">
+                   <div class="s-icon"><i class="fas fa-search"></i></div>
+                   <div class="s-text"></div>
                 </div>
-                <h1 class="hero-title">
-                    <span class="word-animation">Where</span>
-                    <span class="word-animation gradient-text">Innovation</span>
-                    <br>
-                    <span class="word-animation">Meets</span>
-                    <span class="word-animation cosmic-text">Excellence</span>
-                </h1>
-                <p class="hero-subtitle typewriter">
-                    Beyond websites, we craft complete business universes.
-                </p>
-                <div class="hero-services-preview">
-                    <div class="service-bubble" data-service="brand">
-                        <i class="fas fa-palette"></i>
-                        <span>Brand Identity</span>
-                    </div>
-                    <div class="service-bubble" data-service="registration">
-                        <i class="fas fa-building"></i>
-                        <span>Company Registration</span>
-                    </div>
-                    <div class="service-bubble" data-service="marketing">
-                        <i class="fas fa-bullhorn"></i>
-                        <span>Social Media Marketing</span>
-                    </div>
+                <!-- Results Stack -->
+                <div class="results-stack">
+                   <div class="result-card blur-card r1"></div>
+                   <div class="result-card blur-card r2"></div>
+                   <!-- The Hero Result (Starts lower, moves up) -->
+                   <div class="result-card hero-card r3">
+                      <div class="r-icon"><i class="fas fa-bolt"></i></div>
+                      <div class="r-lines">
+                         <div class="rl l1"></div>
+                         <div class="rl l2"></div>
+                      </div>
+                      <div class="rank-badge">#1</div>
+                   </div>
+                   <div class="result-card blur-card r4"></div>
                 </div>
-                <div class="hero-cta">
-                    <button class="cosmic-btn primary" onclick="startJourney()">
-                        <span class="btn-text">Explore Services</span>
-                        <i class="fas fa-rocket"></i>
-                    </button>
-                </div>
-            </div>
+             </div>
+          </div>
         </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-dot"></div>
-            <div class="scroll-line"></div>
-            <span>Discover Services</span>
-        </div>
-    </section>
-    <!-- Brand Identity Section -->
-    <section id="brand-identity" class="service-section brand-section">
-        <div class="section-background">
-            <div class="morphing-shapes">
-                <div class="morph-shape shape-1"></div>
-                <div class="morph-shape shape-2"></div>
-                <div class="morph-shape shape-3"></div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="service-content">
-                <div class="service-info">
-                    <div class="service-number">01</div>
-                    <div class="service-category">Visual Identity</div>
-                    <h2 class="service-title">
-                        <span class="title-word">Brand</span>
-                        <span class="title-word gradient-text">Identity</span>
-                        <span class="title-subtitle">That Speaks Volumes</span>
-                    </h2>
-
-                    <div class="usp-container">
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-magic"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Unique Brand DNA</h3>
-                                <p>We don't just create logos; we birth brand personalities that resonate deeply with
-                                    your audience's emotions and aspirations.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Instant Recognition</h3>
-                                <p>Our designs create immediate brand recall. Your customers will recognize you from
-                                    across the digital universe.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Premium Positioning</h3>
-                                <p>Elevate your business from ordinary to extraordinary with brand identity that
-                                    commands respect and premium pricing.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-cta">
-                        <button class="cosmic-btn brand-btn" onclick="openBrandPortal()">
-                            <span class="btn-text">Launch Brand</span>
-                            <i class="fas fa-palette"></i>
-                        </button>
-                        <button class="cosmic-btn brand-btn" onclick="window.location.href='logo-portfolio.html'">
-                            <span class="btn-text">View Logo Portfolio</span>
-                            <i class="fas fa-star"></i>
-                        </button>
-                        <div class="cta-note">Complete brand packages starting from ₹25,000</div>
-                    </div>
-                </div>
-
-                <div class="service-visual">
-                    <div class="brand-showcase">
-                        <div class="showcase-item logo-animation">
-                            <div class="animated-logo">
-                                <div class="logo-element element-1"></div>
-                                <div class="logo-element element-2"></div>
-                                <div class="logo-element element-3"></div>
-                            </div>
-                            <span>Logo Animation</span>
-                        </div>
-                        <div class="showcase-item color-palette">
-                            <div class="color-swatches">
-                                <div class="swatch color-1"></div>
-                                <div class="swatch color-2"></div>
-                                <div class="swatch color-3"></div>
-                                <div class="swatch color-4"></div>
-                            </div>
-                            <span>Color Harmony</span>
-                        </div>
-                        <div class="showcase-item typography">
-                            <div class="font-display">
-                                <div class="font-line">Aa</div>
-                                <div class="font-line">Bb</div>
-                                <div class="font-line">Cc</div>
-                            </div>
-                            <span>Typography</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Company Registration Section -->
-    <section id="company-registration" class="service-section registration-section">
-        <div class="section-background">
-            <div class="legal-grid">
-                <div class="grid-line"></div>
-                <div class="grid-line"></div>
-                <div class="grid-line"></div>
-                <div class="grid-line"></div>
-            </div>
-            <div class="floating-documents">
-                <div class="document doc-1"></div>
-                <div class="document doc-2"></div>
-                <div class="document doc-3"></div>
-            </div>
+    <!-- Service 2: SMM - The Magnetic Field -->
+    <section class="service-section smm-section" data-color="#FF5C5C">
+      <div class="container service-layout">
+        <div class="service-text">
+          <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+          <h2 class="service-title">Social <span class="gold-text">Magnetism</span></h2>
+          <h3 class="service-subtitle">Stop Scattering. Start Attracting.</h3>
+          <p>
+            The scroll is fast. Your brand needs to be the brake. We create "scroll-stopping" aesthetics and magnetic narratives that pull users into your orbit. Turning passive scrollers into active community members.
+          </p>
+          <ul class="service-features">
+             <li><i class="fas fa-check"></i> Viral Content Engineering</li>
+             <li><i class="fas fa-check"></i> Aesthetic Feed Curation</li>
+             <li><i class="fas fa-check"></i> Influencer Partnerships</li>
+          </ul>
+          <a href="Contact.html" class="cta-btn">See Social Packages</a>
         </div>
-
-        <div class="container">
-            <div class="service-content reverse">
-                <div class="service-visual">
-                    <div class="registration-showcase">
-                        <div class="legal-process">
-                            <div class="process-step active">
-                                <div class="step-icon">
-                                    <i class="fas fa-clipboard-check"></i>
-                                </div>
-                                <span>Documentation</span>
-                            </div>
-                            <div class="process-connector"></div>
-                            <div class="process-step">
-                                <div class="step-icon">
-                                    <i class="fas fa-stamp"></i>
-                                </div>
-                                <span>Government Filing</span>
-                            </div>
-                            <div class="process-connector"></div>
-                            <div class="process-step">
-                                <div class="step-icon">
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <span>Certification</span>
-                            </div>
-                        </div>
-                        <div class="certificate-animation">
-                            <div class="certificate">
-                                <div class="cert-seal"></div>
-                                <div class="cert-lines"></div>
-                            </div>
-                        </div>
+        <div class="service-visual">
+           <div class="visual-stage smm-stage">
+              <div class="phone-frame">
+                 <!-- Status Bar -->
+                 <div class="phone-notch"></div>
+                 <div class="phone-status">
+                    <span>9:41</span>
+                    <div class="status-icons">
+                       <i class="fas fa-signal"></i>
+                       <i class="fas fa-wifi"></i>
+                       <i class="fas fa-battery-full"></i>
                     </div>
-                </div>
+                 </div>
+                 
+                 <!-- Feed Content -->
+                 <div class="feed-container">
+                    <!-- Duplicate cards for infinite scroll illusion -->
+                    <div class="feed-scroller">
+                       <div class="social-card">
+                          <div class="sc-header">
+                             <div class="sc-avatar av-1"></div>
+                             <div class="sc-name">TrendSetter</div>
+                          </div>
+                          <div class="sc-image img-1"></div>
+                          <div class="sc-actions">
+                             <i class="fas fa-heart active-heart"></i>
+                             <i class="fas fa-comment"></i>
+                             <i class="fas fa-share"></i>
+                          </div>
+                       </div>
+                       
+                       <div class="social-card">
+                          <div class="sc-header">
+                             <div class="sc-avatar av-2"></div>
+                             <div class="sc-name">ViralVision</div>
+                          </div>
+                          <div class="sc-image img-2"></div>
+                          <div class="sc-actions">
+                             <i class="fas fa-heart"></i>
+                             <i class="fas fa-comment"></i>
+                             <i class="fas fa-share"></i>
+                          </div>
+                       </div>
+                       
+                       <div class="social-card">
+                          <div class="sc-header">
+                             <div class="sc-avatar av-3"></div>
+                             <div class="sc-name">GrowFast</div>
+                          </div>
+                          <div class="sc-image img-3"></div>
+                          <div class="sc-actions">
+                             <i class="fas fa-heart active-heart"></i>
+                             <i class="fas fa-comment"></i>
+                             <i class="fas fa-bookmark"></i>
+                          </div>
+                       </div>
 
-                <div class="service-info">
-                    <div class="service-number">02</div>
-                    <div class="service-category">Legal Foundation</div>
-                    <h2 class="service-title">
-                        <span class="title-word">Company</span>
-                        <span class="title-word gradient-text">Registration</span>
-                        <span class="title-subtitle">Your Legal Launchpad</span>
-                    </h2>
-
-                    <div class="usp-container">
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>100% Compliance Guarantee</h3>
-                                <p>Zero legal worries. We ensure every document, filing, and process meets government
-                                    standards perfectly.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Express Registration</h3>
-                                <p>From paperwork to approval in just 7-14 days. We expedite every step without
-                                    compromising accuracy.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>End-to-End Support</h3>
-                                <p>Bank account opening, tax registrations, licenses - we handle everything so you can
-                                    focus on your business.</p>
-                            </div>
-                        </div>
+                       <!-- Duplicate set for looping -->
+                       <div class="social-card">
+                          <div class="sc-header">
+                             <div class="sc-avatar av-1"></div>
+                             <div class="sc-name">TrendSetter</div>
+                          </div>
+                          <div class="sc-image img-1"></div>
+                          <div class="sc-actions">
+                             <i class="fas fa-heart active-heart"></i>
+                             <i class="fas fa-comment"></i>
+                             <i class="fas fa-share"></i>
+                          </div>
+                       </div>
                     </div>
-
-                    <div class="service-cta">
-                        <button class="cosmic-btn registration-btn" onclick="openRegistrationPortal()">
-                            <span class="btn-text">Register My Company</span>
-                            <i class="fas fa-building"></i>
-                        </button>
-                        <div class="cta-note">Complete registration packages from ₹5,999</div>
-                    </div>
-                </div>
-            </div>
+                 </div>
+                 
+                 <!-- Navigation Bar -->
+                 <div class="phone-nav">
+                    <i class="fas fa-home"></i>
+                    <i class="fas fa-search"></i>
+                    <div class="nav-plus"><i class="fas fa-plus"></i></div>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-user"></i>
+                 </div>
+              </div>
+              
+              <!-- Floating Elements (Pop out from phone) -->
+              <div class="floating-interactions">
+                 <div class="float-like fl-1"><i class="fas fa-heart"></i></div>
+                 <div class="float-like fl-2"><i class="fas fa-thumbs-up"></i></div>
+                 <div class="float-like fl-3"><i class="fas fa-fire"></i></div>
+                 <div class="float-stat fs-1"><span>+12.4k</span></div>
+                 <div class="float-stat fs-2"><span>Trending</span></div>
+              </div>
+           </div>
         </div>
+      </div>
     </section>
 
-    <!-- Social Media Marketing Section -->
-    <section id="social-media" class="service-section marketing-section">
-        <div class="section-background">
-            <div class="social-network">
-                <div class="network-node node-1"></div>
-                <div class="network-node node-2"></div>
-                <div class="network-node node-3"></div>
-                <div class="network-node node-4"></div>
-                <div class="network-connection conn-1"></div>
-                <div class="network-connection conn-2"></div>
-                <div class="network-connection conn-3"></div>
-            </div>
-            <div class="engagement-particles"></div>
+    <!-- Service 3: Photo/Video - The Cinema -->
+    <section class="service-section media-section" data-color="#FFFFFF">
+      <div class="container service-layout reverse">
+        <div class="service-text">
+          <div class="service-icon"><i class="fas fa-video"></i></div>
+          <h2 class="service-title">Cinematic <span class="gold-text">Vision</span></h2>
+          <h3 class="service-subtitle">Your Brand. In Focus.</h3>
+          <p>
+            In a noisy world, clarity wins. We bring cinema-grade production to your brand story. From product macros that show texture to brand documentaries that show soul. We don't just shoot; we compose.
+          </p>
+          <ul class="service-features">
+             <li><i class="fas fa-check"></i> 4K Brand Films</li>
+             <li><i class="fas fa-check"></i> High-End Product Photography</li>
+             <li><i class="fas fa-check"></i> Drone & Aerial Cinematography</li>
+          </ul>
+          <a href="Contact.html" class="cta-btn">Book a Shoot</a>
         </div>
-
-        <div class="container">
-            <div class="service-content">
-                <div class="service-info">
-                    <div class="service-number">03</div>
-                    <div class="service-category">Digital Presence</div>
-                    <h2 class="service-title">
-                        <span class="title-word">Social Media</span>
-                        <span class="title-word gradient-text">Marketing</span>
-                        <span class="title-subtitle">Viral Success Engine</span>
-                    </h2>
-
-                    <div class="usp-container">
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Viral Content Strategy</h3>
-                                <p>We don't just post content; we engineer viral moments that amplify your reach
-                                    exponentially across platforms.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Community Building</h3>
-                                <p>Transform followers into brand advocates. We build engaged communities that drive
-                                    real business results.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-target"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>ROI-Focused Campaigns</h3>
-                                <p>Every post, story, and campaign is designed to convert. We turn social engagement
-                                    into sales and growth.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-cta">
-                        <button class="cosmic-btn marketing-btn" onclick="openMarketingPortal()">
-                            <span class="btn-text">Go Viral Now</span>
-                            <i class="fas fa-bullhorn"></i>
-                        </button>
-                        <div class="cta-note">Social media packages from ₹15,000/month</div>
-                    </div>
-                </div>
-
-                <div class="service-visual">
-                    <div class="social-showcase">
-                        <div class="social-metrics">
-                            <div class="metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div class="metric-value">
-                                    <span class="counter" data-target="50000">0</span>K
-                                </div>
-                                <div class="metric-label">Likes</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-share"></i>
-                                </div>
-                                <div class="metric-value">
-                                    <span class="counter" data-target="25000">0</span>K
-                                </div>
-                                <div class="metric-label">Shares</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <div class="metric-value">
-                                    <span class="counter" data-target="1000">0</span>K
-                                </div>
-                                <div class="metric-label">Views</div>
-                            </div>
-                        </div>
-                        <div class="platform-icons">
-                            <div class="platform-icon instagram">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="platform-icon facebook">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="platform-icon linkedin">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="platform-icon youtube">
-                                <i class="fab fa-youtube"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="service-visual">
+           <div class="visual-stage media-stage">
+               <div class="camera-shutter">
+                  <div class="blade b-1"></div>
+                  <div class="blade b-2"></div>
+                  <div class="blade b-3"></div>
+                  <div class="blade b-4"></div>
+                  <div class="blade b-5"></div>
+                  <div class="blade b-6"></div>
+                  <div class="center-lens">
+                      <div class="lens-glare"></div>
+                  </div>
+               </div>
+               <div class="rec-frame">
+                   <span class="rec-text">REC ●</span>
+                   <span class="rec-time">00:04:23</span>
+               </div>
+           </div>
         </div>
-    </section> <!-- Contact Section -->
-    <section id="contact" class="service-section contact-section">
-        <div class="section-background">
-            <div class="contact-network">
-                <div class="contact-node node-1"></div>
-                <div class="contact-node node-3"></div>
-            </div>
-            <div class="communication-particles"></div>
-        </div>
-
-        <div class="container">
-            <div class="service-content">
-                <div class="service-info">
-                    <div class="service-number">04</div>
-                    <div class="service-category">Get Started</div>
-                    <h2 class="service-title">
-                        <span class="title-word">Ready to Go</span>
-                        <span class="title-word gradient-text">Beyond Web?</span>
-                        <span class="title-subtitle">Your Success Journey Begins</span>
-                    </h2>
-
-                    <div class="usp-container">
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Call Us</h3>
-                                <p>Direct line to our experts. Get instant consultation and personalized solutions for
-                                    your business needs.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Email Us</h3>
-                                <p>Detailed project discussions via email. Share your vision and receive comprehensive
-                                    proposals.</p>
-                            </div>
-                        </div>
-
-                        <div class="usp-item">
-                            <div class="usp-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="usp-content">
-                                <h3>Visit Us</h3>
-                                <p>Face-to-face consultations at our office. Experience our workspace and meet the team
-                                    behind your success.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-cta">
-                        <button class="cosmic-btn contact-btn" onclick="openContactPortal()">
-                            <span class="btn-text">Start My Journey</span>
-                            <i class="fas fa-rocket"></i>
-                        </button>
-                        <div class="cta-note">Free consultation & strategy session</div>
-                    </div>
-                </div>
-
-                <div class="service-visual">
-                    <div class="contact-showcase">
-                        <div class="contact-form-visual">
-                            <form class="cosmic-form" id="contactForm">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" name="name" required>
-                                    <div class="input-glow"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" required>
-                                    <div class="input-glow"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone">
-                                    <div class="input-glow"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="service">Service Interested In</label>
-                                    <select id="service" name="service" required>
-                                        <option value="">Select a service</option>
-                                        <option value="brand-identity">Brand Identity</option>
-                                        <option value="company-registration">Company Registration</option>
-                                        <option value="social-media-marketing">Social Media Marketing</option>
-                                        <option value="all-services">All Services</option>
-                                    </select>
-                                    <div class="input-glow"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="message">Tell us about your project</label>
-                                    <textarea id="message" name="message" rows="4"
-                                        placeholder="Describe your business goals and requirements..."></textarea>
-                                    <div class="input-glow"></div>
-                                </div>
-
-                                <button type="submit" class="cosmic-btn submit-cosmic">
-                                    <span class="btn-text">Launch My Business</span>
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
+  </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/images/TenSketch_logo_full_size_PNG.png" alt="TenSketch Logo">
-                    <p>Custom-crafted digital experiences for visionary brands.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="About.html">About us</a></li>
-                            <li><a href="Web-solutions.html">Services</a></li>
-                            <li><a href="Beyond-Web.html">Branding</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="privacy-policy.html">Privacy policy</a></li>
-                            <li><a href="terms-and-conditions.html">Terms and conditions</a></li>
-                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li><a href="Contact.html">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="footer-text text-center mb-0" style="margin-top:2rem;">Copyright © 2017 -
-                    <script>document.write(new Date().getFullYear());</script> TenSketch
-                </p>
+  <!-- Call to Action -->
+  <!-- Contact Section with Form -->
+  <section class="beyond-cta" id="contact-form-section">
+    <div class="container form-container">
+       <div class="form-header">
+         <h2 class="cta-heading">Ready to Go Beyond?</h2>
+         <p>Tell us what you need, and we'll craft the strategy.</p>
+       </div>
+       
+       <form id="beyond-form" class="beyond-form">
+         <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+         </div>
+
+         <div class="form-group">
+            <label>Service Required</label>
+            <div class="service-options">
+               <label class="radio-option">
+                  <input type="radio" name="service" value="SEO" required>
+                  <span class="radio-box">SEO</span>
+               </label>
+               <label class="radio-option">
+                  <input type="radio" name="service" value="SMM">
+                  <span class="radio-box">SMM</span>
+               </label>
+               <label class="radio-option">
+                  <input type="radio" name="service" value="Photography/Video">
+                  <span class="radio-box">Photo/Video</span>
+               </label>
             </div>
-        </div>
-    </footer>
+         </div>
 
-    <script src="beyond-web.js"></script>
+         <div class="form-group">
+            <label for="note">A Small Note</label>
+            <textarea id="note" name="note" rows="3" placeholder="Tell us a bit about your goals..."></textarea>
+         </div>
+
+         <button type="submit" class="cta-btn big-btn">Send Request</button>
+       </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="minimal-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="Contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+        <a href="cookie-policy.html">Cookies</a>
+      </div>
+      <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear());</script> TenSketch. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <!-- Main Nav Handling if needed -->
+  <script src="menu.js"></script> <!-- Reusing menu logic if available, or I will add to beyond-web.js -->
+  <script src="beyond-web.js"></script>
 </body>
-
 </html>
